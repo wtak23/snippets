@@ -129,6 +129,8 @@ http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/
 - $(commands) does the same thing as backticks, but you can nest them.
 - `source <http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks>`_
 
+Why is $(...) preferred over `...` (backticks)? (`link <http://mywiki.wooledge.org/BashFAQ/082>`_)   
+
 .. code:: bash
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
