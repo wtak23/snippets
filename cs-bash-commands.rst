@@ -1,6 +1,7 @@
 http://ss64.com/bash
 
-Here keep list of \*one-liner\* bash commands.
+- Here keep list of \*one-liner\* bash commands.
+- ``ctrl+f => ongonig`` for **ongoing** cheat-sheets
 
 
 `[Parent Directory] <./>`_
@@ -35,6 +36,11 @@ Moving and copying
     #--- cleanup test files from above---#
     cd ..; rm -r tests/* 
 
+
+    #--- remove entire directory including files inside recursively ---#
+    rm -rf test/
+
+
 ********************
 scp user
 ********************
@@ -47,9 +53,9 @@ Warning: scp apparently overwrites existing file w/o warning. Hence ``rsync`` is
     #========================================================================#
     # relevant options
     #========================================================================#
-    -r : recursive
-    -v : verbose (i probably won't need)
-    -q : quiet
+    #| -r : recursive
+    #| -v : verbose (i probably won't need)
+    #| -q : quiet
 
     #========================================================================#
     # demos
@@ -127,9 +133,58 @@ http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
+
+###############################################################################
+ls tricks
+###############################################################################
+
+********************
+ls recursively (use *find*)
+********************
+http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file
+
+.. code:: bash
+
+    # recursively lists out all files + subdirectories
+    find ./test
+
+
+********************
+show only symbolic links (**alias lssym**)
+********************
+http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
+
+.. code:: bash
+
+    ls -l $(find ./ -maxdepth 1 -type l -print)
+
 ###############################################################################
 print timestamp
 ###############################################################################
+http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script
+
 .. code:: bash
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
+
+###############################################################################
+open image ($xdg-open image.png)
+###############################################################################
+``xdg-open image.png``
+
+###############################################################################
+Options with **less** (ongoing)
+###############################################################################
+.. code:: bash
+
+    # -n : enable line numbers
+    # -N : disable line numbers
+
+###############################################################################
+history w/o line-numbers
+###############################################################################
+http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
+
+.. code:: bash
+
+    history | cut -c 8-
