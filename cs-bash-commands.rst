@@ -190,3 +190,20 @@ http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
 .. code:: bash
 
     history | cut -c 8-
+
+###############################################################################
+awk (one-liners)    
+###############################################################################
+- http://stackoverflow.com/questions/2021982/awk-without-printing-newline
+- http://askubuntu.com/questions/231995/how-to-separate-fields-with-space-or-tab-in-awk
+- http://www.catonmat.net/blog/awk-one-liners-explained-part-one/
+- http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html
+
+
+.. code:: bash
+
+    ls -l | awk '{printf $5 "\t" $9"\n"}'
+
+**oneliner examples**
+
+- http://tuxgraphics.org/~guido/scripts/awk-one-liner.html
