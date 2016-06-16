@@ -52,3 +52,21 @@ Create directory if it doesn't exist 06-14-2016 (00:17)
     then
         mkdir -p /home/mlzboy/b2c2/shared/db
     fi
+
+###############################################################################
+[@] vs [*] in arrays
+###############################################################################
+http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple
+
+.. code:: bash
+
+    perls=(perl-one perl-two)
+
+    # equivalence with *
+    compgen -W "${perls[*]} /usr/bin/perl" -- ${cur}
+    compgen -W "perl-one perl-two /usr/bin/perl" -- ${cur}
+
+    #equivalence with @
+    perls=(perl-one perl-two)
+    compgen -W "${perls[@]} /usr/bin/perl" -- ${cur}
+    compgen -W "perl-one" "perl-two /usr/bin/perl" -- ${cur}

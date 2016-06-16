@@ -1,26 +1,93 @@
-- A **trial-and-error** result of which rst-*directives* from `docutil <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ worked on github (or bitbucket)
-- **Warning** - I wrote this as a note for myself as I am new to using restructuredtext, so I generally do not guarantee the correctness of the content presented.  However, you can verify with your own eyes what renders by skimming through this page.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`[Parent Directory] <./>`_
 
 .. contents:: **Table of Contents**
-    :depth: 3
+    :depth: 2
 
----------------------------------
+.. sectnum::    
+    :start: 1    
 
-####################
-DIRECTIVES I FOUND USEFUL OR RUNS ON GITHUB
-####################
-Reminder: syntax for directives in RST (watchout for the space after the colon)::
-
-    .. <name>:: <arguments>
-        :<option>: <option values>
-
-        content
+#######
+Lookups
+#######
+- **directives** http://docutils.sourceforge.net/docs/ref/rst/directives.html
+- **roles** (eg, ``:math:`` syntax
+  
+  - http://docutils.sourceforge.net/docs/ref/rst/roles.html
 
 ********************
-.. image::
+Tutorials
 ********************
+- https://pythonhosted.org/an_example_pypi_project/sphinx.html
+- http://www.sphinx-doc.org/en/stable/rest.html
+- http://docutils.sourceforge.net/docs/user/rst/quickref.html <= best one
+
+############
+Sphinx-based
+############
+- Tutorial: https://pythonhosted.org/an_example_pypi_project/sphinx.html
+- RST tutorial for sphinx http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
+- http://www.sphinx-doc.org/en/stable/ext/autodoc.html
+  
+  - to include documentation from docstrings
+
+*****
+Links
+*****
+- Suppose we have ``rst_tutorial.rst``
+  
+  - top of the file contains a **label** *rst_tutorial*, specified by typing
+    ``.. _rst_tutorial``
+- Two ways to call it (`link <http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#internal-and-external-links>`_)
+
+  #. ``.. _rst_tutorial:`` 
+  #. ``:ref: `rst_tutorial`` <= required if link is to be found in an **external rst file**
+- so always use the second method
+
+
+
+
+
+
+********
+Examples
+********
+- ``conf.py`` important (`link <https://pythonhosted.org/an_example_pypi_project/sphinx.html#conf-py>`_)
+
+  - nimfa example [`link <https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py>`_]
+  - http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#useful-extensions
+
+
+############
+Handy tricks
+############
+*************************
+References and citations
+*************************
+http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#citations
+
+* Feature score computation representing its specificity to basis vectors [Park2007]_
+* Computation of most basis specific features for basis vectors [Park2007]_
+* Purity [Park2007]_
+* Residual sum of squares (rank estimation) [Hutchins2008]_, [Frigyesi2008]_
+* Sparseness [Hoyer2004]_
+
+
+.. [Park2007] Hyuonsoo Kim and Haesun Park. Sparse non-negative matrix factorizations via alternating non-negativity-constrained least squares for microarray data analysis. Bioinformatics, 23(12): 1495-1502, 2007. 
+
+.. [Hoyer2004] Patrik O. Hoyer. Non-negative matrix factorization with sparseness constraints. Journal of Machine Learning Research, 5: 1457-1469, 2004. 
+
+.. [Frigyesi2008] Attila Frigyesi and Mattias Hoglund. Non-negative matrix factorization for the analysis of complex gene expression data: identification of clinically relevant tumor subtypes. Cancer Informatics, 6: 275-292, 2008.
+
+.. [Hutchins2008] Lucie N. Hutchins, Sean P. Murphy, Priyam Singh and Joel H. Graber. Position-dependent motif characterization using non-negative matrix factorization. Bioinformatics, 24(23): 2684-2690, 2008.
+
+#################
+Useful directives
+#################
+
+
+**********
+image
+**********
 ::
 
     .. image:: http://mgoblog.com/sites/mgoblog.com/files/tapestry_logo.png
@@ -32,104 +99,55 @@ Reminder: syntax for directives in RST (watchout for the space after the colon):
 
 .. image:: http://mgoblog.com/sites/mgoblog.com/files/tapestry_logo.png
    :height: 100px
-   :width: 200 px
-   :scale: 50 %
+   :width: 500 px
+   :scale: 150 %
    :alt: alternate text
    :align: right
 
-********************
-.. code:: (use with ``:number-lines:`` option)
-********************
-::
-
-    .. code:: python
-        :number-lines:
-
-        import numpy as np
-        import scipy as sp
-
-        x=np.linspace(-2,2,51)
-.. code:: python
-    :number-lines:
-
-    import numpy as np
-    import scipy as sp
-
-    x=np.linspace(-2,2,51)
 
 ********************
-.. table::
+csv-table
 ********************
-::
+.. csv-table:: OPTIONAL-TITLE
+    :header: OPTIONAL-COL-HEADER
+    :widths: 20,70
+    :delim: |
 
-    .. table:: Truth table for "not"
 
-       =====  =====
-         A    not A
-       =====  =====
-       False  True
-       True   False
-       =====  =====
-
-.. table:: Truth table for "not"
-
-   =====  =====
-     A    not A
-   =====  =====
-   False  True
-   True   False
-   =====  =====
-
-********************
-.. csv-table::
-********************
 ::
 
     .. csv-table:: Frozen Delights!
        :header: "Treat", "Quantity", "Description"
        :widths: 15, 10, 30
+       :delim: ,
 
        "Albatross", 2.99, "On a stick!"
        "Crunchy Frog", 1.49, "If we took the bones out, it wouldn't be
        crunchy, now would it?"
        "Gannet Ripple", 1.99, "On a stick!"
+
+
 .. csv-table:: Frozen Delights!
    :header: "Treat", "Quantity", "Description"
    :widths: 15, 10, 30
+   :delim: ,
 
    "Albatross", 2.99, "On a stick!"
    "Crunchy Frog", 1.49, "If we took the bones out, it wouldn't be
    crunchy, now would it?"
    "Gannet Ripple", 1.99, "On a stick!"
 
-********************
-.. contents::
-********************
-**Remarks**
-
-- adding the ``:depth: int`` syntax is fine
-- adding the ``:backlinks: {entry,top,none}`` screw the links up
-::
-
-      .. contents:: **Table of Contents**
-          :depth: 3
 
 ********************
-.. sectnum:: ...works....but **WARNING!** - seem to screw up the TOC link
-********************
-::
-
-    .. sectnum::    
-        :start: 1  
-
-********************
-.. header:: (and .. footer::)
+header and footer
 ********************
 ::
 
     .. header:: This is a header (see top of page).
     .. footer:: This is a footer (see bottom of page).
-.. header:: This is a header (see top of page).
+
+.. comment header out here; annoying
+.. .. header:: This is a header (see top of page).
 .. footer:: This is a footer (see bottom of page).
 
 ********************
@@ -153,7 +171,7 @@ Inline math using rst-"roles": :math:`\frac{x}{2} = \gamma \times\frac{\beta}{\a
 
 
 ********************
-.. replace::
+replace
 ********************
 ::
     
@@ -177,32 +195,9 @@ I recommend you try |Python|_.
 .. |Python| replace:: Python, *the* best language around
 .. _Python: http://www.python.org/
 
-********************
-.. unicode::
-********************
-::
-
-    Copyright |copy| 2003, |BogusMegaCorp (TM)| |---|
-    all rights reserved.
-
-    .. |copy| unicode:: 0xA9 .. copyright sign
-    .. |BogusMegaCorp (TM)| unicode:: BogusMegaCorp U+2122
-       .. with trademark sign
-    .. |---| unicode:: U+02014 .. em dash
-       :trim:
-
-Copyright |copy| 2003, |BogusMegaCorp (TM)| |---|
-all rights reserved.
-
-.. |copy| unicode:: 0xA9 .. copyright sign
-.. |BogusMegaCorp (TM)| unicode:: BogusMegaCorp U+2122
-   .. with trademark sign
-.. |---| unicode:: U+02014 .. em dash
-   :trim:
-
-********************
-..date::
-********************
+****
+date
+****
 ::
 
     .. |date| date::
@@ -219,87 +214,70 @@ Today's date is |date|.
 
 This document was generated on |date| at |time|.
 
-####################
-List of **GOTCHA's** to watch out for (at least the ones I suffered from...)
-####################
-...
-
-********************
-Gotcha's with nested list items
-********************
-- **WARNINGS: BE CAREFUL TO ADD ADDITIONAL EMPTY LINE BEFORE THE NESTED LIST-ITEM BEGINS**
-- **ALSO, DO NOT TAB-ALIGN, BUT RATHER Make sure the nested list is indented to the same level as the text of the parent list**
-- REF: http://stackoverflow.com/questions/5550089/how-to-create-a-nested-list-in-restructuredtext
-
-This (correct) code::
-
-    - Parent nest conent
-
-      - children nest content1
-      - children nest content1
-renders this result
-
-- Parent nest conent
-
-  - children nest content1
-  - children nest content1
-
-********************
-Sadly ``.. math::`` doesn't render on github (works on bitbucket)
-********************
+*****
+Lists
+*****
 ::
 
-    .. math::
+  - Hello world
+  - Hello world
 
-        n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k
+    - Hello world
 
-Above will produce this (renders on bitbucket):
+      - Hello
+  - Hello world
 
-.. math::
+- Hello world
+- Hello world
 
-    n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k
+  - Hello world
 
-********************
-GOTCHA's with ``.. contents::``
-********************
-- adding the ``:depth: int`` syntax is fine
-- adding the ``:backlinks: {entry,top,none}`` screws up the links in the TOC
-- using auto-section numbering with ``.. sectnum::`` screws up the linking of TOC
+    - Hello
+- Hello world
 
-********************
-``h1`` ``h2`` ... problems
-********************
-- In github, you need to add some text between headers ``h1``, ``h2``, etc
-  - blank lines will mess up the TOC structure.
-  - I generally insert ``...`` just for the sake of having some text in between... 
-- You cannot jump from ``h1`` to ``h3`` without ``h2`` in between
-  - Github won't even try to render
 
-********************
-Including styles on HEADER-NAMES will break the TOC link on github (unconfirmed)
-********************
-Have no idea why, and have no idea what the rule for breaking the link actually is (seems random)
-
-********************
-Directives that just doesnt work on github or Sublime Text
-********************
-- `Admonitions <http://docutils.sourceforge.net/docs/ref/rst/directives.html#admonitions>`_
-- `Topic <http://docutils.sourceforge.net/docs/ref/rst/directives.html#topic>`_
-- `Line Block <http://docutils.sourceforge.net/docs/ref/rst/directives.html#line-block>`_ (works on ST, but not on Github...also deprecated anyways)
-- ``.. parsed-literal::``
-- ``raw`` role (not quite sure yet, but seems like Github seems to not support this)
-
-********************
-Some special characters that may be a head-ache to print
-********************
 ::
+
+  #. hi
     
-    To get single-back-tick: `````
+     #. yo
+     #. yo
+  #. bye
+  #. ke
 
-To get single interpreted back-tick: `````
+#. hi
+  
+   #. yo
+   #. yo
+#. bye
+#. ke
+
+********************
+Comments
+********************
+.. code:: rst
+
+  .. this is a comment
+
+  Hello
+
+  .. 
+    Multi line comments
+    that wraps across
+    multiple lines
+
+.. this is a comment
+
+Hello
+
+.. 
+  Multi line comments
+  that wraps across
+  multiple lines
+
 
 ####################
-``roles`` in RST
+roles in RST
 ####################
 Ref: http://docutils.sourceforge.net/docs/ref/rst/roles.html
 

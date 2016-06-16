@@ -67,6 +67,46 @@ Warning: scp apparently overwrites existing file w/o warning. Hence ``rsync`` is
     # copy dummy.txt on server as dummy_cp.txt to local home folder
     scp watanabt@cbica-cluster.uphs.upenn.edu:~/dummy.txt ~/dummy_cp.txt
 
+
+*****
+rsync
+*****
+http://ss64.com/bash/rsync.html
+
+
+What ``-a`` does
+================
+http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync
+
+
+::
+    #========================================================================#
+    # it exludes these
+    #========================================================================#
+    -H, --hard-links preserve hard links
+    -A, --acls preserve ACLs (implies -p)
+    -X, --xattrs preserve extended attributes
+
+    #========================================================================#
+    # does all of these
+    #========================================================================#
+    -r, --recursive recurse into directories
+    -l, --links copy symlinks as symlinks
+    -p, --perms preserve permissions
+    -t, --times preserve modification times
+    -g, --group preserve group
+    -o, --owner preserve owner (super-user only)
+    -D same as --devices --specials
+
+    --devices preserve device files (super-user only)
+    --specials preserve special files
+
+
+.. code:: bash
+
+    # equilvaent to this
+    rsync -r -l -p -t -g -o -D
+
 ###############################################################################
 find
 ###############################################################################
@@ -160,9 +200,9 @@ http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
 
     ls -l $(find ./ -maxdepth 1 -type l -print)
 
-###############################################################################
+###############
 print timestamp
-###############################################################################
+###############
 http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script
 
 .. code:: bash
@@ -207,3 +247,51 @@ awk (one-liners)
 **oneliner examples**
 
 - http://tuxgraphics.org/~guido/scripts/awk-one-liner.html
+
+###############################################################################
+When xargs is needed
+###############################################################################
+Some bash program can't be piped since piping requires the program to accept STDIN commands
+(example, ``touch``)
+
+http://unix.stackexchange.com/questions/24954/when-is-xargs-needed
+
+    The difference is in what data the target program is accepting.
+    
+    If you just use a pipe, it receives data on STDIN (the standard input stream) as a raw pile of data that it can sort through one line at a time. However some programs don't accept their commands on standard in, they expect it to be spelled out in the arguments to the command. For example touch takes a file name as a parameter on the command line like so: touch file1.txt.
+    
+    If you have a program that outputs filenames on standard out and want to use them as arguments to touch, you have to use xargs which reads the STDIN stream data and converts each line into space separated arguments to the command.
+
+
+###############################################################################
+Get computer info
+###############################################################################
+.. code:: bash
+
+    # get cpu information
+    cat /proc/cpuinfo
+
+    #-- see gnome version ---
+    gnome-shell --version
+    lsb_release -a
+
+    # to figure out which linux distribution you are using
+    # (ref: http://www.cyberciti.biz/faq/find-linux-distribution-name-version-number/)
+    cat /etc/*-release
+
+    locate libfortran.so
+
+#######
+mogrify
+#######
+.. code:: bash
+
+    mogrify -resize 50% *.png
+    mogrify -resize 500! *.png     => changes only x-axis
+    mogrify -resize 500 *.png      => changes (x,y) axis in proportion
+    mogrify -trim *.png
+
+    #| http://arcoleo.org/dsawiki/Wiki.jsp?page=Recursively%20run%20Mogrify%20on%20a%20Directory
+    #| Mogrify is an image tool that comes with ImageMagick. It is useful for resizing, compressing, etc. If you have a set of subdirectories to run it on, run
+    $ find ./ -name "*.png" -exec mogrify -some_option {} \;
+    $ find ./ -name "*.png" -exec mogrify -resize 40% {} \;
