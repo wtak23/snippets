@@ -248,9 +248,9 @@ awk (one-liners)
 
 - http://tuxgraphics.org/~guido/scripts/awk-one-liner.html
 
-###############################################################################
+####################
 When xargs is needed
-###############################################################################
+####################
 Some bash program can't be piped since piping requires the program to accept STDIN commands
 (example, ``touch``)
 
@@ -295,3 +295,24 @@ mogrify
     #| Mogrify is an image tool that comes with ImageMagick. It is useful for resizing, compressing, etc. If you have a set of subdirectories to run it on, run
     $ find ./ -name "*.png" -exec mogrify -some_option {} \;
     $ find ./ -name "*.png" -exec mogrify -resize 40% {} \;
+
+
+##################################
+Pipe dreams (xargs, -exec in find)
+##################################
+http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose
+
+- the ``-exec "{}" \;`` approach seems to be specific to ``find``
+  (i prefer unity with ``xargs``)
+
+.. code:: bash
+
+    #http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list    
+    # http://ss64.com/bash/find.html
+    find . -maxdepth 1 -type d -exec ls -ld "{}" ";"
+    find . -maxdepth 1 -type d -exec ls -ld \{\} \;  # same as above
+    find . -maxdepth 1 -type d | xargs ls -ld # same as above (i find this the most intuitive)
+    ls -ld $(find . -maxdepth 1 -type d) # same as above
+    
+    # this doesn't give the same result as "xargs" approach...figure out why later
+    find . -maxdepth 1 -type d | ls -ld 

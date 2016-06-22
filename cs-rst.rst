@@ -52,29 +52,50 @@ autodoc
 - http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html
 - http://www.sphinx-doc.org/en/stable/ext/autodoc.html?highlight=automodule#directive-automodule
 
-This will by default, only insert the docstring of the object itself:
+::
+
+  .. automodule::
+  .. autoclass::
+  .. autoexception::
+
+This will by default, above will only insert the docstring of the object itself:
+
 
 .. code:: rst
 
+  .. autoclass:: Noodle
+  .. This will produce something like:
+
+
+::
+
+  .. class:: Noodle
+
+     Noodle's docstring.
+
+
+recursive docstringing objects
+==============================
+.. code:: rst
+
+    .. recursive autodoc all module members
+    .. automodule:: noodle
+       :members:
+
+    .. recursively document all non-private member functions and properties
     .. autoclass:: Noodle
+       :members:
 
-  This will produce something like:
-
-.. code:: rst
-
-    .. class:: Noodle
-
-       Noodle's docstring.
-
-You can also give an explicit list of members; only these will then be documented:
-
-.. code:: rst
-
+      .. You can also give an explicit list of members; only these will then be documented
     .. autoclass:: Noodle
        :members: eat, slurp
 
-This will recursively 
-
+    .. 
+      By default, non-documented member functions will be ignored. 
+      To avoid that, use :undoc-members: option
+    .. autoclass:: Noodle
+       :members:
+       :undoc-members:
 
 ********************
 Links (url)
@@ -406,8 +427,6 @@ themes
 ********************
 http://www.sphinx-doc.org/en/stable/theming.html
 
-alabaster
-====================
 .. code:: python
 
     html_theme = 'alabaster'
