@@ -1,6 +1,5 @@
 Here snippets and explanations for writing bash scripts
 
-
 `[Parent Directory] <./>`_
 
 .. contents:: **Table of Contents**
@@ -8,6 +7,150 @@ Here snippets and explanations for writing bash scripts
 
 .. sectnum::    
     :start: 1    
+
+
+##########################
+place exit 1 to end script
+##########################
+Similar to how i use ``sys.exit()`` in python
+
+.. code:: bash
+
+    # ... bunch of script above ...
+    exit 1
+    # ... bunch of sciprt below ...
+###########################
+Style-guide and conventions
+###########################
+Great reference: https://google.github.io/styleguide/shell.xml
+
+- Variable name: http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts
+    
+  - **Variable Names**: Lower-case, with underscores to separate words. 
+    Ex: ``my_variable_name``
+  - **Constants** and **Environment Variable** Names: All caps, separated with 
+    underscores, declared at the top of the file. Ex: ``MY_CONSTANT``
+
+- Indentation: http://unix.stackexchange.com/questions/39210/whats-the-standard-for-indentation-in-shell-scripts
+- Line-wrap: http://unix.stackexchange.com/questions/39210/whats-the-standard-for-indentation-in-shell-scripts
+  
+  - apprently none, so stick with one convention
+  - my convention: use the 4-space tab
+
+.. code:: bash
+
+    # my 4-space convention
+    rsync -rvL --ignore-existing --exclude="/*/*/*/" \
+        ${source_dir}/${foldername} \
+        ${tob_dir}/$[foldername}
+
+.. code:: bash
+
+    
+######
+arrays
+######
+http://mywiki.wooledge.org/BashGuide/Arrays
+
+Remember to **quote** the ``${arrayname[@]}`` expansion properly
+
+.. code:: bash
+
+    $ for file in "${myfiles[@]}"; do
+    >     cp "$file" /backups/
+    > done
+
+Remember these expansion
+
+- ``${arrayname[@]}`` -- xpands to a list of words, with each array element as 
+  one word, no matter what it contains. 
+  Even if there are spaces, tabs, newlines, quotation marks, or any other kind of characters
+- ``${arrayname[*]}`` -- ONLY useful for converting arrays into a single string 
+  with all the elements joined together
+- ``${#arrayname[@]}`` -- length of array
+- ``${!arrayname[@]}`` -- expand list of indices of array
+
+.. code:: bash
+
+    # The easiest way to create a simple array with data is by using the =() syntax:
+    names=("Bob" "Peter" "$USER" "Big Bad John")
+
+    # ${#array[@]} = length of lists
+    echo "There are ${#names[@]} items in the list"
+    >>> There are 4 items in the list
+
+    for name in "${names[@]}"; do echo "$name"; done
+    >>> Bob
+    >>> Peter
+    >>> takanori
+    >>> Big Bad John
+
+    #  "${arrayname[*]}". 
+    # This form is ONLY useful for converting arrays into a single string with all the elements joined together
+    echo "Today's contestants are: ${names[*]}"
+    >>> Today's contestants are: Bob Peter takanori Big Bad John
+
+
+    #http://unix.stackexchange.com/questions/136118/convert-all-text-from-uppercase-to-lowercase-and-vice-versa
+    #http://stackoverflow.com/questions/689495/upper-to-lower-case-using-sed
+    #https://www.gnu.org/software/sed/manual/html_node/The-_0022s_0022-Command.html
+    # (note: \U\1 converts first group to uppercase, \L\2 2nd grou pto lower)
+    # (/g is for all)
+    # (-E for extended regexp, me believes)
+    echo "${names[@]}" | sed -E 's/([a-z])|([A-Z])/\U\1\L\2/g'
+    >>> bOB pETER TAKANORI bIG bAD jOHN
+
+    echo "${names[@]}" | sed -E 's/([[:lower:]])/\U\1/g'
+    >>> BOB PETER TAKANORI BIG BAD JOHN
+
+*****************
+Expanding indices
+*****************
+``${!arrayname[@]}`` expands to a list of the indices of an array, in sequential order. 
+
+.. code:: bash
+
+    $ first=(Jessica Sue Peter)
+    $ last=(Jones Storm Parker)
+    $ for i in "${!first[@]}"; do
+    > echo "${first[i]} ${last[i]}"
+    > done
+    Jessica Jones
+    Sue Storm
+    Peter Parker
+
+Can also use the **length of array** syntax ``${#names[@]}``
+
+.. code:: bash
+
+    $ a=(a b c q w x y z)
+    $ for ((i=0; i<${#a[@]}; i+=2)); do
+    > echo "${a[i]} and ${a[i+1]}"
+    > done
+
+*****************
+practical example
+*****************
+
+
+.. code:: bash
+
+    target_dir=${HOME}/data/tob/dti_volumes
+    source_dir=${HOME}/data/tob/source
+    data_array=$(find  ${source_dir} | egrep 'FA\.nii\.gz')
+    for i in  $data_array; do 
+      # echo -e "Copy ${i} to ${target_dir}"
+      # echo -e "cp ${i} ${target_dir}"
+      cp ${i} ${target_dir}
+    done
+
+Remember to **always avoid using ls**
+
+.. code:: bash
+
+    $ files=$(ls)    # BAD, BAD, BAD!
+    $ files=($(ls))  # STILL BAD!
+    $ files=(*)      # Good!
 
 #############################
 control rsync recursive depth
@@ -19,23 +162,19 @@ http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-
     #Facilitate the --exclude= option.
     #To sync to a depth of 2 (files within folder and subfolders):
     rsync -r --exclude="/*/*/" source/ target/
-    
+
 ########################################
 skip scp if file exist (tldr - use rsync
 ########################################
 - http://unix.stackexchange.com/questions/14191/scp-without-replacing-existing-files-in-the-destination
-- ``rsync -a --ignore-existing ${source_dir} ${target_dir}``
+- ``rsync -a --ignore-existing \${source_dir} \${target_dir}``
+- whoa, math-mode is working! $\\frac{1}{2}\\beta$
+
 
 ##############
 rsync symlinks
 ##############
 - http://superuser.com/questions/799354/rsync-and-symbolic-links
-
-##############################
-linewrap convention? (none...)
-##############################
-- apprently none, so stick with one convention
-- http://unix.stackexchange.com/questions/39210/whats-the-standard-for-indentation-in-shell-scripts
 
 #################################
 Appending/concatenating variables
@@ -112,3 +251,26 @@ http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-
     perls=(perl-one perl-two)
     compgen -W "${perls[@]} /usr/bin/perl" -- ${cur}
     compgen -W "perl-one" "perl-two /usr/bin/perl" -- ${cur}
+
+
+####
+1>&2
+####
+http://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
+
+  
+
+  - File descriptor 1 is the standard output (stdout).
+  - File descriptor 2 is the standard error (stderr).
+
+  Here is one way to remember this construct (although it is not entirely 
+  accurate): at first, 2>1 may look like a good way to redirect stderr to 
+  stdout. However, it will actually be interpreted as "redirect stderr to a 
+  file named 1". & indicates that what follows is a file descriptor and not a 
+  filename. So the construct becomes: ``2>&1``.
+
+#################################
+if statements and test conditions
+#################################
+- Great table here: http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+

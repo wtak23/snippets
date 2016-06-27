@@ -12,9 +12,36 @@ http://ss64.com/bash
 .. sectnum::    
     :start: 1    
 
+
+######################################
+replace whitespace with newline in sed
+######################################
+http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list
+
+``bash 0622_2016_rename_tobvols.sh | sed 's/ /\n/g'``
+
+#######################
+check running processes
+#######################
+The one I use the most frequent
+
+.. code:: bash
+
+    # a <- includes ``root`` in userprocess
+    # u <- include ``username`` column
+    # x <- list all processes owned by me
+    ps aux
+
 ####################
+nohup vs disown vs &
+####################
+- Cuz i got annoyed on accidentally closing terminal running ``spyder &``
+- http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it
+- http://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and
+
+##################
 Moving and copying
-####################
+##################
 - http://ss64.com/bash/cp.html
 - http://ss64.com/bash/mv.html
 
@@ -41,9 +68,9 @@ Moving and copying
     rm -rf test/
 
 
-********************
+********
 scp user
-********************
+********
 - http://ss64.com/bash/scp.html
 
 Warning: scp apparently overwrites existing file w/o warning. Hence ``rsync`` is a safer option.
@@ -107,9 +134,9 @@ http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync
     # equilvaent to this
     rsync -r -l -p -t -g -o -D
 
-###############################################################################
+####
 find
-###############################################################################
+####
 http://ss64.com/bash/find.html
 
 **My Examples**
@@ -163,9 +190,9 @@ http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/
   - Locate searches a pre-written database, making it faster at the sacrifice of accuracy. 
   - Find is more accurate and flexible, but searches in real time, making it slower.    
 
-###############################################################################
+##########################################
 \`\`command\`\` vs $(command) (use latter)
-###############################################################################
+##########################################
 - $(commands) does the same thing as backticks, but you can nest them.
 - `source <http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks>`_
 
@@ -176,9 +203,9 @@ Why is $(...) preferred over `...` (backticks)? (`link <http://mywiki.wooledge.o
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
 
-###############################################################################
+#########
 ls tricks
-###############################################################################
+#########
 
 ********************
 ls recursively (use *find*)
@@ -191,9 +218,9 @@ http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-
     find ./test
 
 
-********************
+******************************************
 show only symbolic links (**alias lssym**)
-********************
+******************************************
 http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
 
 .. code:: bash
@@ -209,31 +236,31 @@ http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-sc
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
-###############################################################################
+################################
 open image ($xdg-open image.png)
-###############################################################################
+################################
 ``xdg-open image.png``
 
-###############################################################################
+###############################
 Options with **less** (ongoing)
-###############################################################################
+###############################
 .. code:: bash
 
     # -n : enable line numbers
     # -N : disable line numbers
 
-###############################################################################
+########################
 history w/o line-numbers
-###############################################################################
+########################
 http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
 
 .. code:: bash
 
     history | cut -c 8-
 
-###############################################################################
-awk (one-liners)    
-###############################################################################
+################
+awk (one-liners)
+################
 - http://stackoverflow.com/questions/2021982/awk-without-printing-newline
 - http://askubuntu.com/questions/231995/how-to-separate-fields-with-space-or-tab-in-awk
 - http://www.catonmat.net/blog/awk-one-liners-explained-part-one/
@@ -263,9 +290,9 @@ http://unix.stackexchange.com/questions/24954/when-is-xargs-needed
     If you have a program that outputs filenames on standard out and want to use them as arguments to touch, you have to use xargs which reads the STDIN stream data and converts each line into space separated arguments to the command.
 
 
-###############################################################################
+#################
 Get computer info
-###############################################################################
+#################
 .. code:: bash
 
     # get cpu information
@@ -316,3 +343,24 @@ http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-
     
     # this doesn't give the same result as "xargs" approach...figure out why later
     find . -maxdepth 1 -type d | ls -ld 
+
+####
+Grep
+####
+
+****************
+grep recursively
+****************
+http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively
+
+.. code:: bash
+
+    grep -r "texthere" .
+
+    # You can also mention files to exclude with --exclude.
+    grep -r --include "*.txt" texthere .
+
+*************************************
+To grep a string, pipe output of echo
+*************************************
+http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name

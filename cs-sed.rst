@@ -7,9 +7,9 @@
     :start: 1    
 
 
-###############################################################################
+############
 ultra-basics
-###############################################################################
+############
 
 .. code:: bash
 
@@ -47,13 +47,13 @@ ultra-basics
     alias sync_sublime | sed 's/sublime/SUBLIME/g'
         > alias sync_SUBLIME='cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.SUBLIME-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/SUBLIME-text/SUBLIME-snippets-sbia/'
 
-###############################################################################
+###########
 More Basics
-###############################################################################
+###########
 
-********************
+******************
 the -e, -f options
-********************
+******************
 from help:
 
     If no -e, --expression, -f, or --file option is given, **then the first
@@ -62,9 +62,9 @@ from help:
     specified, then the standard input is read.
 
 
-********************
+*****************
 deletion commands
-********************
+*****************
 .. code:: 
 
     # basic syntax: 
@@ -105,9 +105,9 @@ deletion commands
     '4,d'   |  would generate syntax error.
     ',10d'  |  would also generate syntax error.
 
-********************
+******************
 substitution flags
-********************
+******************
 .. code:: bash
 
     # replace *the* with THE in line 3
