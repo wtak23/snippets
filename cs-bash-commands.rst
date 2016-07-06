@@ -221,7 +221,7 @@ http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-
 ******************************************
 show only symbolic links (**alias lssym**)
 ******************************************
-http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
+
 
 .. code:: bash
 
@@ -344,6 +344,8 @@ http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-
     # this doesn't give the same result as "xargs" approach...figure out why later
     find . -maxdepth 1 -type d | ls -ld 
 
+
+
 ####
 Grep
 ####
@@ -364,3 +366,62 @@ http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively
 To grep a string, pipe output of echo
 *************************************
 http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name
+
+
+**************************************
+\d not supported in linux grep as default...seems like
+**************************************
+http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions
+
+
+.. code-block:: bash
+
+    # these will do
+    grep '[0-9]'
+    grep '[[:digit:]]'
+    grep -P '\d'
+
+**************************************
+just use double-quotes for regex query
+**************************************
+http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote
+
+.. code-block:: bash
+     
+    # to find 'type' => 'select'
+    grep  "'type' => 'select'" file 
+
+
+#############################################
+Selecting n-th line or word using sed and awk
+#############################################
+- http://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash
+- 
+
+Remarks
+
+- remember, don't pipe using ls
+
+  - http://mywiki.wooledge.org/ParsingLs <= don't use ``ls`` when a glob would do
+- http://ss64.com/bash/awk.html
+
+.. code-block:: bash
+
+    # select 2nd item (find will spit out line-by-line output)
+    itksnap -g $(find ./ | sed -n 2p) &
+
+
+    # probably the preferred method (according to above link, ``$ find . `` is just as bad. use glob
+    # (here, select the 3rd item separated by white space)
+    echo * | awk '{print $3}'
+    itksnap -g $(echo * | awk '{print $3}') &
+
+###########################################################
+Use xargs to execute a command once per line of piped input
+###########################################################
+http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input
+
+.. code-block:: bash
+
+    # below is not practical, but gives a good idea of how xargs work
+    find -maxdepth 1 | egrep '0627' | xargs -n1 echo

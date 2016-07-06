@@ -274,3 +274,24 @@ if statements and test conditions
 #################################
 - Great table here: http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 
+#########################################
+argh...can't comment over line breaks....
+#########################################
+http://stackoverflow.com/questions/9522631/how-to-put-line-comment-for-a-multi-line-command
+
+.. code-block:: bash
+
+    # meh, can't do this...
+    CommandName InputFiles      \ # This is the comment for the 1st line
+                --option1 arg1  \ # This is the comment for the 2nd line
+                --option2 arg2    # This is the comment for the 3nd line
+
+
+####################################
+get directory of running bash script
+####################################
+http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+
+.. code-block:: bash
+
+    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
