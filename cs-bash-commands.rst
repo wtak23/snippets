@@ -415,6 +415,8 @@ Remarks
     # (here, select the 3rd item separated by white space)
     echo * | awk '{print $3}'
     itksnap -g $(echo * | awk '{print $3}') &
+    echo * | awk '{print $3}' | xargs itksnap -g &
+
 
 ###########################################################
 Use xargs to execute a command once per line of piped input
