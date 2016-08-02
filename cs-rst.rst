@@ -30,7 +30,7 @@ header convention (me)
 However, it is better to stick to the same convention throughout a project. For instance (`ref <http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#headings>`_):
 
 - # with overline, for parts
-- * with overline, for chapters
+- \* with overline, for chapters
 - =, for sections
 - -, for subsections
 - ^, for subsubsections

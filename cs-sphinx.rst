@@ -43,11 +43,87 @@ Autodoc related
 - http://www.sphinx-doc.org/en/stable/ext/autodoc.html
 - http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html
 
-**********
-automodule
-**********
+
+*********************
+Main directives
+*********************
+List
+
+.. code-block:: rst
+
+    .. automodule::
+    .. autoclass::
+    .. autoexception::
+
+
+    .. These work exactly like autoclass etc., but do not offer the options used for automatic member documentation.
+    .. autofunction::
+    .. autodata::
+    .. automethod::
+    .. autoattribute::
+
+        
+
+Usage 
+
+.. code:: rst
+
+    .. recursive autodoc all module members
+    .. automodule:: noodle
+       :members:
+
+    .. only include the docstring of the object itself
+    .. autoclass:: Noodle
+
+    .. recursively document all non-private member functions and properties
+    .. autoclass:: Noodle
+       :members:
+
+    .. You can also give an explicit list of members; only these will then be documented
+    .. autoclass:: Noodle
+       :members: eat, slurp
+
+
+*********************
+directive options
+*********************
+Summary
+
+.. code-block:: bash
+
+    :members:            # recursively include all member functions (or explicitly send member function names)
+    :undoc-members:      # include member functions without docstring (default ignores them)
+    :private-members:    # include member function that begin with underscore (like _func)
+    :special-members:    # include member function of the form __special__
+    :inherited-members:  # include inherited member functions
+
 Usage
 
+.. code-block:: rst
+
+    .. include non-documented member functions (default ignores it)
+    .. autoclass:: Noodle
+       :members:
+       :undoc-members
+
+
+    .. include those with special method-names like __method__
+    .. autoclass:: my.Class
+       :members:
+       :private-members:
+       :special-members:
+
+
+    .. include mix of autodoc and manualdoc
+    .. autoclass:: Noodle
+       :members: eat, slurp
+
+       .. method:: boil(time=10)
+
+          Boil the noodle *time* minutes.
+
+My usage example
+================
 - https://tedboy.github.io/pyspark_doc/pyspark.ml.html
 - https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt
 
@@ -60,16 +136,119 @@ Usage
         :inherited-members:
 
 
-******************************************************************
-autosummary (pandas uses this to create tables in their API)
-******************************************************************
-http://www.sphinx-doc.org/en/stable/ext/autosummary.html?highlight=autosummary
 
+
+****************************************************************************
+autosummary (my notes highly incomplete...better to look at the doc page)
+****************************************************************************
+http://www.sphinx-doc.org/en/stable/ext/autosummary.html
+
+- Pandas uses this in their api page (see below)
+- This is especially useful when your docstrings are long and detailed, and 
+  **putting each one of them on a separate page** makes them easier to read.
+- The ``sphinx.ext.autosummary`` extension does this in two parts:
+
+  #. There is an autosummary directive for generating summary listings that 
+     contain **links to the documented items**, and short summary blurbs extracted 
+     from their docstrings.
+  #. **Optionally**, the convenience script sphinx-autogen or the new 
+     ``autosummary_generate config`` value can be used to 
+     **generate short “stub” files** for the entries listed in the 
+     autosummary directives. These files by default contain only the 
+     corresponding sphinx.ext.autodoc directive, but can be customized 
+     with templates.
+
+- Don't forget to include it in ``extensions`` list in ``conf.py``
+
+.. code-block:: python
+
+    extensions = ['sphinx.ext.autodoc',
+                  'sphinx.ext.autosummary',]
+
+
+autosummary directive
+=====================
+``.. autosummary::`` inserts a table that contains links to documented items, 
+and a short summary blurb (the first sentence of the docstring) for each of them.
+
+The autosummary directive can also optionally serve as a toctree entry for the included items. Optionally, stub .rst files 
+for these items can also be automatically generated.
+
+options
+========
+By default, no toctree is generated:
+
+.. code-block:: rst
+
+    .. currentmodule:: sphinx
+
+    .. autosummary::
+
+       environment.BuildEnvironment
+       util.relative_uri
+
+
+**autosummary table** also serves as a toctree entry:
+
+.. code-block:: rst
+
+    .. autosummary::
+       :toctree: DIRNAME
+
+       sphinx.environment.BuildEnvironment
+       sphinx.util.relative_uri
+
+Hide function signatures
+
+.. code-block:: rst
+
+    .. autosummary::
+       :nosignatures:
+
+       sphinx.environment.BuildEnvironment
+       sphinx.util.relative_uri
+
+
+pandas example
+==============
 **pandas** 
 
 - http://pandas.pydata.org/pandas-docs/stable/api.html
 - https://raw.githubusercontent.com/pydata/pandas/master/doc/source/api.rst
 - https://github.com/pydata/pandas/tree/master/doc/source
+
+
+Below auto-generates html files in directory ``generated`` via the option ``:toctree: generated/``
+
+- http://pandas.pydata.org/pandas-docs/stable/api.html
+- http://pandas.pydata.org/pandas-docs/stable/**generated**/pandas.read_excel.html
+
+.. code-block:: rst
+
+    JSON
+    ~~~~
+
+    .. autosummary::
+       :toctree: generated/
+
+       read_json
+
+    .. currentmodule:: pandas.io.json
+
+    .. autosummary::
+       :toctree: generated/
+
+       json_normalize
+
+    .. currentmodule:: pandas
+
+    HTML
+    ~~~~
+
+    .. autosummary::
+       :toctree: generated/
+
+       read_html
 
 
 ###############
@@ -88,7 +267,15 @@ conf.py related
 ***************
 Example conf.py
 ***************
+See https://github.com/takwatanabe2004/snippets/blob/master/cs-rst.rst#examples-conf-py-and-github
+
 - Pandas: https://github.com/pydata/pandas/blob/master/doc/source/conf.py
+- https://github.com/cokelaer/sphinx_tutorial/blob/master/source/conf.py
+- https://github.com/sphinx-doc/sphinx/blob/master/doc/conf.py
+- https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py
+- https://github.com/matplotlib/matplotlib/blob/master/doc/conf.py
+
+Mine
 
 .. code-block:: bash
 
@@ -111,6 +298,116 @@ In ``conf.py``:
         'epytext',
         'sphinx.ext.mathjax',
     ]
+
+Ones i care about (including 3rd party...keep adding to the list as i find new ones)
+=======================================
+.. code-block:: python
+
+    import sphinx
+
+    # include fullpath to 3rd party ones (see packages like pandas,sklearn,mpl for example conf.py that does this)
+    sys.path.append(os.path.abspath('sphinxext'))
+
+    # include full list
+    extensions = [# built-ins
+                  'sphinx.ext.autodoc',
+                  'sphinx.ext.autosummary',
+                  'sphinx.ext.doctest',
+                  'sphinx.ext.extlinks',
+                  'sphinx.ext.todo',
+                  'sphinx.ext.coverage',
+                  'sphinx.ext.pngmath',
+                  'sphinx.ext.ifconfig',
+                  # 3rd parties
+                  'numpydoc', # used to parse numpy-style docstrings for autodoc
+                  'ipython_sphinxext.ipython_directive',
+                  'ipython_sphinxext.ipython_console_highlighting',
+                  'sphinx.ext.intersphinx',
+                  ]
+
+
+
+Examples
+========
+matplotlib: https://github.com/matplotlib/matplotlib/tree/master/doc
+
+.. code-block:: python
+
+    extensions = ['matplotlib.sphinxext.mathmpl', 'sphinxext.math_symbol_table',
+                  'sphinx.ext.autodoc', 'matplotlib.sphinxext.only_directives',
+                  'sphinx.ext.doctest', 'sphinx.ext.autosummary',
+                  'matplotlib.sphinxext.plot_directive',
+                  'sphinx.ext.inheritance_diagram',
+                  'sphinxext.gen_gallery', 'sphinxext.gen_rst',
+                  'sphinxext.github',
+                  'numpydoc']
+
+
+scipy-lecture-note: https://github.com/scipy-lectures/scipy-lecture-notes
+
+Ensure `sphinxext <https://github.com/scipy-lectures/scipy-lecture-notes/tree/master/sphinxext>`_ dir is added to local path
+
+.. code-block:: python
+
+    sys.path.append(os.path.abspath('sphinxext'))
+    extensions = [
+            'gen_rst',
+            'sphinx.ext.autodoc',
+            'sphinx.ext.doctest',
+            #'matplotlib.sphinxext.plot_directive',
+            'plot_directive',
+            'only_directives',
+            'ipython_console_highlighting',
+            #'matplotlib.sphinxext.only_directives',
+            'sphinx.ext.pngmath',
+            'sphinx.ext.intersphinx',
+            'sphinx.ext.extlinks',
+    ]
+
+Scikit: https://github.com/scikit-learn/scikit-learn/tree/master/doc
+
+.. code-block:: python
+
+    sys.path.insert(0, os.path.abspath('sphinxext'))
+    extensions = ['gen_rst',
+                  'sphinx.ext.autodoc', 'sphinx.ext.autosummary',
+                  'sphinx.ext.pngmath', 'numpy_ext.numpydoc',
+                  'sphinx.ext.linkcode', 'sphinx.ext.doctest',
+                  ]
+
+Pandas: https://github.com/pydata/pandas/blob/master/doc/source/conf.py
+
+.. code-block:: python
+
+    sys.path.insert(0, os.path.abspath('../sphinxext'))
+
+    sys.path.extend([
+
+        # numpy standard doc extensions
+        os.path.join(os.path.dirname(__file__),
+                     '..', '../..',
+                     'sphinxext')
+
+    ])
+
+    # -- General configuration -----------------------------------------------
+
+    # Add any Sphinx extension module names here, as strings. They can be extensions
+    # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.  sphinxext.
+
+    extensions = ['sphinx.ext.autodoc',
+                  'sphinx.ext.autosummary',
+                  'sphinx.ext.doctest',
+                  'sphinx.ext.extlinks',
+                  'sphinx.ext.todo',
+                  'numpydoc', # used to parse numpy-style docstrings for autodoc
+                  'ipython_sphinxext.ipython_directive',
+                  'ipython_sphinxext.ipython_console_highlighting',
+                  'sphinx.ext.intersphinx',
+                  'sphinx.ext.coverage',
+                  'sphinx.ext.pngmath',
+                  'sphinx.ext.ifconfig',
+                  ]
 
 Sphinx built-in
 ================
@@ -706,3 +1003,63 @@ Here's the doc:
                             use make-mode for Makefile/make.bat
 
     For more information, visit <http://sphinx-doc.org/>.
+
+#####################################
+Google-style vs numpy-style docstring
+#####################################
+ref - https://pypi.python.org/pypi/sphinxcontrib-napoleon
+
+**************************
+Google style (like theano)
+**************************
+.. code-block:: python
+
+    def func(arg1, arg2):
+        """Summary line.
+
+        Extended description of function.
+
+        Args:
+            arg1 (int): Description of arg1
+            arg2 (str): Description of arg2
+
+        Returns:
+            bool: Description of return value
+
+        """
+        return True
+
+**************************
+NumPy style (my preference)
+**************************
+.. code-block:: python
+
+    def func(arg1, arg2):
+        """Summary line.
+
+        Extended description of function.
+
+        Parameters
+        ----------
+        arg1 : int
+            Description of arg1
+        arg2 : str
+            Description of arg2
+
+        Returns
+        -------
+        bool
+            Description of return value
+
+        """
+        return True
+
+In ``conf.py``: https://raw.githubusercontent.com/pydata/pandas/master/doc/source/conf.py
+
+.. code-block:: python
+
+    extensions = [...
+                  'numpydoc', # used to parse numpy-style docstrings for autodoc
+                  'ipython_sphinxext.ipython_directive',
+                  ...
+                  ]
