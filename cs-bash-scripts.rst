@@ -3,10 +3,97 @@ Here snippets and explanations for writing bash scripts
 `[Parent Directory] <./>`_
 
 .. contents:: **Table of Contents**
-    :depth: 2
+    :depth: 3
 
 .. sectnum::    
     :start: 1    
+
+
+####
+qsub
+####
+
+********************
+my old qsub approach
+********************
+
+slave script
+============
+Create ``qsub_batch.sh`` with the following content:
+
+.. code-block:: bash
+
+    #!/bin/bash
+
+    #$ -S /bin/bash
+    #$ -cwd
+
+    #$ -l h_vmem=4G
+
+    ipython "/sbia/home/watanabt/python/analysis/pnc/ncv_conn_random/pnc_randomized_ncv.py" \
+        ${age_group} ${clf_name} ${cv_outer} ${cv_inner}
+    
+
+minimalist call
+===============
+No stdout, stderr
+
+.. code-block:: bash
+
+    qsub -v arg1, arg2, arg3, arg4 qsub_batch.sh
+
+master script
+=============
+This script will repeatedly call above:
+
+.. code-block:: bash
+
+    #!/usr/bin/env bash
+    # ===============================================================================
+    # Nested 10-fold CV on the PNC data at arbitrary "random_state" values.
+    # Script to be called with the falling argv inputs:
+    # - argv[1] = age_group ('q1', 'q2', 'q3', or 'all')
+    # - argv[2] = clf_name (see available classifiers from "pnc_clf_choice.py")
+    # - argv[3] = rand_st_outercv - integer of random_state for outer-cv
+    # - argv[4] = rand_st_innercv - integer of random_state for inner-cv
+    # 
+    # File shall be saved at:/<this script's location>/dump/<clf_name>/***.pkl
+    # 
+    # Example call from shell:
+    # ipython pnc_randomized_ncv.py q1 sklLogregL1 $(shuf -i 1-500000 -n 2)
+    # ===============================================================================
+
+    # http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
+    age_group=q1
+    clf_name=sklLogregL1
+
+    # create random integer between 1 to 500000 for random_state 
+    cv_outer=$(shuf -i 1-500000 -n 1)
+    cv_inner=$(shuf -i 1-500000 -n 1)
+    echo "ipython pnc_randomized_ncv.py ${age_group} ${clf_name} ${cv_outer} ${cv_inner}"
+
+    #qsub -v age_group=${age_group},clf_name=$clf_name,cv_outer=${cv_outer},cv_inner=${cv_inner} qsub_batch.sh
+
+
+    qsub \
+        -v age_group=${age_group},clf_name=$clf_name,cv_outer=${cv_outer},cv_inner=${cv_inner} \
+        -o $HOME/sge_job_output/1104_pnc/stdout/${age_group}_${clf_name}_${cv_outer}_${cv_inner}.\$JOB_ID.stdout  \
+        -e $HOME/sge_job_output/1104_pnc/stderr/${age_group}_${clf_name}_${cv_outer}_${cv_inner}.\$JOB_ID.stderr  \
+        qsub_batch.sh
+
+See ``/home/takanori/Dropbox/work/sbia_work/python/analysis/pnc/ncv_conn_random``
+for old execution example
+
+********
+qsub-run
+********
+.. code-block:: bash
+    
+    # create 
+    qsub-run -c python script.py arg1 arg2 > out.sh
+
+    # example
+    qsub-run -c python save_0726_bct_weighted_normalized.py 0.15 True > qsub_0726.sh
 
 
 ##########################

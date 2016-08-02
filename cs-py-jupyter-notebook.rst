@@ -9,6 +9,16 @@
 #########################
 Ipython notebook defaults
 #########################
+.. code-block:: python
+
+    import seaborn as sns
+    sns.set_style("whitegrid")
+    sns.set_context("notebook", rc={'figure.figsize':(14,10)})
+
+    import pandas as pd
+    pd.set_option('display.max_rows', 20)
+    pd.set_option('precision',4)
+
 
 ********************
 Frequently used config

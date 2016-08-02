@@ -6,6 +6,74 @@
 .. sectnum::    
     :start: 1    
 
+
+##################
+installing modules
+##################
+http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package
+
+.. code-block:: bash
+
+    #http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package
+    python setup.py install --user
+    pip install py4j --user
+    pip install --upgrade sphinx_rtd_theme --user
+
+
+
+#######
+gochtas
+#######
+
+***************************************************
+careful with array slicing! may change array values
+***************************************************
+http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-slicing-view-vs-copy
+
+
+.. code-block:: python
+
+    X = tw.data.tob_pnc.load_connectome()[0]
+
+    # this won't change X
+    tmp = X[np.arange(10)]
+    tmp *= 0
+    print X
+        Out[215]: 
+        array([[  1.96500000e+00,   8.85000000e-01,   1.51500000e+00, ...,
+                  6.57650000e+01,   8.36055000e+02,   1.43835000e+02],
+               [  1.70000000e-01,   3.59500000e+00,   1.50000000e-01, ...,
+                  1.13330000e+02,   5.37860000e+02,   3.42055000e+02],
+               [  1.75000000e-01,   5.49500000e+00,   7.93500000e+00, ...,
+                  4.44100000e+01,   7.48985000e+02,   1.38840000e+02],
+               ..., 
+               [  2.94000000e+00,   1.14000000e+01,   1.00000000e+00, ...,
+                  6.96750000e+01,   1.85573500e+03,   1.25484000e+03],
+               [  4.80000000e-01,   2.80450000e+01,   3.57000000e+00, ...,
+                  3.25420000e+02,   2.39266500e+03,   1.66609500e+03],
+               [  3.00000000e-01,   4.87000000e+00,   2.16500000e+00, ...,
+                  1.51200000e+02,   1.49544000e+03,   9.05030000e+02]])
+
+    # this will! array slicing only creates a view!
+    tmp = X[:10]
+    tmp *= 0
+
+    print X
+        Out[204]: 
+        array([[  0.00000000e+00,   0.00000000e+00,   0.00000000e+00, ...,
+                  0.00000000e+00,   0.00000000e+00,   0.00000000e+00],
+               [  0.00000000e+00,   0.00000000e+00,   0.00000000e+00, ...,
+                  0.00000000e+00,   0.00000000e+00,   0.00000000e+00],
+               [  0.00000000e+00,   0.00000000e+00,   0.00000000e+00, ...,
+                  0.00000000e+00,   0.00000000e+00,   0.00000000e+00],
+               ..., 
+               [  2.94000000e+00,   1.14000000e+01,   1.00000000e+00, ...,
+                  6.96750000e+01,   1.85573500e+03,   1.25484000e+03],
+               [  4.80000000e-01,   2.80450000e+01,   3.57000000e+00, ...,
+                  3.25420000e+02,   2.39266500e+03,   1.66609500e+03],
+               [  3.00000000e-01,   4.87000000e+00,   2.16500000e+00, ...,
+                  1.51200000e+02,   1.49544000e+03,   9.05030000e+02]])
+
 #########
 decorator
 #########

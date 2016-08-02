@@ -7,6 +7,24 @@
 .. sectnum::    
     :start: 1    
 
+#############################
+Regular expression references
+#############################
+
+Two best tutorials
+
+- http://www.regular-expressions.info/tutorial.html
+- http://www.rexegg.com/regex-quickstart.html
+
+Best python tutorial
+
+- http://www.tutorialspoint.com/python/python_reg_expressions.htm
+
+- quantifiers cheat sheet (a good review of **greedy vs lazy**)
+  
+  - http://www.rexegg.com/regex-quantifiers.html#cheat_sheet
+
+
 ###############################################################################
 Regular expression (regexp) for python
 ###############################################################################

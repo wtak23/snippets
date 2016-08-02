@@ -427,3 +427,97 @@ http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-
 
     # below is not practical, but gives a good idea of how xargs work
     find -maxdepth 1 | egrep '0627' | xargs -n1 echo
+
+###############################
+Run same command multiple times
+###############################
+http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash
+
+.. code-block:: bash
+
+    for run in {1..10}
+    do
+      command
+    done
+
+#########
+sed demos
+#########
+.. code-block:: bash
+
+    echo $PYTHONPATH 
+    /home/takanori/Dropbox/work/external-pymodules:/home/takanori/Dropbox/work/sbia_work/python/modules:/home/takanori/work-local/external-python-modules/deepnet:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
+
+    # recall, g for global replacement
+    echo $PYTHONPATH | sed 's/:/\n/g'
+    /home/takanori/Dropbox/work/external-pymodules
+    /home/takanori/Dropbox/work/sbia_work/python/modules
+    /home/takanori/work-local/external-python-modules/deepnet
+    /home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
+
+
+###
+git
+###
+tak
+
+******************
+change author name
+******************
+For a single commit
+
+http://stackoverflow.com/questions/750172/change-the-author-of-a-commit-in-git
+
+
+.. code-block:: bash
+
+    git commit --amend --author "Author Name <email@address.com>"     
+
+
+For entire git repos:
+
+https://help.github.com/articles/changing-author-info/
+
+`git-author-rewrite.sh <https://gist.githubusercontent.com/octocat/0831f3fbd83ac4d46451/raw/c197afe3e9ea2e4218f9fccbc0f36d2b8fd3c1e3/git-author-rewrite.sh>`_
+
+.. code-block:: bash
+
+    #!/bin/sh
+
+    git filter-branch -f --env-filter '
+
+    CORRECT_NAME="your name"
+    CORRECT_EMAIL="your_email@example.com"
+
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+    ' --tag-name-filter cat -- --branches --tags
+
+####################
+clipboard with xclip
+####################
+http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard
+
+.. code-block:: bash
+
+
+    # Only copy the content to the X clipboard
+    sphinx-quickstart --help | xclip 
+    
+    xclip -o # output prints
+
+    # to paste somewhere other than xapplication, 
+    sphinx-quickstart --help | xclip -selection clipboard
+
+    # Above is cumbersome to type....so i created function cb() in .bashrc
+    # http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/
+    sphinx-quickstart --help | cb
+
+    # i also created these
+    alias c="xclip -selection clipboard" 
+    alias v="xclip -o -selection clipboard"
+
+    sphinx-quickstart --help | c
