@@ -304,6 +304,8 @@ Ones i care about (including 3rd party...keep adding to the list as i find new o
 .. code-block:: python
 
     import sphinx
+    import numpydoc
+    import IPython.sphinxext
 
     # include fullpath to 3rd party ones (see packages like pandas,sklearn,mpl for example conf.py that does this)
     sys.path.append(os.path.abspath('sphinxext'))
@@ -320,8 +322,8 @@ Ones i care about (including 3rd party...keep adding to the list as i find new o
                   'sphinx.ext.ifconfig',
                   # 3rd parties
                   'numpydoc', # used to parse numpy-style docstrings for autodoc
-                  'ipython_sphinxext.ipython_directive',
-                  'ipython_sphinxext.ipython_console_highlighting',
+                  'IPython.sphinxext.ipython_console_highlighting',
+                  'IPython.sphinxext.ipython_directive'
                   'sphinx.ext.intersphinx',
                   ]
 
@@ -422,6 +424,8 @@ Sphinx built-in
 
 3rd party extensions
 =====================
+- https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html
+
 ensure you add it to ``sys.path`` in the ``conf.py`` file
 
 .. code-block:: python
