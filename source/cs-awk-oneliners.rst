@@ -1,15 +1,14 @@
+awk-oneliners
+"""""""""""""
+
 - Created this to get nice syntax coloring. 
   
   - originally from http://www.pement.org/awk/awk1line.txt
 - http://www.grymoire.com/Unix/Awk.html
 
-`[Parent Directory] <./>`_
-
 .. contents:: **Table of Contents**
     :depth: 2
 
-.. sectnum::    
-    :start: 1    
 
 
 

@@ -1,12 +1,7 @@
-`[Parent Directory] <./>`_
-
-
+sphinx
+""""""
 .. contents:: **Table of Contents**
     :depth: 3
-
-.. sectnum::    
-    :start: 1    
-
 
 #######
 Lookups

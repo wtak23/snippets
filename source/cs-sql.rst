@@ -1,10 +1,8 @@
-`[Parent Directory] <./>`_
+sql
+"""
 
 .. contents:: **Table of Contents**
     :depth: 3
-
-.. sectnum::    
-    :start: 1    
 
 #############################
 Style guidelines, conventions

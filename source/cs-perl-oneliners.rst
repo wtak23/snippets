@@ -1,10 +1,10 @@
-`[Parent Directory] <./>`_
+perl one-liners
+"""""""""""""""
 
 .. contents:: **Table of Contents**
     :depth: 2
 
-.. sectnum::
-    :start: 1
+
 
 
 **TODO**: Read http://www.rexegg.com/regex-perl-one-liners.html

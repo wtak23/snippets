@@ -1,10 +1,10 @@
-`[Parent Directory] <./>`_
 
+
+Python
+""""""
 .. contents:: **Table of Contents**
     :depth: 2
 
-.. sectnum::    
-    :start: 1    
 
 
 ##################

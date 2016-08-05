@@ -1,10 +1,10 @@
-`[Parent Directory] <./>`_
+python-jupyter-notebook
+"""""""""""""""""""""""
 
 .. contents:: **Table of Contents**
     :depth: 2
 
-.. sectnum::    
-    :start: 1    
+
 
 #########################
 Ipython notebook defaults

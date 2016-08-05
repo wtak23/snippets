@@ -1,15 +1,12 @@
+sed oneliners
+"""""""""""""
 - Created this to get nice syntax coloring. 
     - originally from http://sed.sourceforge.net/sed1line.txt
 - For sed commands, see table at: http://www.grymoire.com/Unix/Sed.html
 
-`[Parent Directory] <./>`_
-
 .. contents:: **Table of Contents**
-    :depth: 1
-
-.. sectnum::    
-    :start: 1    
-
+    :depth: 2
+    
 ###############################################################################
 Typical use
 ###############################################################################

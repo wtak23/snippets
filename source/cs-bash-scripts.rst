@@ -1,12 +1,11 @@
+bash-scripts
+""""""""""""
+
 Here snippets and explanations for writing bash scripts
 
-`[Parent Directory] <./>`_
-
 .. contents:: **Table of Contents**
-    :depth: 3
+    :depth: 2
 
-.. sectnum::    
-    :start: 1    
 
 
 ####

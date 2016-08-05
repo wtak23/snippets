@@ -6,7 +6,7 @@
 Welcome to Snippets's documentation!
 ====================================
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :numbered:
     :caption: Table of Contents
 
@@ -18,8 +18,8 @@ Welcome to Snippets's documentation!
     cs-python.rst
     cs-qsubber.rst
     cs-regexp.rst
-    cs-rst-old.rst
     cs-rst.rst
+    cs-rst-old.rst
     cs-sed-oneliners.rst
     cs-sed.rst
     cs-sphinx.rst

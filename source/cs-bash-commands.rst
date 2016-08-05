@@ -1,16 +1,14 @@
+bash-commands
+"""""""""""""
+
 http://ss64.com/bash
 
 - Here keep list of \*one-liner\* bash commands.
 - ``ctrl+f => ongonig`` for **ongoing** cheat-sheets
 
 
-`[Parent Directory] <./>`_
-
 .. contents:: **Table of Contents**
     :depth: 2
-
-.. sectnum::    
-    :start: 1    
 
 
 #####################

@@ -1,16 +1,13 @@
+rst cheatsheet (old)
+""""""""""""""""""""
 **OLD VERSION 06-15-2016 (17:32)**
-
-
-
-- A **trial-and-error** result of which rst-*directives* from `docutil <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ worked on github (or bitbucket)
-- **Warning** - I wrote this as a note for myself as I am new to using restructuredtext, so I generally do not guarantee the correctness of the content presented.  However, you can verify with your own eyes what renders by skimming through this page.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. contents:: **Table of Contents**
     :depth: 3
 
----------------------------------
+- A **trial-and-error** result of which rst-*directives* from `docutil <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ worked on github (or bitbucket)
+- **Warning** - I wrote this as a note for myself as I am new to using restructuredtext, so I generally do not guarantee the correctness of the content presented.  However, you can verify with your own eyes what renders by skimming through this page.
+
 
 ####################
 DIRECTIVES I FOUND USEFUL OR RUNS ON GITHUB
