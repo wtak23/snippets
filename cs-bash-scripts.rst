@@ -360,6 +360,7 @@ http://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
 if statements and test conditions
 #################################
 - Great table here: http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+- http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-6.html
 
 #########################################
 argh...can't comment over line breaks....

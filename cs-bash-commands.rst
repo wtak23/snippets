@@ -13,12 +13,45 @@ http://ss64.com/bash
     :start: 1    
 
 
+#####################
+Random handy snippets
+#####################
+.. code-block:: bash
+
+    #=========================================================================#
+    # find files with .rst extension at current directory (maxdepth=1)
+    # (note: when piping to clipboard, turn grep color off; otherwise you get
+    #  character encoding like "ESC[01;31m"
+    #  see http://linuxcommando.blogspot.com/2007/10/grep-with-color-output.html
+    #=========================================================================#
+    # in bash script, don't use ls for globbing (here, it's fine)
+    ls | grep \.rst --color=never | c
+
+    # i like this, as things are sorted alphabetically (sed used to replace space with newline, as echo spits everything out in one line
+    echo * | sed 's/ /\n/g' | grep \.rst --color=never | c
+
+    # equivalently...(need to sort here)
+    find . -maxdepth 1 | sort | grep \.rst --color=never | c
+
+
 ######################################
 replace whitespace with newline in sed
 ######################################
 http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list
 
 ``bash 0622_2016_rename_tobvols.sh | sed 's/ /\n/g'``
+
+
+*********************************
+What if multiple line is spanned?
+*********************************
+08-05-2016 (12:37)
+
+hmmm...better to leave sed in this case, and use perl?
+
+http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string
+
+  Summary: Use sed for simple things, and maybe a bit more, but in general, **when it gets beyond working with a single line**, most people prefer something else...
 
 #######################
 check running processes
@@ -107,6 +140,7 @@ http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync
 
 
 ::
+
     #========================================================================#
     # it exludes these
     #========================================================================#

@@ -860,7 +860,7 @@ http://stackoverflow.com/questions/34483545/how-to-use-sphinx-quickstart-in-non-
 
 .. code-block:: bash
 
-    sphinx-quickstart --quiet --project=TEST --author=TW -v 1 --ext-autodoc --ext-mathjax --no-batchfile
+    sphinx-quickstart --quiet --project=a --author=a -v 1 --ext-autodoc --ext-mathjax --no-batchfile
 
 *******
 queries
