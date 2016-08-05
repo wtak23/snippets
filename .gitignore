@@ -1,4 +1,9 @@
 *.html
 *.pdf
 tests/
+
 build*
+
+#| somehow, these directories are created at `make`...must be some random directive in one of the rst files 05 August 2016 (Friday)
+source/DIRNAME
+source/generated

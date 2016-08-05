@@ -5,18 +5,27 @@
 
 Welcome to Snippets's documentation!
 ====================================
-
-Contents:
-
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
+    :numbered:
+    :caption: Table of Contents
+
+    cs-awk-oneliners.rst
+    cs-bash-commands.rst
+    cs-bash-scripts.rst
+    cs-perl-oneliners.rst
+    cs-py-jupyter-notebook.rst
+    cs-python.rst
+    cs-qsubber.rst
+    cs-regexp.rst
+    cs-rst-old.rst
+    cs-rst.rst
+    cs-sed-oneliners.rst
+    cs-sed.rst
+    cs-sphinx.rst
+    cs-sql.rst
 
 
+.. code-block:: bash
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+    ls source | grep \.rst --color=never | xclip -selection clipboard
