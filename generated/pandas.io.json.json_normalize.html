@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pandas.io.json.json_normalize &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">15. sql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>pandas.io.json.json_normalize</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/pandas.io.json.json_normalize.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pandas-io-json-json-normalize">
+<h1>pandas.io.json.json_normalize<a class="headerlink" href="#pandas-io-json-json-normalize" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pandas.io.json.json_normalize">
+<code class="descclassname">pandas.io.json.</code><code class="descname">json_normalize</code><span class="sig-paren">(</span><em>data</em>, <em>record_path=None</em>, <em>meta=None</em>, <em>meta_prefix=None</em>, <em>record_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pandas/io/json.html#json_normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.io.json.json_normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8220;Normalize&#8221; semi-structured JSON data into a flat table</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : dict or list of dicts</p>
+<blockquote>
+<div><p>Unserialized JSON objects</p>
+</div></blockquote>
+<p><strong>record_path</strong> : string or list of strings, default None</p>
+<blockquote>
+<div><p>Path in each object to list of records. If not passed, data will be
+assumed to be an array of records</p>
+</div></blockquote>
+<p><strong>meta</strong> : list of paths (string or list of strings), default None</p>
+<blockquote>
+<div><p>Fields to use as metadata for each record in resulting table</p>
+</div></blockquote>
+<p><strong>record_prefix</strong> : string, default None</p>
+<blockquote>
+<div><p>If True, prefix records with dotted (?) path, e.g. foo.bar.field if
+path to records is [&#8216;foo&#8217;, &#8216;bar&#8217;]</p>
+</div></blockquote>
+<p><strong>meta_prefix</strong> : string, default None</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>frame</strong> : DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Florida&#39;</span><span class="p">,</span>
+<span class="gp">... </span>         <span class="s1">&#39;shortname&#39;</span><span class="p">:</span> <span class="s1">&#39;FL&#39;</span><span class="p">,</span>
+<span class="gp">... </span>         <span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>              <span class="s1">&#39;governor&#39;</span><span class="p">:</span> <span class="s1">&#39;Rick Scott&#39;</span>
+<span class="gp">... </span>         <span class="p">},</span>
+<span class="gp">... </span>         <span class="s1">&#39;counties&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Dade&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">},</span>
+<span class="gp">... </span>                     <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Broward&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mi">40000</span><span class="p">},</span>
+<span class="gp">... </span>                     <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Palm Beach&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mi">60000</span><span class="p">}]},</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span>
+<span class="gp">... </span>         <span class="s1">&#39;shortname&#39;</span><span class="p">:</span> <span class="s1">&#39;OH&#39;</span><span class="p">,</span>
+<span class="gp">... </span>         <span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>              <span class="s1">&#39;governor&#39;</span><span class="p">:</span> <span class="s1">&#39;John Kasich&#39;</span>
+<span class="gp">... </span>         <span class="p">},</span>
+<span class="gp">... </span>         <span class="s1">&#39;counties&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Summit&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">},</span>
+<span class="gp">... </span>                      <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Cuyahoga&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mi">1337</span><span class="p">}]}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pandas.io.json</span> <span class="k">import</span> <span class="n">json_normalize</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;counties&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;shortname&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                                          <span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;governor&#39;</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span>
+<span class="go">         name  population info.governor    state shortname</span>
+<span class="go">0        Dade       12345    Rick Scott  Florida        FL</span>
+<span class="go">1     Broward       40000    Rick Scott  Florida        FL</span>
+<span class="go">2  Palm Beach       60000    Rick Scott  Florida        FL</span>
+<span class="go">3      Summit        1234   John Kasich     Ohio        OH</span>
+<span class="go">4    Cuyahoga        1337   John Kasich     Ohio        OH</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

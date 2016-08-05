@@ -1,0 +1,1050 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pandas.io.json &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sql.html">15. sql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pandas.io.json</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pandas.io.json</h1><div class="highlight"><pre>
+<span></span><span class="c1"># pylint: disable-msg=E1101,W0613,W0603</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">pandas.json</span> <span class="k">as</span> <span class="nn">_json</span>
+<span class="kn">from</span> <span class="nn">pandas.tslib</span> <span class="k">import</span> <span class="n">iNaT</span>
+<span class="kn">from</span> <span class="nn">pandas.compat</span> <span class="k">import</span> <span class="n">StringIO</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">compat</span><span class="p">,</span> <span class="n">isnull</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">to_datetime</span>
+<span class="kn">from</span> <span class="nn">pandas.io.common</span> <span class="k">import</span> <span class="n">get_filepath_or_buffer</span><span class="p">,</span> <span class="n">_get_handle</span>
+<span class="kn">from</span> <span class="nn">pandas.core.common</span> <span class="k">import</span> <span class="n">AbstractMethodError</span>
+<span class="kn">from</span> <span class="nn">pandas.formats.printing</span> <span class="k">import</span> <span class="n">pprint_thing</span>
+
+<span class="n">loads</span> <span class="o">=</span> <span class="n">_json</span><span class="o">.</span><span class="n">loads</span>
+<span class="n">dumps</span> <span class="o">=</span> <span class="n">_json</span><span class="o">.</span><span class="n">dumps</span>
+
+
+<span class="c1"># interface to/from</span>
+<span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="s1">&#39;epoch&#39;</span><span class="p">,</span>
+            <span class="n">double_precision</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">force_ascii</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">date_unit</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">,</span>
+            <span class="n">default_handler</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">lines</span> <span class="ow">and</span> <span class="n">orient</span> <span class="o">!=</span> <span class="s1">&#39;records&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;lines&#39; keyword only valid when &#39;orient&#39; is records&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">SeriesWriter</span><span class="p">(</span>
+            <span class="n">obj</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="n">orient</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="n">date_format</span><span class="p">,</span>
+            <span class="n">double_precision</span><span class="o">=</span><span class="n">double_precision</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="n">force_ascii</span><span class="p">,</span>
+            <span class="n">date_unit</span><span class="o">=</span><span class="n">date_unit</span><span class="p">,</span> <span class="n">default_handler</span><span class="o">=</span><span class="n">default_handler</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">FrameWriter</span><span class="p">(</span>
+            <span class="n">obj</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="n">orient</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="n">date_format</span><span class="p">,</span>
+            <span class="n">double_precision</span><span class="o">=</span><span class="n">double_precision</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="n">force_ascii</span><span class="p">,</span>
+            <span class="n">date_unit</span><span class="o">=</span><span class="n">date_unit</span><span class="p">,</span> <span class="n">default_handler</span><span class="o">=</span><span class="n">default_handler</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;&#39;obj&#39; should be a Series or a DataFrame&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">_convert_to_line_delimits</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">compat</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">path_or_buf</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path_or_buf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Writer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">date_format</span><span class="p">,</span> <span class="n">double_precision</span><span class="p">,</span>
+                 <span class="n">ensure_ascii</span><span class="p">,</span> <span class="n">date_unit</span><span class="p">,</span> <span class="n">default_handler</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span>
+
+        <span class="k">if</span> <span class="n">orient</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">orient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_orient</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">orient</span> <span class="o">=</span> <span class="n">orient</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_format</span> <span class="o">=</span> <span class="n">date_format</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">double_precision</span> <span class="o">=</span> <span class="n">double_precision</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ensure_ascii</span> <span class="o">=</span> <span class="n">ensure_ascii</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_unit</span> <span class="o">=</span> <span class="n">date_unit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_handler</span> <span class="o">=</span> <span class="n">default_handler</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_copy</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_format_axes</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_format_axes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">AbstractMethodError</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">dumps</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span>
+            <span class="n">orient</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">orient</span><span class="p">,</span>
+            <span class="n">double_precision</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">double_precision</span><span class="p">,</span>
+            <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ensure_ascii</span><span class="p">,</span>
+            <span class="n">date_unit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">date_unit</span><span class="p">,</span>
+            <span class="n">iso_dates</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">date_format</span> <span class="o">==</span> <span class="s1">&#39;iso&#39;</span><span class="p">,</span>
+            <span class="n">default_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">default_handler</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">SeriesWriter</span><span class="p">(</span><span class="n">Writer</span><span class="p">):</span>
+    <span class="n">_default_orient</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_format_axes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span> <span class="o">==</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Series index must be unique for orient=&quot;</span>
+                             <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">FrameWriter</span><span class="p">(</span><span class="n">Writer</span><span class="p">):</span>
+    <span class="n">_default_orient</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_format_axes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; try to axes if they are datelike &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;DataFrame index must be unique for orient=&quot;</span>
+                             <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">is_unique</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="s1">&#39;records&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;DataFrame columns must be unique for orient=&quot;</span>
+                             <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="n">path_or_buf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;frame&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">convert_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keep_default_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">numpy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">precise_float</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">date_unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">lines</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a JSON string to pandas object</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_or_buf : a valid JSON string or file-like, default: None</span>
+<span class="sd">        The string could be a URL. Valid URL schemes include http, ftp, s3, and</span>
+<span class="sd">        file. For file URLs, a host is expected. For instance, a local file</span>
+<span class="sd">        could be ``file://localhost/path/to/table.json``</span>
+
+<span class="sd">    orient</span>
+
+<span class="sd">        * `Series`</span>
+
+<span class="sd">          - default is ``&#39;index&#39;``</span>
+<span class="sd">          - allowed values are: ``{&#39;split&#39;,&#39;records&#39;,&#39;index&#39;}``</span>
+<span class="sd">          - The Series index must be unique for orient ``&#39;index&#39;``.</span>
+
+<span class="sd">        * `DataFrame`</span>
+
+<span class="sd">          - default is ``&#39;columns&#39;``</span>
+<span class="sd">          - allowed values are: {&#39;split&#39;,&#39;records&#39;,&#39;index&#39;,&#39;columns&#39;,&#39;values&#39;}</span>
+<span class="sd">          - The DataFrame index must be unique for orients &#39;index&#39; and</span>
+<span class="sd">            &#39;columns&#39;.</span>
+<span class="sd">          - The DataFrame columns must be unique for orients &#39;index&#39;,</span>
+<span class="sd">            &#39;columns&#39;, and &#39;records&#39;.</span>
+
+<span class="sd">        * The format of the JSON string</span>
+
+<span class="sd">          - split : dict like</span>
+<span class="sd">            ``{index -&gt; [index], columns -&gt; [columns], data -&gt; [values]}``</span>
+<span class="sd">          - records : list like</span>
+<span class="sd">            ``[{column -&gt; value}, ... , {column -&gt; value}]``</span>
+<span class="sd">          - index : dict like ``{index -&gt; {column -&gt; value}}``</span>
+<span class="sd">          - columns : dict like ``{column -&gt; {index -&gt; value}}``</span>
+<span class="sd">          - values : just the values array</span>
+
+<span class="sd">    typ : type of object to recover (series or frame), default &#39;frame&#39;</span>
+<span class="sd">    dtype : boolean or dict, default True</span>
+<span class="sd">        If True, infer dtypes, if a dict of column to dtype, then use those,</span>
+<span class="sd">        if False, then don&#39;t infer dtypes at all, applies only to the data.</span>
+<span class="sd">    convert_axes : boolean, default True</span>
+<span class="sd">        Try to convert the axes to the proper dtypes.</span>
+<span class="sd">    convert_dates : boolean, default True</span>
+<span class="sd">        List of columns to parse for dates; If True, then try to parse</span>
+<span class="sd">        datelike columns default is True; a column label is datelike if</span>
+
+<span class="sd">        * it ends with ``&#39;_at&#39;``,</span>
+
+<span class="sd">        * it ends with ``&#39;_time&#39;``,</span>
+
+<span class="sd">        * it begins with ``&#39;timestamp&#39;``,</span>
+
+<span class="sd">        * it is ``&#39;modified&#39;``, or</span>
+
+<span class="sd">        * it is ``&#39;date&#39;``</span>
+
+<span class="sd">    keep_default_dates : boolean, default True</span>
+<span class="sd">        If parsing dates, then parse the default datelike columns</span>
+<span class="sd">    numpy : boolean, default False</span>
+<span class="sd">        Direct decoding to numpy arrays. Supports numeric data only, but</span>
+<span class="sd">        non-numeric column and index labels are supported. Note also that the</span>
+<span class="sd">        JSON ordering MUST be the same for each term if numpy=True.</span>
+<span class="sd">    precise_float : boolean, default False</span>
+<span class="sd">        Set to enable usage of higher precision (strtod) function when</span>
+<span class="sd">        decoding string to double values. Default (False) is to use fast but</span>
+<span class="sd">        less precise builtin functionality</span>
+<span class="sd">    date_unit : string, default None</span>
+<span class="sd">        The timestamp unit to detect if converting dates. The default behaviour</span>
+<span class="sd">        is to try and detect the correct precision, but if this is not desired</span>
+<span class="sd">        then pass one of &#39;s&#39;, &#39;ms&#39;, &#39;us&#39; or &#39;ns&#39; to force parsing only seconds,</span>
+<span class="sd">        milliseconds, microseconds or nanoseconds respectively.</span>
+<span class="sd">    lines : boolean, default False</span>
+<span class="sd">        Read the file as a json object per line.</span>
+
+<span class="sd">        .. versionadded:: 0.19.0</span>
+
+<span class="sd">    encoding : str, default is &#39;utf-8&#39;</span>
+<span class="sd">        The encoding to use to decode py3 bytes.</span>
+
+<span class="sd">        .. versionadded:: 0.19.0</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result : Series or DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_filepath_or_buffer</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span>
+                                                      <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">compat</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
+
+        <span class="c1"># if the filepath is too long will raise here</span>
+        <span class="c1"># 5874</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">exists</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">_get_handle</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+                <span class="n">json</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">json</span> <span class="o">=</span> <span class="n">filepath_or_buffer</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">):</span>
+        <span class="n">json</span> <span class="o">=</span> <span class="n">filepath_or_buffer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">json</span> <span class="o">=</span> <span class="n">filepath_or_buffer</span>
+
+    <span class="k">if</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="c1"># If given a json lines file, we break the string into lines, add</span>
+        <span class="c1"># commas and put it in a json list to make a valid json object.</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+        <span class="n">json</span> <span class="o">=</span> <span class="s1">u&#39;[&#39;</span> <span class="o">+</span> <span class="s1">u&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">+</span> <span class="s1">u&#39;]&#39;</span>
+
+    <span class="n">obj</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s1">&#39;frame&#39;</span><span class="p">:</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">FrameParser</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">convert_axes</span><span class="p">,</span> <span class="n">convert_dates</span><span class="p">,</span>
+                          <span class="n">keep_default_dates</span><span class="p">,</span> <span class="n">numpy</span><span class="p">,</span> <span class="n">precise_float</span><span class="p">,</span>
+                          <span class="n">date_unit</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s1">&#39;series&#39;</span> <span class="ow">or</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="n">dtype</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">SeriesParser</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">convert_axes</span><span class="p">,</span> <span class="n">convert_dates</span><span class="p">,</span>
+                           <span class="n">keep_default_dates</span><span class="p">,</span> <span class="n">numpy</span><span class="p">,</span> <span class="n">precise_float</span><span class="p">,</span>
+                           <span class="n">date_unit</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+
+
+<span class="k">class</span> <span class="nc">Parser</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">_STAMP_UNITS</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="s1">&#39;us&#39;</span><span class="p">,</span> <span class="s1">&#39;ns&#39;</span><span class="p">)</span>
+    <span class="n">_MIN_STAMPS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="n">long</span><span class="p">(</span><span class="mi">31536000</span><span class="p">),</span>
+        <span class="s1">&#39;ms&#39;</span><span class="p">:</span> <span class="n">long</span><span class="p">(</span><span class="mi">31536000000</span><span class="p">),</span>
+        <span class="s1">&#39;us&#39;</span><span class="p">:</span> <span class="n">long</span><span class="p">(</span><span class="mi">31536000000000</span><span class="p">),</span>
+        <span class="s1">&#39;ns&#39;</span><span class="p">:</span> <span class="n">long</span><span class="p">(</span><span class="mi">31536000000000000</span><span class="p">)}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">convert_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keep_default_dates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">precise_float</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">date_unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">json</span> <span class="o">=</span> <span class="n">json</span>
+
+        <span class="k">if</span> <span class="n">orient</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">orient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_orient</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">orient</span> <span class="o">=</span> <span class="n">orient</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
+
+        <span class="k">if</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;split&quot;</span><span class="p">:</span>
+            <span class="n">numpy</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">date_unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">date_unit</span> <span class="o">=</span> <span class="n">date_unit</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">date_unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_STAMP_UNITS</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;date_unit must be one of </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+                                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_STAMP_UNITS</span><span class="p">,))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_MIN_STAMPS</span><span class="p">[</span><span class="n">date_unit</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min_stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_MIN_STAMPS</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">numpy</span> <span class="o">=</span> <span class="n">numpy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span> <span class="o">=</span> <span class="n">precise_float</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convert_axes</span> <span class="o">=</span> <span class="n">convert_axes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convert_dates</span> <span class="o">=</span> <span class="n">convert_dates</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_unit</span> <span class="o">=</span> <span class="n">date_unit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keep_default_dates</span> <span class="o">=</span> <span class="n">keep_default_dates</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">check_keys_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decoded</span><span class="p">):</span>
+        <span class="s2">&quot;checks that dict has only the appropriate keys for orient=&#39;split&#39;&quot;</span>
+        <span class="n">bad_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">decoded</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_split_keys</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">bad_keys</span><span class="p">:</span>
+            <span class="n">bad_keys</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bad_keys</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">u</span><span class="p">(</span><span class="s2">&quot;JSON data had unexpected key(s): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span>
+                             <span class="n">pprint_thing</span><span class="p">(</span><span class="n">bad_keys</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c1"># try numpy</span>
+        <span class="n">numpy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numpy</span>
+        <span class="k">if</span> <span class="n">numpy</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parse_numpy</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parse_no_numpy</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_axes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_convert_axes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_try_convert_types</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span>
+
+    <span class="k">def</span> <span class="nf">_convert_axes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; try to convert axes &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_AXIS_NUMBERS</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">new_axis</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_convert_data</span><span class="p">(</span>
+                <span class="n">axis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">),</span> <span class="n">use_dtypes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">convert_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">new_axis</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_try_convert_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">AbstractMethodError</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_try_convert_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">use_dtypes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                          <span class="n">convert_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; try to parse a ndarray like into a column by inferring dtype &quot;&quot;&quot;</span>
+
+        <span class="c1"># don&#39;t try to coerce, unless a force conversion</span>
+        <span class="k">if</span> <span class="n">use_dtypes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="kc">False</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="c1"># dtype to force</span>
+                <span class="n">dtype</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="kc">True</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">convert_dates</span><span class="p">:</span>
+            <span class="n">new_data</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_convert_to_date</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">new_data</span><span class="p">,</span> <span class="kc">True</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">:</span>
+
+            <span class="c1"># try float</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s1">&#39;float64&#39;</span><span class="p">:</span>
+
+                <span class="c1"># coerce floats to 64</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+        <span class="c1"># do&#39;t coerce 0-len data</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">):</span>
+
+            <span class="c1"># coerce ints if we can</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">new_data</span> <span class="o">==</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">new_data</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="c1"># coerce ints to 64</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;int&#39;</span><span class="p">:</span>
+
+            <span class="c1"># coerce floats to 64</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">_try_convert_to_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; try to parse a ndarray like into a date column</span>
+<span class="sd">            try to coerce object in epoch/iso formats and</span>
+<span class="sd">            integer/float in epcoh formats, return a boolean if parsing</span>
+<span class="sd">            was successful &quot;&quot;&quot;</span>
+
+        <span class="c1"># no conversion on empty</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="kc">False</span>
+
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="k">if</span> <span class="n">new_data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="c1"># ignore numbers that are out of range</span>
+        <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">new_data</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="n">in_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">isnull</span><span class="p">(</span><span class="n">new_data</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">new_data</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_stamp</span><span class="p">)</span> <span class="o">|</span>
+                        <span class="p">(</span><span class="n">new_data</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="n">iNaT</span><span class="p">))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">in_range</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="kc">False</span>
+
+        <span class="n">date_units</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">date_unit</span><span class="p">,)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_unit</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_STAMP_UNITS</span>
+        <span class="k">for</span> <span class="n">date_unit</span> <span class="ow">in</span> <span class="n">date_units</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">new_data</span> <span class="o">=</span> <span class="n">to_datetime</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span>
+                                       <span class="n">unit</span><span class="o">=</span><span class="n">date_unit</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">return</span> <span class="n">new_data</span><span class="p">,</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_try_convert_dates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">AbstractMethodError</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">SeriesParser</span><span class="p">(</span><span class="n">Parser</span><span class="p">):</span>
+    <span class="n">_default_orient</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span>
+    <span class="n">_split_keys</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse_no_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span>
+        <span class="n">orient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span>
+        <span class="k">if</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;split&quot;</span><span class="p">:</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
+                           <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">compat</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">loads</span><span class="p">(</span>
+                               <span class="n">json</span><span class="p">,</span>
+                               <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_keys_split</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">decoded</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span>
+                <span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span>
+        <span class="n">orient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span>
+        <span class="k">if</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;split&quot;</span><span class="p">:</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">)</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">compat</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">decoded</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_keys_split</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="o">**</span><span class="n">decoded</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;columns&quot;</span> <span class="ow">or</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="o">*</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                     <span class="n">labelled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                     <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_try_convert_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">obj</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_convert_data</span><span class="p">(</span>
+            <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">convert_dates</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_dates</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span>
+
+
+<span class="k">class</span> <span class="nc">FrameParser</span><span class="p">(</span><span class="n">Parser</span><span class="p">):</span>
+    <span class="n">_default_orient</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span>
+    <span class="n">_split_keys</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span>
+        <span class="n">orient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span>
+
+        <span class="k">if</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;columns&quot;</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                         <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+                <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;split&quot;</span><span class="p">:</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">)</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">compat</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">decoded</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_keys_split</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="o">**</span><span class="n">decoded</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;values&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="o">*</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">labelled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_parse_no_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span>
+        <span class="n">orient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orient</span>
+
+        <span class="k">if</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;columns&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span>
+                <span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;split&quot;</span><span class="p">:</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">v</span><span class="p">)</span>
+                           <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">compat</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">loads</span><span class="p">(</span>
+                               <span class="n">json</span><span class="p">,</span>
+                               <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_keys_split</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">decoded</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span>
+                <span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span>
+                <span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">precise_float</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">precise_float</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_process_converter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; take a conversion function and possibly recreate the frame &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">filt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="kc">True</span>
+
+        <span class="n">needs_new_obj</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">new_obj</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">filt</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+                <span class="n">new_data</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="n">c</span> <span class="o">=</span> <span class="n">new_data</span>
+                    <span class="n">needs_new_obj</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">new_obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+
+        <span class="k">if</span> <span class="n">needs_new_obj</span><span class="p">:</span>
+
+            <span class="c1"># possibly handle dup columns</span>
+            <span class="n">new_obj</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">new_obj</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">new_obj</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">columns</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">new_obj</span>
+
+    <span class="k">def</span> <span class="nf">_try_convert_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_dates</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_try_convert_dates</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process_converter</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_convert_data</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">convert_dates</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_try_convert_dates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># our columns to parse</span>
+        <span class="n">convert_dates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_dates</span>
+        <span class="k">if</span> <span class="n">convert_dates</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">convert_dates</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">convert_dates</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">convert_dates</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">is_ok</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot; return if this col is ok to try for a date parse &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">compat</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+            <span class="n">col_lower</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">col_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_at&#39;</span><span class="p">)</span> <span class="ow">or</span>
+                    <span class="n">col_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_time&#39;</span><span class="p">)</span> <span class="ow">or</span>
+                    <span class="n">col_lower</span> <span class="o">==</span> <span class="s1">&#39;modified&#39;</span> <span class="ow">or</span>
+                    <span class="n">col_lower</span> <span class="o">==</span> <span class="s1">&#39;date&#39;</span> <span class="ow">or</span>
+                    <span class="n">col_lower</span> <span class="o">==</span> <span class="s1">&#39;datetime&#39;</span> <span class="ow">or</span>
+                    <span class="n">col_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;timestamp&#39;</span><span class="p">)):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process_converter</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_convert_to_date</span><span class="p">(</span><span class="n">c</span><span class="p">),</span>
+            <span class="k">lambda</span> <span class="n">col</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">keep_default_dates</span> <span class="ow">and</span> <span class="n">is_ok</span><span class="p">(</span><span class="n">col</span><span class="p">))</span> <span class="ow">or</span>
+                            <span class="n">col</span> <span class="ow">in</span> <span class="n">convert_dates</span><span class="p">))</span>
+
+<span class="c1"># ---------------------------------------------------------------------</span>
+<span class="c1"># JSON normalization routines</span>
+
+
+<span class="k">def</span> <span class="nf">_convert_to_line_delimits</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Helper function that converts json lists to line delimited json.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Determine we have a JSON list to turn to lines otherwise just return the</span>
+    <span class="c1"># json object, only lists can</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;[&#39;</span> <span class="ow">and</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;]&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">num_open_brackets_seen</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">commas_to_replace</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>              <span class="c1"># iter through to find all</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;,&#39;</span><span class="p">:</span>                         <span class="c1"># commas that should be \n</span>
+            <span class="k">if</span> <span class="n">num_open_brackets_seen</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">commas_to_replace</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;{&#39;</span><span class="p">:</span>
+            <span class="n">num_open_brackets_seen</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;}&#39;</span><span class="p">:</span>
+            <span class="n">num_open_brackets_seen</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">s_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>                  <span class="c1"># Turn to an array to set</span>
+    <span class="n">s_arr</span><span class="p">[</span><span class="n">commas_to_replace</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>            <span class="c1"># all commas at once.</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s_arr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+
+<span class="k">def</span> <span class="nf">nested_to_record</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;a simplified json_normalize</span>
+
+<span class="sd">    converts a nested dict into a flat dict (&quot;record&quot;), unlike json_normalize,</span>
+<span class="sd">    it does not attempt to extract a subset of the data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ds : dict or list of dicts</span>
+<span class="sd">    prefix: the prefix, optional, default: &quot;&quot;</span>
+<span class="sd">    level: the number of levels in the jason string, optional, default: 0</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    d - dict or list of dicts, matching `ds`</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    IN[52]: nested_to_record(dict(flat1=1,dict1=dict(c=1,d=2),</span>
+<span class="sd">                                  nested=dict(e=dict(c=1,d=2),d=2)))</span>
+<span class="sd">    Out[52]:</span>
+<span class="sd">    {&#39;dict1.c&#39;: 1,</span>
+<span class="sd">     &#39;dict1.d&#39;: 2,</span>
+<span class="sd">     &#39;flat1&#39;: 1,</span>
+<span class="sd">     &#39;nested.d&#39;: 2,</span>
+<span class="sd">     &#39;nested.e.c&#39;: 1,</span>
+<span class="sd">     &#39;nested.e.d&#39;: 2}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">singleton</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="p">[</span><span class="n">ds</span><span class="p">]</span>
+        <span class="n">singleton</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">new_ds</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ds</span><span class="p">:</span>
+
+        <span class="n">new_d</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># each key gets renamed with prefix</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">compat</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">newkey</span> <span class="o">=</span> <span class="n">k</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">newkey</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">k</span>
+
+            <span class="c1"># only dicts gets recurse-flattend</span>
+            <span class="c1"># only at level&gt;1 do we rename the rest of the keys</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">level</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># so we skip copying for top level, common case</span>
+                    <span class="n">v</span> <span class="o">=</span> <span class="n">new_d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                    <span class="n">new_d</span><span class="p">[</span><span class="n">newkey</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">new_d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                <span class="n">new_d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nested_to_record</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">newkey</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">new_ds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_d</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">singleton</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">new_ds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">new_ds</span>
+
+
+<div class="viewcode-block" id="json_normalize"><a class="viewcode-back" href="../../../generated/pandas.io.json.json_normalize.html#pandas.io.json.json_normalize">[docs]</a><span class="k">def</span> <span class="nf">json_normalize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">record_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">meta_prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">record_prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;Normalize&quot; semi-structured JSON data into a flat table</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : dict or list of dicts</span>
+<span class="sd">        Unserialized JSON objects</span>
+<span class="sd">    record_path : string or list of strings, default None</span>
+<span class="sd">        Path in each object to list of records. If not passed, data will be</span>
+<span class="sd">        assumed to be an array of records</span>
+<span class="sd">    meta : list of paths (string or list of strings), default None</span>
+<span class="sd">        Fields to use as metadata for each record in resulting table</span>
+<span class="sd">    record_prefix : string, default None</span>
+<span class="sd">        If True, prefix records with dotted (?) path, e.g. foo.bar.field if</span>
+<span class="sd">        path to records is [&#39;foo&#39;, &#39;bar&#39;]</span>
+<span class="sd">    meta_prefix : string, default None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    frame : DataFrame</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    &gt;&gt;&gt; data = [{&#39;state&#39;: &#39;Florida&#39;,</span>
+<span class="sd">    ...          &#39;shortname&#39;: &#39;FL&#39;,</span>
+<span class="sd">    ...          &#39;info&#39;: {</span>
+<span class="sd">    ...               &#39;governor&#39;: &#39;Rick Scott&#39;</span>
+<span class="sd">    ...          },</span>
+<span class="sd">    ...          &#39;counties&#39;: [{&#39;name&#39;: &#39;Dade&#39;, &#39;population&#39;: 12345},</span>
+<span class="sd">    ...                      {&#39;name&#39;: &#39;Broward&#39;, &#39;population&#39;: 40000},</span>
+<span class="sd">    ...                      {&#39;name&#39;: &#39;Palm Beach&#39;, &#39;population&#39;: 60000}]},</span>
+<span class="sd">    ...         {&#39;state&#39;: &#39;Ohio&#39;,</span>
+<span class="sd">    ...          &#39;shortname&#39;: &#39;OH&#39;,</span>
+<span class="sd">    ...          &#39;info&#39;: {</span>
+<span class="sd">    ...               &#39;governor&#39;: &#39;John Kasich&#39;</span>
+<span class="sd">    ...          },</span>
+<span class="sd">    ...          &#39;counties&#39;: [{&#39;name&#39;: &#39;Summit&#39;, &#39;population&#39;: 1234},</span>
+<span class="sd">    ...                       {&#39;name&#39;: &#39;Cuyahoga&#39;, &#39;population&#39;: 1337}]}]</span>
+<span class="sd">    &gt;&gt;&gt; from pandas.io.json import json_normalize</span>
+<span class="sd">    &gt;&gt;&gt; result = json_normalize(data, &#39;counties&#39;, [&#39;state&#39;, &#39;shortname&#39;,</span>
+<span class="sd">    ...                                           [&#39;info&#39;, &#39;governor&#39;]])</span>
+<span class="sd">    &gt;&gt;&gt; result</span>
+<span class="sd">             name  population info.governor    state shortname</span>
+<span class="sd">    0        Dade       12345    Rick Scott  Florida        FL</span>
+<span class="sd">    1     Broward       40000    Rick Scott  Florida        FL</span>
+<span class="sd">    2  Palm Beach       60000    Rick Scott  Florida        FL</span>
+<span class="sd">    3      Summit        1234   John Kasich     Ohio        OH</span>
+<span class="sd">    4    Cuyahoga        1337   John Kasich     Ohio        OH</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">_pull_field</span><span class="p">(</span><span class="n">js</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">js</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">spec</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">spec</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="c1"># A bit of a hackjob</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">record_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">compat</span><span class="o">.</span><span class="n">itervalues</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])]):</span>
+            <span class="c1"># naive normalization, this is idempotent for flat records</span>
+            <span class="c1"># and potentially will inflate the data considerably for</span>
+            <span class="c1"># deeply nested structures:</span>
+            <span class="c1">#  {VeryLong: { b: 1,c:2}} -&gt; {VeryLong.b:1 ,VeryLong.c:@}</span>
+            <span class="c1">#</span>
+            <span class="c1"># TODO: handle record value which are lists, at least error</span>
+            <span class="c1">#       reasonably</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">nested_to_record</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">record_path</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">record_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">record_path</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">meta</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="p">[</span><span class="n">meta</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">meta</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">meta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+    <span class="c1"># Disastrously inefficient for now</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lengths</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">meta_vals</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">meta_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_recursive_extract</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">seen_meta</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">meta_keys</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+                        <span class="n">seen_meta</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_pull_field</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+                <span class="n">_recursive_extract</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                                   <span class="n">seen_meta</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">recs</span> <span class="o">=</span> <span class="n">_pull_field</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+                <span class="c1"># For repeating the metadata later</span>
+                <span class="n">lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">recs</span><span class="p">))</span>
+
+                <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">meta_keys</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+                        <span class="n">meta_val</span> <span class="o">=</span> <span class="n">seen_meta</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">meta_val</span> <span class="o">=</span> <span class="n">_pull_field</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">val</span><span class="p">[</span><span class="n">level</span><span class="p">:])</span>
+                    <span class="n">meta_vals</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">meta_val</span><span class="p">)</span>
+
+                <span class="n">records</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">recs</span><span class="p">)</span>
+
+    <span class="n">_recursive_extract</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">record_path</span><span class="p">,</span> <span class="p">{},</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">record_prefix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">record_prefix</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Data types, a problem</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">compat</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">meta_vals</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">meta_prefix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">meta_prefix</span> <span class="o">+</span> <span class="n">k</span>
+
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Conflicting metadata name </span><span class="si">%s</span><span class="s1">, &#39;</span>
+                             <span class="s1">&#39;need distinguishing prefix &#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">)</span>
+
+        <span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

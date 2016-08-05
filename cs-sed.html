@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>14. sed &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="index.html"/>
+        <link rel="next" title="15. sql" href="cs-sql.html"/>
+        <link rel="prev" title="13. sed oneliners" href="cs-sed-oneliners.html"/> 
+
+  
+  <script src="static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. sed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ultra-basics">14.1. ultra-basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-basics">14.2. More Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-e-f-options">14.2.1. the -e, -f options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deletion-commands">14.2.2. deletion commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#substitution-flags">14.2.3. substitution flags</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">15. sql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>14. sed</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="sources/cs-sed.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sed">
+<h1><a class="toc-backref" href="#id2">14. sed</a><a class="headerlink" href="#sed" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first"><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sed" id="id2">sed</a><ul>
+<li><a class="reference internal" href="#ultra-basics" id="id3">ultra-basics</a></li>
+<li><a class="reference internal" href="#more-basics" id="id4">More Basics</a><ul>
+<li><a class="reference internal" href="#the-e-f-options" id="id5">the -e, -f options</a></li>
+<li><a class="reference internal" href="#deletion-commands" id="id6">deletion commands</a></li>
+<li><a class="reference internal" href="#substitution-flags" id="id7">substitution flags</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ultra-basics">
+<h2><a class="toc-backref" href="#id3">14.1. ultra-basics</a><a class="headerlink" href="#ultra-basics" title="Permalink to this headline">¶</a></h2>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sed/awk/&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sEd/awk/&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sEd/awk/I&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/s/awk/I&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;$s/s/awk/I&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/$s/awk/I&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/^s/awk/I&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I&#39;</span>
+<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s</span><span class="se">\b</span><span class="s1">/awk/I&#39;</span>
+<span class="n">echo</span> <span class="s2">&quot;s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">S</span><span class="se">\b</span><span class="s1">/awk/I&#39;</span> <span class="c1"># case insensitive</span>
+    <span class="o">&gt;</span> <span class="n">awk</span> <span class="n">ed</span>
+<span class="n">echo</span> <span class="s2">&quot;s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I&#39;</span>  <span class="c1"># case insensitive</span>
+<span class="n">echo</span> <span class="s2">&quot;s ed s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I1&#39;</span> <span class="c1"># case insensitive + only replace first *s*</span>
+    <span class="o">&gt;</span> <span class="n">awk</span> <span class="n">ed</span> <span class="n">s</span> <span class="n">ed</span>
+<span class="n">echo</span> <span class="s2">&quot;s ed s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I1&#39;</span> <span class="c1"># case insensitive + only replace second *s*</span>
+    <span class="o">&gt;</span> <span class="n">s</span> <span class="n">ed</span> <span class="n">awk</span> <span class="n">ed</span>
+</pre></div>
+</div>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">sync_sublime</span>
+    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_sublime</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
+
+<span class="c1"># replaces only the first occurence</span>
+<span class="n">alias</span> <span class="n">sync_sublime</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sublime/SUBLIME/&#39;</span>
+    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_SUBLIME</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
+
+<span class="c1"># replaces the 2nd occurence</span>
+<span class="n">alias</span> <span class="n">sync_sublime</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sublime/SUBLIME/2&#39;</span>
+    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_sublime</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
+
+<span class="c1"># replacesa all occurences</span>
+<span class="n">alias</span> <span class="n">sync_sublime</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sublime/SUBLIME/g&#39;</span>
+    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_SUBLIME</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.SUBLIME-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/SUBLIME-text/SUBLIME-snippets-sbia/&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-basics">
+<h2><a class="toc-backref" href="#id4">14.2. More Basics</a><a class="headerlink" href="#more-basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-e-f-options">
+<h3><a class="toc-backref" href="#id5">14.2.1. the -e, -f options</a><a class="headerlink" href="#the-e-f-options" title="Permalink to this headline">¶</a></h3>
+<p>from help:</p>
+<blockquote>
+<div>If no -e, &#8211;expression, -f, or &#8211;file option is given, <strong>then the first
+non-option argument is taken as the sed script to interpret</strong>.  All
+remaining arguments are names of input files; if no input files are
+specified, then the standard input is read.</div></blockquote>
+</div>
+<div class="section" id="deletion-commands">
+<h3><a class="toc-backref" href="#id6">14.2.2. deletion commands</a><a class="headerlink" href="#deletion-commands" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="c1"># basic syntax:</span>
+<span class="o">/</span><span class="n">regexp</span><span class="o">/</span><span class="n">action</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">prints</span> <span class="n">the</span> <span class="n">line</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">deletes</span> <span class="n">the</span> <span class="n">line</span>
+<span class="n">s</span><span class="o">/</span><span class="n">regexp</span><span class="o">/</span><span class="n">pattern</span><span class="o">/</span> <span class="o">&lt;=</span> <span class="n">substitues</span> <span class="n">regexp</span> <span class="k">with</span> <span class="n">pattern</span>
+</pre></div>
+</div>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># deletes all lines</span>
+<span class="n">sed</span> <span class="s1">&#39;d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># delete first line</span>
+<span class="n">sed</span> <span class="s1">&#39;1d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># delete 2nd line</span>
+<span class="n">sed</span> <span class="s1">&#39;1d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># delete lines 2-3</span>
+<span class="n">sed</span> <span class="s1">&#39;2,3d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Range options</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Range</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#8216;4,10d&#8217;</td>
+<td>Lines starting from 4th till 10th are deleted</td>
+</tr>
+<tr class="row-odd"><td>&#8216;10,4d&#8217;</td>
+<td>Only 10th line is deleted, because sed does not work in reverse direction.</td>
+</tr>
+<tr class="row-even"><td>&#8216;4,+5d&#8217;</td>
+<td>This will match line 4 in the file, delete that line, continue to delete the next five lines, and then cease its deletion and print the rest</td>
+</tr>
+<tr class="row-odd"><td>&#8216;2,5!d&#8217;</td>
+<td>This will deleted everything except starting from 2nd till 5th line.</td>
+</tr>
+<tr class="row-even"><td>&#8216;1~3d&#8217;</td>
+<td>deletes the first line, steps over the next three lines, and then deletes the fourth line. Sed continues applying this pattern until the end of the file.</td>
+</tr>
+<tr class="row-odd"><td>&#8216;2~2d&#8217;</td>
+<td>tells sed to delete the second line, step over the next line, delete the next line, and repeat until the end of the file is reached.</td>
+</tr>
+<tr class="row-even"><td>&#8216;4,10p&#8217;</td>
+<td>Lines starting from 4th till 10th are printed</td>
+</tr>
+<tr class="row-odd"><td>&#8216;4,d&#8217;</td>
+<td>would generate syntax error.</td>
+</tr>
+<tr class="row-even"><td>&#8216;,10d&#8217;</td>
+<td>would also generate syntax error.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="substitution-flags">
+<h3><a class="toc-backref" href="#id7">14.2.3. substitution flags</a><a class="headerlink" href="#substitution-flags" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># replace *the* with THE in line 3</span>
+<span class="n">sed</span> <span class="s1">&#39;3s/[Tt]he/THE/g&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># replace *the* with THE in line3-6</span>
+<span class="n">sed</span> <span class="s1">&#39;3,6s/[Tt]he/THE/g&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Flag</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>g</td>
+<td>Replace all matches, not just the first match.</td>
+</tr>
+<tr class="row-odd"><td>NUMBER</td>
+<td>Replace only NUMBERth match.</td>
+</tr>
+<tr class="row-even"><td>p</td>
+<td>If substitution was made, print pattern space.</td>
+</tr>
+<tr class="row-odd"><td>w FILENAME</td>
+<td>If substitution was made, write result to FILENAME.</td>
+</tr>
+<tr class="row-even"><td>I or i</td>
+<td>Match in a case-insensitive manner.</td>
+</tr>
+<tr class="row-odd"><td>M  or m</td>
+<td>In addition to the normal behavior of the special regular expression characters ^ and $, this flag causes ^ to match the empty string after a newline and $ to match the empty string before a newline.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cs-sql.html" class="btn btn-neutral float-right" title="15. sql" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cs-sed-oneliners.html" class="btn btn-neutral" title="13. sed oneliners" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="static/jquery.js"></script>
+      <script type="text/javascript" src="static/underscore.js"></script>
+      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

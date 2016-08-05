@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>15. sql &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="index.html"/>
+        <link rel="prev" title="14. sed" href="cs-sed.html"/> 
+
+  
+  <script src="static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">14. sed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">15. sql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#style-guidelines-conventions">15.1. Style guidelines, conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands-keywords">15.2. Basic commands/keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sql-zoo">15.3. sql-zoo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-basics">15.3.1. SELECT basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sorting-records-with-order-by">15.3.1.1. sorting records with ORDER BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wildcards">15.3.1.2. wildcards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-statement">15.3.1.3. CASE statement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#math-functions">15.3.2. math functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aggregate-functions-sum-count-avg-etc">15.3.2.1. Aggregate functions (SUM, COUNT, AVG, etc)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-by-and-having">15.3.2.2. GROUP BY and HAVING</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#different-rdbms">15.4. different RDBMS</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>15. sql</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="sources/cs-sql.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sql">
+<h1><a class="toc-backref" href="#id1">15. sql</a><a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first"><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sql" id="id1">sql</a><ul>
+<li><a class="reference internal" href="#style-guidelines-conventions" id="id2">Style guidelines, conventions</a></li>
+<li><a class="reference internal" href="#basic-commands-keywords" id="id3">Basic commands/keywords</a></li>
+<li><a class="reference internal" href="#sql-zoo" id="id4">sql-zoo</a><ul>
+<li><a class="reference internal" href="#select-basics" id="id5">SELECT basics</a></li>
+<li><a class="reference internal" href="#math-functions" id="id6">math functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#different-rdbms" id="id7">different RDBMS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="style-guidelines-conventions">
+<h2><a class="toc-backref" href="#id2">15.1. Style guidelines, conventions</a><a class="headerlink" href="#style-guidelines-conventions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/272210/sql-statement-indentation-good-practice">http://stackoverflow.com/questions/272210/sql-statement-indentation-good-practice</a></li>
+<li><a class="reference external" href="http://www.sqlstyle.guide/">http://www.sqlstyle.guide/</a></li>
+</ul>
+</div>
+<div class="section" id="basic-commands-keywords">
+<h2><a class="toc-backref" href="#id3">15.2. Basic commands/keywords</a><a class="headerlink" href="#basic-commands-keywords" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Japan&#39;</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">winner</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;Norway&#39;</span><span class="p">,</span> <span class="s1">&#39;Sweden&#39;</span><span class="p">,</span> <span class="s1">&#39;Finland&#39;</span><span class="p">,</span> <span class="s1">&#39;Denmark&#39;</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="n">income</span> <span class="k">BETWEEN</span> <span class="mi">2000</span> <span class="k">AND</span> <span class="mi">2500</span> <span class="c1">-- same as &gt;=2000 AND &lt;=2500</span>
+<span class="k">WHERE</span> <span class="n">field1</span> <span class="o">&lt;=</span> <span class="mi">500</span> <span class="k">OR</span> <span class="n">field2</span> <span class="o">&lt;</span><span class="mi">10</span>
+<span class="k">WHERE</span> <span class="n">field1</span> <span class="o">&lt;=</span> <span class="mi">500</span> <span class="k">AND</span> <span class="n">field2</span> <span class="o">&lt;</span><span class="mi">10</span>
+<span class="k">WHERE</span> <span class="n">field</span> <span class="k">LIKE</span> <span class="s1">&#39;%G&#39;</span> <span class="c1">-- end with G</span>
+<span class="k">WHERE</span> <span class="n">field</span> <span class="k">LIKE</span> <span class="s1">&#39;____&#39;</span> <span class="c1">-- exactly 4 chars</span>
+<span class="n">ROUND</span><span class="p">(</span><span class="n">gdp</span><span class="o">/</span><span class="mi">500</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1">-- round to 2 decimcal places</span>
+<span class="k">WHERE</span> <span class="n">gdp</span> <span class="k">IS</span> <span class="k">NULL</span>
+<span class="k">WHERE</span> <span class="n">gdp</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="n">x</span><span class="p">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">y</span><span class="p">.</span><span class="n">name</span>
+
+<span class="k">WHERE</span> <span class="n">capital</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39; City&#39;</span><span class="p">)</span>
+
+<span class="c1">-- ``ALL`` to allow &gt;= or &gt; or &lt; or &lt;=to act over a list.</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;=</span> <span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">population</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="c1">-- Aggregate functions --</span>
+<span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span><span class="p">(</span><span class="n">continent</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span> <span class="c1">-- list all continents just once</span>
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">area</span> <span class="o">&gt;=</span> <span class="mi">1000000</span> <span class="c1">-- # countries</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sql-zoo">
+<h2><a class="toc-backref" href="#id4">15.3. sql-zoo</a><a class="headerlink" href="#sql-zoo" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_basics">http://sqlzoo.net/wiki/SELECT_basics</a></p>
+<div class="section" id="select-basics">
+<h3><a class="toc-backref" href="#id5">15.3.1. SELECT basics</a><a class="headerlink" href="#select-basics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_basics">http://sqlzoo.net/wiki/SELECT_basics</a><ul>
+<li><a class="reference external" href="https://github.com/jisaw/sqlzoo-solutions/blob/master/select-basics.sql">https://github.com/jisaw/sqlzoo-solutions/blob/master/select-basics.sql</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_names">http://sqlzoo.net/wiki/SELECT_names</a></li>
+<li><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial">http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial</a><ul>
+<li><a class="reference external" href="https://github.com/jisaw/sqlzoo-solutions/blob/master/select-from-world.sql">https://github.com/jisaw/sqlzoo-solutions/blob/master/select-from-world.sql</a></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="c1">-- ultra basics</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Germany&#39;</span>
+
+<span class="c1">-- select countries whose capital ends with &quot;City&quot;</span>
+<span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">capital</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39; City&#39;</span><span class="p">)</span>
+
+<span class="c1">-- simple math operation allowed for column display</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">gdp</span><span class="o">/</span><span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">area</span> <span class="o">&lt;</span> <span class="mi">5000</span> <span class="k">AND</span> <span class="n">gdp</span> <span class="o">&gt;</span> <span class="mi">500000</span>
+
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;Norway&#39;</span><span class="p">,</span> <span class="s1">&#39;Sweden&#39;</span><span class="p">,</span> <span class="s1">&#39;Finland&#39;</span><span class="p">,</span> <span class="s1">&#39;Denmark&#39;</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">area</span><span class="o">/</span><span class="mi">1000</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">area</span> <span class="k">BETWEEN</span> <span class="mi">200000</span> <span class="k">AND</span> <span class="mi">250000</span>
+
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">area</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">area</span> <span class="o">&gt;</span> <span class="mi">3000000</span> <span class="k">AND</span> <span class="n">population</span> <span class="o">&lt;</span> <span class="mi">250000000</span><span class="p">)</span>
+  <span class="k">OR</span> <span class="p">(</span><span class="n">area</span> <span class="o">&lt;</span> <span class="mi">3000000</span> <span class="k">and</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">250000000</span><span class="p">)</span>
+
+<span class="c1">-- round to 2 decimal palces</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">population</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">gdp</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">continent</span> <span class="o">=</span> <span class="s1">&#39;South America&#39;</span>
+
+<span class="c1">-- show countries with per-capita GDP &gt; 1 trillion dollars</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">gdp</span><span class="o">/</span><span class="n">population</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span> <span class="c1">-- round to nearest 1000</span>
+<span class="k">WHERE</span> <span class="n">gdp</span> <span class="o">&gt;</span> <span class="mi">1000000000000</span>
+
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;Medicine&#39;</span> <span class="k">AND</span> <span class="n">yr</span> <span class="o">&lt;</span><span class="mi">1910</span><span class="p">)</span> <span class="k">OR</span>
+      <span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;Literature&#39;</span> <span class="k">AND</span> <span class="n">yr</span><span class="o">&gt;=</span><span class="mi">2004</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="sorting-records-with-order-by">
+<h4>15.3.1.1. sorting records with ORDER BY<a class="headerlink" href="#sorting-records-with-order-by" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="c1">-- simple math operation allowed for column display</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">gdp</span><span class="o">/</span><span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">area</span> <span class="o">&lt;</span> <span class="mi">5000</span> <span class="k">AND</span> <span class="n">gdp</span> <span class="o">&gt;</span> <span class="mi">500000</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span>
+
+
+<span class="c1">-- show most recent first, then by name order</span>
+<span class="k">SELECT</span> <span class="n">winner</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">subject</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">winner</span> <span class="k">LIKE</span> <span class="s1">&#39;Sir%&#39;</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">yr</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">winner</span>
+
+<span class="k">SELECT</span> <span class="n">winner</span><span class="p">,</span> <span class="n">subject</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">yr</span><span class="o">=</span><span class="mi">1984</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">subject</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;Physics&#39;</span><span class="p">,</span><span class="s1">&#39;Chemistry&#39;</span><span class="p">),</span><span class="n">subject</span><span class="p">,</span><span class="n">winner</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wildcards">
+<h4>15.3.1.2. wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h4>
+<p>wildcards using <code class="docutils literal"><span class="pre">LIKE</span></code> and <code class="docutils literal"><span class="pre">%</span></code> wildcard</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">%</span></code> kinda like <code class="docutils literal"><span class="pre">*</span></code> in shell</li>
+<li><code class="docutils literal"><span class="pre">_</span></code> kinda like <code class="docutils literal"><span class="pre">?</span></code> in shell</li>
+</ul>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="cm">/* ``%`` here is a wildcard (seems like ``*`` in shell)    */</span>
+<span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;G%&#39;</span> <span class="c1">-- counteris beginning with G</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;%G&#39;</span> <span class="c1">-- countries ending with G</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;%x%&#39;</span> <span class="c1">-- countries containing letter x</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;%oo%&#39;</span> <span class="c1">-- contains &quot;oo&quot; in the name</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;%land&#39;</span> <span class="c1">-- countries ending with &quot;land&quot;</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;C%ia&#39;</span> <span class="c1">-- begin with &quot;C&quot;, aned with &quot;ia&quot; (eg, Cambodia_</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;%a%a%a%&#39;</span> <span class="c1">-- contains 3 or more &#39;a&#39;</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;%o__o%&#39;</span> <span class="c1">-- two &quot;o&quot; chars separaeted by two others</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;____&#39;</span> <span class="c1">-- countries with exactly 4 chars</span>
+
+<span class="c1">-- countries that have &quot;t&quot; as the 2nd char, and sort order</span>
+<span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;_t%&#39;</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span>
+
+<span class="c1">-- capital containing the name of the capital (eg, &quot;Mexico city&quot;)</span>
+<span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">capital</span> <span class="k">LIKE</span> <span class="n">concat</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+
+<span class="c1">--</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">capital</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">capital</span> <span class="k">LIKE</span> <span class="n">concat</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;_%&#39;</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">15.</span>
+<span class="cm">For Monaco-Ville the name is Monaco and the extension is -Ville.</span>
+<span class="cm">Show the name and the extension where the capital is an extension of name of the country</span>
+<span class="cm">*/</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span><span class="n">mid</span><span class="p">(</span><span class="n">capital</span><span class="p">,</span><span class="k">LENGTH</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">ext</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">capital</span> <span class="k">LIKE</span> <span class="n">concat</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;_%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="case-statement">
+<h4>15.3.1.3. CASE statement<a class="headerlink" href="#case-statement" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial">http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial</a></p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="cm">/* Show the name - but substitute Australasia for Oceania -</span>
+<span class="cm"> for countries beginning with N.    */</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">continent</span><span class="o">=</span><span class="s1">&#39;Oceania&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;Australasia&#39;</span>
+                  <span class="k">ELSE</span> <span class="n">continent</span> <span class="k">END</span>
+  <span class="k">FROM</span> <span class="n">world</span>
+ <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;N%&#39;</span>
+
+<span class="cm">/*</span>
+<span class="cm">Show the name and the continent - but substitute Eurasia for Europe and Asia; substitute America - for each country in North America or South America or Caribbean. Show countries beginning with A or B</span>
+<span class="cm">*/</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">continent</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;Europe&#39;</span><span class="p">,</span><span class="s1">&#39;Asia&#39;</span><span class="p">)</span> <span class="k">THEN</span> <span class="s1">&#39;Eurasia&#39;</span>
+                  <span class="k">WHEN</span> <span class="n">continent</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;North America&#39;</span><span class="p">,</span><span class="s1">&#39;South America&#39;</span><span class="p">,</span><span class="s1">&#39;Caribbean&#39;</span><span class="p">)</span> <span class="k">THEN</span> <span class="s1">&#39;America&#39;</span>
+                  <span class="k">ELSE</span> <span class="n">continent</span> <span class="k">END</span>
+  <span class="k">FROM</span> <span class="n">world</span>
+ <span class="k">WHERE</span> <span class="n">name</span> <span class="k">BETWEEN</span> <span class="s1">&#39;A&#39;</span> <span class="k">AND</span> <span class="s1">&#39;C&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Countries in Eurasia and Turkey go to Europe/Asia</li>
+<li>Oceania becomes Australasia</li>
+<li>Caribbean islands starting with &#8216;B&#8217; go to North America, other Caribbean islands go to South America</li>
+<li>Order by country name in ascending order</li>
+</ul>
+<p><strong>Show the name, the original continent and the new continent of all countries.</strong></p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span><span class="n">continent</span><span class="p">,</span>
+  <span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">continent</span> <span class="o">=</span> <span class="s1">&#39;Eurasia&#39;</span> <span class="k">OR</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Turkey&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;Europe/Asia&#39;</span>
+       <span class="k">WHEN</span> <span class="n">continent</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;Oceania&#39;</span><span class="p">)</span> <span class="k">THEN</span> <span class="s1">&#39;Australasia&#39;</span>
+       <span class="k">WHEN</span> <span class="n">continent</span> <span class="o">=</span> <span class="s1">&#39;Caribbean&#39;</span> <span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">&#39;B%&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;North America&#39;</span>
+       <span class="k">WHEN</span> <span class="n">continent</span> <span class="o">=</span> <span class="s1">&#39;Caribbean&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;South America&#39;</span>
+       <span class="k">ELSE</span> <span class="n">continent</span> <span class="k">END</span>
+  <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="math-functions">
+<h3><a class="toc-backref" href="#id6">15.3.2. math functions</a><a class="headerlink" href="#math-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="aggregate-functions-sum-count-avg-etc">
+<h4>15.3.2.1. Aggregate functions (SUM, COUNT, AVG, etc)<a class="headerlink" href="#aggregate-functions-sum-count-avg-etc" title="Permalink to this headline">¶</a></h4>
+<p><strong>Aggregate function</strong> = takes many values and outputs a single-value</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="group-by-and-having">
+<h4>15.3.2.2. GROUP BY and HAVING<a class="headerlink" href="#group-by-and-having" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="c1">-- number of countries for each continent</span>
+<span class="k">SELECT</span> <span class="n">continent</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">GROUP</span> <span class="k">BY</span><span class="p">(</span><span class="n">continent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="different-rdbms">
+<h2><a class="toc-backref" href="#id7">15.4. different RDBMS</a><a class="headerlink" href="#different-rdbms" title="Permalink to this headline">¶</a></h2>
+<p>To read:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models">https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models</a></li>
+<li><a class="reference external" href="https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems">https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems</a></li>
+<li><a class="reference external" href="https://www.digitalocean.com/community/tutorials/a-comparison-of-nosql-database-management-systems-and-models">https://www.digitalocean.com/community/tutorials/a-comparison-of-nosql-database-management-systems-and-models</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="cs-sed.html" class="btn btn-neutral" title="14. sed" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="static/jquery.js"></script>
+      <script type="text/javascript" src="static/underscore.js"></script>
+      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

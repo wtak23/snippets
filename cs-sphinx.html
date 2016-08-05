@@ -1,0 +1,1318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. sphinx &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="index.html"/>
+        <link rel="next" title="5. R" href="cs-R.html"/>
+        <link rel="prev" title="3. Python" href="cs-python.html"/> 
+
+  
+  <script src="static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-python.html">3. Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lookups">4.1. Lookups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references-for-rst-in-general-non-sphinx">4.1.1. References for rst in general (non-sphinx)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#autodoc-related">4.2. Autodoc related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-directives">4.2.1. Main directives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directive-options">4.2.2. directive options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#my-usage-example">4.2.2.1. My usage example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page">4.2.3. autosummary (my notes highly incomplete...better to look at the doc page)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autosummary-directive">4.2.3.1. autosummary directive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">4.2.3.2. options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pandas-example">4.2.3.3. pandas example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conf-py-related">4.3. conf.py related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-conf-py">4.3.1. Example conf.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extensions">4.3.2. extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones">4.3.2.1. Ones i care about (including 3rd party...keep adding to the list as i find new ones)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">4.3.2.2. Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sphinx-built-in">4.3.2.3. Sphinx built-in</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rd-party-extensions">4.3.2.4. 3rd party extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rtd-theme-one-of-my-favorite-html-theme">4.3.3. rtd theme (one of my favorite html-theme)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions-i-use-frequently-non-autodoc-ones">4.4. Functions I use frequently (non-autodoc ones)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#toctree">4.4.1. toctree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">4.4.2. Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#literal-includes-include-code-from-external-file">4.4.2.1. Literal includes (include code from external file)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-directives-and-roles">4.4.3. Python directives and roles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#directives">4.4.3.1. Directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#roles">4.4.3.2. roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info-field">4.4.3.3. Info field</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inline-markups-mostly-for-cross-referencing-via-ref">4.4.4. inline markups (mostly for cross-referencing via :ref:)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ref">4.4.4.1. ref</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-usage">4.4.4.2. Example usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#paragraph-level-directives">4.4.5. Paragraph-level directives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#restructured-text-primer">4.5. restructured text primer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#heading-level-convention">4.5.1. Heading-level convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line-blocks">4.5.2. Line blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#citations">4.5.3. Citations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#links">4.5.4. links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.5.5. citations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#substitutions-stuffs">4.5.6. substitutions |stuffs|</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">4.5.7. comments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#master-document-index-rst">4.6. master document (index.rst)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-on-github">4.7. Publishing on github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-quickstart">4.8. sphinx quickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#queries">4.8.1. queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doc">4.8.2. doc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#google-style-vs-numpy-style-docstring">4.9. Google-style vs numpy-style docstring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#google-style-like-theano">4.9.1. Google style (like theano)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numpy-style-my-preference">4.9.2. NumPy style (my preference)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">15. sql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>4. sphinx</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="sources/cs-sphinx.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sphinx">
+<h1><a class="toc-backref" href="#id7">4. sphinx</a><a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first"><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sphinx" id="id7">sphinx</a><ul>
+<li><a class="reference internal" href="#lookups" id="id8">Lookups</a><ul>
+<li><a class="reference internal" href="#references-for-rst-in-general-non-sphinx" id="id9">References for rst in general (non-sphinx)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#autodoc-related" id="id10">Autodoc related</a><ul>
+<li><a class="reference internal" href="#main-directives" id="id11">Main directives</a></li>
+<li><a class="reference internal" href="#directive-options" id="id12">directive options</a></li>
+<li><a class="reference internal" href="#autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page" id="id13">autosummary (my notes highly incomplete...better to look at the doc page)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conf-py-related" id="id14">conf.py related</a><ul>
+<li><a class="reference internal" href="#example-conf-py" id="id15">Example conf.py</a></li>
+<li><a class="reference internal" href="#extensions" id="id16">extensions</a></li>
+<li><a class="reference internal" href="#rtd-theme-one-of-my-favorite-html-theme" id="id17">rtd theme (one of my favorite html-theme)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions-i-use-frequently-non-autodoc-ones" id="id18">Functions I use frequently (non-autodoc ones)</a><ul>
+<li><a class="reference internal" href="#toctree" id="id19">toctree</a></li>
+<li><a class="reference internal" href="#code" id="id20">Code</a></li>
+<li><a class="reference internal" href="#python-directives-and-roles" id="id21">Python directives and roles</a></li>
+<li><a class="reference internal" href="#inline-markups-mostly-for-cross-referencing-via-ref" id="id22">inline markups (mostly for cross-referencing via :ref:)</a></li>
+<li><a class="reference internal" href="#paragraph-level-directives" id="id23">Paragraph-level directives</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#restructured-text-primer" id="id24">restructured text primer</a><ul>
+<li><a class="reference internal" href="#heading-level-convention" id="id25">Heading-level convention</a></li>
+<li><a class="reference internal" href="#line-blocks" id="id26">Line blocks</a></li>
+<li><a class="reference internal" href="#citations" id="id27">Citations</a></li>
+<li><a class="reference internal" href="#links" id="id28">links</a></li>
+<li><a class="reference internal" href="#id1" id="id29">citations</a></li>
+<li><a class="reference internal" href="#substitutions-stuffs" id="id30">substitutions |stuffs|</a></li>
+<li><a class="reference internal" href="#comments" id="id31">comments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#master-document-index-rst" id="id32">master document (index.rst)</a></li>
+<li><a class="reference internal" href="#publishing-on-github" id="id33">Publishing on github</a></li>
+<li><a class="reference internal" href="#sphinx-quickstart" id="id34">sphinx quickstart</a><ul>
+<li><a class="reference internal" href="#queries" id="id35">queries</a></li>
+<li><a class="reference internal" href="#doc" id="id36">doc</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#google-style-vs-numpy-style-docstring" id="id37">Google-style vs numpy-style docstring</a><ul>
+<li><a class="reference internal" href="#google-style-like-theano" id="id38">Google style (like theano)</a></li>
+<li><a class="reference internal" href="#numpy-style-my-preference" id="id39">NumPy style (my preference)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="lookups">
+<h2><a class="toc-backref" href="#id8">4.1. Lookups</a><a class="headerlink" href="#lookups" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html</a></p>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/contents.html">http://www.sphinx-doc.org/en/stable/contents.html</a> - Main TOC in the Sphinx-DOC</p>
+<p>Ones I lookup frequently</p>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autodoc.html">http://www.sphinx-doc.org/en/stable/ext/autodoc.html</a></p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/tutorial.html">http://www.sphinx-doc.org/en/stable/tutorial.html</a> (global refresher)</li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/glossary.html">http://www.sphinx-doc.org/en/stable/glossary.html</a> (to sort out jargons used in the doc)</li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/extensions.html">http://www.sphinx-doc.org/en/stable/extensions.html</a></li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/index.html">http://www.sphinx-doc.org/en/stable/markup/index.html</a> (rst-syntax only defined/unique in Sphinx)</li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">http://www.sphinx-doc.org/en/stable/config.html</a> (<code class="docutils literal"><span class="pre">conf.py</span></code> file info)</li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/theming.html">http://www.sphinx-doc.org/en/stable/theming.html</a> (examples of themes)</li>
+<li><strong>reStructuredText Primer</strong> <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a> (helpful refresher on rst syntax)</li>
+</ul>
+<div class="section" id="references-for-rst-in-general-non-sphinx">
+<h3><a class="toc-backref" href="#id9">4.1.1. References for rst in general (non-sphinx)</a><a class="headerlink" href="#references-for-rst-in-general-non-sphinx" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></li>
+<li>Roles: <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html">http://docutils.sourceforge.net/docs/ref/rst/roles.html</a></li>
+<li>Directives: <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">http://docutils.sourceforge.net/docs/ref/rst/directives.html</a><ul>
+<li>(a good summary of useful ones) <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html#directives">http://www.sphinx-doc.org/en/stable/rest.html#directives</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="autodoc-related">
+<h2><a class="toc-backref" href="#id10">4.2. Autodoc related</a><a class="headerlink" href="#autodoc-related" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autodoc.html">http://www.sphinx-doc.org/en/stable/ext/autodoc.html</a></li>
+<li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html</a></li>
+</ul>
+<div class="section" id="main-directives">
+<h3><a class="toc-backref" href="#id11">4.2.1. Main directives</a><a class="headerlink" href="#main-directives" title="Permalink to this headline">¶</a></h3>
+<p>List</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">automodule</span><span class="p">::</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span>
+<span class="p">..</span> <span class="ow">autoexception</span><span class="p">::</span>
+
+
+<span class="cp">.. These work exactly like autoclass etc., but do not offer the options used for automatic member documentation.</span>
+<span class="p">..</span> <span class="ow">autofunction</span><span class="p">::</span>
+<span class="p">..</span> <span class="ow">autodata</span><span class="p">::</span>
+<span class="p">..</span> <span class="ow">automethod</span><span class="p">::</span>
+<span class="p">..</span> <span class="ow">autoattribute</span><span class="p">::</span>
+</pre></div>
+</div>
+<p>Usage</p>
+<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">recursive</span> <span class="n">autodoc</span> <span class="nb">all</span> <span class="n">module</span> <span class="n">members</span>
+<span class="o">..</span> <span class="n">automodule</span><span class="p">::</span> <span class="n">noodle</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+
+<span class="o">..</span> <span class="n">only</span> <span class="n">include</span> <span class="n">the</span> <span class="n">docstring</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">object</span> <span class="n">itself</span>
+<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
+
+<span class="o">..</span> <span class="n">recursively</span> <span class="n">document</span> <span class="nb">all</span> <span class="n">non</span><span class="o">-</span><span class="n">private</span> <span class="n">member</span> <span class="n">functions</span> <span class="ow">and</span> <span class="n">properties</span>
+<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+
+<span class="o">..</span> <span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">give</span> <span class="n">an</span> <span class="n">explicit</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">members</span><span class="p">;</span> <span class="n">only</span> <span class="n">these</span> <span class="n">will</span> <span class="n">then</span> <span class="n">be</span> <span class="n">documented</span>
+<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span> <span class="n">eat</span><span class="p">,</span> <span class="n">slurp</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="directive-options">
+<h3><a class="toc-backref" href="#id12">4.2.2. directive options</a><a class="headerlink" href="#directive-options" title="Permalink to this headline">¶</a></h3>
+<p>Summary</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>:members:            <span class="c1"># recursively include all member functions (or explicitly send member function names)</span>
+:undoc-members:      <span class="c1"># include member functions without docstring (default ignores them)</span>
+:private-members:    <span class="c1"># include member function that begin with underscore (like _func)</span>
+:special-members:    <span class="c1"># include member function of the form __special__</span>
+:inherited-members:  <span class="c1"># include inherited member functions</span>
+</pre></div>
+</div>
+<p>Usage</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="cp">.. include non-documented member functions (default ignores it)</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+   <span class="nc">:members:</span>
+   :undoc-members
+
+
+<span class="cp">.. include those with special method-names like __method__</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> my.Class
+   <span class="nc">:members:</span>
+   <span class="nc">:private-members:</span>
+   <span class="nc">:special-members:</span>
+
+
+<span class="cp">.. include mix of autodoc and manualdoc</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+   <span class="nc">:members:</span> <span class="nf">eat, slurp</span>
+
+<span class="p">   ..</span> <span class="ow">method</span><span class="p">::</span> boil(time=10)
+
+      Boil the noodle <span class="ge">*time*</span> minutes.
+</pre></div>
+</div>
+<div class="section" id="my-usage-example">
+<h4>4.2.2.1. My usage example<a class="headerlink" href="#my-usage-example" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/pyspark.ml.html">https://tedboy.github.io/pyspark_doc/pyspark.ml.html</a></li>
+<li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt">https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt</a></li>
+</ul>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">automodule</span><span class="p">::</span> pyspark.ml
+    <span class="nc">:members:</span>
+    <span class="nc">:undoc-members:</span>
+    <span class="nc">:inherited-members:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page">
+<h3><a class="toc-backref" href="#id13">4.2.3. autosummary (my notes highly incomplete...better to look at the doc page)</a><a class="headerlink" href="#autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autosummary.html">http://www.sphinx-doc.org/en/stable/ext/autosummary.html</a></p>
+<ul class="simple">
+<li>Pandas uses this in their api page (see below)</li>
+<li>This is especially useful when your docstrings are long and detailed, and
+<strong>putting each one of them on a separate page</strong> makes them easier to read.</li>
+<li>The <code class="docutils literal"><span class="pre">sphinx.ext.autosummary</span></code> extension does this in two parts:<ol class="arabic">
+<li>There is an autosummary directive for generating summary listings that
+contain <strong>links to the documented items</strong>, and short summary blurbs extracted
+from their docstrings.</li>
+<li><strong>Optionally</strong>, the convenience script sphinx-autogen or the new
+<code class="docutils literal"><span class="pre">autosummary_generate</span> <span class="pre">config</span></code> value can be used to
+<strong>generate short “stub” files</strong> for the entries listed in the
+autosummary directives. These files by default contain only the
+corresponding sphinx.ext.autodoc directive, but can be customized
+with templates.</li>
+</ol>
+</li>
+<li>Don&#8217;t forget to include it in <code class="docutils literal"><span class="pre">extensions</span></code> list in <code class="docutils literal"><span class="pre">conf.py</span></code></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,]</span>
+</pre></div>
+</div>
+<div class="section" id="autosummary-directive">
+<h4>4.2.3.1. autosummary directive<a class="headerlink" href="#autosummary-directive" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">..</span> <span class="pre">autosummary::</span></code> inserts a table that contains links to documented items,
+and a short summary blurb (the first sentence of the docstring) for each of them.</p>
+<p>The autosummary directive can also optionally serve as a toctree entry for the included items. Optionally, stub .rst files
+for these items can also be automatically generated.</p>
+</div>
+<div class="section" id="options">
+<h4>4.2.3.2. options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h4>
+<p>By default, no toctree is generated:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> sphinx
+
+<span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+
+   environment.BuildEnvironment
+   util.relative_uri
+</pre></div>
+</div>
+<p><strong>autosummary table</strong> also serves as a toctree entry:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+   <span class="nc">:toctree:</span> <span class="nf">DIRNAME</span>
+
+   sphinx.environment.BuildEnvironment
+   sphinx.util.relative_uri
+</pre></div>
+</div>
+<p>Hide function signatures</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+   <span class="nc">:nosignatures:</span>
+
+   sphinx.environment.BuildEnvironment
+   sphinx.util.relative_uri
+</pre></div>
+</div>
+</div>
+<div class="section" id="pandas-example">
+<h4>4.2.3.3. pandas example<a class="headerlink" href="#pandas-example" title="Permalink to this headline">¶</a></h4>
+<p><strong>pandas</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/api.html">http://pandas.pydata.org/pandas-docs/stable/api.html</a></li>
+<li><a class="reference external" href="https://raw.githubusercontent.com/pydata/pandas/master/doc/source/api.rst">https://raw.githubusercontent.com/pydata/pandas/master/doc/source/api.rst</a></li>
+<li><a class="reference external" href="https://github.com/pydata/pandas/tree/master/doc/source">https://github.com/pydata/pandas/tree/master/doc/source</a></li>
+</ul>
+<p>Below auto-generates html files in directory <code class="docutils literal"><span class="pre">generated</span></code> via the option <code class="docutils literal"><span class="pre">:toctree:</span> <span class="pre">generated/</span></code></p>
+<ul class="simple">
+<li><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/api.html">http://pandas.pydata.org/pandas-docs/stable/api.html</a></li>
+<li><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/">http://pandas.pydata.org/pandas-docs/stable/</a><strong>generated</strong>/pandas.read_excel.html</li>
+</ul>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="gh">JSON</span>
+<span class="gh">~~~~</span>
+
+<span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+   <span class="nc">:toctree:</span> <span class="nf">generated/</span>
+
+   read_json
+
+<span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> pandas.io.json
+
+<span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+   <span class="nc">:toctree:</span> <span class="nf">generated/</span>
+
+   json_normalize
+
+<span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> pandas
+
+<span class="gh">HTML</span>
+<span class="gh">~~~~</span>
+
+<span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+   <span class="nc">:toctree:</span> <span class="nf">generated/</span>
+
+   read_html
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conf-py-related">
+<h2><a class="toc-backref" href="#id14">4.3. conf.py related</a><a class="headerlink" href="#conf-py-related" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">http://www.sphinx-doc.org/en/stable/config.html</a></li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/theming.html">http://www.sphinx-doc.org/en/stable/theming.html</a> (examples of html themes)</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;classic&quot;</span>
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;stickysidebar&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="example-conf-py">
+<h3><a class="toc-backref" href="#id15">4.3.1. Example conf.py</a><a class="headerlink" href="#example-conf-py" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference external" href="https://github.com/takwatanabe2004/snippets/blob/master/cs-rst.rst#examples-conf-py-and-github">https://github.com/takwatanabe2004/snippets/blob/master/cs-rst.rst#examples-conf-py-and-github</a></p>
+<ul class="simple">
+<li>Pandas: <a class="reference external" href="https://github.com/pydata/pandas/blob/master/doc/source/conf.py">https://github.com/pydata/pandas/blob/master/doc/source/conf.py</a></li>
+<li><a class="reference external" href="https://github.com/cokelaer/sphinx_tutorial/blob/master/source/conf.py">https://github.com/cokelaer/sphinx_tutorial/blob/master/source/conf.py</a></li>
+<li><a class="reference external" href="https://github.com/sphinx-doc/sphinx/blob/master/doc/conf.py">https://github.com/sphinx-doc/sphinx/blob/master/doc/conf.py</a></li>
+<li><a class="reference external" href="https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py">https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py</a></li>
+<li><a class="reference external" href="https://github.com/matplotlib/matplotlib/blob/master/doc/conf.py">https://github.com/matplotlib/matplotlib/blob/master/doc/conf.py</a></li>
+</ul>
+<p>Mine</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>subl /home/takanori/Dropbox/git/tedboy/pyspark_docs/conf.py
+subl /home/takanori/Dropbox/git/tedboy/bs4doc_source/source/conf.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="extensions">
+<h3><a class="toc-backref" href="#id16">4.3.2. extensions</a><a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>extension</strong> = a Python module that provides additional features for Sphinx projects</li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/extensions.html">http://www.sphinx-doc.org/en/stable/extensions.html</a></li>
+</ul>
+<p>In <code class="docutils literal"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sphinx.ext.viewcode&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;epytext&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sphinx.ext.mathjax&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones">
+<h4>4.3.2.1. Ones i care about (including 3rd party...keep adding to the list as i find new ones)<a class="headerlink" href="#ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx</span>
+<span class="kn">import</span> <span class="nn">numpydoc</span>
+<span class="kn">import</span> <span class="nn">IPython.sphinxext</span>
+
+<span class="c1"># include fullpath to 3rd party ones (see packages like pandas,sklearn,mpl for example conf.py that does this)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;sphinxext&#39;</span><span class="p">))</span>
+
+<span class="c1"># include full list</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="c1"># built-ins</span>
+              <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.extlinks&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.todo&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.coverage&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.pngmath&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.ifconfig&#39;</span><span class="p">,</span>
+              <span class="c1"># 3rd parties</span>
+              <span class="s1">&#39;numpydoc&#39;</span><span class="p">,</span> <span class="c1"># used to parse numpy-style docstrings for autodoc</span>
+              <span class="s1">&#39;IPython.sphinxext.ipython_console_highlighting&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;IPython.sphinxext.ipython_directive&#39;</span>
+              <span class="s1">&#39;sphinx.ext.intersphinx&#39;</span><span class="p">,</span>
+              <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h4>4.3.2.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<p>matplotlib: <a class="reference external" href="https://github.com/matplotlib/matplotlib/tree/master/doc">https://github.com/matplotlib/matplotlib/tree/master/doc</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;matplotlib.sphinxext.mathmpl&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinxext.math_symbol_table&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib.sphinxext.only_directives&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;matplotlib.sphinxext.plot_directive&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.inheritance_diagram&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinxext.gen_gallery&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinxext.gen_rst&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinxext.github&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;numpydoc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>scipy-lecture-note: <a class="reference external" href="https://github.com/scipy-lectures/scipy-lecture-notes">https://github.com/scipy-lectures/scipy-lecture-notes</a></p>
+<p>Ensure <a class="reference external" href="https://github.com/scipy-lectures/scipy-lecture-notes/tree/master/sphinxext">sphinxext</a> dir is added to local path</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;sphinxext&#39;</span><span class="p">))</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;gen_rst&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
+        <span class="c1">#&#39;matplotlib.sphinxext.plot_directive&#39;,</span>
+        <span class="s1">&#39;plot_directive&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;only_directives&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ipython_console_highlighting&#39;</span><span class="p">,</span>
+        <span class="c1">#&#39;matplotlib.sphinxext.only_directives&#39;,</span>
+        <span class="s1">&#39;sphinx.ext.pngmath&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.intersphinx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.extlinks&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Scikit: <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/tree/master/doc">https://github.com/scikit-learn/scikit-learn/tree/master/doc</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;sphinxext&#39;</span><span class="p">))</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gen_rst&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.pngmath&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy_ext.numpydoc&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.linkcode&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
+              <span class="p">]</span>
+</pre></div>
+</div>
+<p>Pandas: <a class="reference external" href="https://github.com/pydata/pandas/blob/master/doc/source/conf.py">https://github.com/pydata/pandas/blob/master/doc/source/conf.py</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../sphinxext&#39;</span><span class="p">))</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+
+    <span class="c1"># numpy standard doc extensions</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span>
+                 <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;../..&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;sphinxext&#39;</span><span class="p">)</span>
+
+<span class="p">])</span>
+
+<span class="c1"># -- General configuration -----------------------------------------------</span>
+
+<span class="c1"># Add any Sphinx extension module names here, as strings. They can be extensions</span>
+<span class="c1"># coming with Sphinx (named &#39;sphinx.ext.*&#39;) or your custom ones.  sphinxext.</span>
+
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.extlinks&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.todo&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;numpydoc&#39;</span><span class="p">,</span> <span class="c1"># used to parse numpy-style docstrings for autodoc</span>
+              <span class="s1">&#39;ipython_sphinxext.ipython_directive&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;ipython_sphinxext.ipython_console_highlighting&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.intersphinx&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.coverage&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.pngmath&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;sphinx.ext.ifconfig&#39;</span><span class="p">,</span>
+              <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sphinx-built-in">
+<h4>4.3.2.3. Sphinx built-in<a class="headerlink" href="#sphinx-built-in" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sphinx.ext.autodoc <span class="c1"># Include documentation from docstrings</span>
+sphinx.ext.autosectionlabel <span class="c1"># Allow reference sections using its title</span>
+sphinx.ext.autosummary <span class="c1"># Generate autodoc summaries</span>
+sphinx.ext.mathjax <span class="c1"># Render math via JavaScript</span>
+sphinx.ext.doctest – Test snippets in the documentation
+</pre></div>
+</div>
+</div>
+<div class="section" id="rd-party-extensions">
+<h4>4.3.2.4. 3rd party extensions<a class="headerlink" href="#rd-party-extensions" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html">https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html</a></li>
+</ul>
+<p>ensure you add it to <code class="docutils literal"><span class="pre">sys.path</span></code> in the <code class="docutils literal"><span class="pre">conf.py</span></code> file</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;exts&#39;</span><span class="p">))</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rtd-theme-one-of-my-favorite-html-theme">
+<h3><a class="toc-backref" href="#id17">4.3.3. rtd theme (one of my favorite html-theme)</a><a class="headerlink" href="#rtd-theme-one-of-my-favorite-html-theme" title="Permalink to this headline">¶</a></h3>
+<p>To see theme options available in rtd, open:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ cat /home/takanori/.local/lib/python2.7/site-packages/sphinx_rtd_theme-0.1.10a0-py2.7.egg/sphinx_rtd_theme/theme.conf
+
+<span class="o">[</span>theme<span class="o">]</span>
+<span class="nv">inherit</span> <span class="o">=</span> basic
+<span class="nv">stylesheet</span> <span class="o">=</span> css/theme.css
+
+<span class="o">[</span>options<span class="o">]</span>
+<span class="nv">typekit_id</span> <span class="o">=</span> hiw1hhg
+<span class="nv">analytics_id</span> <span class="o">=</span>
+<span class="nv">sticky_navigation</span> <span class="o">=</span> False
+<span class="nv">logo_only</span> <span class="o">=</span>
+<span class="nv">collapse_navigation</span> <span class="o">=</span> False
+<span class="nv">display_version</span> <span class="o">=</span> True
+<span class="nv">navigation_depth</span> <span class="o">=</span> 4
+</pre></div>
+</div>
+<p>So in <code class="docutils literal"><span class="pre">conf.py</span></code>, we can do something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
+
+<span class="c1"># Theme options are theme-specific and customize the look and feel of a theme</span>
+<span class="c1"># further.  For a list of options available for each theme, see the</span>
+<span class="c1"># documentation.</span>
+
+<span class="c1">#https://github.com/snide/sphinx_rtd_theme</span>
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;collapse_navigation&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;display_version&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;navigation_depth&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="functions-i-use-frequently-non-autodoc-ones">
+<h2><a class="toc-backref" href="#id18">4.4. Functions I use frequently (non-autodoc ones)</a><a class="headerlink" href="#functions-i-use-frequently-non-autodoc-ones" title="Permalink to this headline">¶</a></h2>
+<p>By <strong>function</strong>, I mean roles/directives.</p>
+<p>Stuffs in this section mostly from <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/index.html">http://www.sphinx-doc.org/en/stable/markup/index.html</a></p>
+<div class="section" id="toctree">
+<h3><a class="toc-backref" href="#id19">4.4.1. toctree</a><a class="headerlink" href="#toctree" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/toctree.html">http://www.sphinx-doc.org/en/stable/markup/toctree.html</a></p>
+<p><a class="reference external" href="https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt">Usage</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>.. toctree::
+   :maxdepth: 1
+   :numbered:
+
+   <span class="c1"># these are .rst file names (w/o the extensions)</span>
+   pyspark.ml.param
+   pyspark.ml.feature
+   pyspark.ml.classification
+   pyspark.ml.clustering
+</pre></div>
+</div>
+</div>
+<div class="section" id="code">
+<h3><a class="toc-backref" href="#id20">4.4.2. Code</a><a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/code.html">http://www.sphinx-doc.org/en/stable/markup/code.html</a></p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span># This will produce line numbers for all code blocks longer than five lines.
+<span class="p">..</span> <span class="ow">highlight</span><span class="p">::</span> python
+   <span class="nc">:linenothreshold:</span> <span class="nf">5</span>
+
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> ruby
+   <span class="nc">:linenos:</span>
+
+# emphasize particular lines
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
+   <span class="nc">:emphasize-lines:</span> <span class="nf">3,5</span>
+</pre></div>
+</div>
+<div class="section" id="literal-includes-include-code-from-external-file">
+<h4>4.4.2.1. Literal includes (include code from external file)<a class="headerlink" href="#literal-includes-include-code-from-external-file" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
+
+<span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.rb
+   <span class="nc">:language:</span> <span class="nf">ruby</span>
+   <span class="nc">:emphasize-lines:</span> <span class="nf">12,15-18</span>
+   <span class="nc">:linenos:</span>
+
+# specify parts of file (for a Python module, you can selection class/function/method via the :pyobject: option
+<span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
+   <span class="nc">:pyobject:</span> <span class="nf">Timer.start</span>
+
+# specify line-numbers to include (i think scikit&#39;s tutorial use this often)
+<span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
+   <span class="nc">:lines:</span> <span class="nf">1,3,5-10,20-</span>
+
+# show diffs between files
+<span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
+   <span class="nc">:diff:</span> <span class="nf">example.py.orig</span>
+
+# can specify encoding
+<span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
+   <span class="nc">:encoding:</span> <span class="nf">latin-1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="python-directives-and-roles">
+<h3><a class="toc-backref" href="#id21">4.4.3. Python directives and roles</a><a class="headerlink" href="#python-directives-and-roles" title="Permalink to this headline">¶</a></h3>
+<p><strong>Domain</strong> = a collection of markup (reStructuredText directives and roles) to describe and link to objects belonging together, e.g. elements of a programming language.</p>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html">http://www.sphinx-doc.org/en/stable/domains.html</a></p>
+<div class="section" id="directives">
+<h4>4.4.3.1. Directives<a class="headerlink" href="#directives" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects">http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects</a></p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">default-domain</span><span class="p">::</span> python
+<span class="p">..</span> <span class="ow">module</span><span class="p">::</span> name
+<span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> name
+<span class="p">..</span> <span class="ow">function</span><span class="p">::</span> name
+<span class="p">..</span> <span class="ow">class</span><span class="p">::</span> name
+<span class="p">..</span> <span class="ow">attribute</span><span class="p">::</span> name
+<span class="p">..</span> <span class="ow">method</span><span class="p">::</span> name
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">function</span><span class="p">::</span> foo(x)
+              foo(y, z)
+   <span class="nc">:module:</span> <span class="nf">some.module.name</span>
+
+   Return a line of text input from the user.
+</pre></div>
+</div>
+</div>
+<div class="section" id="roles">
+<h4>4.4.3.2. roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects">http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects</a></li>
+<li>Handy for cross-referencing Python objects (also gives hyperlinks if a matching identifier is found)</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>:mod:
+:func:<span class="sb">`</span>function_name<span class="sb">`</span>
+:class:<span class="sb">`</span>class_name<span class="sb">`</span>
+:meth:  <span class="c1"># reference a method of an object</span>
+:attr:  <span class="c1"># reference a attribute of an object</span>
+:exc:  <span class="c1"># reference an exception</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="info-field">
+<h4>4.4.3.3. Info field<a class="headerlink" href="#info-field" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>I&#8217;ll probably never use this, but know it exists</li>
+<li>See how below will render at: <a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#info-field-lists">http://www.sphinx-doc.org/en/stable/domains.html#info-field-lists</a></li>
+</ul>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">function</span><span class="p">::</span> send_message(sender, recipient, message_body, [priority=1])
+
+   Send a message to a recipient
+
+   <span class="nc">:param str sender:</span> <span class="nf">The person sending the message</span>
+   <span class="nc">:param str recipient:</span> <span class="nf">The recipient of the message</span>
+   <span class="nc">:param str message_body:</span> <span class="nf">The body of the message</span>
+   <span class="nc">:param priority:</span> <span class="nf">The priority of the message, can be a number 1-5</span>
+   <span class="nc">:type priority:</span> <span class="nf">integer or None</span>
+   <span class="nc">:return:</span> <span class="nf">the message id</span>
+   <span class="nc">:rtype:</span> <span class="nf">int</span>
+   <span class="nc">:raises ValueError:</span> <span class="nf">if the message_body exceeds 160 characters</span>
+   <span class="nc">:raises TypeError:</span> <span class="nf">if the message_body is not a basestring</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inline-markups-mostly-for-cross-referencing-via-ref">
+<h3><a class="toc-backref" href="#id22">4.4.4. inline markups (mostly for cross-referencing via :ref:)</a><a class="headerlink" href="#inline-markups-mostly-for-cross-referencing-via-ref" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/inline.html">http://www.sphinx-doc.org/en/stable/markup/inline.html</a></p>
+<p>There are bunch of them on the above link, but I rarely used them... <code class="docutils literal"><span class="pre">:ref:</span></code>
+is pretty much all i use here...</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="nc">:doc:</span> <span class="nf"># cross reference documents...I never used or tried</span>
+<span class="nc">:download:</span>
+
+See <span class="na">:download:</span><span class="nv">`this example script &lt;../example.py&gt;`</span>.
+
+<span class="nc">:numref:</span> <span class="nf"># link to the specified figures...never used....</span>
+</pre></div>
+</div>
+<div class="section" id="ref">
+<h4>4.4.4.1. ref<a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h4>
+<p>Beauty of <code class="docutils literal"><span class="pre">:ref:</span></code> is that it works across files!</p>
+<p>Idea:</p>
+<ul class="simple">
+<li>add <code class="docutils literal"><span class="pre">..</span> <span class="pre">_ref.labelname:</span></code> before a section title (notice the underscore)</li>
+<li>reference them via <code class="docutils literal"><span class="pre">:ref:`ref.labelname`</span></code> (notice <strong>no</strong> underscore)</li>
+</ul>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_my-reference-label:</span>
+
+<span class="gh">Section to cross-reference</span>
+<span class="gh">--------------------------</span>
+This is the text of the section.I see <span class="na">:ref:</span><span class="nv">`my-reference-label`</span>.
+</pre></div>
+</div>
+<p>Works with figures too!</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_my-figure:</span>
+
+<span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> whatever
+
+   Figure caption
+</pre></div>
+</div>
+<p>Labels that aren’t placed before a section title can still be referenced to,
+but you must give the link an explicit title, using this syntax:
+<code class="docutils literal"><span class="pre">:ref:`Link</span> <span class="pre">title</span> <span class="pre">&lt;label-name&gt;`.</span></code> (however, this never worked for me so far...)</p>
+</div>
+<div class="section" id="example-usage">
+<h4>4.4.4.2. Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>See how <code class="docutils literal"><span class="pre">..</span> <span class="pre">_ml:</span></code> is used right before the section name?</li>
+<li>Now I can reference them and hyperlink them via <span class="xref std std-ref">ml</span><ul>
+<li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/pyspark.ml.html">https://tedboy.github.io/pyspark_doc/pyspark.ml.html</a></li>
+<li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/pyspark.ml.param.html">https://tedboy.github.io/pyspark_doc/pyspark.ml.param.html</a></li>
+<li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt">https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt</a></li>
+<li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.param.txt">https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.param.txt</a></li>
+</ul>
+</li>
+</ul>
+<p>dd</p>
+</div>
+</div>
+<div class="section" id="paragraph-level-directives">
+<h3><a class="toc-backref" href="#id23">4.4.5. Paragraph-level directives</a><a class="headerlink" href="#paragraph-level-directives" title="Permalink to this headline">¶</a></h3>
+<p>See this link for details of below: <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/para.html">http://www.sphinx-doc.org/en/stable/markup/para.html</a></p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">note</span><span class="p">::</span>
+
+    This function is not suitable for sending spam e-mails.
+
+<span class="p">..</span> <span class="ow">warning</span><span class="p">::</span>
+<span class="p">..</span> <span class="ow">versionadded</span><span class="p">::</span> 2.5
+   The <span class="ge">*spam*</span> parameter.
+
+<span class="p">..</span> <span class="ow">versionchanged</span><span class="p">::</span>
+
+<span class="p">..</span> <span class="ow">deprecated</span><span class="p">::</span> 3.1
+   Use <span class="na">:func:</span><span class="nv">`spam`</span> instead.
+
+<span class="p">..</span> <span class="ow">seealso</span><span class="p">::</span> modules <span class="na">:py:mod:</span><span class="nv">`zipfile`</span>, <span class="na">:py:mod:</span><span class="nv">`tarfile`</span>
+<span class="p">..</span> <span class="ow">seealso</span><span class="p">::</span>
+
+   Module <span class="na">:py:mod:</span><span class="nv">`zipfile`</span>
+      Documentation of the <span class="na">:py:mod:</span><span class="nv">`zipfile`</span> standard module.
+
+   <span class="s">`GNU tar manual, Basic Tar Format </span><span class="si">&lt;http://link&gt;</span><span class="s">`_</span>
+      Documentation for tar archive files, including GNU tar extensions.
+
+<span class="p">..</span> <span class="ow">rubric</span><span class="p">::</span> title
+<span class="p">..</span> <span class="ow">centered</span><span class="p">::</span> LICENSE AGREEMENT
+<span class="p">..</span> <span class="ow">hlist</span><span class="p">::</span>
+   <span class="nc">:columns:</span> <span class="nf">3</span>
+
+   <span class="m">*</span> A list of
+   <span class="m">*</span> short items
+   <span class="m">*</span> that should be
+   <span class="m">*</span> displayed
+   <span class="m">*</span> horizontally
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="restructured-text-primer">
+<h2><a class="toc-backref" href="#id24">4.5. restructured text primer</a><a class="headerlink" href="#restructured-text-primer" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a></li>
+<li>Roles: <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html">http://docutils.sourceforge.net/docs/ref/rst/roles.html</a></li>
+<li>Directives<ul>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">http://docutils.sourceforge.net/docs/ref/rst/directives.html</a></li>
+<li>(a good summary of usefule ones) <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html#directives">http://www.sphinx-doc.org/en/stable/rest.html#directives</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html</a></li>
+</ul>
+<div class="section" id="heading-level-convention">
+<h3><a class="toc-backref" href="#id25">4.5.1. Heading-level convention</a><a class="headerlink" href="#heading-level-convention" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">#</span></code> with overline, for <strong>parts</strong></li>
+<li><code class="docutils literal"><span class="pre">*</span></code> with overline, for <strong>chapters</strong></li>
+<li><code class="docutils literal"><span class="pre">=</span></code>, for <strong>sections</strong></li>
+<li><code class="docutils literal"><span class="pre">-</span></code>, for <strong>subsections</strong></li>
+<li><code class="docutils literal"><span class="pre">^</span></code>, for <strong>subsubsections</strong></li>
+<li><code class="docutils literal"><span class="pre">&quot;</span></code>, for <strong>paragraphs</strong></li>
+</ul>
+</div>
+<div class="section" id="line-blocks">
+<h3><a class="toc-backref" href="#id26">4.5.2. Line blocks</a><a class="headerlink" href="#line-blocks" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="o">|</span> These lines are
+<span class="o">|</span> broken exactly like in
+<span class="o">|</span> the source file.
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">These lines are</div>
+<div class="line">broken exactly like in</div>
+<div class="line">the source file.</div>
+</div>
+</div>
+<div class="section" id="citations">
+<h3><a class="toc-backref" href="#id27">4.5.3. Citations</a><a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-rst"><div class="highlight"><pre><span></span>Lorem ipsum <span class="s">[Ref]_</span> dolor sit amet.
+
+<span class="p">..</span> <span class="nt">[Ref]</span> Book or article reference, URL or whatever.
+</pre></div>
+</div>
+</div>
+<div class="section" id="links">
+<h3><a class="toc-backref" href="#id28">4.5.4. links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-rst"><div class="highlight"><pre><span></span>This is a paragraph that contains <span class="s">`a link`_ and an `inline link </span><span class="si">&lt;http://www.espn.com&gt;</span><span class="s">`_</span>
+
+<span class="p">..</span> <span class="nt">_a link:</span> http://example.com/
+</pre></div>
+</div>
+<p>This is a paragraph that contains <a class="reference external" href="http://example.com/">a link</a> and an <a class="reference external" href="http://www.espn.com">inline link</a></p>
+</div>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id29">4.5.5. citations</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>In Sphinx, all citations can be referenced from all files.</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span>Lorem ipsum <span class="s">[Ref]_</span> dolor sit amet.
+
+<span class="p">..</span> <span class="nt">[Ref]</span> Book or article reference, URL or whatever.
+</pre></div>
+</div>
+<p>Lorem ipsum <a class="reference internal" href="#id3" id="id2">[Ref]</a> dolor sit amet.</p>
+<table class="docutils citation" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[Ref]</a></td><td>Book or article reference, URL or whatever.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="substitutions-stuffs">
+<h3><a class="toc-backref" href="#id30">4.5.6. substitutions <a href="#id5"><span class="problematic" id="id6">|stuffs|</span></a></a><a class="headerlink" href="#substitutions-stuffs" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#substitution-definitions">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#substitution-definitions</a></p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">|name|</span> <span class="ow">replace</span><span class="p">::</span> replacement <span class="ge">*text*</span>
+<span class="p">..</span> <span class="nt">|caution|</span> <span class="ow">image</span><span class="p">::</span> warning.png
+             <span class="nc">:alt:</span> <span class="nf">Warning!</span>
+</pre></div>
+</div>
+<p>Sphinx-built-in substitutions</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span>|release|
+|version|
+|today|
+</pre></div>
+</div>
+</div>
+<div class="section" id="comments">
+<h3><a class="toc-backref" href="#id31">4.5.7. comments</a><a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="cp">..</span>
+<span class="cp">   This whole indented block</span>
+<span class="cp">   is a comment.</span>
+
+<span class="cp">   Still in the comment.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="master-document-index-rst">
+<h2><a class="toc-backref" href="#id32">4.6. master document (index.rst)</a><a class="headerlink" href="#master-document-index-rst" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">index.rst</span></code></p>
+<ul class="simple">
+<li>contains the root of the <strong>toctree</strong> (connect multiple files to a single hierarchy of documents) (<a class="reference external" href="http://www.sphinx-doc.org/en/stable/tutorial.html#defining-document-structure">link</a>)</li>
+<li>The document that contains the root toctree directive. (<a class="reference external" href="http://www.sphinx-doc.org/en/stable/glossary.html#term-master-document">link</a>)</li>
+</ul>
+</div>
+<div class="section" id="publishing-on-github">
+<h2><a class="toc-backref" href="#id33">4.7. Publishing on github</a><a class="headerlink" href="#publishing-on-github" title="Permalink to this headline">¶</a></h2>
+<p>need to rename the following folders to <em>without</em> underscores</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_modules</span> <span class="o">-&gt;</span> <span class="n">modules</span>
+<span class="n">_sources</span> <span class="o">-&gt;</span> <span class="n">sources</span>
+<span class="n">_static</span> <span class="o">-&gt;</span> <span class="n">static</span>
+</pre></div>
+</div>
+<p>Also need to correct folder name on corresponding html file above (I simply use sed)</p>
+</div>
+<div class="section" id="sphinx-quickstart">
+<h2><a class="toc-backref" href="#id34">4.8. sphinx quickstart</a><a class="headerlink" href="#sphinx-quickstart" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/34483545/how-to-use-sphinx-quickstart-in-non-interactive-mode">http://stackoverflow.com/questions/34483545/how-to-use-sphinx-quickstart-in-non-interactive-mode</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sphinx-quickstart --quiet --project<span class="o">=</span>a --author<span class="o">=</span>a -v <span class="m">1</span> --ext-autodoc --ext-mathjax --no-batchfile
+</pre></div>
+</div>
+<div class="section" id="queries">
+<h3><a class="toc-backref" href="#id35">4.8.1. queries</a><a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Welcome to the Sphinx 1.4.5 quickstart utility.
+
+Please enter values <span class="k">for</span> the following settings <span class="o">(</span>just press Enter to
+accept a default value, <span class="k">if</span> one is given in brackets<span class="o">)</span>.
+
+Enter the root path <span class="k">for</span> documentation.
+&gt; Root path <span class="k">for</span> the documentation <span class="o">[</span>.<span class="o">]</span>:
+
+You have two options <span class="k">for</span> placing the build directory <span class="k">for</span> Sphinx output.
+Either, you use a directory <span class="s2">&quot;_build&quot;</span> within the root path, or you separate
+<span class="s2">&quot;source&quot;</span> and <span class="s2">&quot;build&quot;</span> directories within the root path.
+&gt; Separate <span class="nb">source</span> and build directories <span class="o">(</span>y/n<span class="o">)</span> <span class="o">[</span>n<span class="o">]</span>: y
+
+Inside the root directory, two more directories will be created<span class="p">;</span> <span class="s2">&quot;_templates&quot;</span>
+<span class="k">for</span> custom HTML templates and <span class="s2">&quot;_static&quot;</span> <span class="k">for</span> custom stylesheets and other static
+files. You can enter another prefix <span class="o">(</span>such as <span class="s2">&quot;.&quot;</span><span class="o">)</span> to replace the underscore.
+&gt; Name prefix <span class="k">for</span> templates and static dir <span class="o">[</span>_<span class="o">]</span>: AAA_
+
+The project name will occur in several places in the built documentation.
+&gt; Project name: <span class="nb">test</span>
+&gt; Author name<span class="o">(</span>s<span class="o">)</span>: <span class="nb">test</span>
+
+Sphinx has the notion of a <span class="s2">&quot;version&quot;</span> and a <span class="s2">&quot;release&quot;</span> <span class="k">for</span> the
+software. Each version can have multiple releases. For example, <span class="k">for</span>
+Python the version is something like 2.5 or 3.0, <span class="k">while</span> the release is
+something like 2.5.1 or 3.0a1.  If you don<span class="s1">&#39;t need this dual structure,</span>
+<span class="s1">just set both to the same value.</span>
+<span class="s1">&gt; Project version:</span>
+<span class="s1">* Please enter some text.</span>
+<span class="s1">&gt; Project version: 1</span>
+<span class="s1">&gt; Project release [1]:</span>
+
+<span class="s1">If the documents are to be written in a language other than English,</span>
+<span class="s1">you can select a language here by its language code. Sphinx will then</span>
+<span class="s1">translate text that it generates into that language.</span>
+
+<span class="s1">For a list of supported codes, see</span>
+<span class="s1">http://sphinx-doc.org/config.html#confval-language.</span>
+<span class="s1">&gt; Project language [en]:</span>
+
+<span class="s1">The file name suffix for source files. Commonly, this is either &quot;.txt&quot;</span>
+<span class="s1">or &quot;.rst&quot;.  Only files with this suffix are considered documents.</span>
+<span class="s1">&gt; Source file suffix [.rst]:</span>
+
+<span class="s1">One document is special in that it is considered the top node of the</span>
+<span class="s1">&quot;contents tree&quot;, that is, it is the root of the hierarchical structure</span>
+<span class="s1">of the documents. Normally, this is &quot;index&quot;, but if your &quot;index&quot;</span>
+<span class="s1">document is a custom template, you can also set this to another filename.</span>
+<span class="s1">&gt; Name of your master document (without suffix) [index]:</span>
+
+<span class="s1">Sphinx can also add configuration for epub output:</span>
+<span class="s1">&gt; Do you want to use the epub builder (y/n) [n]:</span>
+
+<span class="s1">Please indicate if you want to use one of the following Sphinx extensions:</span>
+<span class="s1">&gt; autodoc: automatically insert docstrings from modules (y/n) [n]: y</span>
+<span class="s1">&gt; doctest: automatically test code snippets in doctest blocks (y/n) [n]: n</span>
+<span class="s1">&gt; intersphinx: link between Sphinx documentation of different projects (y/n) [n]:</span>
+<span class="s1">&gt; todo: write &quot;todo&quot; entries that can be shown or hidden on build (y/n) [n]:</span>
+<span class="s1">&gt; coverage: checks for documentation coverage (y/n) [n]:</span>
+<span class="s1">&gt; imgmath: include math, rendered as PNG or SVG images (y/n) [n]:</span>
+<span class="s1">&gt; mathjax: include math, rendered in the browser by MathJax (y/n) [n]: y</span>
+<span class="s1">&gt; ifconfig: conditional inclusion of content based on config values (y/n) [n]:</span>
+<span class="s1">&gt; viewcode: include links to the source code of documented Python objects (y/n) [n]:</span>
+<span class="s1">&gt; githubpages: create .nojekyll file to publish the document on GitHub pages (y/n) [n]:</span>
+
+<span class="s1">A Makefile and a Windows command file can be generated for you so that you</span>
+<span class="s1">only have to run e.g. `make html&#39;</span> instead of invoking sphinx-build
+directly.
+&gt; Create Makefile? <span class="o">(</span>y/n<span class="o">)</span> <span class="o">[</span>y<span class="o">]</span>: y
+&gt; Create Windows <span class="nb">command</span> file? <span class="o">(</span>y/n<span class="o">)</span> <span class="o">[</span>y<span class="o">]</span>: n
+
+Creating file ./source/conf.py.
+Creating file ./source/index.rst.
+Creating file ./Makefile.
+
+Finished: An initial directory structure has been created.
+
+You should now populate your master file ./source/index.rst and create other documentation
+<span class="nb">source</span> files. Use the Makefile to build the docs, like so:
+   make builder
+where <span class="s2">&quot;builder&quot;</span> is one of the supported builders, e.g. html, latex or linkcheck.
+</pre></div>
+</div>
+</div>
+<div class="section" id="doc">
+<h3><a class="toc-backref" href="#id36">4.8.2. doc</a><a class="headerlink" href="#doc" title="Permalink to this headline">¶</a></h3>
+<p>Here&#8217;s the doc:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Sphinx v1.4.5
+Usage: sphinx-quickstart [options] [projectdir]
+
+Options:
+  --version             show program&#39;s version number and exit
+  -h, --help            show this help message and exit
+  -q, --quiet           quiet mode
+
+  Structure options:
+    --sep               if specified, separate source and build dirs
+    --dot=DOT           replacement for dot in _templates etc.
+
+  Project basic options:
+    -p PROJECT, --project=PROJECT
+                        project name
+    -a AUTHOR, --author=AUTHOR
+                        author names
+    -v VERSION          version of project
+    -r RELEASE, --release=RELEASE
+                        release of project
+    -l LANGUAGE, --language=LANGUAGE
+                        document language
+    --suffix=SUFFIX     source file suffix
+    --master=MASTER     master document name
+    --epub              use epub
+
+  Extension options:
+    --ext-autodoc       enable autodoc extension
+    --ext-doctest       enable doctest extension
+    --ext-intersphinx   enable intersphinx extension
+    --ext-todo          enable todo extension
+    --ext-coverage      enable coverage extension
+    --ext-imgmath       enable imgmath extension
+    --ext-mathjax       enable mathjax extension
+    --ext-ifconfig      enable ifconfig extension
+    --ext-viewcode      enable viewcode extension
+    --ext-githubpages   enable githubpages extension
+
+  Makefile and Batchfile creation:
+    --makefile          create makefile
+    --no-makefile       not create makefile
+    --batchfile         create batchfile
+    --no-batchfile      not create batchfile
+    -M, --no-use-make-mode
+                        not use make-mode for Makefile/make.bat
+    -m, --use-make-mode
+                        use make-mode for Makefile/make.bat
+
+For more information, visit &lt;http://sphinx-doc.org/&gt;.
+</pre></div>
+</div>
+</div>
+<p>    For more information, visit &lt;<a class="reference external" href="http://sphinx-doc.org/">http://sphinx-doc.org/</a>&gt;.</p>
+</div>
+<div class="section" id="google-style-vs-numpy-style-docstring">
+<h2><a class="toc-backref" href="#id37">4.9. Google-style vs numpy-style docstring</a><a class="headerlink" href="#google-style-vs-numpy-style-docstring" title="Permalink to this headline">¶</a></h2>
+<p>ref - <a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-napoleon">https://pypi.python.org/pypi/sphinxcontrib-napoleon</a></p>
+<div class="section" id="google-style-like-theano">
+<h3><a class="toc-backref" href="#id38">4.9.1. Google style (like theano)</a><a class="headerlink" href="#google-style-like-theano" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Summary line.</span>
+
+<span class="sd">    Extended description of function.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arg1 (int): Description of arg1</span>
+<span class="sd">        arg2 (str): Description of arg2</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: Description of return value</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="numpy-style-my-preference">
+<h3><a class="toc-backref" href="#id39">4.9.2. NumPy style (my preference)</a><a class="headerlink" href="#numpy-style-my-preference" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Summary line.</span>
+
+<span class="sd">    Extended description of function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arg1 : int</span>
+<span class="sd">        Description of arg1</span>
+<span class="sd">    arg2 : str</span>
+<span class="sd">        Description of arg2</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        Description of return value</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal"><span class="pre">conf.py</span></code>: <a class="reference external" href="https://raw.githubusercontent.com/pydata/pandas/master/doc/source/conf.py">https://raw.githubusercontent.com/pydata/pandas/master/doc/source/conf.py</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span>
+              <span class="s1">&#39;numpydoc&#39;</span><span class="p">,</span> <span class="c1"># used to parse numpy-style docstrings for autodoc</span>
+              <span class="s1">&#39;ipython_sphinxext.ipython_directive&#39;</span><span class="p">,</span>
+              <span class="o">...</span>
+              <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cs-R.html" class="btn btn-neutral float-right" title="5. R" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cs-python.html" class="btn btn-neutral" title="3. Python" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="static/jquery.js"></script>
+      <script type="text/javascript" src="static/underscore.js"></script>
+      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9. qsubber &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="index.html"/>
+        <link rel="next" title="10. regular expressions" href="cs-regexp.html"/>
+        <link rel="prev" title="8. python-jupyter-notebook" href="cs-py-jupyter-notebook.html"/> 
+
+  
+  <script src="static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. qsubber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qsub-helper">9.1. qsub helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qsub-helper-old-pre-april-2016">9.2. qsub helper (old, pre April 2016</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-3-step-receipe-for-matlab">9.2.1. A 3 step receipe for matlab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memrec-to-evaluate-appropriate-h-vmem-value">9.2.2. <code class="docutils literal"><span class="pre">memrec</span></code> (to evaluate appropriate <code class="docutils literal"><span class="pre">h_vmem</span></code> value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qstat">9.2.3. <code class="docutils literal"><span class="pre">qstat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usr-bin-time-to-see-multithreaded-or-not">9.2.4. <code class="docutils literal"><span class="pre">/usr/bin/time</span></code> to see multithreaded or not</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">15. sql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>9. qsubber</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="sources/cs-qsubber.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qsubber">
+<span id="id1"></span><h1><a class="toc-backref" href="#id2">9. qsubber</a><a class="headerlink" href="#qsubber" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first"><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#qsubber" id="id2">qsubber</a><ul>
+<li><a class="reference internal" href="#qsub-helper" id="id3">qsub helper</a></li>
+<li><a class="reference internal" href="#qsub-helper-old-pre-april-2016" id="id4">qsub helper (old, pre April 2016</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Test ref link to <a class="reference internal" href="cs-regexp.html#regexp"><span class="std std-ref">regular expressions</span></a></p>
+<div class="section" id="qsub-helper">
+<h2><a class="toc-backref" href="#id3">9.1. qsub helper</a><a class="headerlink" href="#qsub-helper" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>qsub-run python tobpnc_save_bct_csv0721.py 0.1 True
+
+<span class="c1"># create my own qsub-run script that suppresses email</span>
+myqsub-run.sh python tobpnc_save_bct_csv0721.py 0.1 True
+</pre></div>
+</div>
+</div>
+<div class="section" id="qsub-helper-old-pre-april-2016">
+<h2><a class="toc-backref" href="#id4">9.2. qsub helper (old, pre April 2016</a><a class="headerlink" href="#qsub-helper-old-pre-april-2016" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-3-step-receipe-for-matlab">
+<h3>9.2.1. A 3 step receipe for matlab<a class="headerlink" href="#a-3-step-receipe-for-matlab" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">tw_mcc</span> <span class="n">myprog</span><span class="o">.</span><span class="n">m</span>
+<span class="n">qsub</span><span class="o">-</span><span class="n">run</span> <span class="o">-</span><span class="n">c</span> <span class="o">./</span><span class="n">myprog</span> <span class="o">&gt;</span> <span class="n">myprog</span><span class="o">.</span><span class="n">sh</span>  <span class="c1"># &lt;- don&#39;t forget to include &quot;./&quot;</span>
+<span class="n">qsub</span> <span class="n">myprog</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="memrec-to-evaluate-appropriate-h-vmem-value">
+<h3>9.2.2. <code class="docutils literal"><span class="pre">memrec</span></code> (to evaluate appropriate <code class="docutils literal"><span class="pre">h_vmem</span></code> value<a class="headerlink" href="#memrec-to-evaluate-appropriate-h-vmem-value" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">memrec</span> <span class="o">-</span><span class="n">d</span> <span class="mi">5</span> <span class="o">./</span><span class="n">myprog</span> <span class="o">&amp;</span> <span class="c1"># &quot;-d 5&quot; makes recording every 5 sec</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Run above to make recordings every 5 sec, and output memory usage to <code class="docutils literal"><span class="pre">memprofile.txt</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">memprofile.txt</span></code> has 3 columns:</p>
+<p>(1) <strong>SecondsRunning</strong> (2) <strong>ProcessMemory</strong> (3) <strong>ChildMemory</strong></p>
+</li>
+<li><p class="first">Set <code class="docutils literal"><span class="pre">h_vmem</span></code> at 10~15% above (2)+(3) above</p>
+</li>
+</ul>
+</div>
+<div class="section" id="qstat">
+<h3>9.2.3. <code class="docutils literal"><span class="pre">qstat</span></code><a class="headerlink" href="#qstat" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">qstat</span> <span class="o">-</span><span class="n">r</span>
+<span class="n">qstat</span> <span class="o">-</span><span class="n">r</span> <span class="o">|</span> <span class="n">egrep</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;full jobname&quot;</span>
+<span class="n">qstat</span> <span class="o">-</span><span class="n">j</span> <span class="n">job</span><span class="o">-</span><span class="n">ID</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">usage</span>
+<span class="n">qstat</span> <span class="o">-</span><span class="n">u</span> <span class="s1">&#39;*&#39;</span> <span class="c1"># &lt;- see all users</span>
+
+<span class="c1"># delete jobs</span>
+<span class="n">qdel</span> <span class="n">JOBID</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usr-bin-time-to-see-multithreaded-or-not">
+<h3>9.2.4. <code class="docutils literal"><span class="pre">/usr/bin/time</span></code> to see multithreaded or not<a class="headerlink" href="#usr-bin-time-to-see-multithreaded-or-not" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">time</span> <span class="o">-</span><span class="n">pv</span> <span class="n">myprog</span>
+</pre></div>
+</div>
+<p>Or just simply run the program, and use <code class="docutils literal"><span class="pre">top</span></code> to evaluate cpu usage</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cs-regexp.html" class="btn btn-neutral float-right" title="10. regular expressions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cs-py-jupyter-notebook.html" class="btn btn-neutral" title="8. python-jupyter-notebook" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="static/jquery.js"></script>
+      <script type="text/javascript" src="static/underscore.js"></script>
+      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

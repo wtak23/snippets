@@ -1,0 +1,629 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. bash-scripts &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="index.html"/>
+        <link rel="next" title="3. Python" href="cs-python.html"/>
+        <link rel="prev" title="1. bash-commands" href="cs-bash-commands.html"/> 
+
+  
+  <script src="static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. bash-scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qsub">2.1. qsub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#my-old-qsub-approach">2.1.1. my old qsub approach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slave-script">2.1.1.1. slave script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minimalist-call">2.1.1.2. minimalist call</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#master-script">2.1.1.3. master script</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#qsub-run">2.1.2. qsub-run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#place-exit-1-to-end-script">2.2. place exit 1 to end script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#style-guide-and-conventions">2.3. Style-guide and conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arrays">2.4. arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#expanding-indices">2.4.1. Expanding indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practical-example">2.4.2. practical example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#control-rsync-recursive-depth">2.5. control rsync recursive depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skip-scp-if-file-exist-tldr-use-rsync">2.6. skip scp if file exist (tldr - use rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsync-symlinks">2.7. rsync symlinks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appending-concatenating-variables">2.8. Appending/concatenating variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-vs-command">2.9. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variable-name-convention">2.10. variable name convention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-expand-tilde">2.11. How to expand ~ (tilde)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17">2.12. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vs-in-arrays">2.13. [&#64;] vs [*] in arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.14. 1&gt;&amp;2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-statements-and-test-conditions">2.15. if statements and test conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#argh-can-t-comment-over-line-breaks">2.16. argh...can&#8217;t comment over line breaks....</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-directory-of-running-bash-script">2.17. get directory of running bash script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">15. sql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>2. bash-scripts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="sources/cs-bash-scripts.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bash-scripts">
+<h1><a class="toc-backref" href="#id2">2. bash-scripts</a><a class="headerlink" href="#bash-scripts" title="Permalink to this headline">¶</a></h1>
+<p>Here snippets and explanations for writing bash scripts</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first"><strong>Table of Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#bash-scripts" id="id2">bash-scripts</a><ul>
+<li><a class="reference internal" href="#qsub" id="id3">qsub</a></li>
+<li><a class="reference internal" href="#place-exit-1-to-end-script" id="id4">place exit 1 to end script</a></li>
+<li><a class="reference internal" href="#style-guide-and-conventions" id="id5">Style-guide and conventions</a></li>
+<li><a class="reference internal" href="#arrays" id="id6">arrays</a></li>
+<li><a class="reference internal" href="#control-rsync-recursive-depth" id="id7">control rsync recursive depth</a></li>
+<li><a class="reference internal" href="#skip-scp-if-file-exist-tldr-use-rsync" id="id8">skip scp if file exist (tldr - use rsync</a></li>
+<li><a class="reference internal" href="#rsync-symlinks" id="id9">rsync symlinks</a></li>
+<li><a class="reference internal" href="#appending-concatenating-variables" id="id10">Appending/concatenating variables</a></li>
+<li><a class="reference internal" href="#command-vs-command" id="id11"><code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
+<li><a class="reference internal" href="#variable-name-convention" id="id12">variable name convention</a></li>
+<li><a class="reference internal" href="#how-to-expand-tilde" id="id13">How to expand ~ (tilde)</a></li>
+<li><a class="reference internal" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17" id="id14">Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
+<li><a class="reference internal" href="#vs-in-arrays" id="id15">[&#64;] vs [*] in arrays</a></li>
+<li><a class="reference internal" href="#id1" id="id16">1&gt;&amp;2</a></li>
+<li><a class="reference internal" href="#if-statements-and-test-conditions" id="id17">if statements and test conditions</a></li>
+<li><a class="reference internal" href="#argh-can-t-comment-over-line-breaks" id="id18">argh...can&#8217;t comment over line breaks....</a></li>
+<li><a class="reference internal" href="#get-directory-of-running-bash-script" id="id19">get directory of running bash script</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="qsub">
+<h2><a class="toc-backref" href="#id3">2.1. qsub</a><a class="headerlink" href="#qsub" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="my-old-qsub-approach">
+<h3>2.1.1. my old qsub approach<a class="headerlink" href="#my-old-qsub-approach" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="slave-script">
+<h4>2.1.1.1. slave script<a class="headerlink" href="#slave-script" title="Permalink to this headline">¶</a></h4>
+<p>Create <code class="docutils literal"><span class="pre">qsub_batch.sh</span></code> with the following content:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#$ -S /bin/bash</span>
+<span class="c1">#$ -cwd</span>
+
+<span class="c1">#$ -l h_vmem=4G</span>
+
+ipython <span class="s2">&quot;/sbia/home/watanabt/python/analysis/pnc/ncv_conn_random/pnc_randomized_ncv.py&quot;</span> <span class="se">\</span>
+    <span class="si">${</span><span class="nv">age_group</span><span class="si">}</span> <span class="si">${</span><span class="nv">clf_name</span><span class="si">}</span> <span class="si">${</span><span class="nv">cv_outer</span><span class="si">}</span> <span class="si">${</span><span class="nv">cv_inner</span><span class="si">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="minimalist-call">
+<h4>2.1.1.2. minimalist call<a class="headerlink" href="#minimalist-call" title="Permalink to this headline">¶</a></h4>
+<p>No stdout, stderr</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>qsub -v arg1, arg2, arg3, arg4 qsub_batch.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="master-script">
+<h4>2.1.1.3. master script<a class="headerlink" href="#master-script" title="Permalink to this headline">¶</a></h4>
+<p>This script will repeatedly call above:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># ===============================================================================</span>
+<span class="c1"># Nested 10-fold CV on the PNC data at arbitrary &quot;random_state&quot; values.</span>
+<span class="c1"># Script to be called with the falling argv inputs:</span>
+<span class="c1"># - argv[1] = age_group (&#39;q1&#39;, &#39;q2&#39;, &#39;q3&#39;, or &#39;all&#39;)</span>
+<span class="c1"># - argv[2] = clf_name (see available classifiers from &quot;pnc_clf_choice.py&quot;)</span>
+<span class="c1"># - argv[3] = rand_st_outercv - integer of random_state for outer-cv</span>
+<span class="c1"># - argv[4] = rand_st_innercv - integer of random_state for inner-cv</span>
+<span class="c1">#</span>
+<span class="c1"># File shall be saved at:/&lt;this script&#39;s location&gt;/dump/&lt;clf_name&gt;/***.pkl</span>
+<span class="c1">#</span>
+<span class="c1"># Example call from shell:</span>
+<span class="c1"># ipython pnc_randomized_ncv.py q1 sklLogregL1 $(shuf -i 1-500000 -n 2)</span>
+<span class="c1"># ===============================================================================</span>
+
+<span class="c1"># http://www.thegeekstuff.com/2010/06/bash-array-tutorial/</span>
+<span class="nv">age_group</span><span class="o">=</span>q1
+<span class="nv">clf_name</span><span class="o">=</span>sklLogregL1
+
+<span class="c1"># create random integer between 1 to 500000 for random_state</span>
+<span class="nv">cv_outer</span><span class="o">=</span><span class="k">$(</span>shuf -i 1-500000 -n 1<span class="k">)</span>
+<span class="nv">cv_inner</span><span class="o">=</span><span class="k">$(</span>shuf -i 1-500000 -n 1<span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;ipython pnc_randomized_ncv.py </span><span class="si">${</span><span class="nv">age_group</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">clf_name</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">cv_outer</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">cv_inner</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1">#qsub -v age_group=${age_group},clf_name=$clf_name,cv_outer=${cv_outer},cv_inner=${cv_inner} qsub_batch.sh</span>
+
+
+qsub <span class="se">\</span>
+    -v <span class="nv">age_group</span><span class="o">=</span><span class="si">${</span><span class="nv">age_group</span><span class="si">}</span>,clf_name<span class="o">=</span><span class="nv">$clf_name</span>,cv_outer<span class="o">=</span><span class="si">${</span><span class="nv">cv_outer</span><span class="si">}</span>,cv_inner<span class="o">=</span><span class="si">${</span><span class="nv">cv_inner</span><span class="si">}</span> <span class="se">\</span>
+    -o <span class="nv">$HOME</span>/sge_job_output/1104_pnc/stdout/<span class="si">${</span><span class="nv">age_group</span><span class="si">}</span>_<span class="si">${</span><span class="nv">clf_name</span><span class="si">}</span>_<span class="si">${</span><span class="nv">cv_outer</span><span class="si">}</span>_<span class="si">${</span><span class="nv">cv_inner</span><span class="si">}</span>.<span class="se">\$</span>JOB_ID.stdout  <span class="se">\</span>
+    -e <span class="nv">$HOME</span>/sge_job_output/1104_pnc/stderr/<span class="si">${</span><span class="nv">age_group</span><span class="si">}</span>_<span class="si">${</span><span class="nv">clf_name</span><span class="si">}</span>_<span class="si">${</span><span class="nv">cv_outer</span><span class="si">}</span>_<span class="si">${</span><span class="nv">cv_inner</span><span class="si">}</span>.<span class="se">\$</span>JOB_ID.stderr  <span class="se">\</span>
+    qsub_batch.sh
+</pre></div>
+</div>
+<p>See <code class="docutils literal"><span class="pre">/home/takanori/Dropbox/work/sbia_work/python/analysis/pnc/ncv_conn_random</span></code>
+for old execution example</p>
+</div>
+</div>
+<div class="section" id="qsub-run">
+<h3>2.1.2. qsub-run<a class="headerlink" href="#qsub-run" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># create</span>
+qsub-run -c python script.py arg1 arg2 &gt; out.sh
+
+<span class="c1"># example</span>
+qsub-run -c python save_0726_bct_weighted_normalized.py 0.15 True &gt; qsub_0726.sh
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="place-exit-1-to-end-script">
+<h2><a class="toc-backref" href="#id4">2.2. place exit 1 to end script</a><a class="headerlink" href="#place-exit-1-to-end-script" title="Permalink to this headline">¶</a></h2>
+<p>Similar to how i use <code class="docutils literal"><span class="pre">sys.exit()</span></code> in python</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ... bunch of script above ...</span>
+<span class="n">exit</span> <span class="mi">1</span>
+<span class="c1"># ... bunch of sciprt below ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="style-guide-and-conventions">
+<h2><a class="toc-backref" href="#id5">2.3. Style-guide and conventions</a><a class="headerlink" href="#style-guide-and-conventions" title="Permalink to this headline">¶</a></h2>
+<p>Great reference: <a class="reference external" href="https://google.github.io/styleguide/shell.xml">https://google.github.io/styleguide/shell.xml</a></p>
+<ul class="simple">
+<li>Variable name: <a class="reference external" href="http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts">http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts</a><ul>
+<li><strong>Variable Names</strong>: Lower-case, with underscores to separate words.
+Ex: <code class="docutils literal"><span class="pre">my_variable_name</span></code></li>
+<li><strong>Constants</strong> and <strong>Environment Variable</strong> Names: All caps, separated with
+underscores, declared at the top of the file. Ex: <code class="docutils literal"><span class="pre">MY_CONSTANT</span></code></li>
+</ul>
+</li>
+<li>Indentation: <a class="reference external" href="http://unix.stackexchange.com/questions/39210/whats-the-standard-for-indentation-in-shell-scripts">http://unix.stackexchange.com/questions/39210/whats-the-standard-for-indentation-in-shell-scripts</a></li>
+<li>Line-wrap: <a class="reference external" href="http://unix.stackexchange.com/questions/39210/whats-the-standard-for-indentation-in-shell-scripts">http://unix.stackexchange.com/questions/39210/whats-the-standard-for-indentation-in-shell-scripts</a><ul>
+<li>apprently none, so stick with one convention</li>
+<li>my convention: use the 4-space tab</li>
+</ul>
+</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span># my 4-space convention
+rsync -rvL --ignore-existing --exclude=&quot;/*/*/*/&quot; \
+    ${source_dir}/${foldername} \
+    ${tob_dir}/$[foldername}
+</pre></div>
+</div>
+</div>
+<div class="section" id="arrays">
+<h2><a class="toc-backref" href="#id6">2.4. arrays</a><a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">http://mywiki.wooledge.org/BashGuide/Arrays</a></p>
+<p>Remember to <strong>quote</strong> the <code class="docutils literal"><span class="pre">${arrayname[&#64;]}</span></code> expansion properly</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ for file in &quot;${myfiles[@]}&quot;; do
+&gt;     cp &quot;$file&quot; /backups/
+&gt; done
+</pre></div>
+</div>
+<p>Remember these expansion</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">${arrayname[&#64;]}</span></code> &#8211; xpands to a list of words, with each array element as
+one word, no matter what it contains.
+Even if there are spaces, tabs, newlines, quotation marks, or any other kind of characters</li>
+<li><code class="docutils literal"><span class="pre">${arrayname[*]}</span></code> &#8211; ONLY useful for converting arrays into a single string
+with all the elements joined together</li>
+<li><code class="docutils literal"><span class="pre">${#arrayname[&#64;]}</span></code> &#8211; length of array</li>
+<li><code class="docutils literal"><span class="pre">${!arrayname[&#64;]}</span></code> &#8211; expand list of indices of array</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># The easiest way to create a simple array with data is by using the =() syntax:</span>
+<span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span> <span class="s2">&quot;Peter&quot;</span> <span class="s2">&quot;$USER&quot;</span> <span class="s2">&quot;Big Bad John&quot;</span><span class="p">)</span>
+
+<span class="c1"># ${#array[@]} = length of lists</span>
+<span class="n">echo</span> <span class="s2">&quot;There are ${#names[@]} items in the list&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">There</span> <span class="n">are</span> <span class="mi">4</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="s2">&quot;$</span><span class="si">{names[@]}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="n">do</span> <span class="n">echo</span> <span class="s2">&quot;$name&quot;</span><span class="p">;</span> <span class="n">done</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Bob</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Peter</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">takanori</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Big</span> <span class="n">Bad</span> <span class="n">John</span>
+
+<span class="c1">#  &quot;${arrayname[*]}&quot;.</span>
+<span class="c1"># This form is ONLY useful for converting arrays into a single string with all the elements joined together</span>
+<span class="n">echo</span> <span class="s2">&quot;Today&#39;s contestants are: $</span><span class="si">{names[*]}</span><span class="s2">&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Today</span><span class="s1">&#39;s contestants are: Bob Peter takanori Big Bad John</span>
+
+
+<span class="c1">#http://unix.stackexchange.com/questions/136118/convert-all-text-from-uppercase-to-lowercase-and-vice-versa</span>
+<span class="c1">#http://stackoverflow.com/questions/689495/upper-to-lower-case-using-sed</span>
+<span class="c1">#https://www.gnu.org/software/sed/manual/html_node/The-_0022s_0022-Command.html</span>
+<span class="c1"># (note: \U\1 converts first group to uppercase, \L\2 2nd grou pto lower)</span>
+<span class="c1"># (/g is for all)</span>
+<span class="c1"># (-E for extended regexp, me believes)</span>
+<span class="n">echo</span> <span class="s2">&quot;$</span><span class="si">{names[@]}</span><span class="s2">&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="o">-</span><span class="n">E</span> <span class="s1">&#39;s/([a-z])|([A-Z])/\U</span><span class="se">\1</span><span class="s1">\L</span><span class="se">\2</span><span class="s1">/g&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bOB</span> <span class="n">pETER</span> <span class="n">TAKANORI</span> <span class="n">bIG</span> <span class="n">bAD</span> <span class="n">jOHN</span>
+
+<span class="n">echo</span> <span class="s2">&quot;$</span><span class="si">{names[@]}</span><span class="s2">&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="o">-</span><span class="n">E</span> <span class="s1">&#39;s/([[:lower:]])/\U</span><span class="se">\1</span><span class="s1">/g&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">BOB</span> <span class="n">PETER</span> <span class="n">TAKANORI</span> <span class="n">BIG</span> <span class="n">BAD</span> <span class="n">JOHN</span>
+</pre></div>
+</div>
+<div class="section" id="expanding-indices">
+<h3>2.4.1. Expanding indices<a class="headerlink" href="#expanding-indices" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">${!arrayname[&#64;]}</span></code> expands to a list of the indices of an array, in sequential order.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ first=(Jessica Sue Peter)
+$ last=(Jones Storm Parker)
+$ for i in &quot;${!first[@]}&quot;; do
+&gt; echo &quot;${first[i]} ${last[i]}&quot;
+&gt; done
+Jessica Jones
+Sue Storm
+Peter Parker
+</pre></div>
+</div>
+<p>Can also use the <strong>length of array</strong> syntax <code class="docutils literal"><span class="pre">${#names[&#64;]}</span></code></p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ a=(a b c q w x y z)
+$ for ((i=0; i&lt;${#a[@]}; i+=2)); do
+&gt; echo &quot;${a[i]} and ${a[i+1]}&quot;
+&gt; done
+</pre></div>
+</div>
+</div>
+<div class="section" id="practical-example">
+<h3>2.4.2. practical example<a class="headerlink" href="#practical-example" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>target_dir=${HOME}/data/tob/dti_volumes
+source_dir=${HOME}/data/tob/source
+data_array=$(find  ${source_dir} | egrep &#39;FA\.nii\.gz&#39;)
+for i in  $data_array; do
+  # echo -e &quot;Copy ${i} to ${target_dir}&quot;
+  # echo -e &quot;cp ${i} ${target_dir}&quot;
+  cp ${i} ${target_dir}
+done
+</pre></div>
+</div>
+<p>Remember to <strong>always avoid using ls</strong></p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ files=$(ls)    # BAD, BAD, BAD!
+$ files=($(ls))  # STILL BAD!
+$ files=(*)      # Good!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="control-rsync-recursive-depth">
+<h2><a class="toc-backref" href="#id7">2.5. control rsync recursive depth</a><a class="headerlink" href="#control-rsync-recursive-depth" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders">http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders</a></p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1">#Facilitate the --exclude= option.</span>
+<span class="c1">#To sync to a depth of 2 (files within folder and subfolders):</span>
+<span class="n">rsync</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;/*/*/&quot;</span> <span class="n">source</span><span class="o">/</span> <span class="n">target</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="skip-scp-if-file-exist-tldr-use-rsync">
+<h2><a class="toc-backref" href="#id8">2.6. skip scp if file exist (tldr - use rsync</a><a class="headerlink" href="#skip-scp-if-file-exist-tldr-use-rsync" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://unix.stackexchange.com/questions/14191/scp-without-replacing-existing-files-in-the-destination">http://unix.stackexchange.com/questions/14191/scp-without-replacing-existing-files-in-the-destination</a></li>
+<li><code class="docutils literal"><span class="pre">rsync</span> <span class="pre">-a</span> <span class="pre">--ignore-existing</span> <span class="pre">\${source_dir}</span> <span class="pre">\${target_dir}</span></code></li>
+<li>whoa, math-mode is working! $\frac{1}{2}\beta$</li>
+</ul>
+</div>
+<div class="section" id="rsync-symlinks">
+<h2><a class="toc-backref" href="#id9">2.7. rsync symlinks</a><a class="headerlink" href="#rsync-symlinks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://superuser.com/questions/799354/rsync-and-symbolic-links">http://superuser.com/questions/799354/rsync-and-symbolic-links</a></li>
+</ul>
+</div>
+<div class="section" id="appending-concatenating-variables">
+<h2><a class="toc-backref" href="#id10">2.8. Appending/concatenating variables</a><a class="headerlink" href="#appending-concatenating-variables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash">http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash</a></li>
+<li><a class="reference external" href="http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented">http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented</a></li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">source_dir</span><span class="o">=</span><span class="s2">&quot;watanabt@cbica-cluster.uphs.upenn.edu:&quot;</span>
+<span class="n">source_dir</span><span class="o">+=</span><span class="s2">&quot;/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps&quot;</span>
+
+<span class="c1"># or</span>
+<span class="n">source_dir</span><span class="o">=</span><span class="s2">&quot;watanabt@cbica-cluster.uphs.upenn.edu:&quot;</span>
+<span class="n">source_dir</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{source_dir}</span><span class="s2">/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-vs-command">
+<h2><a class="toc-backref" href="#id11">2.9. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a><a class="headerlink" href="#command-vs-command" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>$(commands) does the same thing as backticks, but you can nest them.</li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks">source</a></li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>echo $(date +&quot;%Y-%m-%d_%H:%M:%S&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="variable-name-convention">
+<h2><a class="toc-backref" href="#id12">2.10. variable name convention</a><a class="headerlink" href="#variable-name-convention" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>UPPERCASE for env-vars and constant values</li>
+<li>lowercase for local vars</li>
+</ul>
+<p><a class="reference external" href="http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts">http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts</a></p>
+</div>
+<div class="section" id="how-to-expand-tilde">
+<h2><a class="toc-backref" href="#id13">2.11. How to expand ~ (tilde)</a><a class="headerlink" href="#how-to-expand-tilde" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash">http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash</a>
+<code class="docutils literal"><span class="pre">echo</span> <span class="pre">${HOME}</span></code></p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>out_dir=&quot;${HOME}/data/tob/dti_volumes&quot;
+echo ${out_dir}
+echo ${out_dir}/subdirec
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-directory-if-it-doesn-t-exist-06-14-2016-00-17">
+<h2><a class="toc-backref" href="#id14">2.12. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a><a class="headerlink" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">-p</span></code> option does it, but for pedagogical purpose...</li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist">http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist</a></li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>if [ ! -d /home/mlzboy/b2c2/shared/db ]
+then
+    mkdir -p /home/mlzboy/b2c2/shared/db
+fi
+</pre></div>
+</div>
+</div>
+<div class="section" id="vs-in-arrays">
+<h2><a class="toc-backref" href="#id15">2.13. [&#64;] vs [*] in arrays</a><a class="headerlink" href="#vs-in-arrays" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple">http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple</a></p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>perls=(perl-one perl-two)
+
+# equivalence with *
+compgen -W &quot;${perls[*]} /usr/bin/perl&quot; -- ${cur}
+compgen -W &quot;perl-one perl-two /usr/bin/perl&quot; -- ${cur}
+
+#equivalence with @
+perls=(perl-one perl-two)
+compgen -W &quot;${perls[@]} /usr/bin/perl&quot; -- ${cur}
+compgen -W &quot;perl-one&quot; &quot;perl-two /usr/bin/perl&quot; -- ${cur}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id16">2.14. 1&gt;&amp;2</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean">http://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean</a></p>
+<blockquote>
+<div><ul class="simple">
+<li>File descriptor 1 is the standard output (stdout).</li>
+<li>File descriptor 2 is the standard error (stderr).</li>
+</ul>
+<p>Here is one way to remember this construct (although it is not entirely
+accurate): at first, 2&gt;1 may look like a good way to redirect stderr to
+stdout. However, it will actually be interpreted as &#8220;redirect stderr to a
+file named 1&#8221;. &amp; indicates that what follows is a file descriptor and not a
+filename. So the construct becomes: <code class="docutils literal"><span class="pre">2&gt;&amp;1</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="if-statements-and-test-conditions">
+<h2><a class="toc-backref" href="#id17">2.15. if statements and test conditions</a><a class="headerlink" href="#if-statements-and-test-conditions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Great table here: <a class="reference external" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html</a></li>
+<li><a class="reference external" href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-6.html">http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-6.html</a></li>
+</ul>
+</div>
+<div class="section" id="argh-can-t-comment-over-line-breaks">
+<h2><a class="toc-backref" href="#id18">2.16. argh...can&#8217;t comment over line breaks....</a><a class="headerlink" href="#argh-can-t-comment-over-line-breaks" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/9522631/how-to-put-line-comment-for-a-multi-line-command">http://stackoverflow.com/questions/9522631/how-to-put-line-comment-for-a-multi-line-command</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># meh, can&#39;t do this...</span>
+CommandName InputFiles      <span class="se">\ </span><span class="c1"># This is the comment for the 1st line</span>
+            --option1 arg1  <span class="se">\ </span><span class="c1"># This is the comment for the 2nd line</span>
+            --option2 arg2    <span class="c1"># This is the comment for the 3nd line</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-directory-of-running-bash-script">
+<h2><a class="toc-backref" href="#id19">2.17. get directory of running bash script</a><a class="headerlink" href="#get-directory-of-running-bash-script" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in">http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span> <span class="nb">cd</span> <span class="s2">&quot;</span><span class="k">$(</span> dirname <span class="s2">&quot;</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span> <span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cs-python.html" class="btn btn-neutral float-right" title="3. Python" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cs-bash-commands.html" class="btn btn-neutral" title="1. bash-commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="static/jquery.js"></script>
+      <script type="text/javascript" src="static/underscore.js"></script>
+      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
