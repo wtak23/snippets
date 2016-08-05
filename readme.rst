@@ -1,5 +1,7 @@
 My **snippets** and **cheat-sheet** lookup repos.
 
+Hosted on https://wtak23.github.io/snippets/
+
 On 08-05-2016 (13:38), decided to convert build this into html using Sphinx.
 
 .. code-block:: bash

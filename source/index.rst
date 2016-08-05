@@ -10,19 +10,20 @@ Welcome to Snippets's documentation!
     :numbered:
     :caption: Table of Contents
 
-    cs-awk-oneliners.rst
     cs-bash-commands.rst
     cs-bash-scripts.rst
+    cs-python.rst
+    cs-sphinx.rst
+    cs-R.rst
+    cs-awk-oneliners.rst
     cs-perl-oneliners.rst
     cs-py-jupyter-notebook.rst
-    cs-python.rst
     cs-qsubber.rst
     cs-regexp.rst
     cs-rst.rst
     cs-rst-old.rst
     cs-sed-oneliners.rst
     cs-sed.rst
-    cs-sphinx.rst
     cs-sql.rst
 
 

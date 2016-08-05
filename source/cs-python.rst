@@ -32,6 +32,8 @@ http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-sli
 
 
 .. code-block:: python
+    :linenos:
+    :emphasize-lines: 2-6
 
     X = tw.data.tob_pnc.load_connectome()[0]
 
