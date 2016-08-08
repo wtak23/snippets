@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>16.3. Summary of AWK Commands &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/favicon-penn.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="../index.html"/>
+        <link rel="up" title="16. awk-tutorial" href="index.html"/>
+        <link rel="next" title="16.4. AWK Built-in Variables" href="awk-builtin-vars.html"/>
+        <link rel="prev" title="16.2. The Essential Syntax of AWK" href="awk-essential-syntax.html"/> 
+
+  
+  <script src="../static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">15. sql</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">16. awk-tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">16.1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">16.2. The Essential Syntax of AWK</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">16.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">16.4. AWK Built-in Variables</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">16. awk-tutorial</a> &raquo;</li>
+        
+      <li>16.3. Summary of AWK Commands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../sources/awk-tutorial/awk-summary-commands.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="summary-of-awk-commands">
+<h1>16.3. Summary of AWK Commands<a class="headerlink" href="#summary-of-awk-commands" title="Permalink to this headline">¶</a></h1>
+<p>There are only a few commands in AWK. The list and syntax follows:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span> conditional <span class="o">)</span> statement <span class="o">[</span> <span class="k">else</span> statement <span class="o">]</span>
+<span class="k">while</span> <span class="o">(</span> conditional <span class="o">)</span> statement
+<span class="k">for</span> <span class="o">(</span> expression <span class="p">;</span> conditional <span class="p">;</span> expression <span class="o">)</span> statement
+<span class="k">for</span> <span class="o">(</span> variable in array <span class="o">)</span> statement
+<span class="nb">break</span>
+<span class="k">continue</span>
+<span class="o">{</span> <span class="o">[</span> statement <span class="o">]</span> ...<span class="o">}</span>
+<span class="nv">variable</span><span class="o">=</span>expression
+print <span class="o">[</span> expression-list <span class="o">]</span> <span class="o">[</span> &gt; expression <span class="o">]</span>
+<span class="nb">printf</span> format <span class="o">[</span> , expression-list <span class="o">]</span> <span class="o">[</span> &gt; expression <span class="o">]</span>
+next
+<span class="nb">exit</span>
+</pre></div>
+</div>
+<p>t this point, you can use AWK as a language for simple calculations; If you wanted to calculate something, and not read any lines for input, you could use the BEGIN keyword discussed earlier, combined with a exit command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+
+<span class="c1"># Print the squares from 1 to 10 the first way</span>
+    <span class="nv">i</span><span class="o">=</span>1<span class="p">;</span>
+    <span class="k">while</span> <span class="o">(</span>i &lt;<span class="o">=</span> 10<span class="o">)</span> <span class="o">{</span>
+        <span class="nb">printf</span> <span class="s2">&quot;The square of &quot;</span>, i, <span class="s2">&quot; is &quot;</span>, i*i<span class="p">;</span>
+        <span class="nv">i</span> <span class="o">=</span> i+1<span class="p">;</span>
+    <span class="o">}</span>
+
+<span class="c1"># do it again, using more concise code</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nv">i</span><span class="o">=</span>1<span class="p">;</span> i &lt;<span class="o">=</span> 10<span class="p">;</span> i++<span class="o">)</span> <span class="o">{</span>
+        <span class="nb">printf</span> <span class="s2">&quot;The square of &quot;</span>, i, <span class="s2">&quot; is &quot;</span>, i*i<span class="p">;</span>
+    <span class="o">}</span>
+
+<span class="c1"># now end</span>
+exit<span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The following asks for a number, and then squares it:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+    print <span class="s2">&quot;type a number&quot;</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+    print <span class="s2">&quot;The square of &quot;</span>, <span class="nv">$1</span>, <span class="s2">&quot; is &quot;</span>, <span class="nv">$1</span>*<span class="nv">$1</span><span class="p">;</span>
+    print <span class="s2">&quot;type another number&quot;</span><span class="p">;</span>
+<span class="o">}</span>
+END <span class="o">{</span>
+    print <span class="s2">&quot;Done&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The above isn&#8217;t a good filter, because it asks for input each time. If you pipe the output of another program into it, you would generate a lot of meaningless prompts.</p>
+<p>Here is a filter that you should find useful. It counts lines, totals up the numbers in the first column, and calculates the average. Pipe &#8220;wc -c <a href="#id1"><span class="problematic" id="id2">*</span></a>&#8221; into it, and it will count files, and tell you the average number of words per file, as well as the total words and the number of files.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+<span class="c1"># How many lines</span>
+    <span class="nv">lines</span><span class="o">=</span>0<span class="p">;</span>
+    <span class="nv">total</span><span class="o">=</span>0<span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+<span class="c1"># this code is executed once for each line</span>
+<span class="c1"># increase the number of files</span>
+    lines++<span class="p">;</span>
+<span class="c1"># increase the total size, which is field #1</span>
+    total+<span class="o">=</span><span class="nv">$1</span><span class="p">;</span>
+<span class="o">}</span>
+END <span class="o">{</span>
+<span class="c1"># end, now output the total</span>
+    print lines <span class="s2">&quot; lines read&quot;</span><span class="p">;</span>
+    print <span class="s2">&quot;total is &quot;</span>, total<span class="p">;</span>
+    <span class="k">if</span> <span class="o">(</span>lines &gt; <span class="m">0</span> <span class="o">)</span> <span class="o">{</span>
+    print <span class="s2">&quot;average is &quot;</span>, total/lines<span class="p">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    print <span class="s2">&quot;average is 0&quot;</span><span class="p">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You can pipe the output of &#8220;ls -s&#8221; into this filter to count the number of files, the total size, and the average size. There is a slight problem with this script, as it includes the output of &#8220;ls&#8221; that reports the total. This causes the number of files to be off by one. Changing</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>lines++<span class="p">;</span>
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> !<span class="o">=</span> <span class="s2">&quot;total&quot;</span> <span class="o">)</span> lines++<span class="p">;</span>
+</pre></div>
+</div>
+<p>will fix this problem. Note the code which prevents a divide by zero. This is common in well-written scripts. I also initialize the variables to zero. This is not necessary, but it is a good habit.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="awk-builtin-vars.html" class="btn btn-neutral float-right" title="16.4. AWK Built-in Variables" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="awk-essential-syntax.html" class="btn btn-neutral" title="16.2. The Essential Syntax of AWK" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../static/jquery.js"></script>
+      <script type="text/javascript" src="../static/underscore.js"></script>
+      <script type="text/javascript" src="../static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

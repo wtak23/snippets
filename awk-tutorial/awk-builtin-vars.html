@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>16.4. AWK Built-in Variables &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/favicon-penn.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="../index.html"/>
+        <link rel="up" title="16. awk-tutorial" href="index.html"/>
+        <link rel="prev" title="16.3. Summary of AWK Commands" href="awk-summary-commands.html"/> 
+
+  
+  <script src="../static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">15. sql</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">16. awk-tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">16.1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">16.2. The Essential Syntax of AWK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">16.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">16.4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fs-the-input-field-separator-variable">16.4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ofs-the-output-field-separator-variable">16.4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nf-the-number-of-fields-variable">16.4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nr-the-number-of-records-variable">16.4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rs-the-record-separator-variable">16.4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ors-the-output-record-separator-variable">16.4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filename-the-current-filename-variable">16.4.7. FILENAME - The Current Filename Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">16. awk-tutorial</a> &raquo;</li>
+        
+      <li>16.4. AWK Built-in Variables</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../sources/awk-tutorial/awk-builtin-vars.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="awk-built-in-variables">
+<h1>16.4. AWK Built-in Variables<a class="headerlink" href="#awk-built-in-variables" title="Permalink to this headline">¶</a></h1>
+<p>I have mentioned two kinds of variables: positional and user defined. A user defined variable is one you create. A positional variable is not a special variable, but a function triggered by the dollar sign. Therefore</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>print <span class="nv">$1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">X</span><span class="o">=</span>1<span class="p">;</span>
+print <span class="nv">$X</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>do the same thing: print the first field on the line. There are two more points about positional variables that are very useful. The variable &#8220;$0&#8221; refers to the entire line that AWK reads in. That is, if you had eight fields in a line,</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>print <span class="nv">$0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>is similar to</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>print <span class="nv">$1</span>, <span class="nv">$2</span>, <span class="nv">$3</span>, <span class="nv">$4</span>, <span class="nv">$5</span>, <span class="nv">$6</span>, <span class="nv">$7</span>, <span class="nv">$8</span>
+</pre></div>
+</div>
+<p>This will change the spacing between the fields; otherwise, they behave the same. You can modify positional variables. The following commands</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$2</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+print<span class="p">;</span>
+</pre></div>
+</div>
+<p>deletes the second field. If you had four fields, and wanted to print out the second and fourth field, there are two ways. This is the first:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span>
+    <span class="nv">$1</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+    <span class="nv">$3</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+    print<span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>and the second</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span>
+    print <span class="nv">$2</span>, <span class="nv">$4</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>These perform similarly, but not identically. The number of spaces between the values vary. There are two reasons for this. The actual number of fields does not change. Setting a positional variable to an empty string does not delete the variable. It&#8217;s still there, but the contents has been deleted. The other reason is the way AWK outputs the entire line. There is a field separator that specifies what character to put between the fields on output. The first example outputs four fields, while the second outputs two. In-between each field is a space. This is easier to explain if the characters between fields could be modified to be made more visible. Well, it can. AWK provides special variables for just that purpose.</p>
+<div class="section" id="fs-the-input-field-separator-variable">
+<h2>16.4.1. FS - The Input Field Separator Variable<a class="headerlink" href="#fs-the-input-field-separator-variable" title="Permalink to this headline">¶</a></h2>
+<p>AWK can be used to parse many system administration files. However, many of these files do not have whitespace as a separator. as an example, the password file uses colons. You can easily change the field separator character to be a colon using the &#8220;-F&#8221; command line option. The following command will print out accounts that don&#8217;t have passwords:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>awk -F: <span class="s1">&#39;{if ($2 == &quot;&quot;) print $1 &quot;: no password!&quot;}&#39;</span> &lt;/etc/passwd
+</pre></div>
+</div>
+<p>There is a way to do this without the command line option. The variable &#8220;FS&#8221; can be set like any variable, and has the same function as the &#8220;-F&#8221; command line option. The following is a script that has the same function as the one above.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+    <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span> <span class="nv">$2</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">)</span> <span class="o">{</span>
+        print <span class="nv">$1</span> <span class="s2">&quot;: no password!&quot;</span><span class="p">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_nopasswd.awk">http://www.grymoire.com/Unix/Scripts/awk_nopasswd.awk</a></p>
+<p>The second form can be used to create a UNIX utility, which I will name &#8220;chkpasswd&#8221;, and executed like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>chkpasswd &lt;/etc/passwd
+</pre></div>
+</div>
+<p>The command &#8220;chkpasswd -F:&#8221; cannot be used, because AWK will never see this argument. All interpreter scripts accept one and only one argument, which is immediately after the &#8220;#!/bin/awk&#8221; string. In this case, the single argument is &#8220;-f&#8221;. Another difference between the command line option and the internal variable is the ability to set the input field separator to be more than one character. If you specify</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;: &quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then AWK will split a line into fields wherever it sees those two characters, in that exact order. You cannot do this on the command line.</p>
+<p>There is a third advantage the internal variable has over the command line option: you can change the field separator character as many times as you want while reading a file. Well, at most once for each line. You can even change it depending on the line you read. Suppose you had the following file which contains the numbers 1 through 7 in three different formats. Lines 4 through 6 have colon separated fields, while the others separated by spaces.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ONE <span class="m">1</span> I
+TWO <span class="m">2</span> II
+<span class="c1">#START</span>
+THREE:3:III
+FOUR:4:IV
+FIVE:5:V
+<span class="c1">#STOP</span>
+SIX <span class="m">6</span> VI
+SEVEN <span class="m">7</span> VII
+</pre></div>
+</div>
+<p>The AWK program can easily switch between these formats:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> <span class="o">==</span> <span class="s2">&quot;#START&quot;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> <span class="o">==</span> <span class="s2">&quot;#STOP&quot;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="c1">#print the Roman number in column 3</span>
+        print <span class="nv">$3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example3.awk">http://www.grymoire.com/Unix/Scripts/awk_example3.awk</a></p>
+<p>Note the field separator variable retains its value until it is explicitly changed. You don&#8217;t have to reset it for each line. Sounds simple, right? However, I have a trick question for you. What happens if you change the field separator while reading a line? That is, suppose you had the following line</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>One Two:Three:4 Five
+</pre></div>
+</div>
+<p>and you executed the following script:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span>
+    print <span class="nv">$2</span>
+    <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;:&quot;</span>
+    print <span class="nv">$2</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>What would be printed? &#8220;Three&#8221; or &#8220;Two:Three:4?&#8221; Well, the script would print out &#8220;Two:Three:4&#8221; twice. However, if you deleted the first print statement, it would print out &#8220;Three&#8221; once! I thought this was very strange at first, but after pulling out some hair, kicking the deck, and yelling at muself and everyone who had anything to do with the development of UNIX, it is intuitively obvious. You just have to be thinking like a professional programmer to realize it is intuitive. I shall explain, and prevent you from causing yourself physical harm.</p>
+<p>If you change the field separator before you read the line, the change affects what you read. If you change it after you read the line, it will not redefine the variables. You wouldn&#8217;t want a variable to change on you as a side-effect of another action. A programming language with hidden side effects is broken, and should not be trusted. AWK allows you to redefine the field separator either before or after you read the line, and does the right thing each time. Once you read the variable, the variable will not change unless you change it. Bravo!</p>
+<p>To illustrate this further, here is another version of the previous code that changes the field separator dynamically. In this case, AWK does it by examining field &#8220;$0&#8221;, which is the entire line. When the line contains a colon, the field separator is a colon, otherwise, it is a space. Here is a version that worked with older versions of awk:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span> <span class="nv">$0</span> ~ /:/ <span class="o">)</span> <span class="o">{</span>
+        <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">;</span>
+    <span class="o">}</span>
+    <span class="c1">#print the third field, whatever format</span>
+    print <span class="nv">$3</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example4.awk">http://www.grymoire.com/Unix/Scripts/awk_example4.awk</a></p>
+<p>However, this behavior changed in later versions, so the above script no longer works. What happens is that once the FS variable is changed, you have to re-evaluate the fields by using $0=$0:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span> <span class="nv">$0</span> ~ /:/ <span class="o">)</span> <span class="o">{</span>
+        <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">;</span>
+        <span class="nv">$0</span><span class="o">=</span><span class="nv">$0</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">;</span>
+        <span class="nv">$0</span><span class="o">=</span><span class="nv">$0</span>
+    <span class="o">}</span>
+    <span class="c1">#print the third field, whatever format</span>
+    print <span class="nv">$3</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example4a.awk">http://www.grymoire.com/Unix/Scripts/awk_example4a.awk</a></p>
+<p>This example eliminates the need to have the special &#8220;#START&#8221; and &#8220;#STOP&#8221; lines in the input.</p>
+</div>
+<div class="section" id="ofs-the-output-field-separator-variable">
+<h2>16.4.2. OFS - The Output Field Separator Variable<a class="headerlink" href="#ofs-the-output-field-separator-variable" title="Permalink to this headline">¶</a></h2>
+<p>There is an important difference between</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>print <span class="nv">$2</span> <span class="nv">$3</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>print <span class="nv">$2</span>, <span class="nv">$3</span>
+</pre></div>
+</div>
+<p>The first example prints out one field, and the second prints out two fields. In the first case, the two positional parameters are concatenated together and output without a space. In the second case, AWK prints two fields, and places the output field separator between them. Normally this is a space, but you can change this by modifying the variable &#8220;OFS&#8221;.</p>
+<p>If you wanted to copy the password file, but delete the encrypted password, you could use AWK:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+    <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">;</span>
+    <span class="nv">OFS</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+    <span class="nv">$2</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+    print
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/delete_passwd.awk">http://www.grymoire.com/Unix/Scripts/delete_passwd.awk</a></p>
+<p>Give this script the password file, and it will delete the password, but leave everything else the same. You can make the output field separator any number of characters. You are not limited to a single character.</p>
+</div>
+<div class="section" id="nf-the-number-of-fields-variable">
+<h2>16.4.3. NF - The Number of Fields Variable<a class="headerlink" href="#nf-the-number-of-fields-variable" title="Permalink to this headline">¶</a></h2>
+<p>It is useful to know how many fields are on a line. You may want to have your script change its operation based on the number of fields. As an example, the command &#8220;ls -l&#8221; may generate eight or nine fields, depending on which version you are executing. The System V version, &#8220;/usr/bin/ls -l&#8221; generates nine fields, which is equivalent to the Berkeley &#8220;/usr/ucb/ls -lg&#8221; command. If you wanted to print the owner and filename then the following AWK script would work with either version of &#8220;ls:&#8221;</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="c1"># parse the output of &quot;ls -l&quot;</span>
+<span class="c1"># print owner and filename</span>
+<span class="c1"># remember - Berkeley ls -l has 8 fields, System V has 9</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nv">NF</span> <span class="o">==</span> 8<span class="o">)</span> <span class="o">{</span>
+        print <span class="nv">$3</span>, <span class="nv">$8</span><span class="p">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="nv">NF</span> <span class="o">==</span> 9<span class="o">)</span> <span class="o">{</span>
+        print <span class="nv">$3</span>, <span class="nv">$9</span><span class="p">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/owner_group.awk">http://www.grymoire.com/Unix/Scripts/owner_group.awk</a></p>
+<p>Don&#8217;t forget the variable can be prepended with a &#8220;$&#8221;. This allows you to print the last field of any column</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span> print <span class="nv">$NF</span><span class="p">;</span> <span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/print_last_field.awk">http://www.grymoire.com/Unix/Scripts/print_last_field.awk</a></p>
+<p>One warning about AWK. There is a limit of 99 fields in a single line. PERL does not have any such limitations.</p>
+</div>
+<div class="section" id="nr-the-number-of-records-variable">
+<h2>16.4.4. NR - The Number of Records Variable<a class="headerlink" href="#nr-the-number-of-records-variable" title="Permalink to this headline">¶</a></h2>
+<p>Another useful variable is &#8220;NR&#8221;. This tells you the number of records, or the line number. You can use AWK to only examine certain lines. This example prints lines after the first 100 lines, and puts a line number before each line after 100:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="k">if</span> <span class="o">(</span>NR &gt; 100<span class="o">)</span> <span class="o">{</span>
+    print NR, <span class="nv">$0</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click link to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example5.awk">awk_example5.awk</a></p>
+</div>
+<div class="section" id="rs-the-record-separator-variable">
+<h2>16.4.5. RS - The Record Separator Variable<a class="headerlink" href="#rs-the-record-separator-variable" title="Permalink to this headline">¶</a></h2>
+<p>Normally, AWK reads one line at a time, and breaks up the line into fields. You can set the &#8220;RS&#8221; variable to change AWK&#8217;s definition of a &#8220;line&#8221;. If you set it to an empty string, then AWK will read the entire file into memory. You can combine this with changing the &#8220;FS&#8221; variable. This example treats each line as a field, and prints out the second and third line:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+<span class="c1"># change the record separator from newline to nothing</span>
+    <span class="nv">RS</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="c1"># change the field separator from whitespace to newline</span>
+    <span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;\n&quot;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+<span class="c1"># print the second and third line of the file</span>
+    print <span class="nv">$2</span>, <span class="nv">$3</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example6.awk">http://www.grymoire.com/Unix/Scripts/awk_example6.awk</a></p>
+<p>The two lines are printed with a space between. Also this will only work if the input file is less than 100 lines, therefore this technique is limited. You can use it to break words up, one word per line, using this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+    <span class="nv">RS</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+    print <span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/oneword_per_line.awk">http://www.grymoire.com/Unix/Scripts/oneword_per_line.awk</a></p>
+<p>but this only works if all of the words are separated by a space. If there is a tab or punctuation inside, it would not.</p>
+</div>
+<div class="section" id="ors-the-output-record-separator-variable">
+<h2>16.4.6. ORS - The Output Record Separator Variable<a class="headerlink" href="#ors-the-output-record-separator-variable" title="Permalink to this headline">¶</a></h2>
+<p>The default output record separator is a newline, like the input. This can be set to be a newline and carriage return, if you need to generate a text file for a non-UNIX system.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="c1"># this filter adds a carriage return to all lines</span>
+<span class="c1"># before the newline character</span>
+BEGIN <span class="o">{</span>
+    <span class="nv">ORS</span><span class="o">=</span><span class="s2">&quot;\r\n&quot;</span>
+<span class="o">}</span>
+<span class="o">{</span> print <span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/add_cr.awk">http://www.grymoire.com/Unix/Scripts/add_cr.awk</a></p>
+</div>
+<div class="section" id="filename-the-current-filename-variable">
+<h2>16.4.7. FILENAME - The Current Filename Variable<a class="headerlink" href="#filename-the-current-filename-variable" title="Permalink to this headline">¶</a></h2>
+<p>The last variable known to regular AWK is &#8220;FILENAME&#8221;, which tells you the name of the file being read.
+.. code-block:: bash</p>
+<blockquote>
+<div><p>#!/bin/awk -f
+# reports which file is being read
+BEGIN {</p>
+<blockquote>
+<div>f=&#8221;&#8221;;</div></blockquote>
+<p>}
+{   if (f != FILENAME) {</p>
+<blockquote>
+<div><blockquote>
+<div>print &#8220;reading&#8221;, FILENAME;
+f=FILENAME;</div></blockquote>
+<p>}
+print;</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example6a.awk">http://www.grymoire.com/Unix/Scripts/awk_example6a.awk</a></p>
+<p>This can be used if several files need to be parsed by AWK. Normally you use standard input to provide AWK with information. You can also specify the filenames on the command line. If the above script was called &#8220;testfilter&#8221;, and if you executed it with</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>testfilter file1 file2 file3
+</pre></div>
+</div>
+<p>It would print out the filename before each change. An alternate way to specify this on the command line is</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>testfilter file1 - file3 &lt;file2
+</pre></div>
+</div>
+<p>In this case, the second file will be called &#8220;-&#8221;, which is the conventional name for standard input. I have used this when I want to put some information before and after a filter operation. The prefix and postfix files special data before and after the real data. By checking the filename, you can parse the information differently. This is also useful to report syntax errors in particular files:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nv">NF</span> <span class="o">==</span> 6<span class="o">)</span> <span class="o">{</span>
+        <span class="c1"># do the right thing</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="nv">FILENAME</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span> <span class="o">)</span> <span class="o">{</span>
+            print <span class="s2">&quot;SYNTAX ERROR, Wrong number of fields,&quot;</span>,
+            <span class="s2">&quot;in STDIN, line #:&quot;</span>, NR,  <span class="s2">&quot;line: &quot;</span>, <span class="nv">$0</span><span class="p">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            print <span class="s2">&quot;SYNTAX ERROR, Wrong number of fields,&quot;</span>,
+            <span class="s2">&quot;Filename: &quot;</span>, FILENAME, <span class="s2">&quot;line # &quot;</span>, NR, <span class="s2">&quot;line: &quot;</span>, <span class="nv">$0</span><span class="p">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example7.awk">http://www.grymoire.com/Unix/Scripts/awk_example7.awk</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="awk-summary-commands.html" class="btn btn-neutral" title="16.3. Summary of AWK Commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../static/jquery.js"></script>
+      <script type="text/javascript" src="../static/underscore.js"></script>
+      <script type="text/javascript" src="../static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
