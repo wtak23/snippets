@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1   pyspark &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="static/favicon-penn.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="index.html"/> 
+
+  
+  <script src="static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">15. sql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1&nbsp;&nbsp;&nbsp;pyspark</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="sources/cs-pyspark.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyspark">
+<h1><a class="toc-backref" href="#id1">1&nbsp;&nbsp;&nbsp;pyspark</a><a class="headerlink" href="#pyspark" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="http://spark.apache.org/docs/latest/programming-guide.html">http://spark.apache.org/docs/latest/programming-guide.html</a></li>
+<li><a class="reference external" href="http://spark.apache.org/docs/latest/submitting-applications.html">http://spark.apache.org/docs/latest/submitting-applications.html</a></li>
+<li><a class="reference external" href="https://wtak23.github.io/pyspark_doc/index.html">https://wtak23.github.io/pyspark_doc/index.html</a></li>
+<li><a class="reference external" href="https://databricks.com/resources/type/example-notebooks">https://databricks.com/resources/type/example-notebooks</a></li>
+</ul>
+<p>Good tuorials</p>
+<ul class="simple">
+<li><a class="reference external" href="https://s3.amazonaws.com/sparksummit-share/ml-ams-1.0.1/index.html#1-mllib-datatypes/python/1-mllib-datatypes_answers.html">https://s3.amazonaws.com/sparksummit-share/ml-ams-1.0.1/index.html#1-mllib-datatypes/python/1-mllib-datatypes_answers.html</a></li>
+<li><a class="reference external" href="https://spark-summit.org/2016/schedule/?utm_campaign=Spark%20Summit%20West%202016&amp;utm_source=hs_email&amp;utm_medium=email&amp;utm_content=30831320&amp;_hsenc=p2ANqtz-_goa4kT7aG-lkZ3-setVPXX6qMsjJzbiomDagOzpBmfMAid7vmB3zOnYPUSghsrhFM-s3i2M4xSOfjR9sdbxj3EJKcqg&amp;_hsmi=30831320">Spark 2016 summit</a></li>
+</ul>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first"><strong>Table of Contents</strong></p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#pyspark" id="id1">1&nbsp;&nbsp;&nbsp;pyspark</a><ul class="auto-toc">
+<li><a class="reference internal" href="#stack-overflows" id="id2">1.1&nbsp;&nbsp;&nbsp;Stack overflows</a></li>
+<li><a class="reference internal" href="#programming-guide-condensed-summary" id="id3">1.2&nbsp;&nbsp;&nbsp;Programming-guide: condensed summary</a><ul class="auto-toc">
+<li><a class="reference internal" href="#super-basics" id="id4">1.2.1&nbsp;&nbsp;&nbsp;Super basics</a></li>
+<li><a class="reference internal" href="#shared-variables" id="id5">1.2.2&nbsp;&nbsp;&nbsp;Shared variables</a><ul class="auto-toc">
+<li><a class="reference internal" href="#broadast-variables" id="id6">1.2.2.1&nbsp;&nbsp;&nbsp;Broadast variables</a></li>
+<li><a class="reference internal" href="#accumulators" id="id7">1.2.2.2&nbsp;&nbsp;&nbsp;Accumulators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rdd-operations" id="id8">1.2.3&nbsp;&nbsp;&nbsp;RDD operations</a><ul class="auto-toc">
+<li><a class="reference internal" href="#rdd-basics" id="id9">1.2.3.1&nbsp;&nbsp;&nbsp;RDD-basics</a></li>
+<li><a class="reference internal" href="#passing-functions-to-spark" id="id10">1.2.3.2&nbsp;&nbsp;&nbsp;Passing functions to Spark</a></li>
+<li><a class="reference internal" href="#rdd-transformations" id="id11">1.2.3.3&nbsp;&nbsp;&nbsp;RDD Transformations</a></li>
+<li><a class="reference internal" href="#rdd-actions" id="id12">1.2.3.4&nbsp;&nbsp;&nbsp;RDD Actions</a></li>
+<li><a class="reference internal" href="#closures" id="id13">1.2.3.5&nbsp;&nbsp;&nbsp;closures</a></li>
+<li><a class="reference internal" href="#working-with-key-value-pairs" id="id14">1.2.3.6&nbsp;&nbsp;&nbsp;Working with key-value pairs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#random-handy-snippets" id="id15">1.3&nbsp;&nbsp;&nbsp;Random handy snippets</a><ul class="auto-toc">
+<li><a class="reference internal" href="#compute-average" id="id16">1.3.1&nbsp;&nbsp;&nbsp;compute average</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="stack-overflows">
+<h2><a class="toc-backref" href="#id2">1.1&nbsp;&nbsp;&nbsp;Stack overflows</a><a class="headerlink" href="#stack-overflows" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/30787635/takeordered-descending-pyspark">http://stackoverflow.com/questions/30787635/takeordered-descending-pyspark</a></li>
+</ul>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">RDD</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># sort by keys</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># sort by keys (descending)</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># sort by values</span>
+<span class="n">RDD</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># sort by values (descending)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="programming-guide-condensed-summary">
+<h2><a class="toc-backref" href="#id3">1.2&nbsp;&nbsp;&nbsp;Programming-guide: condensed summary</a><a class="headerlink" href="#programming-guide-condensed-summary" title="Permalink to this headline">¶</a></h2>
+<p>From <a class="reference external" href="http://spark.apache.org/docs/latest/programming-guide.html">http://spark.apache.org/docs/latest/programming-guide.html</a></p>
+<div class="section" id="super-basics">
+<h3><a class="toc-backref" href="#id4">1.2.1&nbsp;&nbsp;&nbsp;Super basics</a><a class="headerlink" href="#super-basics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>use the <code class="docutils literal"><span class="pre">bin/spark-submit</span></code> script in the Spark directory to run Spark applications in Python</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">PYSPARK_PYTHON</span><span class="o">=</span>python3.4 bin/pyspark
+$ <span class="nv">PYSPARK_PYTHON</span><span class="o">=</span>/opt/pypy-2.5/bin/pypy bin/spark-submit examples/src/main/python/pi.py
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">SparkContext</span><span class="p">,</span> <span class="n">SparkConf</span>
+
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># 1st thing a Spark program must do: create SC object that tells Spark how to access a cluster</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># create config object (contains information about your application)</span>
+<span class="c1"># - `appName` = name of the application to show on the cluster UI</span>
+<span class="c1"># - `master` = &quot;local&quot;, or URL to Spark, Mesos, or YARN cluster.</span>
+<span class="c1">#   (http://spark.apache.org/docs/latest/submitting-applications.html#master-urls)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="n">appName</span><span class="p">)</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+
+<span class="c1"># create SparkContext object</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
+
+<span class="c1"># === create RDD from an existing collection/iterable ===</span>
+<span class="c1"># - use sc.parallelize</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">distData</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># create Parallelized collections</span>
+<span class="n">distData</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">distData</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">partitions</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># can also specify # partitions (typically 2-4 partitions for each CPU in cluster</span>
+<span class="n">wordsRDD</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="s2">&quot;fish&quot;</span><span class="p">,</span> <span class="s2">&quot;cats&quot;</span><span class="p">,</span> <span class="s2">&quot;dogs&quot;</span><span class="p">])</span>
+
+
+<span class="c1"># === RDD external dataset ===</span>
+<span class="c1"># - use sc.textFile</span>
+<span class="c1"># URI = either a local path on the machine, or a hdfs://, s3n://, etc URI</span>
+<span class="n">distFile</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">)</span>
+<span class="n">distFile</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># All of Spark’s file-based input methods, including textFile, support running on directories, compressed files, and wildcards</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;/my/directory&quot;</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;/my/directory/*.txt&quot;</span><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;/my/directory/*.gz&quot;</span><span class="p">)</span>
+
+
+<span class="c1">#==========================================================================#</span>
+<span class="c1"># saving and loading</span>
+<span class="c1">#==========================================================================#</span>
+<span class="c1"># Similarly to text files, SequenceFiles can be saved and loaded by specifying the path</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="o">*</span> <span class="n">x</span> <span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rdd</span><span class="o">.</span><span class="n">saveAsSequenceFile</span><span class="p">(</span><span class="s2">&quot;path/to/file&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">sequenceFile</span><span class="p">(</span><span class="s2">&quot;path/to/file&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">())</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">u&#39;a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">u&#39;aa&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">u&#39;aaa&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shared-variables">
+<h3><a class="toc-backref" href="#id5">1.2.2&nbsp;&nbsp;&nbsp;Shared variables</a><a class="headerlink" href="#shared-variables" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>General, read-write shared variables across tasks would be inefficient.</li>
+<li>However, Spark does provide two limited types of shared variables for two common usage patterns: broadcast variables and accumulators.</li>
+</ul>
+<div class="section" id="broadast-variables">
+<h4><a class="toc-backref" href="#id6">1.2.2.1&nbsp;&nbsp;&nbsp;Broadast variables</a><a class="headerlink" href="#broadast-variables" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">SparkContext.broadcast(v)</span></code> - creates Broadcast variables from variable v.<ul>
+<li>The broadcast variable is a wrapper around v, and its value can be accessed by calling the <code class="docutils literal"><span class="pre">.value</span></code> method</li>
+</ul>
+</li>
+<li>Broadcast variables are used to keep a read-only variable cached on each machine (rather than shipping a copy of it with tasks).<ul>
+<li>example usage: to give every node a copy of a large input dataset in an efficient manner.</li>
+</ul>
+</li>
+<li>explicitly creating broadcast variables is only useful when tasks across multiple stages need the same data or when caching the data in deserialized form is important.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">broadcastVar</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">broadcast</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">&lt;pyspark.broadcast.Broadcast object at 0x102789f10&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">broadcastVar</span><span class="o">.</span><span class="n">value</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accumulators">
+<h4><a class="toc-backref" href="#id7">1.2.2.2&nbsp;&nbsp;&nbsp;Accumulators</a><a class="headerlink" href="#accumulators" title="Permalink to this headline">¶</a></h4>
+<p>See <a class="reference external" href="http://spark.apache.org/docs/latest/programming-guide.html#accumulators">http://spark.apache.org/docs/latest/programming-guide.html#accumulators</a></p>
+</div>
+</div>
+<div class="section" id="rdd-operations">
+<h3><a class="toc-backref" href="#id8">1.2.3&nbsp;&nbsp;&nbsp;RDD operations</a><a class="headerlink" href="#rdd-operations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rdd-basics">
+<h4><a class="toc-backref" href="#id9">1.2.3.1&nbsp;&nbsp;&nbsp;RDD-basics</a><a class="headerlink" href="#rdd-basics" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">)</span>
+<span class="n">lineLengths</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="n">totalLength</span> <span class="o">=</span> <span class="n">lineLengths</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">lineLengths</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span> <span class="c1"># if you want to use this object again later</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="passing-functions-to-spark">
+<h4><a class="toc-backref" href="#id10">1.2.3.2&nbsp;&nbsp;&nbsp;Passing functions to Spark</a><a class="headerlink" href="#passing-functions-to-spark" title="Permalink to this headline">¶</a></h4>
+<p>Spark relies heavily on passing functions in the driver program to run on the cluster.</p>
+<p>3 recommended ways to do this:</p>
+<p>1. lambda expressions for simple functions (does not support mult-statement functions or statements that do not return a value)
+2. Local <code class="docutils literal"><span class="pre">def</span></code> functions
+3. Top-level functions in a module</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunc</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">myFunc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Some caveats when defining class attributes</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># don&#39;t do this (the whole object gets sent to the luster when ``doStuff`` is called)</span>
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="k">def</span> <span class="nf">doStuff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdd</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>
+
+<span class="c1"># or this (accessing fields of the outer object will reference the ENTIRE object)</span>
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+    <span class="k">def</span> <span class="nf">doStuff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdd</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="c1"># rather, do this (copy field into a local variable instead of accessing it externally)</span>
+<span class="k">def</span> <span class="nf">doStuff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdd</span><span class="p">):</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span>
+    <span class="k">return</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">field</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rdd-transformations">
+<h4><a class="toc-backref" href="#id11">1.2.3.3&nbsp;&nbsp;&nbsp;RDD Transformations</a><a class="headerlink" href="#rdd-transformations" title="Permalink to this headline">¶</a></h4>
+<p>some of the common transformations supported by Spark</p>
+<p>Regex used to get below: <strong>search</strong>: <code class="docutils literal"><span class="pre">(^[a-zA-Z]*\(.*?\))</span></code>, <strong>replace</strong>: <code class="docutils literal"><span class="pre">\1</span> <span class="pre">|</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Transformation</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>map(func)</td>
+<td>Return a new distributed dataset formed by passing each element of the source through a function func.</td>
+</tr>
+<tr class="row-odd"><td>filter(func)</td>
+<td>Return a new dataset formed by selecting those elements of the source on which func returns true.</td>
+</tr>
+<tr class="row-even"><td>flatMap(func)</td>
+<td>Similar to map, but each input item can be mapped to 0 or more output items (so func should return a Seq rather than a single item).</td>
+</tr>
+<tr class="row-odd"><td>mapPartitions(func)</td>
+<td>Similar to map, but runs separately on each partition (block) of the RDD, so func must be of type Iterator&lt;T&gt; =&gt; Iterator&lt;U&gt; when running on an RDD of type T.</td>
+</tr>
+<tr class="row-even"><td>mapPartitionsWithIndex(func)</td>
+<td>Similar to mapPartitions, but also provides func with an integer value representing the index of the partition, so func must be of type (Int, Iterator&lt;T&gt;) =&gt; Iterator&lt;U&gt; when running on an RDD of type T.</td>
+</tr>
+<tr class="row-odd"><td>sample(withReplacement, fraction, seed)</td>
+<td>Sample a fraction fraction of the data, with or without replacement, using a given random number generator seed.</td>
+</tr>
+<tr class="row-even"><td>union(otherDataset)</td>
+<td>Return a new dataset that contains the union of the elements in the source dataset and the argument.</td>
+</tr>
+<tr class="row-odd"><td>intersection(otherDataset)</td>
+<td>Return a new RDD that contains the intersection of elements in the source dataset and the argument.</td>
+</tr>
+<tr class="row-even"><td>distinct([numTasks])</td>
+<td>Return a new dataset that contains the distinct elements of the source dataset.</td>
+</tr>
+<tr class="row-odd"><td>groupByKey([numTasks])</td>
+<td>When called on a dataset of (K, V) pairs, returns a dataset of (K, Iterable&lt;V&gt;) pairs. Note: If you are grouping in order to perform an aggregation (such as a sum or average) over each key, using reduceByKey or aggregateByKey will yield much better performance. Note: By default, the level of parallelism in the output depends on the number of partitions of the parent RDD. You can pass an optional numTasks argument to set a different number of tasks.</td>
+</tr>
+<tr class="row-even"><td>reduceByKey(func, [numTasks])</td>
+<td>When called on a dataset of (K, V) pairs, returns a dataset of (K, V) pairs where the values for each key are aggregated using the given reduce function func, which must be of type (V,V) =&gt; V. Like in groupByKey, the number of reduce tasks is configurable through an optional second argument.</td>
+</tr>
+<tr class="row-odd"><td>aggregateByKey(zeroValue)</td>
+<td>(seqOp, combOp, [numTasks])    When called on a dataset of (K, V) pairs, returns a dataset of (K, U) pairs where the values for each key are aggregated using the given combine functions and a neutral &#8220;zero&#8221; value. Allows an aggregated value type that is different than the input value type, while avoiding unnecessary allocations. Like in groupByKey, the number of reduce tasks is configurable through an optional second argument.</td>
+</tr>
+<tr class="row-even"><td>sortByKey([ascending], [numTasks])</td>
+<td>When called on a dataset of (K, V) pairs where K implements Ordered, returns a dataset of (K, V) pairs sorted by keys in ascending or descending order, as specified in the boolean ascending argument.</td>
+</tr>
+<tr class="row-odd"><td>join(otherDataset, [numTasks])</td>
+<td>When called on datasets of type (K, V) and (K, W), returns a dataset of (K, (V, W)) pairs with all pairs of elements for each key. Outer joins are supported through leftOuterJoin, rightOuterJoin, and fullOuterJoin.</td>
+</tr>
+<tr class="row-even"><td>cogroup(otherDataset, [numTasks])</td>
+<td>When called on datasets of type (K, V) and (K, W), returns a dataset of (K, (Iterable&lt;V&gt;, Iterable&lt;W&gt;)) tuples. This operation is also called groupWith.</td>
+</tr>
+<tr class="row-odd"><td>cartesian(otherDataset)</td>
+<td>When called on datasets of types T and U, returns a dataset of (T, U) pairs (all pairs of elements).</td>
+</tr>
+<tr class="row-even"><td>pipe(command, [envVars])</td>
+<td>Pipe each partition of the RDD through a shell command, e.g. a Perl or bash script. RDD elements are written to the process&#8217;s stdin and lines output to its stdout are returned as an RDD of strings.</td>
+</tr>
+<tr class="row-odd"><td>coalesce(numPartitions)</td>
+<td>Decrease the number of partitions in the RDD to numPartitions. Useful for running operations more efficiently after filtering down a large dataset.</td>
+</tr>
+<tr class="row-even"><td>repartition(numPartitions)</td>
+<td>Reshuffle the data in the RDD randomly to create either more or fewer partitions and balance it across them. This always shuffles all data over the network.</td>
+</tr>
+<tr class="row-odd"><td>repartitionAndSortWithinPartitions(partitioner)</td>
+<td>Repartition the RDD according to the given partitioner and, within each resulting partition, sort records by their keys. This is more efficient than calling repartition and then sorting within each partition because it can push the sorting down into the shuffle machinery.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rdd-actions">
+<h4><a class="toc-backref" href="#id12">1.2.3.4&nbsp;&nbsp;&nbsp;RDD Actions</a><a class="headerlink" href="#rdd-actions" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Action</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>reduce(func)</td>
+<td>Aggregate the elements of the dataset using a function func (which takes two arguments and returns one). The function should be commutative and associative so that it can be computed correctly in parallel.</td>
+</tr>
+<tr class="row-odd"><td>collect()</td>
+<td>Return all the elements of the dataset as an array at the driver program. This is usually useful after a filter or other operation that returns a sufficiently small subset of the data.</td>
+</tr>
+<tr class="row-even"><td>count()</td>
+<td>Return the number of elements in the dataset.</td>
+</tr>
+<tr class="row-odd"><td>first()</td>
+<td>Return the first element of the dataset (similar to take(1)).</td>
+</tr>
+<tr class="row-even"><td>take(n)</td>
+<td>Return an array with the first n elements of the dataset.</td>
+</tr>
+<tr class="row-odd"><td>takeSample(withReplacement, num, [seed])</td>
+<td>Return an array with a random sample of num elements of the dataset, with or without replacement, optionally pre-specifying a random number generator seed.</td>
+</tr>
+<tr class="row-even"><td>takeOrdered(n, [ordering])</td>
+<td>Return the first n elements of the RDD using either their natural order or a custom comparator.</td>
+</tr>
+<tr class="row-odd"><td>saveAsTextFile(path)</td>
+<td>Write the elements of the dataset as a text file (or set of text files) in a given directory in the local filesystem, HDFS or any other Hadoop-supported file system. Spark will call toString on each element to convert it to a line of text in the file.</td>
+</tr>
+<tr class="row-even"><td>saveAsSequenceFile(path)  (Java and Scala)</td>
+<td>Write the elements of the dataset as a Hadoop SequenceFile in a given path in the local filesystem, HDFS or any other Hadoop-supported file system. This is available on RDDs of key-value pairs that implement Hadoop&#8217;s Writable interface. In Scala, it is also available on types that are implicitly convertible to Writable (Spark includes conversions for basic types like Int, Double, String, etc).</td>
+</tr>
+<tr class="row-odd"><td>saveAsObjectFile(path)  (Java and Scala)</td>
+<td>Write the elements of the dataset in a simple format using Java serialization, which can then be loaded using SparkContext.objectFile().</td>
+</tr>
+<tr class="row-even"><td>countByKey()</td>
+<td>Only available on RDDs of type (K, V). Returns a hashmap of (K, Int) pairs with the count of each key.</td>
+</tr>
+<tr class="row-odd"><td>foreach(func)</td>
+<td>Run a function func on each element of the dataset. This is usually done for side effects such as updating an Accumulator or interacting with external storage systems.  Note: modifying variables other than Accumulators outside of the foreach() may result in undefined behavior. See Understanding closures for more details.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="closures">
+<h4><a class="toc-backref" href="#id13">1.2.3.5&nbsp;&nbsp;&nbsp;closures</a><a class="headerlink" href="#closures" title="Permalink to this headline">¶</a></h4>
+<p>Common confusion in Spark:</p>
+<ul class="simple">
+<li>understanding the <strong>scope</strong> and <strong>life cycle</strong> of variables and methods when executing code across a cluster.</li>
+<li>In general, <strong>closures</strong> - constructs like loops or locally defined methods, should not be used to mutate some global state.</li>
+<li>Use an <strong>Accumulator</strong> instead if some global aggregation is needed.</li>
+</ul>
+<p>Example: wrong way to increment a counter</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Wrong: Don&#39;t do this!! (will only work in master=&quot;local&quot; mode, but won&#39;t work on cluster)</span>
+<span class="k">def</span> <span class="nf">increment_counter</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">counter</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="n">x</span>
+<span class="n">rdd</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="n">increment_counter</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Counter value: &quot;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="working-with-key-value-pairs">
+<h4><a class="toc-backref" href="#id14">1.2.3.6&nbsp;&nbsp;&nbsp;Working with key-value pairs</a><a class="headerlink" href="#working-with-key-value-pairs" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">pairs</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">counts</span><span class="o">.</span><span class="n">sortByKey</span><span class="p">()</span> <span class="c1"># sort alphabetically</span>
+<span class="n">counts</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># bring them back to the driver program as a list of objects</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random-handy-snippets">
+<h2><a class="toc-backref" href="#id15">1.3&nbsp;&nbsp;&nbsp;Random handy snippets</a><a class="headerlink" href="#random-handy-snippets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compute-average">
+<h3><a class="toc-backref" href="#id16">1.3.1&nbsp;&nbsp;&nbsp;compute average</a><a class="headerlink" href="#compute-average" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># using RDDs</span>
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span>
+<span class="n">rdd</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">toFloat</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="p">}</span><span class="o">.</span>
+<span class="n">reduceByKey</span> <span class="p">{</span> <span class="n">case</span> <span class="p">((</span><span class="n">num1</span><span class="p">,</span> <span class="n">count1</span><span class="p">),</span> <span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="n">count2</span><span class="p">))</span> <span class="o">=&gt;</span>
+<span class="p">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">,</span> <span class="n">count1</span> <span class="o">+</span> <span class="n">count2</span><span class="p">)</span>
+<span class="p">}</span><span class="o">.</span>
+<span class="nb">map</span> <span class="p">{</span> <span class="n">case</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">num</span> <span class="o">/</span> <span class="n">count</span><span class="p">)</span> <span class="p">}</span><span class="o">.</span>
+<span class="n">collect</span><span class="p">()</span>
+
+<span class="c1"># using DF</span>
+<span class="kn">import</span> <span class="nn">org.apache.spark.sql.functions._</span>
+<span class="n">val</span> <span class="n">df</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">a</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">toDF</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">)</span>
+<span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">avg</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">))</span>
+<span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>dfasd</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="static/jquery.js"></script>
+      <script type="text/javascript" src="static/underscore.js"></script>
+      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

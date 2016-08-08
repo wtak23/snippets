@@ -1,0 +1,298 @@
+pyspark
+"""""""
+
+- http://spark.apache.org/docs/latest/programming-guide.html
+- http://spark.apache.org/docs/latest/submitting-applications.html
+- https://wtak23.github.io/pyspark_doc/index.html
+- https://databricks.com/resources/type/example-notebooks
+
+
+Good tuorials
+
+- https://s3.amazonaws.com/sparksummit-share/ml-ams-1.0.1/index.html#1-mllib-datatypes/python/1-mllib-datatypes_answers.html
+- `Spark 2016 summit <https://spark-summit.org/2016/schedule/?utm_campaign=Spark%20Summit%20West%202016&utm_source=hs_email&utm_medium=email&utm_content=30831320&_hsenc=p2ANqtz-_goa4kT7aG-lkZ3-setVPXX6qMsjJzbiomDagOzpBmfMAid7vmB3zOnYPUSghsrhFM-s3i2M4xSOfjR9sdbxj3EJKcqg&_hsmi=30831320>`_
+
+
+.. contents:: **Table of Contents**
+    :depth: 4
+
+.. sectnum::    
+    :start: 1   
+
+###############
+Stack overflows
+###############
+- http://stackoverflow.com/questions/30787635/takeordered-descending-pyspark
+
+.. code:: python
+
+    RDD.takeOrdered(5, key = lambda x: x[0])  # sort by keys
+    RDD.takeOrdered(5, key = lambda x: -x[0]) # sort by keys (descending)
+    RDD.takeOrdered(5, key = lambda x: x[1])  # sort by values
+    RDD.takeOrdered(5, key = lambda x: -x[1]) # sort by values (descending)
+
+
+####################################
+Programming-guide: condensed summary
+####################################
+From http://spark.apache.org/docs/latest/programming-guide.html
+
+************
+Super basics
+************
+
+
+- use the ``bin/spark-submit`` script in the Spark directory to run Spark applications in Python
+
+.. code-block:: bash
+
+    $ PYSPARK_PYTHON=python3.4 bin/pyspark
+    $ PYSPARK_PYTHON=/opt/pypy-2.5/bin/pypy bin/spark-submit examples/src/main/python/pi.py
+
+
+
+.. code-block:: python
+
+    from pyspark import SparkContext, SparkConf
+
+    #=========================================================================#
+    # 1st thing a Spark program must do: create SC object that tells Spark how to access a cluster
+    #=========================================================================#
+    # create config object (contains information about your application)
+    # - `appName` = name of the application to show on the cluster UI
+    # - `master` = "local", or URL to Spark, Mesos, or YARN cluster.
+    #   (http://spark.apache.org/docs/latest/submitting-applications.html#master-urls)
+    conf = SparkConf().setAppName(appName).setMaster(master)
+
+    # create SparkContext object
+    sc = SparkContext(conf=conf)
+
+    # === create RDD from an existing collection/iterable ===
+    # - use sc.parallelize
+    data = [1, 2, 3, 4, 5]
+    distData = sc.parallelize(data) # create Parallelized collections
+    distData.reduce(lambda a, b: a + b)
+    distData = sc.parallelize(data,partitions=10) # can also specify # partitions (typically 2-4 partitions for each CPU in cluster
+    wordsRDD = sc.parallelize(["fish", "cats", "dogs"])
+    
+
+    # === RDD external dataset ===
+    # - use sc.textFile 
+    # URI = either a local path on the machine, or a hdfs://, s3n://, etc URI
+    distFile = sc.textFile("data.txt")
+    distFile.map(lambda s: len(s)).reduce(lambda a, b: a + b)
+
+    # All of Spark’s file-based input methods, including textFile, support running on directories, compressed files, and wildcards
+    sc.textFile("/my/directory")
+    sc.textFile("/my/directory/*.txt")
+    sc.textFile("/my/directory/*.gz")
+
+
+    #==========================================================================#
+    # saving and loading
+    #==========================================================================#
+    # Similarly to text files, SequenceFiles can be saved and loaded by specifying the path
+    >>> rdd = sc.parallelize(range(1, 4)).map(lambda x: (x, "a" * x ))
+    >>> rdd.saveAsSequenceFile("path/to/file")
+    >>> sorted(sc.sequenceFile("path/to/file").collect())
+    [(1, u'a'), (2, u'aa'), (3, u'aaa')]
+
+****************
+Shared variables
+****************
+- General, read-write shared variables across tasks would be inefficient. 
+- However, Spark does provide two limited types of shared variables for two common usage patterns: broadcast variables and accumulators.
+
+
+Broadast variables
+==================
+- ``SparkContext.broadcast(v)`` - creates Broadcast variables from variable v. 
+
+  - The broadcast variable is a wrapper around v, and its value can be accessed by calling the ``.value`` method
+- Broadcast variables are used to keep a read-only variable cached on each machine (rather than shipping a copy of it with tasks). 
+
+  - example usage: to give every node a copy of a large input dataset in an efficient manner. 
+- explicitly creating broadcast variables is only useful when tasks across multiple stages need the same data or when caching the data in deserialized form is important.
+
+.. code-block:: python
+
+    >>> broadcastVar = sc.broadcast([1, 2, 3])
+    <pyspark.broadcast.Broadcast object at 0x102789f10>
+
+    >>> broadcastVar.value
+    [1, 2, 3]
+
+Accumulators
+============
+See http://spark.apache.org/docs/latest/programming-guide.html#accumulators
+
+**************
+RDD operations
+**************
+
+RDD-basics
+==========
+
+.. code-block:: python
+
+    lines = sc.textFile("data.txt")
+    lineLengths = lines.map(lambda s: len(s))
+    totalLength = lineLengths.reduce(lambda a, b: a + b)
+    lineLengths.persist() # if you want to use this object again later
+
+Passing functions to Spark
+==========================
+Spark relies heavily on passing functions in the driver program to run on the cluster. 
+
+3 recommended ways to do this:
+
+1. lambda expressions for simple functions (does not support mult-statement \
+functions or statements that do not return a value)
+2. Local ``def`` functions
+3. Top-level functions in a module
+
+.. code-block:: python
+
+    def myFunc(s):
+        words = s.split(" ")
+        return len(words)
+
+    sc.textFile("file.txt").map(myFunc)
+
+Some caveats when defining class attributes
+
+.. code-block:: python
+
+    # don't do this (the whole object gets sent to the luster when ``doStuff`` is called)
+    class MyClass(object):
+        def func(self, s):
+            return s
+        def doStuff(self, rdd):
+            return rdd.map(self.func)
+
+    # or this (accessing fields of the outer object will reference the ENTIRE object)
+    class MyClass(object):
+        def __init__(self):
+            self.field = "Hello"
+        def doStuff(self, rdd):
+            return rdd.map(lambda s: self.field + s)
+
+    # rather, do this (copy field into a local variable instead of accessing it externally)
+    def doStuff(self, rdd):
+        field = self.field
+        return rdd.map(lambda s: field + s)
+
+
+RDD Transformations
+===================
+some of the common transformations supported by Spark
+
+Regex used to get below: **search**: ``(^[a-zA-Z]*\(.*?\))``, **replace**: ``\1 |`` 
+
+.. csv-table:: 
+    :header: Transformation, Meaning
+    :widths: 20,70
+    :delim: |
+
+    map(func)  |    Return a new distributed dataset formed by passing each element of the source through a function func.
+    filter(func)  |     Return a new dataset formed by selecting those elements of the source on which func returns true.
+    flatMap(func)  |    Similar to map, but each input item can be mapped to 0 or more output items (so func should return a Seq rather than a single item).
+    mapPartitions(func)  |  Similar to map, but runs separately on each partition (block) of the RDD, so func must be of type Iterator<T> => Iterator<U> when running on an RDD of type T.
+    mapPartitionsWithIndex(func)  |     Similar to mapPartitions, but also provides func with an integer value representing the index of the partition, so func must be of type (Int, Iterator<T>) => Iterator<U> when running on an RDD of type T.
+    sample(withReplacement, fraction, seed)  |  Sample a fraction fraction of the data, with or without replacement, using a given random number generator seed.
+    union(otherDataset)  |  Return a new dataset that contains the union of the elements in the source dataset and the argument.
+    intersection(otherDataset)  |   Return a new RDD that contains the intersection of elements in the source dataset and the argument.
+    distinct([numTasks])  |   Return a new dataset that contains the distinct elements of the source dataset.
+    groupByKey([numTasks])  |   When called on a dataset of (K, V) pairs, returns a dataset of (K, Iterable<V>) pairs. Note: If you are grouping in order to perform an aggregation (such as a sum or average) over each key, using reduceByKey or aggregateByKey will yield much better performance. \Note: By default, the level of parallelism in the output depends on the number of partitions of the parent RDD. You can pass an optional numTasks argument to set a different number of tasks.
+    reduceByKey(func, [numTasks])  |    When called on a dataset of (K, V) pairs, returns a dataset of (K, V) pairs where the values for each key are aggregated using the given reduce function func, which must be of type (V,V) => V. Like in groupByKey, the number of reduce tasks is configurable through an optional second argument.
+    aggregateByKey(zeroValue)  | (seqOp, combOp, [numTasks])    When called on a dataset of (K, V) pairs, returns a dataset of (K, U) pairs where the values for each key are aggregated using the given combine functions and a neutral "zero" value. Allows an aggregated value type that is different than the input value type, while avoiding unnecessary allocations. Like in groupByKey, the number of reduce tasks is configurable through an optional second argument.
+    sortByKey([ascending], [numTasks])  |   When called on a dataset of (K, V) pairs where K implements Ordered, returns a dataset of (K, V) pairs sorted by keys in ascending or descending order, as specified in the boolean ascending argument.
+    join(otherDataset, [numTasks])  |   When called on datasets of type (K, V) and (K, W), returns a dataset of (K, (V, W)) pairs with all pairs of elements for each key. Outer joins are supported through leftOuterJoin, rightOuterJoin, and fullOuterJoin.
+    cogroup(otherDataset, [numTasks])  |    When called on datasets of type (K, V) and (K, W), returns a dataset of (K, (Iterable<V>, Iterable<W>)) tuples. This operation is also called groupWith.
+    cartesian(otherDataset)  |  When called on datasets of types T and U, returns a dataset of (T, U) pairs (all pairs of elements).
+    pipe(command, [envVars])  |     Pipe each partition of the RDD through a shell command, e.g. a Perl or bash script. RDD elements are written to the process's stdin and lines output to its stdout are returned as an RDD of strings.
+    coalesce(numPartitions)  |  Decrease the number of partitions in the RDD to numPartitions. Useful for running operations more efficiently after filtering down a large dataset.
+    repartition(numPartitions)  |   Reshuffle the data in the RDD randomly to create either more or fewer partitions and balance it across them. This always shuffles all data over the network.
+    repartitionAndSortWithinPartitions(partitioner)  |  Repartition the RDD according to the given partitioner and, within each resulting partition, sort records by their keys. This is more efficient than calling repartition and then sorting within each partition because it can push the sorting down into the shuffle machinery.
+
+
+RDD Actions
+===========
+.. csv-table:: 
+    :header: Action, Meaning
+    :widths: 20,70
+    :delim: |
+
+    reduce(func)  |   Aggregate the elements of the dataset using a function func (which takes two arguments and returns one). The function should be commutative and associative so that it can be computed correctly in parallel.
+    collect()  |  Return all the elements of the dataset as an array at the driver program. This is usually useful after a filter or other operation that returns a sufficiently small subset of the data.
+    count()  |  Return the number of elements in the dataset.
+    first()  |  Return the first element of the dataset (similar to take(1)).
+    take(n)  |  Return an array with the first n elements of the dataset.
+    takeSample(withReplacement, num, [seed])  |   Return an array with a random sample of num elements of the dataset, with or without replacement, optionally pre-specifying a random number generator seed.
+    takeOrdered(n, [ordering])  |   Return the first n elements of the RDD using either their natural order or a custom comparator.
+    saveAsTextFile(path)  |   Write the elements of the dataset as a text file (or set of text files) in a given directory in the local filesystem, HDFS or any other Hadoop-supported file system. Spark will call toString on each element to convert it to a line of text in the file.
+    saveAsSequenceFile(path)  (Java and Scala) |         Write the elements of the dataset as a Hadoop SequenceFile in a given path in the local filesystem, HDFS or any other Hadoop-supported file system. This is available on RDDs of key-value pairs that implement Hadoop's Writable interface. In Scala, it is also available on types that are implicitly convertible to Writable (Spark includes conversions for basic types like Int, Double, String, etc).
+    saveAsObjectFile(path)  (Java and Scala) |      Write the elements of the dataset in a simple format using Java serialization, which can then be loaded using SparkContext.objectFile().
+    countByKey()  |   Only available on RDDs of type (K, V). Returns a hashmap of (K, Int) pairs with the count of each key.
+    foreach(func)  |  Run a function func on each element of the dataset. This is usually done for side effects such as updating an Accumulator or interacting with external storage systems.  Note: modifying variables other than Accumulators outside of the foreach() may result in undefined behavior. See Understanding closures for more details.
+
+closures
+========
+Common confusion in Spark:
+
+- understanding the **scope** and **life cycle** of variables and methods when executing code across a cluster.
+- In general, **closures** - constructs like loops or locally defined methods, should not be used to mutate some global state. 
+- Use an **Accumulator** instead if some global aggregation is needed.
+
+Example: wrong way to increment a counter
+
+.. code-block:: python
+
+    counter = 0
+    rdd = sc.parallelize(data)
+
+    # Wrong: Don't do this!! (will only work in master="local" mode, but won't work on cluster)
+    def increment_counter(x):
+        global counter
+        counter += x
+    rdd.foreach(increment_counter)
+
+    print("Counter value: ", counter)
+
+Working with key-value pairs
+============================
+.. code-block:: python
+
+    lines = sc.textFile("data.txt")
+    pairs = lines.map(lambda s: (s, 1))
+    counts = pairs.reduceByKey(lambda a, b: a + b)
+    counts.sortByKey() # sort alphabetically
+    counts.collect() # bring them back to the driver program as a list of objects
+
+#####################
+Random handy snippets
+#####################
+
+****************
+compute average
+****************
+.. code-block:: python
+
+    
+    # using RDDs
+    rdd = sc.textFile(...).map(_.split(" "))
+    rdd.map { x => (x(0), (x(1).toFloat, 1)) }.
+    reduceByKey { case ((num1, count1), (num2, count2)) =>
+    (num1 + num2, count1 + count2)
+    }.
+    map { case (key, (num, count)) => (key, num / count) }.
+    collect()
+
+    # using DF
+    import org.apache.spark.sql.functions._
+    val df = rdd.map(a => (a(0), a(1))).toDF("key", "value")
+    df.groupBy("key")
+    .agg(avg("value"))
+    .collect()
+
+dfasd

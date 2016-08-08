@@ -24,6 +24,19 @@ Best python tutorial
   
   - http://www.rexegg.com/regex-quantifiers.html#cheat_sheet
 
+| Sublime Text uses the Perl Compatible Regular Expressions (PCRE) engine from the Boost library to power regular expressions in search panels.
+
+###########
+Sublimetext
+###########
+https://github.com/dmikalova/sublime-cheat-sheets/blob/master/cheat-sheets/Regular%20Expressions.cheatsheet
+
+- http://docs.sublimetext.info/en/latest/search_and_replace/search_and_replace_overview.html
+
+    Sublime Text uses the **Perl Compatible Regular Expressions (PCRE) engine** from  the **Boost library** to power regular expressions in search panels.
+
+- http://www.boost.org/doc/libs/1_61_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
+- http://www.boost.org/doc/libs/1_61_0/libs/regex/doc/html/boost_regex/format/perl_format.html
 
 ###############################################################################
 Regular expression (regexp) for python

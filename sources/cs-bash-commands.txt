@@ -11,6 +11,89 @@ http://ss64.com/bash
     :depth: 2
 
 
+####################
+Using rename command
+####################
+- http://unix.stackexchange.com/questions/146743/processing-multiple-extensions
+- https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html
+
+.. code-block:: bash
+
+    # rename the filename part "Array" with "_PCA" for all files ending with extension .mat
+    rename Array _PCA *.mat
+
+    # rename png "prefix" with "normalized" in files with .png extensions
+    rename 's/prefix/normalized/' *.png
+
+    # rename files with either .png or .pkl extension (see link on brack expansion above)
+    # (-n will do a dry run, letting me check the rename will do what i want it to do )
+    rename -n 's/normalized/test/' *.{png,pkl}
+
+    # creates 3 dir at once
+    mkdir {a,b,c}
+
+****************************
+Rename files with suffix or prefix
+****************************
+- 2nd answer in http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix
+
+.. code-block:: bash
+
+    # rename files with extensions (to avoid directory...not robust, but does what i want most of the time)
+    for filename in *\.*; do echo $filename; done;
+    for filename in *; do echo $filename; done; # <- this includes directory, which me not like
+
+
+    for filename in *\.*; do mv "${filename}" "prefix_${filename}"; done;
+
+
+*************************
+regexp syntax with rename
+*************************
+- https://answers.launchpad.net/ubuntu/+question/31247
+- http://askubuntu.com/questions/204864/rename-what-does-s-vs-y-mean
+- http://manpages.ubuntu.com/manpages/precise/en/man1/sed.1.html
+
+.. code-block:: bash
+
+    # '-n' option for dry run to verify it'll do what i want it to do
+    rename -n 's/graphnet/elasticnet/;' *.m
+
+          graphnet_FA_v06_gender.m renamed as elasticnet_FA_v06_gender.m
+          graphnet_FA_v06m_DX.m renamed as elasticnet_FA_v06m_DX.m
+          graphnet_FA_v06m_HRp_HRm.m renamed as elasticnet_FA_v06m_HRp_HRm.m
+          graphnet_FA_v06m_HRp_LRm.m renamed as elasticnet_FA_v06m_HRp_LRm.m
+          graphnet_FA_v06m_risk.m renamed as elasticnet_FA_v06m_risk.m
+          graphnet_FA_v12_gender.m renamed as elasticnet_FA_v12_gender.m
+          graphnet_FA_v12m_DX.m renamed as elasticnet_FA_v12m_DX.m
+          graphnet_FA_v12m_HRp_HRm.m renamed as elasticnet_FA_v12m_HRp_HRm.m
+          graphnet_FA_v12m_HRp_LRm.m renamed as elasticnet_FA_v12m_HRp_LRm.m
+          graphnet_FA_v12m_risk.m renamed as elasticnet_FA_v12m_risk.m
+          graphnet_FA_v24_gender.m renamed as elasticnet_FA_v24_gender.m
+          graphnet_FA_v24m_DX.m renamed as elasticnet_FA_v24m_DX.m
+          graphnet_FA_v24m_HRp_HRm.m renamed as elasticnet_FA_v24m_HRp_HRm.m
+          graphnet_FA_v24m_HRp_LRm.m renamed as elasticnet_FA_v24m_HRp_LRm.m
+          graphnet_FA_v24m_risk.m renamed as elasticnet_FA_v24m_risk.m
+          graphnet_TR_v06_gender.m renamed as elasticnet_TR_v06_gender.m
+          graphnet_TR_v06m_DX.m renamed as elasticnet_TR_v06m_DX.m
+          graphnet_TR_v06m_HRp_HRm.m renamed as elasticnet_TR_v06m_HRp_HRm.m
+          graphnet_TR_v06m_HRp_LRm.m renamed as elasticnet_TR_v06m_HRp_LRm.m
+          graphnet_TR_v06m_risk.m renamed as elasticnet_TR_v06m_risk.m
+          graphnet_TR_v12_gender.m renamed as elasticnet_TR_v12_gender.m
+          graphnet_TR_v12m_DX.m renamed as elasticnet_TR_v12m_DX.m
+          graphnet_TR_v12m_HRp_HRm.m renamed as elasticnet_TR_v12m_HRp_HRm.m
+          graphnet_TR_v12m_HRp_LRm.m renamed as elasticnet_TR_v12m_HRp_LRm.m
+          graphnet_TR_v12m_risk.m renamed as elasticnet_TR_v12m_risk.m
+          graphnet_TR_v24_gender.m renamed as elasticnet_TR_v24_gender.m
+          graphnet_TR_v24m_DX.m renamed as elasticnet_TR_v24m_DX.m
+          graphnet_TR_v24m_HRp_HRm.m renamed as elasticnet_TR_v24m_HRp_HRm.m
+          graphnet_TR_v24m_HRp_LRm.m renamed as elasticnet_TR_v24m_HRp_LRm.m
+          graphnet_TR_v24m_risk.m renamed as elasticnet_TR_v24m_risk.m
+
+
+    # above looks right, so now actually run it 'verbosely'
+    rename -v 's/graphnet/elasticnet/;' *.m
+
 #####################
 Random handy snippets
 #####################
