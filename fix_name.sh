@@ -15,6 +15,19 @@ for file in "./build/html/*.html"; do
     sed -i 's/_modules\//modules\//' $file
 done
 
+# repeat above for list of subdirectories
+SUBDIR=('awk-tutorial' )
+
+for subdir in "${SUBDIR[@]}"; do
+    for file in "./build/html/${subdir}/*.html"; do
+        #echo $file
+        sed -i 's/_static\//static\//' $file
+        sed -i 's/_sources\//sources\//' $file
+        sed -i 's/_modules\//modules\//' $file
+    done
+done
+
+
 # rename directories with underscore (so they appear on github.io)
 build_dir='./build/html'
 mv ${build_dir}/_sources ${build_dir}/sources

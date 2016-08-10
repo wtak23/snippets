@@ -25,6 +25,7 @@ Welcome to Snippets's documentation!
     cs-sed-oneliners.rst
     cs-sed.rst
     cs-sql.rst
+    awk-tutorial/index.rst
 
 
 .. code-block:: bash
