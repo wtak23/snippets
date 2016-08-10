@@ -301,8 +301,8 @@ qsub-run -c python save_0726_bct_weighted_normalized.py 0.15 True &gt; qsub_0726
 <div class="section" id="place-exit-1-to-end-script">
 <h2><a class="toc-backref" href="#id4">2.2. place exit 1 to end script</a><a class="headerlink" href="#place-exit-1-to-end-script" title="Permalink to this headline">¶</a></h2>
 <p>Similar to how i use <code class="docutils literal"><span class="pre">sys.exit()</span></code> in python</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ... bunch of script above ...</span>
-<span class="n">exit</span> <span class="mi">1</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ... bunch of script above ...</span>
+<span class="nb">exit</span> 1
 <span class="c1"># ... bunch of sciprt below ...</span>
 </pre></div>
 </div>
@@ -325,10 +325,10 @@ underscores, declared at the top of the file. Ex: <code class="docutils literal"
 </ul>
 </li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span># my 4-space convention
-rsync -rvL --ignore-existing --exclude=&quot;/*/*/*/&quot; \
-    ${source_dir}/${foldername} \
-    ${tob_dir}/$[foldername}
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># my 4-space convention</span>
+rsync -rvL --ignore-existing --exclude<span class="o">=</span><span class="s2">&quot;/*/*/*/&quot;</span> <span class="se">\</span>
+    <span class="si">${</span><span class="nv">source_dir</span><span class="si">}</span>/<span class="si">${</span><span class="nv">foldername</span><span class="si">}</span> <span class="se">\</span>
+    <span class="si">${</span><span class="nv">tob_dir</span><span class="si">}</span>/$<span class="o">[</span>foldername<span class="o">}</span>
 </pre></div>
 </div>
 </div>
@@ -336,9 +336,9 @@ rsync -rvL --ignore-existing --exclude=&quot;/*/*/*/&quot; \
 <h2><a class="toc-backref" href="#id6">2.4. arrays</a><a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">http://mywiki.wooledge.org/BashGuide/Arrays</a></p>
 <p>Remember to <strong>quote</strong> the <code class="docutils literal"><span class="pre">${arrayname[&#64;]}</span></code> expansion properly</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ for file in &quot;${myfiles[@]}&quot;; do
-&gt;     cp &quot;$file&quot; /backups/
-&gt; done
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="k">for</span> file in <span class="s2">&quot;</span><span class="si">${</span><span class="nv">myfiles</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
+&gt;     cp <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> /backups/
+&gt; <span class="k">done</span>
 </pre></div>
 </div>
 <p>Remember these expansion</p>
@@ -351,75 +351,75 @@ with all the elements joined together</li>
 <li><code class="docutils literal"><span class="pre">${#arrayname[&#64;]}</span></code> &#8211; length of array</li>
 <li><code class="docutils literal"><span class="pre">${!arrayname[&#64;]}</span></code> &#8211; expand list of indices of array</li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># The easiest way to create a simple array with data is by using the =() syntax:</span>
-<span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span> <span class="s2">&quot;Peter&quot;</span> <span class="s2">&quot;$USER&quot;</span> <span class="s2">&quot;Big Bad John&quot;</span><span class="p">)</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span># The easiest way to create a simple array with data is by using the =() syntax:
+names=(&quot;Bob&quot; &quot;Peter&quot; &quot;$USER&quot; &quot;Big Bad John&quot;)
 
-<span class="c1"># ${#array[@]} = length of lists</span>
-<span class="n">echo</span> <span class="s2">&quot;There are ${#names[@]} items in the list&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">There</span> <span class="n">are</span> <span class="mi">4</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span>
+# ${#array[@]} = length of lists
+echo &quot;There are ${#names[@]} items in the list&quot;
+&gt;&gt;&gt; There are 4 items in the list
 
-<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="s2">&quot;$</span><span class="si">{names[@]}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="n">do</span> <span class="n">echo</span> <span class="s2">&quot;$name&quot;</span><span class="p">;</span> <span class="n">done</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Bob</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Peter</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">takanori</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Big</span> <span class="n">Bad</span> <span class="n">John</span>
+for name in &quot;${names[@]}&quot;; do echo &quot;$name&quot;; done
+&gt;&gt;&gt; Bob
+&gt;&gt;&gt; Peter
+&gt;&gt;&gt; takanori
+&gt;&gt;&gt; Big Bad John
 
-<span class="c1">#  &quot;${arrayname[*]}&quot;.</span>
-<span class="c1"># This form is ONLY useful for converting arrays into a single string with all the elements joined together</span>
-<span class="n">echo</span> <span class="s2">&quot;Today&#39;s contestants are: $</span><span class="si">{names[*]}</span><span class="s2">&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Today</span><span class="s1">&#39;s contestants are: Bob Peter takanori Big Bad John</span>
+#  &quot;${arrayname[*]}&quot;.
+# This form is ONLY useful for converting arrays into a single string with all the elements joined together
+echo &quot;Today&#39;s contestants are: ${names[*]}&quot;
+&gt;&gt;&gt; Today&#39;s contestants are: Bob Peter takanori Big Bad John
 
 
-<span class="c1">#http://unix.stackexchange.com/questions/136118/convert-all-text-from-uppercase-to-lowercase-and-vice-versa</span>
-<span class="c1">#http://stackoverflow.com/questions/689495/upper-to-lower-case-using-sed</span>
-<span class="c1">#https://www.gnu.org/software/sed/manual/html_node/The-_0022s_0022-Command.html</span>
-<span class="c1"># (note: \U\1 converts first group to uppercase, \L\2 2nd grou pto lower)</span>
-<span class="c1"># (/g is for all)</span>
-<span class="c1"># (-E for extended regexp, me believes)</span>
-<span class="n">echo</span> <span class="s2">&quot;$</span><span class="si">{names[@]}</span><span class="s2">&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="o">-</span><span class="n">E</span> <span class="s1">&#39;s/([a-z])|([A-Z])/\U</span><span class="se">\1</span><span class="s1">\L</span><span class="se">\2</span><span class="s1">/g&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bOB</span> <span class="n">pETER</span> <span class="n">TAKANORI</span> <span class="n">bIG</span> <span class="n">bAD</span> <span class="n">jOHN</span>
+#http://unix.stackexchange.com/questions/136118/convert-all-text-from-uppercase-to-lowercase-and-vice-versa
+#http://stackoverflow.com/questions/689495/upper-to-lower-case-using-sed
+#https://www.gnu.org/software/sed/manual/html_node/The-_0022s_0022-Command.html
+# (note: \U\1 converts first group to uppercase, \L\2 2nd grou pto lower)
+# (/g is for all)
+# (-E for extended regexp, me believes)
+echo &quot;${names[@]}&quot; | sed -E &#39;s/([a-z])|([A-Z])/\U\1\L\2/g&#39;
+&gt;&gt;&gt; bOB pETER TAKANORI bIG bAD jOHN
 
-<span class="n">echo</span> <span class="s2">&quot;$</span><span class="si">{names[@]}</span><span class="s2">&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="o">-</span><span class="n">E</span> <span class="s1">&#39;s/([[:lower:]])/\U</span><span class="se">\1</span><span class="s1">/g&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">BOB</span> <span class="n">PETER</span> <span class="n">TAKANORI</span> <span class="n">BIG</span> <span class="n">BAD</span> <span class="n">JOHN</span>
+echo &quot;${names[@]}&quot; | sed -E &#39;s/([[:lower:]])/\U\1/g&#39;
+&gt;&gt;&gt; BOB PETER TAKANORI BIG BAD JOHN
 </pre></div>
 </div>
 <div class="section" id="expanding-indices">
 <h3>2.4.1. Expanding indices<a class="headerlink" href="#expanding-indices" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">${!arrayname[&#64;]}</span></code> expands to a list of the indices of an array, in sequential order.</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ first=(Jessica Sue Peter)
-$ last=(Jones Storm Parker)
-$ for i in &quot;${!first[@]}&quot;; do
-&gt; echo &quot;${first[i]} ${last[i]}&quot;
-&gt; done
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">first</span><span class="o">=(</span>Jessica Sue Peter<span class="o">)</span>
+$ <span class="nv">last</span><span class="o">=(</span>Jones Storm Parker<span class="o">)</span>
+$ <span class="k">for</span> i in <span class="s2">&quot;</span><span class="si">${</span><span class="p">!first[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
+&gt; <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">first</span><span class="p">[i]</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">last</span><span class="p">[i]</span><span class="si">}</span><span class="s2">&quot;</span>
+&gt; <span class="k">done</span>
 Jessica Jones
 Sue Storm
 Peter Parker
 </pre></div>
 </div>
 <p>Can also use the <strong>length of array</strong> syntax <code class="docutils literal"><span class="pre">${#names[&#64;]}</span></code></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ a=(a b c q w x y z)
-$ for ((i=0; i&lt;${#a[@]}; i+=2)); do
-&gt; echo &quot;${a[i]} and ${a[i+1]}&quot;
-&gt; done
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">a</span><span class="o">=(</span>a b c q w x y z<span class="o">)</span>
+$ <span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>0<span class="p">;</span> i&lt;<span class="si">${#</span><span class="nv">a</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> i+<span class="o">=</span>2<span class="o">))</span><span class="p">;</span> <span class="k">do</span>
+&gt; <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[i]</span><span class="si">}</span><span class="s2"> and </span><span class="si">${</span><span class="nv">a</span><span class="p">[i+1]</span><span class="si">}</span><span class="s2">&quot;</span>
+&gt; <span class="k">done</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="practical-example">
 <h3>2.4.2. practical example<a class="headerlink" href="#practical-example" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>target_dir=${HOME}/data/tob/dti_volumes
-source_dir=${HOME}/data/tob/source
-data_array=$(find  ${source_dir} | egrep &#39;FA\.nii\.gz&#39;)
-for i in  $data_array; do
-  # echo -e &quot;Copy ${i} to ${target_dir}&quot;
-  # echo -e &quot;cp ${i} ${target_dir}&quot;
-  cp ${i} ${target_dir}
-done
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">target_dir</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/data/tob/dti_volumes
+<span class="nv">source_dir</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/data/tob/source
+<span class="nv">data_array</span><span class="o">=</span><span class="k">$(</span>find  <span class="si">${</span><span class="nv">source_dir</span><span class="si">}</span> <span class="p">|</span> egrep <span class="s1">&#39;FA\.nii\.gz&#39;</span><span class="k">)</span>
+<span class="k">for</span> i in  <span class="nv">$data_array</span><span class="p">;</span> <span class="k">do</span>
+  <span class="c1"># echo -e &quot;Copy ${i} to ${target_dir}&quot;</span>
+  <span class="c1"># echo -e &quot;cp ${i} ${target_dir}&quot;</span>
+  cp <span class="si">${</span><span class="nv">i</span><span class="si">}</span> <span class="si">${</span><span class="nv">target_dir</span><span class="si">}</span>
+<span class="k">done</span>
 </pre></div>
 </div>
 <p>Remember to <strong>always avoid using ls</strong></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ files=$(ls)    # BAD, BAD, BAD!
-$ files=($(ls))  # STILL BAD!
-$ files=(*)      # Good!
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">files</span><span class="o">=</span><span class="k">$(</span>ls<span class="k">)</span>    <span class="c1"># BAD, BAD, BAD!</span>
+$ <span class="nv">files</span><span class="o">=(</span><span class="k">$(</span>ls<span class="k">)</span><span class="o">)</span>  <span class="c1"># STILL BAD!</span>
+$ <span class="nv">files</span><span class="o">=(</span>*<span class="o">)</span>      <span class="c1"># Good!</span>
 </pre></div>
 </div>
 </div>
@@ -427,9 +427,9 @@ $ files=(*)      # Good!
 <div class="section" id="control-rsync-recursive-depth">
 <h2><a class="toc-backref" href="#id7">2.5. control rsync recursive depth</a><a class="headerlink" href="#control-rsync-recursive-depth" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders">http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders</a></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1">#Facilitate the --exclude= option.</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#Facilitate the --exclude= option.</span>
 <span class="c1">#To sync to a depth of 2 (files within folder and subfolders):</span>
-<span class="n">rsync</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;/*/*/&quot;</span> <span class="n">source</span><span class="o">/</span> <span class="n">target</span><span class="o">/</span>
+rsync -r --exclude<span class="o">=</span><span class="s2">&quot;/*/*/&quot;</span> source/ target/
 </pre></div>
 </div>
 </div>
@@ -453,12 +453,12 @@ $ files=(*)      # Good!
 <li><a class="reference external" href="http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash">http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash</a></li>
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented">http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented</a></li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">source_dir</span><span class="o">=</span><span class="s2">&quot;watanabt@cbica-cluster.uphs.upenn.edu:&quot;</span>
-<span class="n">source_dir</span><span class="o">+=</span><span class="s2">&quot;/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps&quot;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">source_dir</span><span class="o">=</span><span class="s2">&quot;watanabt@cbica-cluster.uphs.upenn.edu:&quot;</span>
+source_dir+<span class="o">=</span><span class="s2">&quot;/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps&quot;</span>
 
 <span class="c1"># or</span>
-<span class="n">source_dir</span><span class="o">=</span><span class="s2">&quot;watanabt@cbica-cluster.uphs.upenn.edu:&quot;</span>
-<span class="n">source_dir</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{source_dir}</span><span class="s2">/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps&quot;</span>
+<span class="nv">source_dir</span><span class="o">=</span><span class="s2">&quot;watanabt@cbica-cluster.uphs.upenn.edu:&quot;</span>
+<span class="nv">source_dir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">source_dir</span><span class="si">}</span><span class="s2">/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -468,7 +468,7 @@ $ files=(*)      # Good!
 <li>$(commands) does the same thing as backticks, but you can nest them.</li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks">source</a></li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>echo $(date +&quot;%Y-%m-%d_%H:%M:%S&quot;)
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
 </pre></div>
 </div>
 </div>
@@ -484,9 +484,9 @@ $ files=(*)      # Good!
 <h2><a class="toc-backref" href="#id13">2.11. How to expand ~ (tilde)</a><a class="headerlink" href="#how-to-expand-tilde" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash">http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash</a>
 <code class="docutils literal"><span class="pre">echo</span> <span class="pre">${HOME}</span></code></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>out_dir=&quot;${HOME}/data/tob/dti_volumes&quot;
-echo ${out_dir}
-echo ${out_dir}/subdirec
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">out_dir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/data/tob/dti_volumes&quot;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">out_dir</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">out_dir</span><span class="si">}</span>/subdirec
 </pre></div>
 </div>
 </div>
@@ -496,26 +496,26 @@ echo ${out_dir}/subdirec
 <li><code class="docutils literal"><span class="pre">-p</span></code> option does it, but for pedagogical purpose...</li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist">http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist</a></li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>if [ ! -d /home/mlzboy/b2c2/shared/db ]
-then
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> ! -d /home/mlzboy/b2c2/shared/db <span class="o">]</span>
+<span class="k">then</span>
     mkdir -p /home/mlzboy/b2c2/shared/db
-fi
+<span class="k">fi</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="vs-in-arrays">
 <h2><a class="toc-backref" href="#id15">2.13. [&#64;] vs [*] in arrays</a><a class="headerlink" href="#vs-in-arrays" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple">http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple</a></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>perls=(perl-one perl-two)
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">perls</span><span class="o">=(</span>perl-one perl-two<span class="o">)</span>
 
-# equivalence with *
-compgen -W &quot;${perls[*]} /usr/bin/perl&quot; -- ${cur}
-compgen -W &quot;perl-one perl-two /usr/bin/perl&quot; -- ${cur}
+<span class="c1"># equivalence with *</span>
+<span class="nb">compgen</span> -W <span class="s2">&quot;</span><span class="si">${</span><span class="nv">perls</span><span class="p">[*]</span><span class="si">}</span><span class="s2"> /usr/bin/perl&quot;</span> -- <span class="si">${</span><span class="nv">cur</span><span class="si">}</span>
+<span class="nb">compgen</span> -W <span class="s2">&quot;perl-one perl-two /usr/bin/perl&quot;</span> -- <span class="si">${</span><span class="nv">cur</span><span class="si">}</span>
 
-#equivalence with @
-perls=(perl-one perl-two)
-compgen -W &quot;${perls[@]} /usr/bin/perl&quot; -- ${cur}
-compgen -W &quot;perl-one&quot; &quot;perl-two /usr/bin/perl&quot; -- ${cur}
+<span class="c1">#equivalence with @</span>
+<span class="nv">perls</span><span class="o">=(</span>perl-one perl-two<span class="o">)</span>
+<span class="nb">compgen</span> -W <span class="s2">&quot;</span><span class="si">${</span><span class="nv">perls</span><span class="p">[@]</span><span class="si">}</span><span class="s2"> /usr/bin/perl&quot;</span> -- <span class="si">${</span><span class="nv">cur</span><span class="si">}</span>
+<span class="nb">compgen</span> -W <span class="s2">&quot;perl-one&quot;</span> <span class="s2">&quot;perl-two /usr/bin/perl&quot;</span> -- <span class="si">${</span><span class="nv">cur</span><span class="si">}</span>
 </pre></div>
 </div>
 </div>

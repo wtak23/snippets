@@ -374,10 +374,10 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span cl
 <div class="section" id="check-running-processes">
 <h2><a class="toc-backref" href="#id5">1.4. check running processes</a><a class="headerlink" href="#check-running-processes" title="Permalink to this headline">¶</a></h2>
 <p>The one I use the most frequent</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># a &lt;- includes ``root`` in userprocess</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># a &lt;- includes ``root`` in userprocess</span>
 <span class="c1"># u &lt;- include ``username`` column</span>
 <span class="c1"># x &lt;- list all processes owned by me</span>
-<span class="n">ps</span> <span class="n">aux</span>
+ps aux
 </pre></div>
 </div>
 </div>
@@ -395,25 +395,25 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span cl
 <li><a class="reference external" href="http://ss64.com/bash/cp.html">http://ss64.com/bash/cp.html</a></li>
 <li><a class="reference external" href="http://ss64.com/bash/mv.html">http://ss64.com/bash/mv.html</a></li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># rename a directory (note &#39;/&#39; after directory name has NO impact here,  there are cases I should be careful of the backslash)</span>
-<span class="n">mv</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">oldname</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">newname</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># rename a directory (note &#39;/&#39; after directory name has NO impact here,  there are cases I should be careful of the backslash)</span>
+mv /home/user/oldname /home/user/newname
 
 <span class="c1">#=== cp helper ===#</span>
 <span class="c1"># copy files *inside* the folder &quot;test/&quot; inside folder &quot;target&quot;</span>
-<span class="n">gosnippets</span><span class="p">;</span> <span class="n">cd</span> <span class="n">tests</span><span class="p">;</span> <span class="n">mkdir</span> <span class="n">source</span> <span class="n">target</span><span class="p">;</span> <span class="n">cd</span> <span class="n">source</span><span class="p">;</span> <span class="n">touch</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span><span class="p">;</span> <span class="n">cd</span> <span class="o">..</span>
+gosnippets<span class="p">;</span> <span class="nb">cd</span> tests<span class="p">;</span> mkdir <span class="nb">source</span> target<span class="p">;</span> <span class="nb">cd</span> source<span class="p">;</span> touch a b c<span class="p">;</span> <span class="nb">cd</span> ..
 
 <span class="c1"># copy files *inside* the folder &quot;test/&quot; inside folder &quot;target&quot; (note: -R and -r are the same here)</span>
-<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">source</span><span class="o">/*</span> <span class="n">target</span>
+cp -r source/* target
 
 <span class="c1"># copy entire folder *source* into *target* (without ``-r``, the subdirectories won&#39;t get copied)</span>
-<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">source</span><span class="o">*</span> <span class="n">target</span>
+cp -r source* target
 
 <span class="c1">#--- cleanup test files from above---#</span>
-<span class="n">cd</span> <span class="o">..</span><span class="p">;</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">tests</span><span class="o">/*</span>
+<span class="nb">cd</span> ..<span class="p">;</span> rm -r tests/*
 
 
 <span class="c1">#--- remove entire directory including files inside recursively ---#</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">test</span><span class="o">/</span>
+rm -rf test/
 </pre></div>
 </div>
 <div class="section" id="scp-user">
@@ -422,7 +422,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span cl
 <li><a class="reference external" href="http://ss64.com/bash/scp.html">http://ss64.com/bash/scp.html</a></li>
 </ul>
 <p>Warning: scp apparently overwrites existing file w/o warning. Hence <code class="docutils literal"><span class="pre">rsync</span></code> is a safer option.</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1">#========================================================================#</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#========================================================================#</span>
 <span class="c1"># relevant options</span>
 <span class="c1">#========================================================================#</span>
 <span class="c1">#| -r : recursive</span>
@@ -433,11 +433,11 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span cl
 <span class="c1"># demos</span>
 <span class="c1">#========================================================================#</span>
 <span class="c1"># Copy dummy.txt to home directory in remote host:</span>
-<span class="n">touch</span> <span class="o">~/</span><span class="n">dummy</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">scp</span> <span class="o">~/</span><span class="n">dummy</span><span class="o">.</span><span class="n">txt</span> <span class="n">watanabt</span><span class="nd">@cbica</span><span class="o">-</span><span class="n">cluster</span><span class="o">.</span><span class="n">uphs</span><span class="o">.</span><span class="n">upenn</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">~/</span>
+touch ~/dummy.txt
+scp ~/dummy.txt watanabt@cbica-cluster.uphs.upenn.edu:~/
 
 <span class="c1"># copy dummy.txt on server as dummy_cp.txt to local home folder</span>
-<span class="n">scp</span> <span class="n">watanabt</span><span class="nd">@cbica</span><span class="o">-</span><span class="n">cluster</span><span class="o">.</span><span class="n">uphs</span><span class="o">.</span><span class="n">upenn</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">~/</span><span class="n">dummy</span><span class="o">.</span><span class="n">txt</span> <span class="o">~/</span><span class="n">dummy_cp</span><span class="o">.</span><span class="n">txt</span>
+scp watanabt@cbica-cluster.uphs.upenn.edu:~/dummy.txt ~/dummy_cp.txt
 </pre></div>
 </div>
 </div>
@@ -469,8 +469,8 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span cl
 <span class="o">--</span><span class="n">specials</span> <span class="n">preserve</span> <span class="n">special</span> <span class="n">files</span>
 </pre></div>
 </div>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># equilvaent to this</span>
-<span class="n">rsync</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">l</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">t</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">D</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># equilvaent to this</span>
+rsync -r -l -p -t -g -o -D
 </pre></div>
 </div>
 </div>
@@ -508,14 +508,14 @@ find . -iname &quot;*Sci*.txt&quot;
 </pre></div>
 </div>
 <p><strong>Selected examples from ss64</strong></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>List filenames ending in .mp3, searching in the music folder and subfolders:
-$ find ./music -name &quot;*.mp3&quot;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>List filenames ending in .mp3, searching in the music folder and subfolders:
+$ find ./music -name <span class="s2">&quot;*.mp3&quot;</span>
 
-Find .doc files that also start with &#39;questionnaire&#39; (AND)
-$ find . -name &#39;*.doc&#39; -name questionnaire*
+Find .doc files that also start with <span class="s1">&#39;questionnaire&#39;</span> <span class="o">(</span>AND<span class="o">)</span>
+$ find . -name <span class="s1">&#39;*.doc&#39;</span> -name questionnaire*
 
-Find .doc files that do NOT start with &#39;Accounts&#39; (NOT)
-$ find . -name &#39;*.doc&#39; ! -name Accounts*
+Find .doc files that <span class="k">do</span> NOT start with <span class="s1">&#39;Accounts&#39;</span> <span class="o">(</span>NOT<span class="o">)</span>
+$ find . -name <span class="s1">&#39;*.doc&#39;</span> ! -name Accounts*
 </pre></div>
 </div>
 <div class="section" id="note-find-vs-locate">
@@ -536,7 +536,7 @@ $ find . -name &#39;*.doc&#39; ! -name Accounts*
 <li><a class="reference external" href="http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks">source</a></li>
 </ul>
 <p>Why is $(...) preferred over <cite>...</cite> (backticks)? (<a class="reference external" href="http://mywiki.wooledge.org/BashFAQ/082">link</a>)</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>echo $(date +&quot;%Y-%m-%d_%H:%M:%S&quot;)
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
 </pre></div>
 </div>
 </div>
@@ -545,14 +545,14 @@ $ find . -name &#39;*.doc&#39; ! -name Accounts*
 <div class="section" id="ls-recursively-use-find">
 <h3>1.9.1. ls recursively (use <em>find</em>)<a class="headerlink" href="#ls-recursively-use-find" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file">http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file</a></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># recursively lists out all files + subdirectories</span>
-<span class="n">find</span> <span class="o">./</span><span class="n">test</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># recursively lists out all files + subdirectories</span>
+find ./test
 </pre></div>
 </div>
 </div>
 <div class="section" id="show-only-symbolic-links-alias-lssym">
 <h3>1.9.2. show only symbolic links (<strong>alias lssym</strong>)<a class="headerlink" href="#show-only-symbolic-links-alias-lssym" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>ls -l $(find ./ -maxdepth 1 -type l -print)
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ls -l <span class="k">$(</span>find ./ -maxdepth <span class="m">1</span> -type l -print<span class="k">)</span>
 </pre></div>
 </div>
 </div>
@@ -560,7 +560,7 @@ $ find . -name &#39;*.doc&#39; ! -name Accounts*
 <div class="section" id="print-timestamp">
 <h2><a class="toc-backref" href="#id11">1.10. print timestamp</a><a class="headerlink" href="#print-timestamp" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script">http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script</a></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>echo $(date +&quot;%Y-%m-%d_%H:%M:%S&quot;)
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
 </pre></div>
 </div>
 </div>
@@ -570,7 +570,7 @@ $ find . -name &#39;*.doc&#39; ! -name Accounts*
 </div>
 <div class="section" id="options-with-less-ongoing">
 <h2><a class="toc-backref" href="#id13">1.12. Options with <strong>less</strong> (ongoing)</a><a class="headerlink" href="#options-with-less-ongoing" title="Permalink to this headline">¶</a></h2>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># -n : enable line numbers</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># -n : enable line numbers</span>
 <span class="c1"># -N : disable line numbers</span>
 </pre></div>
 </div>
@@ -578,7 +578,7 @@ $ find . -name &#39;*.doc&#39; ! -name Accounts*
 <div class="section" id="history-w-o-line-numbers">
 <h2><a class="toc-backref" href="#id14">1.13. history w/o line-numbers</a><a class="headerlink" href="#history-w-o-line-numbers" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers">http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers</a></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">c</span> <span class="mi">8</span><span class="o">-</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">history</span> <span class="p">|</span> cut -c 8-
 </pre></div>
 </div>
 </div>
@@ -590,7 +590,7 @@ $ find . -name &#39;*.doc&#39; ! -name Accounts*
 <li><a class="reference external" href="http://www.catonmat.net/blog/awk-one-liners-explained-part-one/">http://www.catonmat.net/blog/awk-one-liners-explained-part-one/</a></li>
 <li><a class="reference external" href="http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html">http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html</a></li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{printf $5 &quot;</span><span class="se">\t</span><span class="s1">&quot; $9&quot;</span><span class="se">\n</span><span class="s1">&quot;}&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ls -l <span class="p">|</span> awk <span class="s1">&#39;{printf $5 &quot;\t&quot; $9&quot;\n&quot;}&#39;</span>
 </pre></div>
 </div>
 <p><strong>oneliner examples</strong></p>
@@ -611,32 +611,32 @@ $ find . -name &#39;*.doc&#39; ! -name Accounts*
 </div>
 <div class="section" id="get-computer-info">
 <h2><a class="toc-backref" href="#id17">1.16. Get computer info</a><a class="headerlink" href="#get-computer-info" title="Permalink to this headline">¶</a></h2>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># get cpu information</span>
-<span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">cpuinfo</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># get cpu information</span>
+cat /proc/cpuinfo
 
 <span class="c1">#-- see gnome version ---</span>
-<span class="n">gnome</span><span class="o">-</span><span class="n">shell</span> <span class="o">--</span><span class="n">version</span>
-<span class="n">lsb_release</span> <span class="o">-</span><span class="n">a</span>
+gnome-shell --version
+lsb_release -a
 
 <span class="c1"># to figure out which linux distribution you are using</span>
 <span class="c1"># (ref: http://www.cyberciti.biz/faq/find-linux-distribution-name-version-number/)</span>
-<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/*-</span><span class="n">release</span>
+cat /etc/*-release
 
-<span class="n">locate</span> <span class="n">libfortran</span><span class="o">.</span><span class="n">so</span>
+locate libfortran.so
 </pre></div>
 </div>
 </div>
 <div class="section" id="mogrify">
 <h2><a class="toc-backref" href="#id18">1.17. mogrify</a><a class="headerlink" href="#mogrify" title="Permalink to this headline">¶</a></h2>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>mogrify -resize 50% *.png
-mogrify -resize 500! *.png     =&gt; changes only x-axis
-mogrify -resize 500 *.png      =&gt; changes (x,y) axis in proportion
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mogrify -resize 50% *.png
+mogrify -resize 500! *.png     <span class="o">=</span>&gt; changes only x-axis
+mogrify -resize <span class="m">500</span> *.png      <span class="o">=</span>&gt; changes <span class="o">(</span>x,y<span class="o">)</span> axis in proportion
 mogrify -trim *.png
 
-#| http://arcoleo.org/dsawiki/Wiki.jsp?page=Recursively%20run%20Mogrify%20on%20a%20Directory
-#| Mogrify is an image tool that comes with ImageMagick. It is useful for resizing, compressing, etc. If you have a set of subdirectories to run it on, run
-$ find ./ -name &quot;*.png&quot; -exec mogrify -some_option {} \;
-$ find ./ -name &quot;*.png&quot; -exec mogrify -resize 40% {} \;
+<span class="c1">#| http://arcoleo.org/dsawiki/Wiki.jsp?page=Recursively%20run%20Mogrify%20on%20a%20Directory</span>
+<span class="c1">#| Mogrify is an image tool that comes with ImageMagick. It is useful for resizing, compressing, etc. If you have a set of subdirectories to run it on, run</span>
+$ find ./ -name <span class="s2">&quot;*.png&quot;</span> -exec mogrify -some_option <span class="o">{}</span> <span class="se">\;</span>
+$ find ./ -name <span class="s2">&quot;*.png&quot;</span> -exec mogrify -resize 40% <span class="o">{}</span> <span class="se">\;</span>
 </pre></div>
 </div>
 </div>
@@ -647,15 +647,15 @@ $ find ./ -name &quot;*.png&quot; -exec mogrify -resize 40% {} \;
 <li>the <code class="docutils literal"><span class="pre">-exec</span> <span class="pre">&quot;{}&quot;</span> <span class="pre">\;</span></code> approach seems to be specific to <code class="docutils literal"><span class="pre">find</span></code>
 (i prefer unity with <code class="docutils literal"><span class="pre">xargs</span></code>)</li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list
-# http://ss64.com/bash/find.html
-find . -maxdepth 1 -type d -exec ls -ld &quot;{}&quot; &quot;;&quot;
-find . -maxdepth 1 -type d -exec ls -ld \{\} \;  # same as above
-find . -maxdepth 1 -type d | xargs ls -ld # same as above (i find this the most intuitive)
-ls -ld $(find . -maxdepth 1 -type d) # same as above
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list</span>
+<span class="c1"># http://ss64.com/bash/find.html</span>
+find . -maxdepth <span class="m">1</span> -type d -exec ls -ld <span class="s2">&quot;{}&quot;</span> <span class="s2">&quot;;&quot;</span>
+find . -maxdepth <span class="m">1</span> -type d -exec ls -ld <span class="se">\{\}</span> <span class="se">\;</span>  <span class="c1"># same as above</span>
+find . -maxdepth <span class="m">1</span> -type d <span class="p">|</span> xargs ls -ld <span class="c1"># same as above (i find this the most intuitive)</span>
+ls -ld <span class="k">$(</span>find . -maxdepth <span class="m">1</span> -type d<span class="k">)</span> <span class="c1"># same as above</span>
 
-# this doesn&#39;t give the same result as &quot;xargs&quot; approach...figure out why later
-find . -maxdepth 1 -type d | ls -ld
+<span class="c1"># this doesn&#39;t give the same result as &quot;xargs&quot; approach...figure out why later</span>
+find . -maxdepth <span class="m">1</span> -type d <span class="p">|</span> ls -ld
 </pre></div>
 </div>
 </div>
@@ -664,13 +664,13 @@ find . -maxdepth 1 -type d | ls -ld
 <div class="section" id="grep-recursively">
 <h3>1.19.1. grep recursively<a class="headerlink" href="#grep-recursively" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively">http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively</a></p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">r</span> <span class="s2">&quot;texthere&quot;</span> <span class="o">.</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -r <span class="s2">&quot;texthere&quot;</span> .
 
 <span class="c1"># You can also mention files to exclude with --exclude.</span>
-<span class="n">grep</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">include</span> <span class="s2">&quot;*.txt&quot;</span> <span class="n">texthere</span> <span class="o">.</span>
+grep -r --include <span class="s2">&quot;*.txt&quot;</span> texthere .
 
 <span class="c1"># use brace expansion to allow multiple extension</span>
-<span class="n">grep</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">include</span><span class="o">=*.</span><span class="p">{</span><span class="n">py</span><span class="p">,</span><span class="n">m</span><span class="p">}</span> <span class="n">test</span> <span class="o">.</span>
+grep -r --include<span class="o">=</span>*.<span class="o">{</span>py,m<span class="o">}</span> <span class="nb">test</span> .
 </pre></div>
 </div>
 </div>

@@ -100,7 +100,7 @@ place exit 1 to end script
 ##########################
 Similar to how i use ``sys.exit()`` in python
 
-.. code:: bash
+.. code-block:: bash
 
     # ... bunch of script above ...
     exit 1
@@ -123,14 +123,13 @@ Great reference: https://google.github.io/styleguide/shell.xml
   - apprently none, so stick with one convention
   - my convention: use the 4-space tab
 
-.. code:: bash
+.. code-block:: bash
 
     # my 4-space convention
     rsync -rvL --ignore-existing --exclude="/*/*/*/" \
         ${source_dir}/${foldername} \
         ${tob_dir}/$[foldername}
 
-.. code:: bash
 
     
 ######
@@ -140,7 +139,7 @@ http://mywiki.wooledge.org/BashGuide/Arrays
 
 Remember to **quote** the ``${arrayname[@]}`` expansion properly
 
-.. code:: bash
+.. code-block:: bash
 
     $ for file in "${myfiles[@]}"; do
     >     cp "$file" /backups/
@@ -156,7 +155,7 @@ Remember these expansion
 - ``${#arrayname[@]}`` -- length of array
 - ``${!arrayname[@]}`` -- expand list of indices of array
 
-.. code:: bash
+.. code-block:: bash
 
     # The easiest way to create a simple array with data is by using the =() syntax:
     names=("Bob" "Peter" "$USER" "Big Bad John")
@@ -194,7 +193,7 @@ Expanding indices
 *****************
 ``${!arrayname[@]}`` expands to a list of the indices of an array, in sequential order. 
 
-.. code:: bash
+.. code-block:: bash
 
     $ first=(Jessica Sue Peter)
     $ last=(Jones Storm Parker)
@@ -207,7 +206,7 @@ Expanding indices
 
 Can also use the **length of array** syntax ``${#names[@]}``
 
-.. code:: bash
+.. code-block:: bash
 
     $ a=(a b c q w x y z)
     $ for ((i=0; i<${#a[@]}; i+=2)); do
@@ -219,7 +218,7 @@ practical example
 *****************
 
 
-.. code:: bash
+.. code-block:: bash
 
     target_dir=${HOME}/data/tob/dti_volumes
     source_dir=${HOME}/data/tob/source
@@ -232,7 +231,7 @@ practical example
 
 Remember to **always avoid using ls**
 
-.. code:: bash
+.. code-block:: bash
 
     $ files=$(ls)    # BAD, BAD, BAD!
     $ files=($(ls))  # STILL BAD!
@@ -243,7 +242,7 @@ control rsync recursive depth
 #############################
 http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders
 
-.. code:: bash
+.. code-block:: bash
 
     #Facilitate the --exclude= option.
     #To sync to a depth of 2 (files within folder and subfolders):
@@ -268,7 +267,7 @@ Appending/concatenating variables
 - http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash
 - http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented
 
-.. code:: bash
+.. code-block:: bash
 
     source_dir="watanabt@cbica-cluster.uphs.upenn.edu:"
     source_dir+="/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps"
@@ -282,7 +281,7 @@ Appending/concatenating variables
 - $(commands) does the same thing as backticks, but you can nest them.
 - `source <http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks>`_
 
-.. code:: bash
+.. code-block:: bash
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
@@ -300,7 +299,7 @@ How to expand ~ (tilde)
 http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash
 ``echo ${HOME}``
 
-.. code:: bash
+.. code-block:: bash
 
     out_dir="${HOME}/data/tob/dti_volumes"
     echo ${out_dir}
@@ -313,7 +312,7 @@ Create directory if it doesn't exist 06-14-2016 (00:17)
 - ``-p`` option does it, but for pedagogical purpose...
 - http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist
 
-.. code:: bash
+.. code-block:: bash
 
     if [ ! -d /home/mlzboy/b2c2/shared/db ] 
     then
@@ -325,7 +324,7 @@ Create directory if it doesn't exist 06-14-2016 (00:17)
 ####################
 http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple
 
-.. code:: bash
+.. code-block:: bash
 
     perls=(perl-one perl-two)
 

@@ -139,7 +139,7 @@ check running processes
 #######################
 The one I use the most frequent
 
-.. code:: bash
+.. code-block:: bash
 
     # a <- includes ``root`` in userprocess
     # u <- include ``username`` column
@@ -159,7 +159,7 @@ Moving and copying
 - http://ss64.com/bash/cp.html
 - http://ss64.com/bash/mv.html
 
-.. code:: bash
+.. code-block:: bash
 
     # rename a directory (note '/' after directory name has NO impact here,  there are cases I should be careful of the backslash)
     mv /home/user/oldname /home/user/newname
@@ -189,7 +189,7 @@ scp user
 
 Warning: scp apparently overwrites existing file w/o warning. Hence ``rsync`` is a safer option.
 
-.. code:: bash
+.. code-block:: bash
 
     #========================================================================#
     # relevant options
@@ -244,7 +244,7 @@ http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync
     --specials preserve special files
 
 
-.. code:: bash
+.. code-block:: bash
 
     # equilvaent to this
     rsync -r -l -p -t -g -o -D
@@ -286,7 +286,7 @@ http://ss64.com/bash/find.html
 
 **Selected examples from ss64**
 
-.. code:: bash
+.. code-block:: bash
 
     List filenames ending in .mp3, searching in the music folder and subfolders: 
     $ find ./music -name "*.mp3"
@@ -313,7 +313,7 @@ http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/
 
 Why is $(...) preferred over `...` (backticks)? (`link <http://mywiki.wooledge.org/BashFAQ/082>`_)   
 
-.. code:: bash
+.. code-block:: bash
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
@@ -327,7 +327,7 @@ ls recursively (use *find*)
 ********************
 http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file
 
-.. code:: bash
+.. code-block:: bash
 
     # recursively lists out all files + subdirectories
     find ./test
@@ -338,7 +338,7 @@ show only symbolic links (**alias lssym**)
 ******************************************
 
 
-.. code:: bash
+.. code-block:: bash
 
     ls -l $(find ./ -maxdepth 1 -type l -print)
 
@@ -347,7 +347,7 @@ print timestamp
 ###############
 http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script
 
-.. code:: bash
+.. code-block:: bash
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
@@ -359,7 +359,7 @@ open image ($xdg-open image.png)
 ###############################
 Options with **less** (ongoing)
 ###############################
-.. code:: bash
+.. code-block:: bash
 
     # -n : enable line numbers
     # -N : disable line numbers
@@ -369,7 +369,7 @@ history w/o line-numbers
 ########################
 http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
 
-.. code:: bash
+.. code-block:: bash
 
     history | cut -c 8-
 
@@ -382,7 +382,7 @@ awk (one-liners)
 - http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html
 
 
-.. code:: bash
+.. code-block:: bash
 
     ls -l | awk '{printf $5 "\t" $9"\n"}'
 
@@ -408,7 +408,7 @@ http://unix.stackexchange.com/questions/24954/when-is-xargs-needed
 #################
 Get computer info
 #################
-.. code:: bash
+.. code-block:: bash
 
     # get cpu information
     cat /proc/cpuinfo
@@ -426,7 +426,7 @@ Get computer info
 #######
 mogrify
 #######
-.. code:: bash
+.. code-block:: bash
 
     mogrify -resize 50% *.png
     mogrify -resize 500! *.png     => changes only x-axis
@@ -447,7 +447,7 @@ http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-
 - the ``-exec "{}" \;`` approach seems to be specific to ``find``
   (i prefer unity with ``xargs``)
 
-.. code:: bash
+.. code-block:: bash
 
     #http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list    
     # http://ss64.com/bash/find.html
@@ -470,7 +470,7 @@ grep recursively
 ****************
 http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively
 
-.. code:: bash
+.. code-block:: bash
 
     grep -r "texthere" .
 
