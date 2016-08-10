@@ -256,7 +256,7 @@ http://ss64.com/bash/find.html
 
 **My Examples**
 
-.. code:: sh
+.. code-block:: bash
 
     find $DIR # recursively print out file directories
     find $PWD | grep helper.md

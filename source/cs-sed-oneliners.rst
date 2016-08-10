@@ -10,7 +10,7 @@ sed oneliners
 ###############################################################################
 Typical use
 ###############################################################################
-.. code:: bash
+.. code-block:: bash
 
     # === typica use case === #
     cat filename | sed '10q'        # uses piped input
@@ -37,7 +37,7 @@ Typical use
 ###############################################################################
 
 
-.. code:: bash
+.. code-block:: bash
 
      # double space a file
      sed G
@@ -65,7 +65,7 @@ Typical use
 ###############################################################################
     NUMBERING:
 ###############################################################################
-.. code:: bash
+.. code-block:: bash
 
      # number each line of a file (simple left alignment). Using a tab (see
      # note on '\t' at end of file) instead of space will preserve margins.
@@ -84,7 +84,7 @@ Typical use
     TEXT CONVERSION AND SUBSTITUTION:
 ###############################################################################
 
-.. code:: bash
+.. code-block:: bash
 
      # IN UNIX ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format.
      sed 's/.$//'               # assumes that all lines end with CR/LF
@@ -183,7 +183,7 @@ Typical use
 ###############################################################################
     SELECTIVE PRINTING OF CERTAIN LINES:
 ###############################################################################
-.. code:: bash
+.. code-block:: bash
 
      # print first 10 lines of file (emulates behavior of "head")
      sed 10q
@@ -276,7 +276,7 @@ Typical use
 ###############################################################################
     SELECTIVE DELETION OF CERTAIN LINES:
 ###############################################################################
-.. code:: bash
+.. code-block:: bash
 
      # print all of file EXCEPT section between 2 regular expressions
      sed '/Iowa/,/Montana/d'
@@ -337,7 +337,7 @@ Typical use
 ###############################################################################
     SPECIAL APPLICATIONS:
 ###############################################################################
-.. code:: bash
+.. code-block:: bash
 
      # remove nroff overstrikes (char, backspace) from man pages. The 'echo'
      # command may need an -e switch if you use Unix System V or bash shell.
@@ -394,7 +394,7 @@ Typical use
 ###############################################################################
 Misc
 ###############################################################################
-.. code::
+.. code-block::
 
     TYPICAL USE: Sed takes one or more editing commands and applies all of
     them, in sequence, to each line of input. After all the commands have

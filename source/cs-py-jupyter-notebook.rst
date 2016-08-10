@@ -23,7 +23,7 @@ Ipython notebook defaults
 ********************
 Frequently used config
 ********************
-.. code:: python
+.. code-block:: python
 
     import ipywidgets as widgets
     from IPython.widgets import interact, interactive
@@ -40,7 +40,7 @@ Frequently used config
 ********************
 widgets
 ********************
-.... code:: python
+.... code-block:: python
 
     # the below two are equivalent
     from IPython.html.widgets import interact, interactive
@@ -50,7 +50,7 @@ widgets
 
 All widget types
 ====================
-.. code:: python
+.. code-block:: python
 
 
     widgets.Widget.widget_types.values()
@@ -94,7 +94,7 @@ All widget types
 Now config
 ********************
 
-.. code:: python
+.. code-block:: python
 
     import matplotlib as mpl
     import matplotlib.pyplot as plt

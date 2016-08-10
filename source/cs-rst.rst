@@ -61,7 +61,7 @@ autodoc
 This will by default, above will only insert the docstring of the object itself:
 
 
-.. code:: rst
+.. code-block:: rst
 
   .. autoclass:: Noodle
   .. This will produce something like:
@@ -76,7 +76,7 @@ This will by default, above will only insert the docstring of the object itself:
 
 recursive docstringing objects
 ==============================
-.. code:: rst
+.. code-block:: rst
 
     .. recursive autodoc all module members
     .. automodule:: noodle
@@ -100,7 +100,7 @@ recursive docstringing objects
 ********************
 Links (url)
 ********************
-.. code:: rst
+.. code-block:: rst
 
     This is a paragraph that contains `a link`_.
 
@@ -120,14 +120,14 @@ markup, showing code, inlines
 **************
 http://www.sphinx-doc.org/en/stable/markup/code.html
 
-.. code:: rst
+.. code-block:: rst
     
     .. code-block:: ruby
        :linenos:
 
        Some more Ruby code.
 
-.. code:: rst
+.. code-block:: rst
 
     .. literalinclude:: example.py
 
@@ -182,7 +182,7 @@ misc examples
 *************
 http://www.sphinx-doc.org/en/stable/markup/misc.html
 
-.. code:: rst
+.. code-block:: rst
 
     .. sectionauthor:: Guido van Rossum <guido@python.org>
     .. codeauthor:: name <email>
@@ -237,7 +237,7 @@ Great cheatsheet (standard)
 - https://github.com/cokelaer/sphinx_tutorial
 - https://github.com/cokelaer/sphinx_tutorial/blob/master/source/conf.py
 
-.. code:: python
+.. code-block:: python
 
     import easydev
     from easydev import get_path_sphinx_themes
@@ -267,7 +267,7 @@ Sphinx doc (sphinx13)
 - http://www.sphinx-doc.org/en/stable/contents.html
 - https://github.com/sphinx-doc/sphinx/blob/master/doc/conf.py
 
-.. code:: python
+.. code-block:: python
 
     import sphinx
     extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest', 'sphinx.ext.todo',
@@ -288,7 +288,7 @@ nimfa (alabaster)
 - http://nimfa.biolab.si/
 - https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py
 
-.. code:: python
+.. code-block:: python
 
     extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest',
                   'sphinx.ext.intersphinx', 'sphinx.ext.ifconfig',
@@ -321,7 +321,7 @@ pandas
 ====================
 https://github.com/pydata/pandas/blob/master/doc/source/conf.py
 
-.. code:: python
+.. code-block:: python
 
     html_theme = 'nature_with_gtoc'
     html_theme_path = ['themes']
@@ -346,7 +346,7 @@ http://www.scipy-lectures.org/
 
 https://github.com/scipy-lectures/scipy-lecture-notes
 
-.. code:: python
+.. code-block:: python
 
     import gen_rst # <= from scikit learn
 
@@ -399,7 +399,7 @@ inside ``theme.conf``
 
 inside ``conf.py``
 
-.. code:: python
+.. code-block:: python
 
     from sklearn.externals.six import u
     import gen_rst # <= from scikit    
@@ -427,7 +427,7 @@ themes
 ********************
 http://www.sphinx-doc.org/en/stable/theming.html
 
-.. code:: python
+.. code-block:: python
 
     html_theme = 'alabaster'
     html_theme = 'nature'
@@ -446,7 +446,7 @@ http://www.sphinx-doc.org/en/stable/theming.html
 
 Bootstrap
 
-.. code:: python
+.. code-block:: python
 
     import sphinx_bootstrap_theme
     html_theme = 'bootstrap'
@@ -522,7 +522,7 @@ toctree options
 - http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#include-other-rst-files-with-the-toctree-directive
 
 
-.. code:: rst
+.. code-block:: rst
 
   .. toctree::
       :maxdepth: 2
@@ -536,7 +536,7 @@ toctree options
 *************************
 References and citations
 *************************
-.. code:: rst
+.. code-block:: rst
 
     http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#citations
 
@@ -581,7 +581,7 @@ In bookmark bar, type ``lookup sphinx pyplot/ipyhthon``
 - http://matplotlib.org/devel/documenting_mpl.html
 - https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html
 
-.. code:: python
+.. code-block:: python
 
     extensions = ['matplotlib.sphinxext.only_directives',
                   'matplotlib.sphinxext.plot_directive',
@@ -602,7 +602,7 @@ replace
 *******
 http://docutils.sourceforge.net/docs/ref/rst/directives.html#replacement-text
 
-.. code:: rst
+.. code-block:: rst
 
     .. |reST| replace:: reStructuredText
 
@@ -619,7 +619,7 @@ abbreviate it.
 ****
 date
 ****
-.. code:: rst
+.. code-block:: rst
 
     .. |date| date::
     .. |time| date:: %H:%M
@@ -642,7 +642,7 @@ http://docutils.sourceforge.net/docs/ref/rst/directives.html#raw-data-pass-throu
 
 For example, the following input would be passed untouched by an HTML Writer:
 
-.. code:: rst
+.. code-block:: rst
 
   .. raw:: html
 
@@ -681,7 +681,7 @@ Motivated from http://www.scipy-lectures.org/
 
 See here for interesting unicodes: http://unicode.scarfboy.com/?s=U%2bf08c
 
-.. code:: rst
+.. code-block:: rst
 
     .. |github| unicode:: U+f09b  .. github logo
     .. |pdf| unicode:: U+f1c1 .. PDF file
@@ -868,7 +868,7 @@ Lists
 ********************
 Comments
 ********************
-.. code:: rst
+.. code-block:: rst
 
   .. this is a comment
 
@@ -910,7 +910,7 @@ As an example, the following are equivalent::
 ********************
 List of equivalent ``roles`` (ultra-incomplete)
 ********************
-.. code::
+.. code-block::
 
     *text*
     :emphasis:`text`    
@@ -927,7 +927,7 @@ Some interesting looking ``roles``
 ********************
 From main doc http://docutils.sourceforge.net/docs/ref/rst/roles.html
 
-.. code::
+.. code-block::
 
     # latex code?
     .. role:: latex(code)

@@ -26,7 +26,7 @@ A 3 step receipe for matlab
 ********************
 
 
-.. code:: bash
+.. code-block:: bash
 
   tw_mcc myprog.m
   qsub-run -c ./myprog > myprog.sh  # <- don't forget to include "./"
@@ -35,7 +35,7 @@ A 3 step receipe for matlab
 ********************
 ``memrec`` (to evaluate appropriate ``h_vmem`` value
 ********************
-.. code:: bash
+.. code-block:: bash
 
   memrec -d 5 ./myprog & # "-d 5" makes recording every 5 sec
 
@@ -49,7 +49,7 @@ A 3 step receipe for matlab
 ********************
 ``qstat``
 ********************
-.. code:: bash
+.. code-block:: bash
 
   qstat -r
   qstat -r | egrep -i "full jobname"
@@ -62,7 +62,7 @@ A 3 step receipe for matlab
 ********************
 ``/usr/bin/time`` to see multithreaded or not
 ********************
-.. code:: bash
+.. code-block:: bash
 
   /usr/bin/time -pv myprog
 

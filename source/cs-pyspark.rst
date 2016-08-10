@@ -24,7 +24,7 @@ Stack overflows
 ###############
 - http://stackoverflow.com/questions/30787635/takeordered-descending-pyspark
 
-.. code:: python
+.. code-block:: python
 
     RDD.takeOrdered(5, key = lambda x: x[0])  # sort by keys
     RDD.takeOrdered(5, key = lambda x: -x[0]) # sort by keys (descending)

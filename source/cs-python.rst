@@ -83,7 +83,7 @@ decorator
 - http://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
 
-.. code:: python
+.. code-block:: python
 
     def print_warning(fn):
         def wrapper():
@@ -98,7 +98,7 @@ decorator
 
 Using with arguments (``*args, **kwargs``)
 
-.. code:: python
+.. code-block:: python
 
     def logger(func):
         def inner(*args, **kwargs): #1
@@ -129,7 +129,7 @@ Plotting - short snippets
 ***********
 Cool tricks
 ***********
-.. code:: python
+.. code-block:: python
 
     import matplotlib as mpl
     mpl.get_backend()
@@ -214,7 +214,7 @@ Cool tricks
 *****************
 Plotting Snippets
 *****************
-.. code:: python
+.. code-block:: python
 
     # getting step function (just a wrapper) 
     # http://stackoverflow.com/questions/15188005/linestyle-in-matplotlib-step-function
@@ -232,7 +232,7 @@ Plotting Snippets
 ##########
 Exceptions
 ##########
-.. code:: python
+.. code-block:: python
 
     # https://docs.python.org/2/tutorial/errors.html <- list of builtin exceptions
     # http://www.pythonforbeginners.com/error-handling/python-try-and-except
@@ -312,7 +312,7 @@ Exceptions
 #############
 Clever tricks
 #############
-.. code:: python
+.. code-block:: python
 
     countries = np.array(['US', 'UK', 'GR', 'JP'])
     key = countries[np.random.randint(0, 4, 1000)]
