@@ -477,6 +477,9 @@ http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively
     # You can also mention files to exclude with --exclude.
     grep -r --include "*.txt" texthere .
 
+    # use brace expansion to allow multiple extension
+    grep -r --include=*.{py,m} test .
+
 *************************************
 To grep a string, pipe output of echo
 *************************************
@@ -543,9 +546,9 @@ http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-
     # below is not practical, but gives a good idea of how xargs work
     find -maxdepth 1 | egrep '0627' | xargs -n1 echo
 
-###############################
-Run same command multiple times
-###############################
+##########################################
+Run same command multiple times (for loop)
+##########################################
 http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash
 
 .. code-block:: bash
@@ -554,6 +557,9 @@ http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-comman
     do
       command
     done
+
+    # single line
+    for run in {1..30}; do ipython t_0809c_enet_tobpnc_age.py; done
 
 #########
 sed demos
