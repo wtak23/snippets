@@ -61,7 +61,7 @@ List
 
 Usage 
 
-.. code:: rst
+.. code-block:: rst
 
     .. recursive autodoc all module members
     .. automodule:: noodle

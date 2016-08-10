@@ -340,20 +340,20 @@
 </pre></div>
 </div>
 <p>Usage</p>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">recursive</span> <span class="n">autodoc</span> <span class="nb">all</span> <span class="n">module</span> <span class="n">members</span>
-<span class="o">..</span> <span class="n">automodule</span><span class="p">::</span> <span class="n">noodle</span>
-   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="cp">.. recursive autodoc all module members</span>
+<span class="p">..</span> <span class="ow">automodule</span><span class="p">::</span> noodle
+   <span class="nc">:members:</span>
 
-<span class="o">..</span> <span class="n">only</span> <span class="n">include</span> <span class="n">the</span> <span class="n">docstring</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">object</span> <span class="n">itself</span>
-<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
+<span class="cp">.. only include the docstring of the object itself</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
 
-<span class="o">..</span> <span class="n">recursively</span> <span class="n">document</span> <span class="nb">all</span> <span class="n">non</span><span class="o">-</span><span class="n">private</span> <span class="n">member</span> <span class="n">functions</span> <span class="ow">and</span> <span class="n">properties</span>
-<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
-   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+<span class="cp">.. recursively document all non-private member functions and properties</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+   <span class="nc">:members:</span>
 
-<span class="o">..</span> <span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">give</span> <span class="n">an</span> <span class="n">explicit</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">members</span><span class="p">;</span> <span class="n">only</span> <span class="n">these</span> <span class="n">will</span> <span class="n">then</span> <span class="n">be</span> <span class="n">documented</span>
-<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
-   <span class="p">:</span><span class="n">members</span><span class="p">:</span> <span class="n">eat</span><span class="p">,</span> <span class="n">slurp</span>
+<span class="cp">.. You can also give an explicit list of members; only these will then be documented</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+   <span class="nc">:members:</span> <span class="nf">eat, slurp</span>
 </pre></div>
 </div>
 </div>

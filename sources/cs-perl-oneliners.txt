@@ -34,7 +34,7 @@ FILE SPACING
 ------------
     
 
-.. code:: perl
+.. code-block:: perl
 
     # Double space a file
     perl -pe '$\="\n"'
@@ -76,7 +76,7 @@ FILE SPACING
 LINE NUMBERING
 ------------
 
-.. code:: perl
+.. code-block:: perl
 
     # Number all lines in a file
     perl -pe '$_ = "$. $_"'
@@ -129,7 +129,7 @@ LINE NUMBERING
 
 CALCULATIONS
 ------------
-.. code:: perl
+.. code-block:: perl
 
     # Check if a number is a prime
     perl -lne '(1x$_) !~ /^1?$|^(11+?)\1+$/ && print "$_ is prime"'
@@ -249,7 +249,7 @@ CALCULATIONS
 
 STRING CREATION AND ARRAY CREATION
 ----------------------------------
-.. code:: perl
+.. code-block:: perl
 
     # Generate and print the alphabet
     perl -le 'print a..z'
@@ -310,7 +310,7 @@ STRING CREATION AND ARRAY CREATION
 
 TEXT CONVERSION AND SUBSTITUTION
 --------------------------------
-.. code:: perl
+.. code-block:: perl
 
     # ROT13 a string
     'y/A-Za-z/N-ZA-Mn-za-m/'
@@ -393,7 +393,7 @@ TEXT CONVERSION AND SUBSTITUTION
 
 SELECTIVE PRINTING AND DELETING OF CERTAIN LINES
 ------------------------------------------------
-.. code:: perl
+.. code-block:: perl
 
     # Print the first line of a file (emulate head -1)
     perl -ne 'print; exit'
@@ -489,7 +489,7 @@ SELECTIVE PRINTING AND DELETING OF CERTAIN LINES
 
 HANDY REGULAR EXPRESSIONS
 -------------------------
-.. code:: perl
+.. code-block:: perl
 
     # Match something that looks like an IP address
     /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
@@ -549,7 +549,7 @@ HANDY REGULAR EXPRESSIONS
 
 PERL TRICKS
 -----------
-.. code:: perl
+.. code-block:: perl
 
     # Print the version of a Perl module
     perl -MModule -le 'print $Module::VERSION'

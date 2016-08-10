@@ -188,38 +188,38 @@
 </div>
 <div class="section" id="ultra-basics">
 <h2><a class="toc-backref" href="#id3">14.1. ultra-basics</a><a class="headerlink" href="#ultra-basics" title="Permalink to this headline">¶</a></h2>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sed/awk/&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sEd/awk/&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sEd/awk/I&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/s/awk/I&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;$s/s/awk/I&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/$s/awk/I&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/^s/awk/I&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I&#39;</span>
-<span class="n">echo</span> <span class="n">sed</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s</span><span class="se">\b</span><span class="s1">/awk/I&#39;</span>
-<span class="n">echo</span> <span class="s2">&quot;s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">S</span><span class="se">\b</span><span class="s1">/awk/I&#39;</span> <span class="c1"># case insensitive</span>
-    <span class="o">&gt;</span> <span class="n">awk</span> <span class="n">ed</span>
-<span class="n">echo</span> <span class="s2">&quot;s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I&#39;</span>  <span class="c1"># case insensitive</span>
-<span class="n">echo</span> <span class="s2">&quot;s ed s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I1&#39;</span> <span class="c1"># case insensitive + only replace first *s*</span>
-    <span class="o">&gt;</span> <span class="n">awk</span> <span class="n">ed</span> <span class="n">s</span> <span class="n">ed</span>
-<span class="n">echo</span> <span class="s2">&quot;s ed s ed&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/</span><span class="se">\b</span><span class="s1">s/awk/I1&#39;</span> <span class="c1"># case insensitive + only replace second *s*</span>
-    <span class="o">&gt;</span> <span class="n">s</span> <span class="n">ed</span> <span class="n">awk</span> <span class="n">ed</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/sed/awk/&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/sEd/awk/&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/sEd/awk/I&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/s/awk/I&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;$s/s/awk/I&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/$s/awk/I&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/^s/awk/I&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/\bs/awk/I&#39;</span>
+<span class="nb">echo</span> sed <span class="p">|</span> sed <span class="s1">&#39;s/\bs\b/awk/I&#39;</span>
+<span class="nb">echo</span> <span class="s2">&quot;s ed&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\bS\b/awk/I&#39;</span> <span class="c1"># case insensitive</span>
+    &gt; awk ed
+<span class="nb">echo</span> <span class="s2">&quot;s ed&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\bs/awk/I&#39;</span>  <span class="c1"># case insensitive</span>
+<span class="nb">echo</span> <span class="s2">&quot;s ed s ed&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\bs/awk/I1&#39;</span> <span class="c1"># case insensitive + only replace first *s*</span>
+    &gt; awk ed s ed
+<span class="nb">echo</span> <span class="s2">&quot;s ed s ed&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/\bs/awk/I1&#39;</span> <span class="c1"># case insensitive + only replace second *s*</span>
+    &gt; s ed awk ed
 </pre></div>
 </div>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">sync_sublime</span>
-    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_sublime</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">alias</span> sync_sublime
+    &gt; <span class="nb">alias</span> <span class="nv">sync_sublime</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
 
 <span class="c1"># replaces only the first occurence</span>
-<span class="n">alias</span> <span class="n">sync_sublime</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sublime/SUBLIME/&#39;</span>
-    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_SUBLIME</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
+<span class="nb">alias</span> sync_sublime <span class="p">|</span> sed <span class="s1">&#39;s/sublime/SUBLIME/&#39;</span>
+    &gt; <span class="nb">alias</span> <span class="nv">sync_SUBLIME</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
 
 <span class="c1"># replaces the 2nd occurence</span>
-<span class="n">alias</span> <span class="n">sync_sublime</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sublime/SUBLIME/2&#39;</span>
-    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_sublime</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
+<span class="nb">alias</span> sync_sublime <span class="p">|</span> sed <span class="s1">&#39;s/sublime/SUBLIME/2&#39;</span>
+    &gt; <span class="nb">alias</span> <span class="nv">sync_sublime</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/&#39;</span>
 
 <span class="c1"># replacesa all occurences</span>
-<span class="n">alias</span> <span class="n">sync_sublime</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/sublime/SUBLIME/g&#39;</span>
-    <span class="o">&gt;</span> <span class="n">alias</span> <span class="n">sync_SUBLIME</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.SUBLIME-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/SUBLIME-text/SUBLIME-snippets-sbia/&#39;</span>
+<span class="nb">alias</span> sync_sublime <span class="p">|</span> sed <span class="s1">&#39;s/sublime/SUBLIME/g&#39;</span>
+    &gt; <span class="nb">alias</span> <span class="nv">sync_SUBLIME</span><span class="o">=</span><span class="s1">&#39;cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.SUBLIME-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/SUBLIME-text/SUBLIME-snippets-sbia/&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -236,25 +236,17 @@ specified, then the standard input is read.</div></blockquote>
 </div>
 <div class="section" id="deletion-commands">
 <h3><a class="toc-backref" href="#id6">14.2.2. deletion commands</a><a class="headerlink" href="#deletion-commands" title="Permalink to this headline">¶</a></h3>
-<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="c1"># basic syntax:</span>
-<span class="o">/</span><span class="n">regexp</span><span class="o">/</span><span class="n">action</span>
-
-<span class="n">p</span> <span class="o">=</span> <span class="n">prints</span> <span class="n">the</span> <span class="n">line</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">deletes</span> <span class="n">the</span> <span class="n">line</span>
-<span class="n">s</span><span class="o">/</span><span class="n">regexp</span><span class="o">/</span><span class="n">pattern</span><span class="o">/</span> <span class="o">&lt;=</span> <span class="n">substitues</span> <span class="n">regexp</span> <span class="k">with</span> <span class="n">pattern</span>
-</pre></div>
-</div>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># deletes all lines</span>
-<span class="n">sed</span> <span class="s1">&#39;d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># deletes all lines</span>
+sed <span class="s1">&#39;d&#39;</span> sed-text.txt
 
 <span class="c1"># delete first line</span>
-<span class="n">sed</span> <span class="s1">&#39;1d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+sed <span class="s1">&#39;1d&#39;</span> sed-text.txt
 
 <span class="c1"># delete 2nd line</span>
-<span class="n">sed</span> <span class="s1">&#39;1d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+sed <span class="s1">&#39;1d&#39;</span> sed-text.txt
 
 <span class="c1"># delete lines 2-3</span>
-<span class="n">sed</span> <span class="s1">&#39;2,3d&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+sed <span class="s1">&#39;2,3d&#39;</span> sed-text.txt
 </pre></div>
 </div>
 <table border="1" class="docutils" id="id1">
@@ -301,11 +293,11 @@ specified, then the standard input is read.</div></blockquote>
 </div>
 <div class="section" id="substitution-flags">
 <h3><a class="toc-backref" href="#id7">14.2.3. substitution flags</a><a class="headerlink" href="#substitution-flags" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="c1"># replace *the* with THE in line 3</span>
-<span class="n">sed</span> <span class="s1">&#39;3s/[Tt]he/THE/g&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># replace *the* with THE in line 3</span>
+sed <span class="s1">&#39;3s/[Tt]he/THE/g&#39;</span> sed-text.txt
 
 <span class="c1"># replace *the* with THE in line3-6</span>
-<span class="n">sed</span> <span class="s1">&#39;3,6s/[Tt]he/THE/g&#39;</span> <span class="n">sed</span><span class="o">-</span><span class="n">text</span><span class="o">.</span><span class="n">txt</span>
+sed <span class="s1">&#39;3,6s/[Tt]he/THE/g&#39;</span> sed-text.txt
 </pre></div>
 </div>
 <table border="1" class="docutils">

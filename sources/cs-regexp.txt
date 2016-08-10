@@ -72,7 +72,7 @@ https://docs.python.org/2/howto/regex.html#performing-matches
     sub() |  Find all substrings where the RE matches, and replace them with a different string
     subn() | Does the same thing as sub(), but returns the new string and the number of replacements
 
-.. code:: python
+.. code-block:: python
 
     p = re.compile('[a-z]+')
     m = p.match('tempo')    
@@ -115,7 +115,7 @@ Splitting strings
 ********************
 - use of **capturing paranthesis** to obtain the splitted portion that normally gets dropped
 
-.. code:: python
+.. code-block:: python
 
     >>> p = re.compile(r'\W+')
     >>> p.split('This is a test, short and sweet, of split().')
@@ -148,7 +148,7 @@ Search and replace with sub
 
 
 
-.. code:: python
+.. code-block:: python
 
     >>> p = re.compile('(blue|white|red)')
     >>> p.sub('colour', 'blue socks and red shoes')
@@ -179,7 +179,7 @@ Search and replace with sub
   - eg: ``\g<2>0`` vs ``\20``, which is reference to group 20
 
 
-.. code:: python
+.. code-block:: python
 
     # This example matches the word section followed by a string enclosed in {, }, and changes section to subsection:
     >>> p = re.compile('section{ ( [^}]* ) }', re.VERBOSE)
@@ -227,7 +227,7 @@ Greedy vs nongreedy
 ********************
 - nongreedy qualifiers: ``*?, +?, ??, or {m,n}?,``
 
-.. code:: python
+.. code-block:: python
 
     >>> s = '<html><head><title>Title</title>'
 
@@ -246,7 +246,7 @@ https://docs.python.org/2/howto/regex.html#using-re-verbose
 
   The re.VERBOSE flag has several effects. Whitespace in the regular expression that isn’t inside a character class is ignored. This means that an expression such as dog | cat is equivalent to the less readable dog|cat, but [a b] will still match the characters 'a', 'b', or a space. In addition, you can also put comments inside a RE; comments extend from a # character to the next newline. When used with triple-quoted strings, this enables REs to be formatted more neatly:
 
-.. code:: python
+.. code-block:: python
 
     pat = re.compile(r"""
      \s*                 # Skip leading whitespace
@@ -263,7 +263,7 @@ https://docs.python.org/2/howto/regex.html#using-re-verbose
 
 Another example
 
-.. code:: python
+.. code-block:: python
 
     charref = re.compile(r"""
      &[#]                # Start of a numeric entity reference
@@ -289,7 +289,7 @@ Named groups
 - ``(?P=name)`` is a **backreference** to a named group
 - ``(?:...)`` is particularly useful when modifying an existing pattern, since you can add new groups without changing how all the other groups are numbered
 
-.. code:: python
+.. code-block:: python
 
     >>> m = re.match("([abc])+", "abc")
     >>> m.groups()
@@ -332,7 +332,7 @@ Lookahed assertions
 ********************
 Bunch of examples
 ********************
-.. code:: python
+.. code-block:: python
 
     # (ab)* will match zero or more repetitions of ab.
     p = re.compile('(ab)*')

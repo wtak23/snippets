@@ -290,8 +290,8 @@
 </pre></div>
 </div>
 <p>This will by default, above will only insert the docstring of the object itself:</p>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
-<span class="o">..</span> <span class="n">This</span> <span class="n">will</span> <span class="n">produce</span> <span class="n">something</span> <span class="n">like</span><span class="p">:</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+<span class="cp">.. This will produce something like:</span>
 </pre></div>
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">class</span><span class="p">::</span> <span class="n">Noodle</span>
@@ -301,35 +301,35 @@
 </div>
 <div class="section" id="recursive-docstringing-objects">
 <h4>11.2.1.1. recursive docstringing objects<a class="headerlink" href="#recursive-docstringing-objects" title="Permalink to this headline">¶</a></h4>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">recursive</span> <span class="n">autodoc</span> <span class="nb">all</span> <span class="n">module</span> <span class="n">members</span>
-<span class="o">..</span> <span class="n">automodule</span><span class="p">::</span> <span class="n">noodle</span>
-   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="cp">.. recursive autodoc all module members</span>
+<span class="p">..</span> <span class="ow">automodule</span><span class="p">::</span> noodle
+   <span class="nc">:members:</span>
 
-<span class="o">..</span> <span class="n">recursively</span> <span class="n">document</span> <span class="nb">all</span> <span class="n">non</span><span class="o">-</span><span class="n">private</span> <span class="n">member</span> <span class="n">functions</span> <span class="ow">and</span> <span class="n">properties</span>
-<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
-   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+<span class="cp">.. recursively document all non-private member functions and properties</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+   <span class="nc">:members:</span>
 
-  <span class="o">..</span> <span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">give</span> <span class="n">an</span> <span class="n">explicit</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">members</span><span class="p">;</span> <span class="n">only</span> <span class="n">these</span> <span class="n">will</span> <span class="n">then</span> <span class="n">be</span> <span class="n">documented</span>
-<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
-   <span class="p">:</span><span class="n">members</span><span class="p">:</span> <span class="n">eat</span><span class="p">,</span> <span class="n">slurp</span>
+<span class="cp">  .. You can also give an explicit list of members; only these will then be documented</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+   <span class="nc">:members:</span> <span class="nf">eat, slurp</span>
 
-<span class="o">..</span>
-  <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">non</span><span class="o">-</span><span class="n">documented</span> <span class="n">member</span> <span class="n">functions</span> <span class="n">will</span> <span class="n">be</span> <span class="n">ignored</span><span class="o">.</span>
-  <span class="n">To</span> <span class="n">avoid</span> <span class="n">that</span><span class="p">,</span> <span class="n">use</span> <span class="p">:</span><span class="n">undoc</span><span class="o">-</span><span class="n">members</span><span class="p">:</span> <span class="n">option</span>
-<span class="o">..</span> <span class="n">autoclass</span><span class="p">::</span> <span class="n">Noodle</span>
-   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
-   <span class="p">:</span><span class="n">undoc</span><span class="o">-</span><span class="n">members</span><span class="p">:</span>
+<span class="cp">..</span>
+<span class="cp">  By default, non-documented member functions will be ignored.</span>
+<span class="cp">  To avoid that, use :undoc-members: option</span>
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> Noodle
+   <span class="nc">:members:</span>
+   <span class="nc">:undoc-members:</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="links-url">
 <h3>11.2.2. Links (url)<a class="headerlink" href="#links-url" title="Permalink to this headline">¶</a></h3>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span>This is a paragraph that contains `a link`_.
+<div class="highlight-rst"><div class="highlight"><pre><span></span>This is a paragraph that contains <span class="s">`a link`_</span>.
 
-This is an inline `link &lt;http://example.com/&gt;`_
+This is an inline <span class="s">`link </span><span class="si">&lt;http://example.com/&gt;</span><span class="s">`_</span>
 
-.. _a link: http://example.com/
+<span class="p">..</span> <span class="nt">_a link:</span> http://example.com/
 </pre></div>
 </div>
 <p>This is a paragraph that contains <a class="reference external" href="http://example.com/">a link</a>.</p>
@@ -338,16 +338,16 @@ This is an inline `link &lt;http://example.com/&gt;`_
 <div class="section" id="markup-showing-code-inlines">
 <h3>11.2.3. markup, showing code, inlines<a class="headerlink" href="#markup-showing-code-inlines" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/code.html">http://www.sphinx-doc.org/en/stable/markup/code.html</a></p>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">ruby</span>
-   <span class="p">:</span><span class="n">linenos</span><span class="p">:</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> ruby
+   <span class="nc">:linenos:</span>
 
-   <span class="n">Some</span> <span class="n">more</span> <span class="n">Ruby</span> <span class="n">code</span><span class="o">.</span>
+   Some more Ruby code.
 </pre></div>
 </div>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">literalinclude</span><span class="p">::</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
 
-<span class="o">..</span> <span class="n">literalinclude</span><span class="p">::</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span>
-   <span class="p">:</span><span class="n">diff</span><span class="p">:</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span><span class="o">.</span><span class="n">orig</span>
+<span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
+   <span class="nc">:diff:</span> <span class="nf">example.py.orig</span>
 </pre></div>
 </div>
 </div>
@@ -389,11 +389,11 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <div class="section" id="misc-examples">
 <h3>11.2.7. misc examples<a class="headerlink" href="#misc-examples" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/misc.html">http://www.sphinx-doc.org/en/stable/markup/misc.html</a></p>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">sectionauthor</span><span class="p">::</span> <span class="n">Guido</span> <span class="n">van</span> <span class="n">Rossum</span> <span class="o">&lt;</span><span class="n">guido</span><span class="nd">@python</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span>
-<span class="o">..</span> <span class="n">codeauthor</span><span class="p">::</span> <span class="n">name</span> <span class="o">&lt;</span><span class="n">email</span><span class="o">&gt;</span>
-<span class="o">..</span> <span class="n">index</span><span class="p">::</span> <span class="o">&lt;</span><span class="n">entries</span><span class="o">&gt;</span>
-<span class="o">..</span> <span class="n">only</span><span class="p">::</span> <span class="n">html</span> <span class="ow">and</span> <span class="n">draft</span>
-<span class="o">..</span> <span class="n">tabularcolumns</span><span class="p">::</span> <span class="n">column</span> <span class="n">spec</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">sectionauthor</span><span class="p">::</span> Guido van Rossum &lt;guido@python.org&gt;
+<span class="p">..</span> <span class="ow">codeauthor</span><span class="p">::</span> name &lt;email&gt;
+<span class="p">..</span> <span class="ow">index</span><span class="p">::</span> <span class="nt">&lt;entries&gt;</span>
+<span class="p">..</span> <span class="ow">only</span><span class="p">::</span> html and draft
+<span class="p">..</span> <span class="ow">tabularcolumns</span><span class="p">::</span> column spec
 </pre></div>
 </div>
 </div>
@@ -443,8 +443,8 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <li><a class="reference external" href="https://github.com/cokelaer/sphinx_tutorial">https://github.com/cokelaer/sphinx_tutorial</a></li>
 <li><a class="reference external" href="https://github.com/cokelaer/sphinx_tutorial/blob/master/source/conf.py">https://github.com/cokelaer/sphinx_tutorial/blob/master/source/conf.py</a></li>
 </ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">easydev</span>
-<span class="kn">from</span> <span class="nn">easydev</span> <span class="k">import</span> <span class="n">get_path_sphinx_themes</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">easydev</span>
+<span class="kn">from</span> <span class="nn">easydev</span> <span class="kn">import</span> <span class="n">get_path_sphinx_themes</span>
 <span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;standard&quot;</span>
 <span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;homepage&#39;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span>
 <span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_path_sphinx_themes</span><span class="p">()]</span>
@@ -473,7 +473,7 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/contents.html">http://www.sphinx-doc.org/en/stable/contents.html</a></li>
 <li><a class="reference external" href="https://github.com/sphinx-doc/sphinx/blob/master/doc/conf.py">https://github.com/sphinx-doc/sphinx/blob/master/doc/conf.py</a></li>
 </ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx</span>
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.todo&#39;</span><span class="p">,</span>
               <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.extlinks&#39;</span><span class="p">,</span>
               <span class="s1">&#39;sphinx.ext.viewcode&#39;</span><span class="p">]</span>
@@ -494,7 +494,7 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <li><a class="reference external" href="http://nimfa.biolab.si/">http://nimfa.biolab.si/</a></li>
 <li><a class="reference external" href="https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py">https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py</a></li>
 </ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
               <span class="s1">&#39;sphinx.ext.intersphinx&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.ifconfig&#39;</span><span class="p">,</span>
               <span class="s1">&#39;alabaster&#39;</span><span class="p">]</span>
 
@@ -515,8 +515,8 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;github_user&#39;</span><span class="p">:</span> <span class="s1">&#39;marinkaz&#39;</span><span class="p">,</span>
     <span class="s1">&#39;github_repo&#39;</span><span class="p">:</span> <span class="s1">&#39;nimfa&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;github_button&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;github_banner&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;github_button&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;github_banner&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
     <span class="s1">&#39;sidebar_width&#39;</span><span class="p">:</span> <span class="s1">&#39;250px&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -525,7 +525,7 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <div class="section" id="pandas">
 <h4>11.2.11.4. pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="https://github.com/pydata/pandas/blob/master/doc/source/conf.py">https://github.com/pydata/pandas/blob/master/doc/source/conf.py</a></p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;nature_with_gtoc&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;nature_with_gtoc&#39;</span>
 <span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;themes&#39;</span><span class="p">]</span>
 
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
@@ -548,7 +548,7 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <h4>11.2.11.5. scipy lecture notes<a class="headerlink" href="#scipy-lecture-notes" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="http://www.scipy-lectures.org/">http://www.scipy-lectures.org/</a></p>
 <p><a class="reference external" href="https://github.com/scipy-lectures/scipy-lecture-notes">https://github.com/scipy-lectures/scipy-lecture-notes</a></p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gen_rst</span> <span class="c1"># &lt;= from scikit learn</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gen_rst</span> <span class="c1"># &lt;= from scikit learn</span>
 
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;gen_rst&#39;</span><span class="p">,</span>
@@ -594,23 +594,23 @@ It refers to the section itself, see :ref:`my-reference-label`.
 </pre></div>
 </div>
 <p>inside <code class="docutils literal"><span class="pre">conf.py</span></code></p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.externals.six</span> <span class="k">import</span> <span class="n">u</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.externals.six</span> <span class="kn">import</span> <span class="n">u</span>
 <span class="kn">import</span> <span class="nn">gen_rst</span> <span class="c1"># &lt;= from scikit</span>
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gen_rst&#39;</span><span class="p">,</span>
               <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span>
               <span class="s1">&#39;sphinx.ext.pngmath&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy_ext.numpydoc&#39;</span><span class="p">,</span>
               <span class="s1">&#39;sphinx.ext.linkcode&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
               <span class="p">]</span>
-<span class="n">autosummary_generate</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">autosummary_generate</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">autodoc_default_flags</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;members&#39;</span><span class="p">,</span> <span class="s1">&#39;inherited-members&#39;</span><span class="p">]</span>
 <span class="c1"># generate autosummary even if no references</span>
-<span class="n">autosummary_generate</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">autosummary_generate</span> <span class="o">=</span> <span class="bp">True</span>
 
 
 <span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;scikit-learn&#39;</span>
-<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;oldversion&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;collapsiblesidebar&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-                      <span class="s1">&#39;google_analytics&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;surveybanner&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                      <span class="s1">&#39;sprintbanner&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;oldversion&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s1">&#39;collapsiblesidebar&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                      <span class="s1">&#39;google_analytics&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s1">&#39;surveybanner&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                      <span class="s1">&#39;sprintbanner&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
 
 <span class="c1"># Add any paths that contain custom themes here, relative to this directory.</span>
 <span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;themes&#39;</span><span class="p">]</span>
@@ -621,7 +621,7 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <div class="section" id="themes">
 <h3>11.2.12. themes<a class="headerlink" href="#themes" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/theming.html">http://www.sphinx-doc.org/en/stable/theming.html</a></p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;alabaster&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;alabaster&#39;</span>
 <span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;nature&#39;</span>
 <span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinxdoc&quot;</span>   <span class="c1"># currently no options beyond nosidebar and sidebarwidth</span>
 <span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;traditional&quot;</span> <span class="c1"># currently no options beyond nosidebar and sidebarwidth</span>
@@ -637,7 +637,7 @@ It refers to the section itself, see :ref:`my-reference-label`.
 </pre></div>
 </div>
 <p>Bootstrap</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx_bootstrap_theme</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx_bootstrap_theme</span>
 <span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;bootstrap&#39;</span>
 <span class="n">html_theme_path</span> <span class="o">=</span> <span class="n">sphinx_bootstrap_theme</span><span class="o">.</span><span class="n">get_html_theme_path</span><span class="p">()</span>
 <span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
@@ -656,14 +656,14 @@ It refers to the section itself, see :ref:`my-reference-label`.
     <span class="c1"># an arbitrary url.</span>
     <span class="s1">&#39;navbar_links&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">(</span><span class="s2">&quot;Examples&quot;</span><span class="p">,</span> <span class="s2">&quot;examples&quot;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;Link&quot;</span><span class="p">,</span> <span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Link&quot;</span><span class="p">,</span> <span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
     <span class="p">],</span>
 
     <span class="c1"># Render the next and previous page links in navbar. (Default: true)</span>
-    <span class="s1">&#39;navbar_sidebarrel&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;navbar_sidebarrel&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
 
     <span class="c1"># Render the current pages TOC in the navbar. (Default: true)</span>
-    <span class="s1">&#39;navbar_pagenav&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;navbar_pagenav&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
 
     <span class="c1"># Tab name for the current pages TOC. (Default: &quot;Page&quot;)</span>
     <span class="s1">&#39;navbar_pagenav_name&#39;</span><span class="p">:</span> <span class="s2">&quot;Page&quot;</span><span class="p">,</span>
@@ -712,33 +712,33 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#include-other-rst-files-with-the-toctree-directive">link</a></li>
 <li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#include-other-rst-files-with-the-toctree-directive">http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#include-other-rst-files-with-the-toctree-directive</a></li>
 </ul>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
-    <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
-    <span class="p">:</span><span class="n">numbered</span><span class="p">:</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+    <span class="nc">:maxdepth:</span> <span class="nf">2</span>
+    <span class="nc">:numbered:</span>
 
-    <span class="n">rst_file1</span><span class="o">.</span><span class="n">rst</span>
-    <span class="n">rst_file2</span><span class="o">.</span><span class="n">rst</span>
+    rst_file1.rst
+    rst_file2.rst
 </pre></div>
 </div>
 </div>
 <div class="section" id="references-and-citations">
 <h3>11.2.14. References and citations<a class="headerlink" href="#references-and-citations" title="Permalink to this headline">¶</a></h3>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">thomas</span><span class="o">-</span><span class="n">cokelaer</span><span class="o">.</span><span class="n">info</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">sphinx</span><span class="o">/</span><span class="n">rest_syntax</span><span class="o">.</span><span class="n">html</span><span class="c1">#citations</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span>http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#citations
 
-<span class="o">*</span> <span class="n">Feature</span> <span class="n">score</span> <span class="n">computation</span> <span class="n">representing</span> <span class="n">its</span> <span class="n">specificity</span> <span class="n">to</span> <span class="n">basis</span> <span class="n">vectors</span> <span class="p">[</span><span class="n">Park2007</span><span class="p">]</span><span class="n">_</span>
-<span class="o">*</span> <span class="n">Computation</span> <span class="n">of</span> <span class="n">most</span> <span class="n">basis</span> <span class="n">specific</span> <span class="n">features</span> <span class="k">for</span> <span class="n">basis</span> <span class="n">vectors</span> <span class="p">[</span><span class="n">Park2007</span><span class="p">]</span><span class="n">_</span>
-<span class="o">*</span> <span class="n">Purity</span> <span class="p">[</span><span class="n">Park2007</span><span class="p">]</span><span class="n">_</span>
-<span class="o">*</span> <span class="n">Residual</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">squares</span> <span class="p">(</span><span class="n">rank</span> <span class="n">estimation</span><span class="p">)</span> <span class="p">[</span><span class="n">Hutchins2008</span><span class="p">]</span><span class="n">_</span><span class="p">,</span> <span class="p">[</span><span class="n">Frigyesi2008</span><span class="p">]</span><span class="n">_</span>
-<span class="o">*</span> <span class="n">Sparseness</span> <span class="p">[</span><span class="n">Hoyer2004</span><span class="p">]</span><span class="n">_</span>
+<span class="m">*</span> Feature score computation representing its specificity to basis vectors <span class="s">[Park2007]_</span>
+<span class="m">*</span> Computation of most basis specific features for basis vectors <span class="s">[Park2007]_</span>
+<span class="m">*</span> Purity <span class="s">[Park2007]_</span>
+<span class="m">*</span> Residual sum of squares (rank estimation) <span class="s">[Hutchins2008]_</span>, <span class="s">[Frigyesi2008]_</span>
+<span class="m">*</span> Sparseness <span class="s">[Hoyer2004]_</span>
 
 
-<span class="o">..</span> <span class="p">[</span><span class="n">Park2007</span><span class="p">]</span> <span class="n">Hyuonsoo</span> <span class="n">Kim</span> <span class="ow">and</span> <span class="n">Haesun</span> <span class="n">Park</span><span class="o">.</span> <span class="n">Sparse</span> <span class="n">non</span><span class="o">-</span><span class="n">negative</span> <span class="n">matrix</span> <span class="n">factorizations</span> <span class="n">via</span> <span class="n">alternating</span> <span class="n">non</span><span class="o">-</span><span class="n">negativity</span><span class="o">-</span><span class="n">constrained</span> <span class="n">least</span> <span class="n">squares</span> <span class="k">for</span> <span class="n">microarray</span> <span class="n">data</span> <span class="n">analysis</span><span class="o">.</span> <span class="n">Bioinformatics</span><span class="p">,</span> <span class="mi">23</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span> <span class="mi">1495</span><span class="o">-</span><span class="mi">1502</span><span class="p">,</span> <span class="mf">2007.</span>
+<span class="p">..</span> <span class="nt">[Park2007]</span> Hyuonsoo Kim and Haesun Park. Sparse non-negative matrix factorizations via alternating non-negativity-constrained least squares for microarray data analysis. Bioinformatics, 23(12): 1495-1502, 2007.
 
-<span class="o">..</span> <span class="p">[</span><span class="n">Hoyer2004</span><span class="p">]</span> <span class="n">Patrik</span> <span class="n">O</span><span class="o">.</span> <span class="n">Hoyer</span><span class="o">.</span> <span class="n">Non</span><span class="o">-</span><span class="n">negative</span> <span class="n">matrix</span> <span class="n">factorization</span> <span class="k">with</span> <span class="n">sparseness</span> <span class="n">constraints</span><span class="o">.</span> <span class="n">Journal</span> <span class="n">of</span> <span class="n">Machine</span> <span class="n">Learning</span> <span class="n">Research</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1457</span><span class="o">-</span><span class="mi">1469</span><span class="p">,</span> <span class="mf">2004.</span>
+<span class="p">..</span> <span class="nt">[Hoyer2004]</span> Patrik O. Hoyer. Non-negative matrix factorization with sparseness constraints. Journal of Machine Learning Research, 5: 1457-1469, 2004.
 
-<span class="o">..</span> <span class="p">[</span><span class="n">Frigyesi2008</span><span class="p">]</span> <span class="n">Attila</span> <span class="n">Frigyesi</span> <span class="ow">and</span> <span class="n">Mattias</span> <span class="n">Hoglund</span><span class="o">.</span> <span class="n">Non</span><span class="o">-</span><span class="n">negative</span> <span class="n">matrix</span> <span class="n">factorization</span> <span class="k">for</span> <span class="n">the</span> <span class="n">analysis</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">gene</span> <span class="n">expression</span> <span class="n">data</span><span class="p">:</span> <span class="n">identification</span> <span class="n">of</span> <span class="n">clinically</span> <span class="n">relevant</span> <span class="n">tumor</span> <span class="n">subtypes</span><span class="o">.</span> <span class="n">Cancer</span> <span class="n">Informatics</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">275</span><span class="o">-</span><span class="mi">292</span><span class="p">,</span> <span class="mf">2008.</span>
+<span class="p">..</span> <span class="nt">[Frigyesi2008]</span> Attila Frigyesi and Mattias Hoglund. Non-negative matrix factorization for the analysis of complex gene expression data: identification of clinically relevant tumor subtypes. Cancer Informatics, 6: 275-292, 2008.
 
-<span class="o">..</span> <span class="p">[</span><span class="n">Hutchins2008</span><span class="p">]</span> <span class="n">Lucie</span> <span class="n">N</span><span class="o">.</span> <span class="n">Hutchins</span><span class="p">,</span> <span class="n">Sean</span> <span class="n">P</span><span class="o">.</span> <span class="n">Murphy</span><span class="p">,</span> <span class="n">Priyam</span> <span class="n">Singh</span> <span class="ow">and</span> <span class="n">Joel</span> <span class="n">H</span><span class="o">.</span> <span class="n">Graber</span><span class="o">.</span> <span class="n">Position</span><span class="o">-</span><span class="n">dependent</span> <span class="n">motif</span> <span class="n">characterization</span> <span class="n">using</span> <span class="n">non</span><span class="o">-</span><span class="n">negative</span> <span class="n">matrix</span> <span class="n">factorization</span><span class="o">.</span> <span class="n">Bioinformatics</span><span class="p">,</span> <span class="mi">24</span><span class="p">(</span><span class="mi">23</span><span class="p">):</span> <span class="mi">2684</span><span class="o">-</span><span class="mi">2690</span><span class="p">,</span> <span class="mf">2008.</span>
+<span class="p">..</span> <span class="nt">[Hutchins2008]</span> Lucie N. Hutchins, Sean P. Murphy, Priyam Singh and Joel H. Graber. Position-dependent motif characterization using non-negative matrix factorization. Bioinformatics, 24(23): 2684-2690, 2008.
 </pre></div>
 </div>
 <p><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#citations">http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#citations</a></p>
@@ -782,7 +782,7 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <li><a class="reference external" href="http://matplotlib.org/devel/documenting_mpl.html">http://matplotlib.org/devel/documenting_mpl.html</a></li>
 <li><a class="reference external" href="https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html">https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html</a></li>
 </ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;matplotlib.sphinxext.only_directives&#39;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;matplotlib.sphinxext.only_directives&#39;</span><span class="p">,</span>
               <span class="s1">&#39;matplotlib.sphinxext.plot_directive&#39;</span><span class="p">,</span>
               <span class="s1">&#39;IPython.sphinxext.ipython_directive&#39;</span><span class="p">,</span>
               <span class="s1">&#39;IPython.sphinxext.ipython_console_highlighting&#39;</span><span class="p">,</span>
@@ -800,10 +800,10 @@ It refers to the section itself, see :ref:`my-reference-label`.
 <div class="section" id="replace">
 <h3>11.3.1. replace<a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#replacement-text">http://docutils.sourceforge.net/docs/ref/rst/directives.html#replacement-text</a></p>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="o">|</span><span class="n">reST</span><span class="o">|</span> <span class="n">replace</span><span class="p">::</span> <span class="n">reStructuredText</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">|reST|</span> <span class="ow">replace</span><span class="p">::</span> reStructuredText
 
-<span class="n">Yes</span><span class="p">,</span> <span class="o">|</span><span class="n">reST</span><span class="o">|</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">long</span> <span class="n">word</span><span class="p">,</span> <span class="n">so</span> <span class="n">I</span> <span class="n">can</span><span class="s1">&#39;t blame anyone for wanting to</span>
-<span class="n">abbreviate</span> <span class="n">it</span><span class="o">.</span>
+Yes, |reST| is a long word, so I can&#39;t blame anyone for wanting to
+abbreviate it.
 </pre></div>
 </div>
 <p>Yes, reStructuredText is a long word, so I can&#8217;t blame anyone for wanting to
@@ -811,31 +811,31 @@ abbreviate it.</p>
 </div>
 <div class="section" id="date">
 <h3>11.3.2. date<a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h3>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="o">|</span><span class="n">date</span><span class="o">|</span> <span class="n">date</span><span class="p">::</span>
-<span class="o">..</span> <span class="o">|</span><span class="n">time</span><span class="o">|</span> <span class="n">date</span><span class="p">::</span> <span class="o">%</span><span class="n">H</span><span class="p">:</span><span class="o">%</span><span class="n">M</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">|date|</span> <span class="ow">date</span><span class="p">::</span>
+<span class="p">..</span> <span class="nt">|time|</span> <span class="ow">date</span><span class="p">::</span> %H:%M
 
-<span class="n">Today</span><span class="s1">&#39;s date is |date|.</span>
+Today&#39;s date is |date|.
 
-<span class="n">This</span> <span class="n">document</span> <span class="n">was</span> <span class="n">generated</span> <span class="n">on</span> <span class="o">|</span><span class="n">date</span><span class="o">|</span> <span class="n">at</span> <span class="o">|</span><span class="n">time</span><span class="o">|.</span>
+This document was generated on |date| at |time|.
 </pre></div>
 </div>
 <p>Today&#8217;s date is 2016-08-10.</p>
-<p>This document was generated on 2016-08-10 at 01:12.</p>
+<p>This document was generated on 2016-08-10 at 01:17.</p>
 </div>
 <div class="section" id="raw-directive">
 <h3>11.3.3. raw directive<a class="headerlink" href="#raw-directive" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#raw-data-pass-through">http://docutils.sourceforge.net/docs/ref/rst/directives.html#raw-data-pass-through</a></p>
 <p>For example, the following input would be passed untouched by an HTML Writer:</p>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">html</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
 
-   <span class="o">&lt;</span><span class="n">hr</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">&gt;</span>
+   &lt;hr width=50 size=10&gt;
 
- <span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+<span class="p"> ..</span> <span class="ow">raw</span><span class="p">::</span> latex
 
- \<span class="n">setlength</span><span class="p">{</span>\<span class="n">parindent</span><span class="p">}{</span><span class="mi">0</span><span class="n">pt</span><span class="p">}</span>
+ \setlength{\parindent}{0pt}
 
-<span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">html</span>
-   <span class="p">:</span><span class="n">file</span><span class="p">:</span> <span class="n">inclusion</span><span class="o">.</span><span class="n">html</span>
+<span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+   <span class="nc">:file:</span> <span class="nf">inclusion.html</span>
 </pre></div>
 </div>
 </div>
@@ -856,12 +856,12 @@ abbreviate it.</p>
 <p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#unicode-character-codes">http://docutils.sourceforge.net/docs/ref/rst/directives.html#unicode-character-codes</a></p>
 <p>Motivated from <a class="reference external" href="http://www.scipy-lectures.org/">http://www.scipy-lectures.org/</a></p>
 <p>See here for interesting unicodes: <a class="reference external" href="http://unicode.scarfboy.com/?s=U%2bf08c">http://unicode.scarfboy.com/?s=U%2bf08c</a></p>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="o">|</span><span class="n">github</span><span class="o">|</span> <span class="n">unicode</span><span class="p">::</span> <span class="n">U</span><span class="o">+</span><span class="n">f09b</span>  <span class="o">..</span> <span class="n">github</span> <span class="n">logo</span>
-<span class="o">..</span> <span class="o">|</span><span class="n">pdf</span><span class="o">|</span> <span class="n">unicode</span><span class="p">::</span> <span class="n">U</span><span class="o">+</span><span class="n">f1c1</span> <span class="o">..</span> <span class="n">PDF</span> <span class="n">file</span>
-<span class="o">..</span> <span class="o">|</span><span class="n">archive</span><span class="o">|</span> <span class="n">unicode</span><span class="p">::</span> <span class="n">U</span><span class="o">+</span><span class="n">f187</span> <span class="o">..</span> <span class="n">archive</span> <span class="n">file</span>
-<span class="o">..</span> <span class="o">|</span><span class="n">linkedin</span><span class="o">|</span> <span class="n">unicode</span><span class="p">::</span> <span class="n">U</span><span class="o">+</span><span class="n">f08c</span> <span class="o">..</span> <span class="n">linkedin</span> <span class="n">logo</span> <span class="p">(</span><span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">comment</span><span class="p">)</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">|github|</span> <span class="ow">unicode</span><span class="p">::</span> U+f09b  .. github logo
+<span class="p">..</span> <span class="nt">|pdf|</span> <span class="ow">unicode</span><span class="p">::</span> U+f1c1 .. PDF file
+<span class="p">..</span> <span class="nt">|archive|</span> <span class="ow">unicode</span><span class="p">::</span> U+f187 .. archive file
+<span class="p">..</span> <span class="nt">|linkedin|</span> <span class="ow">unicode</span><span class="p">::</span> U+f08c .. linkedin logo (this is a comment)
 
-<span class="o">|</span><span class="n">github</span><span class="o">|</span><span class="p">,</span> <span class="o">|</span><span class="n">pdf</span><span class="o">|</span><span class="p">,</span> <span class="o">|</span><span class="n">archive</span><span class="o">|</span><span class="p">,</span> <span class="o">|</span><span class="n">linkedin</span><span class="o">|</span>
+|github|, |pdf|, |archive|, |linkedin|
 </pre></div>
 </div>
 <p>, , , </p>
@@ -970,7 +970,7 @@ abbreviate it.</p>
 </pre></div>
 </div>
 <p>Today&#8217;s date is 2016-08-10.</p>
-<p>This document was generated on 2016-08-10 at 01:12.</p>
+<p>This document was generated on 2016-08-10 at 01:17.</p>
 </div>
 <div class="section" id="lists">
 <h3>11.3.13. Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
@@ -1014,14 +1014,14 @@ abbreviate it.</p>
 </div>
 <div class="section" id="comments">
 <h3>11.3.14. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
-<div class="code rst highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">comment</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="cp">.. this is a comment</span>
 
-<span class="n">Hello</span>
+Hello
 
-<span class="o">..</span>
-  <span class="n">Multi</span> <span class="n">line</span> <span class="n">comments</span>
-  <span class="n">that</span> <span class="n">wraps</span> <span class="n">across</span>
-  <span class="n">multiple</span> <span class="n">lines</span>
+<span class="cp">..</span>
+<span class="cp">  Multi line comments</span>
+<span class="cp">  that wraps across</span>
+<span class="cp">  multiple lines</span>
 </pre></div>
 </div>
 <p>Hello</p>
@@ -1048,35 +1048,10 @@ abbreviate it.</p>
 </ul>
 <div class="section" id="list-of-equivalent-roles-ultra-incomplete">
 <h3>11.4.1. List of equivalent <code class="docutils literal"><span class="pre">roles</span></code> (ultra-incomplete)<a class="headerlink" href="#list-of-equivalent-roles-ultra-incomplete" title="Permalink to this headline">¶</a></h3>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>*text*
-:emphasis:`text`
-
-**text**
-:strong:`text`
-
-``text``
-:literal:`text`
-</pre></div>
-</div>
 </div>
 <div class="section" id="some-interesting-looking-roles">
 <h3>11.4.2. Some interesting looking <code class="docutils literal"><span class="pre">roles</span></code><a class="headerlink" href="#some-interesting-looking-roles" title="Permalink to this headline">¶</a></h3>
 <p>From main doc <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html">http://docutils.sourceforge.net/docs/ref/rst/roles.html</a></p>
-<div class="code highlight-default"><div class="highlight"><pre><span></span># latex code?
-.. role:: latex(code)
-   :language: latex
-
-# math role
-:math:
-    The input format is LaTeX math syntax without the “math delimiters“ ($ $), for example:
-        The area of a circle is :math:`A_\text{c} = (\pi/4) d^2`.
-
-:subscript:
-    (alias -&gt; :sup:)
-:superscript:
-    (alias -&gt; :sub:)
-</pre></div>
-</div>
 <p>Example run (note the <code class="docutils literal"><span class="pre">\</span></code> with empty-space to handle the white-space):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>- The area of a circle is :math:`A_\text{c} = (\pi/4) d^2`.
 - H\ :sub:`2`\ O

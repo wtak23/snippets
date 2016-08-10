@@ -209,516 +209,516 @@ UNIX system already has Perl. For Windows get the Strawberry Perl at:</p>
 </ul>
 <div class="section" id="file-spacing">
 <h2><a class="toc-backref" href="#id2">7.1. FILE SPACING</a><a class="headerlink" href="#file-spacing" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Double space a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$\=&quot;</span><span class="se">\n</span><span class="s1">&quot;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;BEGIN { $\=&quot;</span><span class="se">\n</span><span class="s1">&quot; }&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ .= &quot;</span><span class="se">\n</span><span class="s1">&quot;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;s/$/</span><span class="se">\n</span><span class="s1">/&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nE</span> <span class="s1">&#39;say&#39;</span>
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="c1"># Double space a file</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$\=&quot;\n&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;BEGIN { $\=&quot;\n&quot; }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ .= &quot;\n&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;s/$/\n/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">nE</span> <span class="s">&#39;say&#39;</span>
 
 <span class="c1"># Double space a file, except the blank lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ .= &quot;</span><span class="se">\n</span><span class="s1">&quot; unless /^$/&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ .= &quot;</span><span class="se">\n</span><span class="s1">&quot; if /\S/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ .= &quot;\n&quot; unless /^$/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ .= &quot;\n&quot; if /\S/&#39;</span>
 
 <span class="c1"># Triple space a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$\=&quot;</span><span class="se">\n\n</span><span class="s1">&quot;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_.=&quot;</span><span class="se">\n\n</span><span class="s1">&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$\=&quot;\n\n&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_.=&quot;\n\n&quot;&#39;</span>
 
 <span class="c1"># N-space a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_.=&quot;</span><span class="se">\n</span><span class="s1">&quot;x7&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_.=&quot;\n&quot;x7&#39;</span>
 
 <span class="c1"># Add a blank line before every line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;s//</span><span class="se">\n</span><span class="s1">/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;s//\n/&#39;</span>
 
 <span class="c1"># Remove all blank lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print unless /^$/&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s1">&#39;print if length&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if /\S/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print unless /^$/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s">&#39;print if length&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print if /\S/&#39;</span>
 
 <span class="c1"># Remove all consecutive blank lines, leaving just one</span>
-<span class="n">perl</span> <span class="o">-</span><span class="mi">00</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="mi">00</span><span class="n">pe0</span>
+<span class="n">perl</span> <span class="o">-</span><span class="mo">00</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="mo">00</span><span class="n">pe0</span>
 
 <span class="c1"># Compress/expand all blank lines into N consecutive ones</span>
-<span class="n">perl</span> <span class="o">-</span><span class="mi">00</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_.=&quot;</span><span class="se">\n</span><span class="s1">&quot;x4&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="mo">00</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_.=&quot;\n&quot;x4&#39;</span>
 
 <span class="c1"># Fold a file so that every set of 10 lines becomes one tab-separated line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lpe</span> <span class="s1">&#39;$\ = $. % 10 ? &quot;</span><span class="se">\t</span><span class="s1">&quot; : &quot;</span><span class="se">\n</span><span class="s1">&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">lpe</span> <span class="s">&#39;$\ = $. % 10 ? &quot;\t&quot; : &quot;\n&quot;&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="line-numbering">
 <h2><a class="toc-backref" href="#id3">7.2. LINE NUMBERING</a><a class="headerlink" href="#line-numbering" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Number all lines in a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ = &quot;$. $_&quot;&#39;</span>
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="c1"># Number all lines in a file</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ = &quot;$. $_&quot;&#39;</span>
 
 <span class="c1"># Number only non-empty lines in a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ = ++$a.&quot; $_&quot; if /./&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ = ++$a.&quot; $_&quot; if /./&#39;</span>
 
 <span class="c1"># Number and print only non-empty lines in a file (drop empty lines)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print ++$a.&quot; $_&quot; if /./&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print ++$a.&quot; $_&quot; if /./&#39;</span>
 
 <span class="c1"># Number all lines but print line numbers only non-empty lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ = &quot;$. $_&quot; if /./&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ = &quot;$. $_&quot; if /./&#39;</span>
 
 <span class="c1"># Number only lines that match a pattern, print others unmodified</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ = ++$a.&quot; $_&quot; if /regex/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ = ++$a.&quot; $_&quot; if /regex/&#39;</span>
 
 <span class="c1"># Number and print only lines that match a pattern</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print ++$a.&quot; $_&quot; if /regex/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print ++$a.&quot; $_&quot; if /regex/&#39;</span>
 
 <span class="c1"># Number all lines, but print line numbers only for lines that match a pattern</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;$_ = &quot;$. $_&quot; if /regex/&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s">&#39;$_ = &quot;$. $_&quot; if /regex/&#39;</span>
 
 <span class="c1"># Number all lines in a file using a custom format (emulate cat -n)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;printf &quot;</span><span class="si">%-5d</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&quot;, $., $_&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;printf &quot;%-5d %s&quot;, $., $_&#39;</span>
 
 <span class="c1"># Print the total number of lines in a file (emulate wc -l)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s1">&#39;END { print $. }&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print $n=()=&lt;&gt;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print scalar(()=&lt;&gt;)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print scalar(@foo=&lt;&gt;)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;}{print $.&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nE</span> <span class="s1">&#39;}{say $.&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s">&#39;END { print $. }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print $n=()=&lt;&gt;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print scalar(()=&lt;&gt;)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print scalar(@foo=&lt;&gt;)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;}{print $.&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">nE</span> <span class="s">&#39;}{say $.&#39;</span>
 
 <span class="c1"># Print the number of non-empty lines in a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print scalar(grep{/./}&lt;&gt;)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print ~~grep{/./}&lt;&gt;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print~~grep/./,&lt;&gt;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">E</span> <span class="s1">&#39;say~~grep/./,&lt;&gt;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print scalar(grep{/./}&lt;&gt;)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print ~~grep{/./}&lt;&gt;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print~~grep/./,&lt;&gt;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">E</span> <span class="s">&#39;say~~grep/./,&lt;&gt;&#39;</span>
 
 <span class="c1"># Print the number of empty lines in a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s1">&#39;$a++ if /^$/; END {print $a+0}&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print scalar(grep{/^$/}&lt;&gt;)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print ~~grep{/^$/}&lt;&gt;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">E</span> <span class="s1">&#39;say~~grep{/^$/}&lt;&gt;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s">&#39;$a++ if /^$/; END {print $a+0}&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print scalar(grep{/^$/}&lt;&gt;)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print ~~grep{/^$/}&lt;&gt;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">E</span> <span class="s">&#39;say~~grep{/^$/}&lt;&gt;&#39;</span>
 
 <span class="c1"># Print the number of lines in a file that match a pattern (emulate grep -c)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s1">&#39;$a++ if /regex/; END {print $a+0}&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nE</span> <span class="s1">&#39;$a++ if /regex/; END {say $a+0}&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s">&#39;$a++ if /regex/; END {print $a+0}&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">nE</span> <span class="s">&#39;$a++ if /regex/; END {say $a+0}&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="calculations">
 <h2><a class="toc-backref" href="#id4">7.3. CALCULATIONS</a><a class="headerlink" href="#calculations" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Check if a number is a prime</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s1">&#39;(1x$_) !~ /^1?$|^(11+?)</span><span class="se">\1</span><span class="s1">+$/ &amp;&amp; print &quot;$_ is prime&quot;&#39;</span>
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="c1"># Check if a number is a prime</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s">&#39;(1x$_) !~ /^1?$|^(11+?)\1+$/ &amp;&amp; print &quot;$_ is prime&quot;&#39;</span>
 
 <span class="c1"># Print the sum of all the fields on a line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">sum</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print sum @F&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">sum</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print sum @F&#39;</span>
 
 <span class="c1"># Print the sum of all the fields on all lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">sum</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;push @S,@F; END { print sum @S }&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">sum</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;$s += sum @F; END { print $s }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">sum</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;push @S,@F; END { print sum @S }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">sum</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;$s += sum @F; END { print $s }&#39;</span>
 
 <span class="c1"># Shuffle all fields on a line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="n">shuffle</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print &quot;@{[shuffle @F]}&quot;&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="n">shuffle</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print join &quot; &quot;, shuffle @F&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">shuffle</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print &quot;@{[shuffle @F]}&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">shuffle</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print join &quot; &quot;, shuffle @F&#39;</span>
 
 <span class="c1"># Find the minimum element on a line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">min</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print min @F&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">min</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print min @F&#39;</span>
 
 <span class="c1"># Find the minimum element over all the lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">min</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;@M = (@M, @F); END { print min @M }&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">min</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;$min = min @F; $rmin = $min unless defined $rmin &amp;&amp; $min &gt; $rmin; END { print $rmin }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">min</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;@M = (@M, @F); END { print min @M }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">min</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;$min = min @F; $rmin = $min unless defined $rmin &amp;&amp; $min &gt; $rmin; END { print $rmin }&#39;</span>
 
 <span class="c1"># Find the maximum element on a line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">max</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print max @F&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">max</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print max @F&#39;</span>
 
 <span class="c1"># Find the maximum element over all the lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">Util</span><span class="o">=</span><span class="nb">max</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;@M = (@M, @F); END { print max @M }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">Util</span><span class="o">=</span><span class="n">max</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;@M = (@M, @F); END { print max @M }&#39;</span>
 
 <span class="c1"># Replace each field with its absolute value</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print &quot;@{[map { abs } @F]}&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print &quot;@{[map { abs } @F]}&quot;&#39;</span>
 
 <span class="c1"># Find the total number of fields (words) on each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print scalar @F&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print scalar @F&#39;</span>
 
 <span class="c1"># Print the total number of fields (words) on each line followed by the line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print scalar @F, &quot; $_&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;print scalar @F, &quot; $_&quot;&#39;</span>
 
 <span class="c1"># Find the total number of fields (words) on all lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;$t += @F; END { print $t}&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;$t += @F; END { print $t}&#39;</span>
 
 <span class="c1"># Print the total number of fields that match a pattern</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;map { /regex/ &amp;&amp; $t++ } @F; END { print $t }&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;$t += /regex/ for @F; END { print $t }&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;$t += grep /regex/, @F; END { print $t }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;map { /regex/ &amp;&amp; $t++ } @F; END { print $t }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;$t += /regex/ for @F; END { print $t }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s">&#39;$t += grep /regex/, @F; END { print $t }&#39;</span>
 
 <span class="c1"># Print the total number of lines that match a pattern</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s1">&#39;/regex/ &amp;&amp; $t++; END { print $t }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">lne</span> <span class="s">&#39;/regex/ &amp;&amp; $t++; END { print $t }&#39;</span>
 
 <span class="c1"># Print the number PI to n decimal places</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">bpi</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print bpi(n)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">bpi</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print bpi(n)&#39;</span>
 
 <span class="c1"># Print the number PI to 39 decimal places</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">PI</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print PI&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">PI</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print PI&#39;</span>
 
 <span class="c1"># Print the number E to n decimal places</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">bexp</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print bexp(1,n+1)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">bexp</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print bexp(1,n+1)&#39;</span>
 
 <span class="c1"># Print the number E to 39 decimal places</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">e</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print e&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">Mbignum</span><span class="o">=</span><span class="n">e</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print e&#39;</span>
 
 <span class="c1"># Print UNIX time (seconds since Jan 1, 1970, 00:00:00 UTC)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print time&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print time&#39;</span>
 
 <span class="c1"># Print GMT (Greenwich Mean Time) and local computer time</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print scalar gmtime&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print scalar localtime&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print scalar gmtime&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print scalar localtime&#39;</span>
 
 <span class="c1"># Print local computer time in H:M:S format</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print join &quot;:&quot;, (localtime)[2,1,0]&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print join &quot;:&quot;, (localtime)[2,1,0]&#39;</span>
 
 <span class="c1"># Print yesterday&#39;s date</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MPOSIX</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;@now = localtime; $now[3] -= 1; print scalar localtime mktime @now&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">MPOSIX</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@now = localtime; $now[3] -= 1; print scalar localtime mktime @now&#39;</span>
 
 <span class="c1"># Print date 14 months, 9 days and 7 seconds ago</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MPOSIX</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;@now = localtime; $now[0] -= 7; $now[4] -= 14; $now[7] -= 9; print scalar localtime mktime @now&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">MPOSIX</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@now = localtime; $now[0] -= 7; $now[4] -= 14; $now[7] -= 9; print scalar localtime mktime @now&#39;</span>
 
 <span class="c1"># Prepend timestamps to stdout (GMT, localtime)</span>
-<span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">logfile</span> <span class="o">|</span> <span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print scalar gmtime,&quot; &quot;,$_&#39;</span>
-<span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">logfile</span> <span class="o">|</span> <span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print scalar localtime,&quot; &quot;,$_&#39;</span>
+<span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">logfile</span> <span class="o">|</span> <span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print scalar gmtime,&quot; &quot;,$_&#39;</span>
+<span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">logfile</span> <span class="o">|</span> <span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print scalar localtime,&quot; &quot;,$_&#39;</span>
 
 <span class="c1"># Calculate factorial of 5</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MMath</span><span class="p">::</span><span class="n">BigInt</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print Math::BigInt-&gt;new(5)-&gt;bfac()&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$f = 1; $f *= $_ for 1..5; print $f&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MMath::</span><span class="n">BigInt</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print Math::BigInt-&gt;new(5)-&gt;bfac()&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$f = 1; $f *= $_ for 1..5; print $f&#39;</span>
 
 <span class="c1"># Calculate greatest common divisor (GCM)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MMath</span><span class="p">::</span><span class="n">BigInt</span><span class="o">=</span><span class="n">bgcd</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print bgcd(@list_of_numbers)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MMath::</span><span class="n">BigInt</span><span class="o">=</span><span class="n">bgcd</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print bgcd(@list_of_numbers)&#39;</span>
 
 <span class="c1"># Calculate GCM of numbers 20 and 35 using Euclid&#39;s algorithm</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$n = 20; $m = 35; ($m,$n) = ($n,$m%$n) while $n; print $m&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$n = 20; $m = 35; ($m,$n) = ($n,$m%$n) while $n; print $m&#39;</span>
 
 <span class="c1"># Calculate least common multiple (LCM) of numbers 35, 20 and 8</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MMath</span><span class="p">::</span><span class="n">BigInt</span><span class="o">=</span><span class="n">blcm</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print blcm(35,20,8)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MMath::</span><span class="n">BigInt</span><span class="o">=</span><span class="n">blcm</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print blcm(35,20,8)&#39;</span>
 
 <span class="c1"># Calculate LCM of 20 and 35 using Euclid&#39;s formula: n*m/gcd(n,m)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$a = $n = 20; $b = $m = 35; ($m,$n) = ($n,$m%$n) while $n; print $a*$b/$m&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$a = $n = 20; $b = $m = 35; ($m,$n) = ($n,$m%$n) while $n; print $a*$b/$m&#39;</span>
 
 <span class="c1"># Generate 10 random numbers between 5 and 15 (excluding 15)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$n=10; $min=5; $max=15; $, = &quot; &quot;; print map { int(rand($max-$min))+$min } 1..$n&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$n=10; $min=5; $max=15; $, = &quot; &quot;; print map { int(rand($max-$min))+$min } 1..$n&#39;</span>
 
 <span class="c1"># Find and print all permutations of a list</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MAlgorithm</span><span class="p">::</span><span class="n">Permute</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$l = [1,2,3,4,5]; $p = Algorithm::Permute-&gt;new($l); print @r while @r = $p-&gt;next&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MAlgorithm::</span><span class="n">Permute</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$l = [1,2,3,4,5]; $p = Algorithm::Permute-&gt;new($l); print @r while @r = $p-&gt;next&#39;</span>
 
 <span class="c1"># Generate the power set</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MList</span><span class="p">::</span><span class="n">PowerSet</span><span class="o">=</span><span class="n">powerset</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;@l = (1,2,3,4,5); for (@{powerset(@l)}) { print &quot;@$_&quot; }&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MList::</span><span class="n">PowerSet</span><span class="o">=</span><span class="n">powerset</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@l = (1,2,3,4,5); for (@{powerset(@l)}) { print &quot;@$_&quot; }&#39;</span>
 
 <span class="c1"># Convert an IP address to unsigned integer</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$i=3; $u += ($_&lt;&lt;8*$i--) for &quot;127.0.0.1&quot; =~ /(\d+)/g; print $u&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$ip=&quot;127.0.0.1&quot;; $ip =~ s/(\d+)\.?/sprintf(&quot;</span><span class="si">%02x</span><span class="s1">&quot;, $1)/ge; print hex($ip)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print unpack(&quot;N&quot;, 127.0.0.1)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MSocket</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print unpack(&quot;N&quot;, inet_aton(&quot;127.0.0.1&quot;))&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$i=3; $u += ($_&lt;&lt;8*$i--) for &quot;127.0.0.1&quot; =~ /(\d+)/g; print $u&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$ip=&quot;127.0.0.1&quot;; $ip =~ s/(\d+)\.?/sprintf(&quot;%02x&quot;, $1)/ge; print hex($ip)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print unpack(&quot;N&quot;, 127.0.0.1)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">MSocket</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print unpack(&quot;N&quot;, inet_aton(&quot;127.0.0.1&quot;))&#39;</span>
 
 <span class="c1"># Convert an unsigned integer to an IP address</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MSocket</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print inet_ntoa(pack(&quot;N&quot;, 2130706433))&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$ip = 2130706433; print join &quot;.&quot;, map { (($ip&gt;&gt;8*($_))&amp;0xFF) } reverse 0..3&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;$ip = 2130706433; $, = &quot;.&quot;; print map { (($ip&gt;&gt;8*($_))&amp;0xFF) } reverse 0..3&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">MSocket</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print inet_ntoa(pack(&quot;N&quot;, 2130706433))&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$ip = 2130706433; print join &quot;.&quot;, map { (($ip&gt;&gt;8*($_))&amp;0xFF) } reverse 0..3&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$ip = 2130706433; $, = &quot;.&quot;; print map { (($ip&gt;&gt;8*($_))&amp;0xFF) } reverse 0..3&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="string-creation-and-array-creation">
 <h2><a class="toc-backref" href="#id5">7.4. STRING CREATION AND ARRAY CREATION</a><a class="headerlink" href="#string-creation-and-array-creation" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span># Generate and print the alphabet
-perl -le &#39;print a..z&#39;
-perl -le &#39;print (&quot;a&quot;..&quot;z&quot;)&#39;
-perl -le &#39;$, = &quot;,&quot;; print (&quot;a&quot;..&quot;z&quot;)&#39;
-perl -le &#39;print join &quot;,&quot;, (&quot;a&quot;..&quot;z&quot;)&#39;
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="c1"># Generate and print the alphabet</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print a..z&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print (&quot;a&quot;..&quot;z&quot;)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$, = &quot;,&quot;; print (&quot;a&quot;..&quot;z&quot;)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print join &quot;,&quot;, (&quot;a&quot;..&quot;z&quot;)&#39;</span>
 
-# Generate and print all the strings from &quot;a&quot; to &quot;zz&quot;
-perl -le &#39;print (&quot;a&quot;..&quot;zz&quot;)&#39;
-perl -le &#39;print &quot;aa&quot;..&quot;zz&quot;&#39;
+<span class="c1"># Generate and print all the strings from &quot;a&quot; to &quot;zz&quot;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print (&quot;a&quot;..&quot;zz&quot;)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print &quot;aa&quot;..&quot;zz&quot;&#39;</span>
 
-# Create a hex lookup table
-@hex = (0..9, &quot;a&quot;..&quot;f&quot;)
+<span class="c1"># Create a hex lookup table</span>
+<span class="nv">@hex</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">9</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="o">..</span><span class="s">&quot;f&quot;</span><span class="p">)</span>
 
-# Convert a decimal number to hex using @hex lookup table
-perl -le &#39;$num = 255; @hex = (0..9, &quot;a&quot;..&quot;f&quot;); while ($num) { $s = $hex[($num%16)&amp;15].$s; $num = int $num/16 } print $s&#39;
-perl -le &#39;$hex = sprintf(&quot;%x&quot;, 255); print $hex&#39;
-perl -le &#39;$num = &quot;ff&quot;; print hex $num&#39;
+<span class="c1"># Convert a decimal number to hex using @hex lookup table</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$num = 255; @hex = (0..9, &quot;a&quot;..&quot;f&quot;); while ($num) { $s = $hex[($num%16)&amp;15].$s; $num = int $num/16 } print $s&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$hex = sprintf(&quot;%x&quot;, 255); print $hex&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;$num = &quot;ff&quot;; print hex $num&#39;</span>
 
-# Generate a random 8 character password
-perl -le &#39;print map { (&quot;a&quot;..&quot;z&quot;)[rand 26] } 1..8&#39;
-perl -le &#39;print map { (&quot;a&quot;..&quot;z&quot;, 0..9)[rand 36] } 1..8&#39;
+<span class="c1"># Generate a random 8 character password</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print map { (&quot;a&quot;..&quot;z&quot;)[rand 26] } 1..8&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print map { (&quot;a&quot;..&quot;z&quot;, 0..9)[rand 36] } 1..8&#39;</span>
 
-# Create a string of specific length
-perl -le &#39;print &quot;a&quot;x50&#39;
+<span class="c1"># Create a string of specific length</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print &quot;a&quot;x50&#39;</span>
 
-# Create a repeated list of elements
-perl -le &#39;@list = (1,2)x20; print &quot;@list&quot;&#39;
+<span class="c1"># Create a repeated list of elements</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@list = (1,2)x20; print &quot;@list&quot;&#39;</span>
 
-# Create an array from a string
-@months = split &#39; &#39;, &quot;Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec&quot;
-@months = qw/Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec/
+<span class="c1"># Create an array from a string</span>
+<span class="nv">@months</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&quot;Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec&quot;</span>
+<span class="nv">@months</span> <span class="o">=</span> <span class="sx">qw/Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec/</span>
 
-# Create a string from an array
-@stuff = (&quot;hello&quot;, 0..9, &quot;world&quot;); $string = join &#39;-&#39;, @stuff
+<span class="c1"># Create a string from an array</span>
+<span class="nv">@stuff</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="o">..</span><span class="mi">9</span><span class="p">,</span> <span class="s">&quot;world&quot;</span><span class="p">);</span> <span class="nv">$string</span> <span class="o">=</span> <span class="nb">join</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="nv">@stuff</span>
 
-# Find the numeric values for characters in the string
-perl -le &#39;print join &quot;, &quot;, map { ord } split //, &quot;hello world&quot;&#39;
+<span class="c1"># Find the numeric values for characters in the string</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print join &quot;, &quot;, map { ord } split //, &quot;hello world&quot;&#39;</span>
 
-# Convert a list of numeric ASCII values into a string
-perl -le &#39;@ascii = (99, 111, 100, 105, 110, 103); print pack(&quot;C*&quot;, @ascii)&#39;
-perl -le &#39;@ascii = (99, 111, 100, 105, 110, 103); print map { chr } @ascii&#39;
+<span class="c1"># Convert a list of numeric ASCII values into a string</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@ascii = (99, 111, 100, 105, 110, 103); print pack(&quot;C*&quot;, @ascii)&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@ascii = (99, 111, 100, 105, 110, 103); print map { chr } @ascii&#39;</span>
 
-# Generate an array with odd numbers from 1 to 100
-perl -le &#39;@odd = grep {$_ % 2 == 1} 1..100; print &quot;@odd&quot;&#39;
-perl -le &#39;@odd = grep { $_ &amp; 1 } 1..100; print &quot;@odd&quot;&#39;
+<span class="c1"># Generate an array with odd numbers from 1 to 100</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@odd = grep {$_ % 2 == 1} 1..100; print &quot;@odd&quot;&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@odd = grep { $_ &amp; 1 } 1..100; print &quot;@odd&quot;&#39;</span>
 
-# Generate an array with even numbers from 1 to 100
-perl -le &#39;@even = grep {$_ % 2 == 0} 1..100; print &quot;@even&quot;&#39;
+<span class="c1"># Generate an array with even numbers from 1 to 100</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@even = grep {$_ % 2 == 0} 1..100; print &quot;@even&quot;&#39;</span>
 
-# Find the length of the string
-perl -le &#39;print length &quot;one-liners are great&quot;&#39;
+<span class="c1"># Find the length of the string</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print length &quot;one-liners are great&quot;&#39;</span>
 
-# Find the number of elements in an array
-perl -le &#39;@array = (&quot;a&quot;..&quot;z&quot;); print scalar @array&#39;
-perl -le &#39;@array = (&quot;a&quot;..&quot;z&quot;); print $#array + 1&#39;
+<span class="c1"># Find the number of elements in an array</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@array = (&quot;a&quot;..&quot;z&quot;); print scalar @array&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;@array = (&quot;a&quot;..&quot;z&quot;); print $#array + 1&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="text-conversion-and-substitution">
 <h2><a class="toc-backref" href="#id6">7.5. TEXT CONVERSION AND SUBSTITUTION</a><a class="headerlink" href="#text-conversion-and-substitution" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ROT13 a string</span>
-<span class="s1">&#39;y/A-Za-z/N-ZA-Mn-za-m/&#39;</span>
+<div class="highlight-perl"><div class="highlight"><pre><span></span># ROT13 a string
+&#39;y/A-Za-z/N-ZA-Mn-za-m/&#39;
 
-<span class="c1"># ROT 13 a file</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">lpe</span> <span class="s1">&#39;y/A-Za-z/N-ZA-Mn-za-m/&#39;</span> <span class="n">file</span>
+# ROT 13 a file
+perl -lpe &#39;y/A-Za-z/N-ZA-Mn-za-m/&#39; file
 
-<span class="c1"># Base64 encode a string</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MMIME</span><span class="p">::</span><span class="n">Base64</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;print encode_base64(&quot;string&quot;)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MMIME</span><span class="p">::</span><span class="n">Base64</span> <span class="o">-</span><span class="mi">0777</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print encode_base64($_)&#39;</span> <span class="n">file</span>
+# Base64 encode a string
+perl -MMIME::Base64 -e &#39;print encode_base64(&quot;string&quot;)&#39;
+perl -MMIME::Base64 -0777 -ne &#39;print encode_base64($_)&#39; file
 
-<span class="c1"># Base64 decode a string</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MMIME</span><span class="p">::</span><span class="n">Base64</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print decode_base64(&quot;base64string&quot;)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MMIME</span><span class="p">::</span><span class="n">Base64</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print decode_base64($_)&#39;</span> <span class="n">file</span>
+# Base64 decode a string
+perl -MMIME::Base64 -le &#39;print decode_base64(&quot;base64string&quot;)&#39;
+perl -MMIME::Base64 -ne &#39;print decode_base64($_)&#39; file
 
-<span class="c1"># URL-escape a string</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MURI</span><span class="p">::</span><span class="n">Escape</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print uri_escape($string)&#39;</span>
+# URL-escape a string
+perl -MURI::Escape -le &#39;print uri_escape($string)&#39;
 
-<span class="c1"># URL-unescape a string</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MURI</span><span class="p">::</span><span class="n">Escape</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print uri_unescape($string)&#39;</span>
+# URL-unescape a string
+perl -MURI::Escape -le &#39;print uri_unescape($string)&#39;
 
-<span class="c1"># HTML-encode a string</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MHTML</span><span class="p">::</span><span class="n">Entities</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print encode_entities($string)&#39;</span>
+# HTML-encode a string
+perl -MHTML::Entities -le &#39;print encode_entities($string)&#39;
 
-<span class="c1"># HTML-decode a string</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MHTML</span><span class="p">::</span><span class="n">Entities</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print decode_entities($string)&#39;</span>
+# HTML-decode a string
+perl -MHTML::Entities -le &#39;print decode_entities($string)&#39;
 
-<span class="c1"># Convert all text to uppercase</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nle</span> <span class="s1">&#39;print uc&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;$_=uc&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nle</span> <span class="s1">&#39;print &quot;\U$_&quot;&#39;</span>
+# Convert all text to uppercase
+perl -nle &#39;print uc&#39;
+perl -ple &#39;$_=uc&#39;
+perl -nle &#39;print &quot;\U$_&quot;&#39;
 
-<span class="c1"># Convert all text to lowercase</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nle</span> <span class="s1">&#39;print lc&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;$_=lc&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nle</span> <span class="s1">&#39;print &quot;\L$_&quot;&#39;</span>
+# Convert all text to lowercase
+perl -nle &#39;print lc&#39;
+perl -ple &#39;$_=lc&#39;
+perl -nle &#39;print &quot;\L$_&quot;&#39;
 
-<span class="c1"># Uppercase only the first word of each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nle</span> <span class="s1">&#39;print ucfirst lc&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">nle</span> <span class="s1">&#39;print &quot;\u\L$_&quot;&#39;</span>
+# Uppercase only the first word of each line
+perl -nle &#39;print ucfirst lc&#39;
+perl -nle &#39;print &quot;\u\L$_&quot;&#39;
 
-<span class="c1"># Invert the letter case</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;y/A-Za-z/a-zA-Z/&#39;</span>
+# Invert the letter case
+perl -ple &#39;y/A-Za-z/a-zA-Z/&#39;
 
-<span class="c1"># Camel case each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;s/(\w+)/\u$1/g&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;s/(?&lt;![&#39;</span><span class="p">])(</span>\<span class="n">w</span><span class="o">+</span><span class="p">)</span><span class="o">/</span>\<span class="n">u</span>\<span class="mi">1</span><span class="o">/</span><span class="n">g</span><span class="s1">&#39;</span>
+# Camel case each line
+perl -ple &#39;s/(\w+)/\u$1/g&#39;
+perl -ple &#39;s/(?&lt;![&#39;])(\w+)/\u\1/g&#39;
 
-<span class="c1"># Strip leading whitespace (spaces, tabs) from the beginning of each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;s/^[ </span><span class="se">\t</span><span class="s1">]+//&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;s/^\s+//&#39;</span>
+# Strip leading whitespace (spaces, tabs) from the beginning of each line
+perl -ple &#39;s/^[ \t]+//&#39;
+perl -ple &#39;s/^\s+//&#39;
 
-<span class="c1"># Strip trailing whitespace (space, tabs) from the end of each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;s/[ </span><span class="se">\t</span><span class="s1">]+$//&#39;</span>
+# Strip trailing whitespace (space, tabs) from the end of each line
+perl -ple &#39;s/[ \t]+$//&#39;
 
-<span class="c1"># Strip whitespace from the beginning and end of each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ple</span> <span class="s1">&#39;s/^[ </span><span class="se">\t</span><span class="s1">]+|[ </span><span class="se">\t</span><span class="s1">]+$//g&#39;</span>
+# Strip whitespace from the beginning and end of each line
+perl -ple &#39;s/^[ \t]+|[ \t]+$//g&#39;
 
-<span class="c1"># Convert UNIX newlines to DOS/Windows newlines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;s|</span><span class="se">\n</span><span class="s1">|</span><span class="se">\r\n</span><span class="s1">|&#39;</span>
+# Convert UNIX newlines to DOS/Windows newlines
+perl -pe &#39;s|\n|\r\n|&#39;
 
-<span class="c1"># Convert DOS/Windows newlines to UNIX newlines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;s|</span><span class="se">\r\n</span><span class="s1">|</span><span class="se">\n</span><span class="s1">|&#39;</span>
+# Convert DOS/Windows newlines to UNIX newlines
+perl -pe &#39;s|\r\n|\n|&#39;
 
-<span class="c1"># Convert UNIX newlines to Mac newlines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;s|</span><span class="se">\n</span><span class="s1">|</span><span class="se">\r</span><span class="s1">|&#39;</span>
+# Convert UNIX newlines to Mac newlines
+perl -pe &#39;s|\n|\r|&#39;
 
-<span class="c1"># Substitute (find and replace) &quot;foo&quot; with &quot;bar&quot; on each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;s/foo/bar/&#39;</span>
+# Substitute (find and replace) &quot;foo&quot; with &quot;bar&quot; on each line
+perl -pe &#39;s/foo/bar/&#39;
 
-<span class="c1"># Substitute (find and replace) all &quot;foo&quot;s with &quot;bar&quot; on each line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;s/foo/bar/g&#39;</span>
+# Substitute (find and replace) all &quot;foo&quot;s with &quot;bar&quot; on each line
+perl -pe &#39;s/foo/bar/g&#39;
 
-<span class="c1"># Substitute (find and replace) &quot;foo&quot; with &quot;bar&quot; on lines that match &quot;baz&quot;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pe</span> <span class="s1">&#39;/baz/ &amp;&amp; s/foo/bar/&#39;</span>
+# Substitute (find and replace) &quot;foo&quot; with &quot;bar&quot; on lines that match &quot;baz&quot;
+perl -pe &#39;/baz/ &amp;&amp; s/foo/bar/&#39;
 
-<span class="c1"># Binary patch a file (find and replace a given array of bytes as hex numbers)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">pi</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;s/</span><span class="se">\x89\xD8\x48\x8B</span><span class="s1">/</span><span class="se">\x90\x90\x48\x8B</span><span class="s1">/g&#39;</span> <span class="n">file</span>
+# Binary patch a file (find and replace a given array of bytes as hex numbers)
+perl -pi -e &#39;s/\x89\xD8\x48\x8B/\x90\x90\x48\x8B/g&#39; file
 </pre></div>
 </div>
 </div>
 <div class="section" id="selective-printing-and-deleting-of-certain-lines">
 <h2><a class="toc-backref" href="#id7">7.6. SELECTIVE PRINTING AND DELETING OF CERTAIN LINES</a><a class="headerlink" href="#selective-printing-and-deleting-of-certain-lines" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Print the first line of a file (emulate head -1)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print; exit&#39;</span>
+<div class="highlight-perl"><div class="highlight"><pre><span></span># Print the first line of a file (emulate head -1)
+perl -ne &#39;print; exit&#39;
 
-<span class="c1"># Print the first 10 lines of a file (emulate head -10)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if $. &lt;= 10&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;$. &lt;= 10 &amp;&amp; print&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if 1..10&#39;</span>
+# Print the first 10 lines of a file (emulate head -10)
+perl -ne &#39;print if $. &lt;= 10&#39;
+perl -ne &#39;$. &lt;= 10 &amp;&amp; print&#39;
+perl -ne &#39;print if 1..10&#39;
 
-<span class="c1"># Print the last line of a file (emulate tail -1)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;$last = $_; END { print $last }&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if eof&#39;</span>
+# Print the last line of a file (emulate tail -1)
+perl -ne &#39;$last = $_; END { print $last }&#39;
+perl -ne &#39;print if eof&#39;
 
-<span class="c1"># Print the last 10 lines of a file (emulate tail -10)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;push @a, $_; @a = @a[@a-10..$#a]; END { print @a }&#39;</span>
+# Print the last 10 lines of a file (emulate tail -10)
+perl -ne &#39;push @a, $_; @a = @a[@a-10..$#a]; END { print @a }&#39;
 
-<span class="c1"># Print only lines that match a regular expression</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;/regex/ &amp;&amp; print&#39;</span>
+# Print only lines that match a regular expression
+perl -ne &#39;/regex/ &amp;&amp; print&#39;
 
-<span class="c1"># Print only lines that do not match a regular expression</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;!/regex/ &amp;&amp; print&#39;</span>
+# Print only lines that do not match a regular expression
+perl -ne &#39;!/regex/ &amp;&amp; print&#39;
 
-<span class="c1"># Print the line before a line that matches a regular expression</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;/regex/ &amp;&amp; $last &amp;&amp; print $last; $last = $_&#39;</span>
+# Print the line before a line that matches a regular expression
+perl -ne &#39;/regex/ &amp;&amp; $last &amp;&amp; print $last; $last = $_&#39;
 
-<span class="c1"># Print the line after a line that matches a regular expression</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;if ($p) { print; $p = 0 } $p++ if /regex/&#39;</span>
+# Print the line after a line that matches a regular expression
+perl -ne &#39;if ($p) { print; $p = 0 } $p++ if /regex/&#39;
 
-<span class="c1"># Print lines that match regex AAA and regex BBB in any order</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;/AAA/ &amp;&amp; /BBB/ &amp;&amp; print&#39;</span>
+# Print lines that match regex AAA and regex BBB in any order
+perl -ne &#39;/AAA/ &amp;&amp; /BBB/ &amp;&amp; print&#39;
 
-<span class="c1"># Print lines that don&#39;t match match regexes AAA and BBB</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;!/AAA/ &amp;&amp; !/BBB/ &amp;&amp; print&#39;</span>
+# Print lines that don&#39;t match match regexes AAA and BBB
+perl -ne &#39;!/AAA/ &amp;&amp; !/BBB/ &amp;&amp; print&#39;
 
-<span class="c1"># Print lines that match regex AAA followed by regex BBB followed by CCC</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;/AAA.*BBB.*CCC/ &amp;&amp; print&#39;</span>
+# Print lines that match regex AAA followed by regex BBB followed by CCC
+perl -ne &#39;/AAA.*BBB.*CCC/ &amp;&amp; print&#39;
 
-<span class="c1"># Print lines that are 80 chars or longer</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if length &gt;= 80&#39;</span>
+# Print lines that are 80 chars or longer
+perl -ne &#39;print if length &gt;= 80&#39;
 
-<span class="c1"># Print lines that are less than 80 chars in length</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if length &lt; 80&#39;</span>
+# Print lines that are less than 80 chars in length
+perl -ne &#39;print if length &lt; 80&#39;
 
-<span class="c1"># Print only line 13</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;$. == 13 &amp;&amp; print &amp;&amp; exit&#39;</span>
+# Print only line 13
+perl -ne &#39;$. == 13 &amp;&amp; print &amp;&amp; exit&#39;
 
-<span class="c1"># Print all lines except line 27</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;$. != 27 &amp;&amp; print&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if $. != 27&#39;</span>
+# Print all lines except line 27
+perl -ne &#39;$. != 27 &amp;&amp; print&#39;
+perl -ne &#39;print if $. != 27&#39;
 
-<span class="c1"># Print only lines 13, 19 and 67</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if $. == 13 || $. == 19 || $. == 67&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if int($.) ~~ (13, 19, 67)&#39;</span>
+# Print only lines 13, 19 and 67
+perl -ne &#39;print if $. == 13 || $. == 19 || $. == 67&#39;
+perl -ne &#39;print if int($.) ~~ (13, 19, 67)&#39;
 
-<span class="c1"># Print all lines between two regexes (including lines that match regex)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if /regex1/../regex2/&#39;</span>
+# Print all lines between two regexes (including lines that match regex)
+perl -ne &#39;print if /regex1/../regex2/&#39;
 
-<span class="c1"># Print all lines from line 17 to line 30</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if $. &gt;= 17 &amp;&amp; $. &lt;= 30&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if int($.) ~~ (17..30)&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if grep { $_ == $. } 17..30&#39;</span>
+# Print all lines from line 17 to line 30
+perl -ne &#39;print if $. &gt;= 17 &amp;&amp; $. &lt;= 30&#39;
+perl -ne &#39;print if int($.) ~~ (17..30)&#39;
+perl -ne &#39;print if grep { $_ == $. } 17..30&#39;
 
-<span class="c1"># Print the longest line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;$l = $_ if length($_) &gt; length($l); END { print $l }&#39;</span>
+# Print the longest line
+perl -ne &#39;$l = $_ if length($_) &gt; length($l); END { print $l }&#39;
 
-<span class="c1"># Print the shortest line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;$s = $_ if $. == 1; $s = $_ if length($_) &lt; length($s); END { print $s }&#39;</span>
+# Print the shortest line
+perl -ne &#39;$s = $_ if $. == 1; $s = $_ if length($_) &lt; length($s); END { print $s }&#39;
 
-<span class="c1"># Print all lines that contain a number</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if /\d/&#39;</span>
+# Print all lines that contain a number
+perl -ne &#39;print if /\d/&#39;
 
-<span class="c1"># Find all lines that contain only a number</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if /^\d+$/&#39;</span>
+# Find all lines that contain only a number
+perl -ne &#39;print if /^\d+$/&#39;
 
-<span class="c1"># Print all lines that contain only characters</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if /^[[:alpha:]]+$/</span>
+# Print all lines that contain only characters
+perl -ne &#39;print if /^[[:alpha:]]+$/
 
-<span class="c1"># Print every second line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if $. % 2&#39;</span>
+# Print every second line
+perl -ne &#39;print if $. % 2&#39;
 
-<span class="c1"># Print every second line, starting the second line</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if $. % 2 == 0&#39;</span>
+# Print every second line, starting the second line
+perl -ne &#39;print if $. % 2 == 0&#39;
 
-<span class="c1"># Print all lines that repeat</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print if ++$a{$_} == 2&#39;</span>
+# Print all lines that repeat
+perl -ne &#39;print if ++$a{$_} == 2&#39;
 
-<span class="c1"># Print all unique lines</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">ne</span> <span class="s1">&#39;print unless $a{$_}++&#39;</span>
+# Print all unique lines
+perl -ne &#39;print unless $a{$_}++&#39;
 
-<span class="c1"># Print the first field (word) of every line (emulate cut -f 1 -d &#39; &#39;)</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">alne</span> <span class="s1">&#39;print $F[0]&#39;</span>
+# Print the first field (word) of every line (emulate cut -f 1 -d &#39; &#39;)
+perl -alne &#39;print $F[0]&#39;
 </pre></div>
 </div>
 </div>
 <div class="section" id="handy-regular-expressions">
 <h2><a class="toc-backref" href="#id8">7.7. HANDY REGULAR EXPRESSIONS</a><a class="headerlink" href="#handy-regular-expressions" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span># Match something that looks like an IP address
-/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
-/^(\d{1,3}\.){3}\d{1,3}$/
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="c1"># Match something that looks like an IP address</span>
+<span class="sr">/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/</span>
+<span class="sr">/^(\d{1,3}\.){3}\d{1,3}$/</span>
 
-# Test if a number is in range 0-255
-/^([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$/
+<span class="c1"># Test if a number is in range 0-255</span>
+<span class="sr">/^([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$/</span>
 
-# Match an IP address
-my $ip_part = qr|([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|;
-if ($ip =~ /^($ip_part\.){3}$ip_part$/) {
- say &quot;valid ip&quot;;
-}
+<span class="c1"># Match an IP address</span>
+<span class="k">my</span> <span class="nv">$ip_part</span> <span class="o">=</span> <span class="sx">qr|([0-9]|</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="mi">1</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="mi">2</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="mi">25</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span><span class="o">|</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$ip</span> <span class="o">=~</span><span class="sr"> /^($ip_part\.){3}$ip_part$/</span><span class="p">)</span> <span class="p">{</span>
+ <span class="n">say</span> <span class="s">&quot;valid ip&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 
-# Check if the string looks like an email address
-/\S+@\S+\.\S+/
+<span class="c1"># Check if the string looks like an email address</span>
+<span class="sr">/\S+@\S+\.\S+/</span>
 
-# Check if the string is a decimal number
-/^\d+$/
-/^[+-]?\d+$/
-/^[+-]?\d+\.?\d*$/
+<span class="c1"># Check if the string is a decimal number</span>
+<span class="sr">/^\d+$/</span>
+<span class="sr">/^[+-]?\d+$/</span>
+<span class="sr">/^[+-]?\d+\.?\d*$/</span>
 
-# Check if the string is a hexadecimal number
-/^0x[0-9a-f]+$/i
+<span class="c1"># Check if the string is a hexadecimal number</span>
+<span class="sr">/^0x[0-9a-f]+$/i</span>
 
-# Check if the string is an octal number
-/^0[0-7]+$/
+<span class="c1"># Check if the string is an octal number</span>
+<span class="sr">/^0[0-7]+$/</span>
 
-# Check if the string is binary
-/^[01]+$/
+<span class="c1"># Check if the string is binary</span>
+<span class="sr">/^[01]+$/</span>
 
-# Check if a word appears twice in the string
-/(word).*\1/
+<span class="c1"># Check if a word appears twice in the string</span>
+<span class="sr">/(word).*\1/</span>
 
-# Increase all numbers by one in the string
-$str =~ s/(\d+)/$1+1/ge
+<span class="c1"># Increase all numbers by one in the string</span>
+<span class="nv">$str</span> <span class="o">=~</span> <span class="sr">s/(\d+)/$1+1/ge</span>
 
-# Extract HTTP User-Agent string from the HTTP headers
-/^User-Agent: (.+)$/
+<span class="c1"># Extract HTTP User-Agent string from the HTTP headers</span>
+<span class="sr">/^User-Agent: (.+)$/</span>
 
-# Match printable ASCII characters
-/[ -~]/
+<span class="c1"># Match printable ASCII characters</span>
+<span class="sr">/[ -~]/</span>
 
-# Match unprintable ASCII characters
-/[^ -~]/
+<span class="c1"># Match unprintable ASCII characters</span>
+<span class="sr">/[^ -~]/</span>
 
-# Match text between two HTML tags
-m|&lt;strong&gt;([^&lt;]*)&lt;/strong&gt;|
-m|&lt;strong&gt;(.*?)&lt;/strong&gt;|
+<span class="c1"># Match text between two HTML tags</span>
+<span class="n">m</span><span class="o">|</span><span class="sr">&lt;strong&gt;</span><span class="p">([</span><span class="o">^</span><span class="sr">&lt;]*)&lt;/strong&gt;</span><span class="o">|</span>
+<span class="n">m</span><span class="o">|</span><span class="sr">&lt;strong&gt;</span><span class="p">(</span><span class="o">.*</span><span class="p">?)</span><span class="sr">&lt;/strong&gt;</span><span class="o">|</span>
 
-# Replace all &lt;b&gt; tags with &lt;strong&gt;
-$html =~ s|&lt;(/)?b&gt;|&lt;$1strong&gt;|g
+<span class="c1"># Replace all &lt;b&gt; tags with &lt;strong&gt;</span>
+<span class="nv">$html</span> <span class="o">=~</span> <span class="n">s</span><span class="o">|</span><span class="sr">&lt;(/)?b&gt;</span><span class="o">|</span><span class="sr">&lt;$1strong&gt;</span><span class="o">|</span><span class="n">g</span>
 
-# Extract all matches from a regular expression
-my @matches = $text =~ /regex/g;
+<span class="c1"># Extract all matches from a regular expression</span>
+<span class="k">my</span> <span class="nv">@matches</span> <span class="o">=</span> <span class="nv">$text</span> <span class="o">=~</span><span class="sr"> /regex/g</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="perl-tricks">
 <h2><a class="toc-backref" href="#id9">7.8. PERL TRICKS</a><a class="headerlink" href="#perl-tricks" title="Permalink to this headline">¶</a></h2>
-<div class="code perl highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Print the version of a Perl module</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MModule</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print $Module::VERSION&#39;</span>
-<span class="n">perl</span> <span class="o">-</span><span class="n">MLWP</span><span class="p">::</span><span class="n">UserAgent</span> <span class="o">-</span><span class="n">le</span> <span class="s1">&#39;print $LWP::UserAgent::VERSION&#39;</span>
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="c1"># Print the version of a Perl module</span>
+<span class="n">perl</span> <span class="o">-</span><span class="n">MModule</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print $Module::VERSION&#39;</span>
+<span class="n">perl</span> <span class="o">-</span><span class="nn">MLWP::</span><span class="n">UserAgent</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print $LWP::UserAgent::VERSION&#39;</span>
 </pre></div>
 </div>
 </div>

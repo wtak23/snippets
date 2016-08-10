@@ -480,31 +480,31 @@ rsync -r -l -p -t -g -o -D
 <h2><a class="toc-backref" href="#id8">1.7. find</a><a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://ss64.com/bash/find.html">http://ss64.com/bash/find.html</a></p>
 <p><strong>My Examples</strong></p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span>find $DIR # recursively print out file directories
-find $PWD | grep helper.md
-find $PWD | grep helper.html | xclip
-find $PWD -maxdpeth 1
-find . -iname &quot;*chrome*&quot; # case insensitive
-find . -name &quot;*chrome*&quot; # case sensitive
-find . -iname &quot;*chrome*&quot; # print filenames, followed by a NULL character instead of the &quot;newline&quot; chracter that -print uses
+<div class="highlight-bash"><div class="highlight"><pre><span></span>find <span class="nv">$DIR</span> <span class="c1"># recursively print out file directories</span>
+find <span class="nv">$PWD</span> <span class="p">|</span> grep helper.md
+find <span class="nv">$PWD</span> <span class="p">|</span> grep helper.html <span class="p">|</span> xclip
+find <span class="nv">$PWD</span> -maxdpeth 1
+find . -iname <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># case insensitive</span>
+find . -name <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># case sensitive</span>
+find . -iname <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># print filenames, followed by a NULL character instead of the &quot;newline&quot; chracter that -print uses</span>
 
-# ignore any file containing &quot;est&quot; (even in the directory name) and print out rest
-# (note: -o is the OR operator...see &quot;operator&quot; list below)
-find . -wholename &#39;*est*&#39; -prune -o -print
+<span class="c1"># ignore any file containing &quot;est&quot; (even in the directory name) and print out rest</span>
+<span class="c1"># (note: -o is the OR operator...see &quot;operator&quot; list below)</span>
+find . -wholename <span class="s1">&#39;*est*&#39;</span> -prune -o -print
 
-# stuffs with -type option
-find . d # list directories
-find . f # list regular files
-find . l # list symlinks
+<span class="c1"># stuffs with -type option</span>
+find . d <span class="c1"># list directories</span>
+find . f <span class="c1"># list regular files</span>
+find . l <span class="c1"># list symlinks</span>
 
-#=====================================================================#
-# name vs. whilename
-# - suppose i have file /Data_Science/test.txt
-#=====================================================================#
-find . -iwholename &quot;*Sci*.txt&quot;
-    # this will find the above file
-find . -iname &quot;*Sci*.txt&quot;
-    # this will NOT find the above file
+<span class="c1">#=====================================================================#</span>
+<span class="c1"># name vs. whilename</span>
+<span class="c1"># - suppose i have file /Data_Science/test.txt</span>
+<span class="c1">#=====================================================================#</span>
+find . -iwholename <span class="s2">&quot;*Sci*.txt&quot;</span>
+    <span class="c1"># this will find the above file</span>
+find . -iname <span class="s2">&quot;*Sci*.txt&quot;</span>
+    <span class="c1"># this will NOT find the above file</span>
 </pre></div>
 </div>
 <p><strong>Selected examples from ss64</strong></p>

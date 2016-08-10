@@ -196,15 +196,15 @@ myqsub-run.sh python tobpnc_save_bct_csv0721.py 0.1 True
 <h2><a class="toc-backref" href="#id4">9.2. qsub helper (old, pre April 2016</a><a class="headerlink" href="#qsub-helper-old-pre-april-2016" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="a-3-step-receipe-for-matlab">
 <h3>9.2.1. A 3 step receipe for matlab<a class="headerlink" href="#a-3-step-receipe-for-matlab" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">tw_mcc</span> <span class="n">myprog</span><span class="o">.</span><span class="n">m</span>
-<span class="n">qsub</span><span class="o">-</span><span class="n">run</span> <span class="o">-</span><span class="n">c</span> <span class="o">./</span><span class="n">myprog</span> <span class="o">&gt;</span> <span class="n">myprog</span><span class="o">.</span><span class="n">sh</span>  <span class="c1"># &lt;- don&#39;t forget to include &quot;./&quot;</span>
-<span class="n">qsub</span> <span class="n">myprog</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tw_mcc myprog.m
+qsub-run -c ./myprog &gt; myprog.sh  <span class="c1"># &lt;- don&#39;t forget to include &quot;./&quot;</span>
+qsub myprog.sh
 </pre></div>
 </div>
 </div>
 <div class="section" id="memrec-to-evaluate-appropriate-h-vmem-value">
 <h3>9.2.2. <code class="docutils literal"><span class="pre">memrec</span></code> (to evaluate appropriate <code class="docutils literal"><span class="pre">h_vmem</span></code> value<a class="headerlink" href="#memrec-to-evaluate-appropriate-h-vmem-value" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">memrec</span> <span class="o">-</span><span class="n">d</span> <span class="mi">5</span> <span class="o">./</span><span class="n">myprog</span> <span class="o">&amp;</span> <span class="c1"># &quot;-d 5&quot; makes recording every 5 sec</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>memrec -d <span class="m">5</span> ./myprog <span class="p">&amp;</span> <span class="c1"># &quot;-d 5&quot; makes recording every 5 sec</span>
 </pre></div>
 </div>
 <ul>
@@ -219,19 +219,19 @@ myqsub-run.sh python tobpnc_save_bct_csv0721.py 0.1 True
 </div>
 <div class="section" id="qstat">
 <h3>9.2.3. <code class="docutils literal"><span class="pre">qstat</span></code><a class="headerlink" href="#qstat" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">qstat</span> <span class="o">-</span><span class="n">r</span>
-<span class="n">qstat</span> <span class="o">-</span><span class="n">r</span> <span class="o">|</span> <span class="n">egrep</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;full jobname&quot;</span>
-<span class="n">qstat</span> <span class="o">-</span><span class="n">j</span> <span class="n">job</span><span class="o">-</span><span class="n">ID</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">usage</span>
-<span class="n">qstat</span> <span class="o">-</span><span class="n">u</span> <span class="s1">&#39;*&#39;</span> <span class="c1"># &lt;- see all users</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>qstat -r
+qstat -r <span class="p">|</span> egrep -i <span class="s2">&quot;full jobname&quot;</span>
+qstat -j job-ID <span class="p">|</span> grep usage
+qstat -u <span class="s1">&#39;*&#39;</span> <span class="c1"># &lt;- see all users</span>
 
 <span class="c1"># delete jobs</span>
-<span class="n">qdel</span> <span class="n">JOBID</span>
+qdel JOBID
 </pre></div>
 </div>
 </div>
 <div class="section" id="usr-bin-time-to-see-multithreaded-or-not">
 <h3>9.2.4. <code class="docutils literal"><span class="pre">/usr/bin/time</span></code> to see multithreaded or not<a class="headerlink" href="#usr-bin-time-to-see-multithreaded-or-not" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">time</span> <span class="o">-</span><span class="n">pv</span> <span class="n">myprog</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>/usr/bin/time -pv myprog
 </pre></div>
 </div>
 <p>Or just simply run the program, and use <code class="docutils literal"><span class="pre">top</span></code> to evaluate cpu usage</p>
