@@ -172,34 +172,39 @@
   <div class="section" id="basic-structure">
 <h1>16.1. Basic structure<a class="headerlink" href="#basic-structure" title="Permalink to this headline">¶</a></h1>
 <p>The essential organization of an AWK program follows the form:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>pattern <span class="o">{</span> action <span class="o">}</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pattern <span class="o">{</span> action <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>The pattern specifies when the action is performed. Like most UNIX utilities, AWK is line oriented. That is, the pattern specifies a test that is performed with each line read as input. If the condition is true, then the action is taken. The default pattern is something that matches every line. This is the blank or null pattern. Two other important patterns are specified by the keywords &#8220;BEGIN&#8221; and &#8220;END&#8221;. As you might expect, these two words specify actions to be taken before any lines are read, and after the last line is read. The AWK program below:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> print <span class="s2">&quot;START&quot;</span> <span class="o">}</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> print <span class="s2">&quot;START&quot;</span> <span class="o">}</span>
       <span class="o">{</span> print         <span class="o">}</span>
 END   <span class="o">{</span> print <span class="s2">&quot;STOP&quot;</span>  <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>adds one line before and one line after the input file. This isn&#8217;t very useful, but with a simple change, we can make this into a typical AWK program:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> print <span class="s2">&quot;File\tOwner&quot;</span><span class="o">}</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> print <span class="s2">&quot;File\tOwner&quot;</span><span class="o">}</span>
 <span class="o">{</span> print <span class="nv">$8</span>, <span class="s2">&quot;\t&quot;</span>, <span class="nv">$3</span><span class="o">}</span>
 END <span class="o">{</span> print <span class="s2">&quot; - DONE -&quot;</span> <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>I&#8217;ll improve the script in the next sections, but we&#8217;ll call it &#8220;FileOwner&#8221;. But let&#8217;s not put it into a script or file yet. I will cover that part in a bit. Hang on and follow with me so you get the flavor of AWK.</p>
 <p>The characters &#8220;t&#8221; Indicates a tab character so the output lines up on even boundries. The &#8220;$8&#8221; and &#8220;$3&#8221; have a meaning similar to a shell script. Instead of the eighth and third argument, they mean the eighth and third field of the input line. You can think of a field as a column, and the action you specify operates on each line or row read in.</p>
 <p>There are two differences between AWK and a shell processing the characters within double quotes. AWK understands special characters follow the &#8220;&#8221; character like &#8220;t&#8221;. The Bourne and C UNIX shells do not. Also, unlike the shell (and PERL) AWK does not evaluate variables within strings. To explain, the second line could not be written like this:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">{</span>print <span class="s2">&quot;</span><span class="nv">$8</span><span class="s2">\t</span><span class="nv">$3</span><span class="s2">&quot;</span> <span class="o">}</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">{</span>print <span class="s2">&quot;</span><span class="nv">$8</span><span class="s2">\t</span><span class="nv">$3</span><span class="s2">&quot;</span> <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>That example would print &#8220;$8 $3&#8221;. Inside the quotes, the dollar sign is not a special character. Outside, it corresponds to a field. What do I mean by the third and eight field? Consider the Solaris &#8220;/usr/bin/ls -l&#8221; command, which has eight columns of information. The System V version (Similar to the Linux version), &#8220;/usr/5bin/ls -l&#8221; has 9 columns. The third column is the owner, and the eighth (or nineth) column in the name of the file. This AWK program can be used to process the output of the &#8220;ls -l&#8221; command, printing out the filename, then the owner, for each file. I&#8217;ll show you how.</p>
 <p>Update: On a linux system, change &#8220;$8&#8221; to &#8220;$9&#8221;.</p>
 <p>One more point about the use of a dollar sign. In scripting languages like Perl and the various shells, a dollar sign means the word following is the name of the variable. Awk is different. The dollar sign means that we are refering to a field or column in the current line. When switching between Perl and AWK you must remener that &#8220;$&#8221; has a different meaning. So the following piece of code prints two &#8220;fields&#8221; to standard out. The first field printed is the number &#8220;5&#8221;, the second is the fifth field (or column) on the input line.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> <span class="nv">x</span><span class="o">=</span><span class="m">5</span> <span class="o">}</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> <span class="nv">x</span><span class="o">=</span><span class="m">5</span> <span class="o">}</span>
 <span class="o">{</span> print x, <span class="nv">$x</span><span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 
 

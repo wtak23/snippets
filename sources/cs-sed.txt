@@ -10,6 +10,7 @@ ultra-basics
 ############
 
 .. code-block:: bash
+    :linenos:
 
     echo sed | sed 's/sed/awk/'
     echo sed | sed 's/sEd/awk/'
@@ -29,6 +30,7 @@ ultra-basics
         > s ed awk ed
 
 .. code-block:: bash
+    :linenos:
 
     alias sync_sublime
         > alias sync_sublime='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
@@ -73,6 +75,7 @@ deletion commands
     s/regexp/pattern/ <= substitues regexp with pattern
 
 .. code-block:: bash
+    :linenos:
 
     # deletes all lines
     sed 'd' sed-text.txt
@@ -107,6 +110,7 @@ deletion commands
 substitution flags
 ******************
 .. code-block:: bash
+    :linenos:
 
     # replace *the* with THE in line 3
     sed '3s/[Tt]he/THE/g' sed-text.txt  

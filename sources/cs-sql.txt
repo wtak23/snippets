@@ -14,6 +14,7 @@ Style guidelines, conventions
 Basic commands/keywords
 #######################
 .. code-block:: sql
+    :linenos:
 
     WHERE name = 'Japan'
     ORDER BY name
@@ -60,6 +61,7 @@ SELECT basics
 
 
 .. code-block:: sql
+    :linenos:
 
     -- ultra basics
     SELECT name, population FROM world
@@ -99,6 +101,7 @@ SELECT basics
 sorting records with ORDER BY
 ============================
 .. code-block:: sql
+    :linenos:
 
     -- simple math operation allowed for column display 
     SELECT name, gdp/population FROM world
@@ -126,6 +129,7 @@ wildcards using ``LIKE`` and ``%`` wildcard
 - ``_`` kinda like ``?`` in shell
 
 .. code-block:: sql
+    :linenos:
 
     
     /* ``%`` here is a wildcard (seems like ``*`` in shell)    */
@@ -167,6 +171,7 @@ CASE statement
 http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial
 
 .. code-block:: sql
+    :linenos:
 
     /* Show the name - but substitute Australasia for Oceania - 
      for countries beginning with N.    */
@@ -193,6 +198,7 @@ http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial
 **Show the name, the original continent and the new continent of all countries.**
 
 .. code-block:: sql
+    :linenos:
 
      SELECT name,continent,
        CASE WHEN continent = 'Eurasia' OR name='Turkey' THEN 'Europe/Asia'
@@ -213,12 +219,14 @@ Aggregate functions (SUM, COUNT, AVG, etc)
 **Aggregate function** = takes many values and outputs a single-value
 
 .. code-block:: sql
+    :linenos:
     
     SELECT SUM(population) FROM world
 
 GROUP BY and HAVING
 ===================
 .. code-block:: sql
+    :linenos:
 
     -- number of countries for each continent
     SELECT continent, COUNT(name)

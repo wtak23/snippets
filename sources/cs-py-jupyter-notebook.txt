@@ -10,6 +10,7 @@ python-jupyter-notebook
 Ipython notebook defaults
 #########################
 .. code-block:: python
+    :linenos:
 
     import seaborn as sns
     sns.set_style("whitegrid")
@@ -24,6 +25,7 @@ Ipython notebook defaults
 Frequently used config
 ********************
 .. code-block:: python
+    :linenos:
 
     import ipywidgets as widgets
     from IPython.widgets import interact, interactive
@@ -37,10 +39,11 @@ Frequently used config
     pd.set_option('display.max_rows', 20)
     pd.set_option('precision',4)
 
-********************
+#######
 widgets
-********************
-.... code-block:: python
+#######
+.. code-block:: python
+    :linenos:
 
     # the below two are equivalent
     from IPython.html.widgets import interact, interactive
@@ -51,6 +54,7 @@ widgets
 All widget types
 ====================
 .. code-block:: python
+    :linenos:
 
 
     widgets.Widget.widget_types.values()
@@ -90,11 +94,12 @@ All widget types
          ipywidgets.widgets.widget_int.IntSlider,
          ipywidgets.widgets.widget_controller.Controller]
 
-********************
-Now config
-********************
+##############
+Current config
+##############
 
 .. code-block:: python
+    :linenos:
 
     import matplotlib as mpl
     import matplotlib.pyplot as plt

@@ -172,7 +172,18 @@
   <div class="section" id="summary-of-awk-commands">
 <h1>16.3. Summary of AWK Commands<a class="headerlink" href="#summary-of-awk-commands" title="Permalink to this headline">¶</a></h1>
 <p>There are only a few commands in AWK. The list and syntax follows:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span> conditional <span class="o">)</span> statement <span class="o">[</span> <span class="k">else</span> statement <span class="o">]</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span> conditional <span class="o">)</span> statement <span class="o">[</span> <span class="k">else</span> statement <span class="o">]</span>
 <span class="k">while</span> <span class="o">(</span> conditional <span class="o">)</span> statement
 <span class="k">for</span> <span class="o">(</span> expression <span class="p">;</span> conditional <span class="p">;</span> expression <span class="o">)</span> statement
 <span class="k">for</span> <span class="o">(</span> variable in array <span class="o">)</span> statement
@@ -185,9 +196,26 @@ print <span class="o">[</span> expression-list <span class="o">]</span> <span cl
 next
 <span class="nb">exit</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>t this point, you can use AWK as a language for simple calculations; If you wanted to calculate something, and not read any lines for input, you could use the BEGIN keyword discussed earlier, combined with a exit command:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
 BEGIN <span class="o">{</span>
 
 <span class="c1"># Print the squares from 1 to 10 the first way</span>
@@ -206,9 +234,19 @@ BEGIN <span class="o">{</span>
 exit<span class="p">;</span>
 <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>The following asks for a number, and then squares it:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
 BEGIN <span class="o">{</span>
     print <span class="s2">&quot;type a number&quot;</span><span class="p">;</span>
 <span class="o">}</span>
@@ -220,10 +258,32 @@ END <span class="o">{</span>
     print <span class="s2">&quot;Done&quot;</span>
 <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>The above isn&#8217;t a good filter, because it asks for input each time. If you pipe the output of another program into it, you would generate a lot of meaningless prompts.</p>
 <p>Here is a filter that you should find useful. It counts lines, totals up the numbers in the first column, and calculates the average. Pipe &#8220;wc -c <a href="#id1"><span class="problematic" id="id2">*</span></a>&#8221; into it, and it will count files, and tell you the average number of words per file, as well as the total words and the number of files.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/awk -f</span>
 BEGIN <span class="o">{</span>
 <span class="c1"># How many lines</span>
     <span class="nv">lines</span><span class="o">=</span>0<span class="p">;</span>
@@ -247,15 +307,15 @@ END <span class="o">{</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>You can pipe the output of &#8220;ls -s&#8221; into this filter to count the number of files, the total size, and the average size. There is a slight problem with this script, as it includes the output of &#8220;ls&#8221; that reports the total. This causes the number of files to be off by one. Changing</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>lines++<span class="p">;</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>lines++<span class="p">;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>to</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> !<span class="o">=</span> <span class="s2">&quot;total&quot;</span> <span class="o">)</span> lines++<span class="p">;</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> !<span class="o">=</span> <span class="s2">&quot;total&quot;</span> <span class="o">)</span> lines++<span class="p">;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>will fix this problem. Note the code which prevents a divide by zero. This is common in well-written scripts. I also initialize the variables to zero. This is not necessary, but it is a good habit.</p>
 </div>
 

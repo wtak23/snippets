@@ -11,6 +11,15 @@ http://ss64.com/bash
     :depth: 2
 
 
+##################################
+Escaping single quotes (a mess...)
+##################################
+Use ``.. code-block:: bash
+    :linenos:
+    :linenos:``
+
+http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
+
 ####################
 Using rename command
 ####################
@@ -18,6 +27,7 @@ Using rename command
 - https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html
 
 .. code-block:: bash
+    :linenos:
 
     # rename the filename part "Array" with "_PCA" for all files ending with extension .mat
     rename Array _PCA *.mat
@@ -38,6 +48,7 @@ Rename files with suffix or prefix
 - 2nd answer in http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix
 
 .. code-block:: bash
+    :linenos:
 
     # rename files with extensions (to avoid directory...not robust, but does what i want most of the time)
     for filename in *\.*; do echo $filename; done;
@@ -55,41 +66,16 @@ regexp syntax with rename
 - http://manpages.ubuntu.com/manpages/precise/en/man1/sed.1.html
 
 .. code-block:: bash
+    :linenos:
 
     # '-n' option for dry run to verify it'll do what i want it to do
     rename -n 's/graphnet/elasticnet/;' *.m
-
-          graphnet_FA_v06_gender.m renamed as elasticnet_FA_v06_gender.m
-          graphnet_FA_v06m_DX.m renamed as elasticnet_FA_v06m_DX.m
-          graphnet_FA_v06m_HRp_HRm.m renamed as elasticnet_FA_v06m_HRp_HRm.m
-          graphnet_FA_v06m_HRp_LRm.m renamed as elasticnet_FA_v06m_HRp_LRm.m
-          graphnet_FA_v06m_risk.m renamed as elasticnet_FA_v06m_risk.m
-          graphnet_FA_v12_gender.m renamed as elasticnet_FA_v12_gender.m
-          graphnet_FA_v12m_DX.m renamed as elasticnet_FA_v12m_DX.m
-          graphnet_FA_v12m_HRp_HRm.m renamed as elasticnet_FA_v12m_HRp_HRm.m
-          graphnet_FA_v12m_HRp_LRm.m renamed as elasticnet_FA_v12m_HRp_LRm.m
-          graphnet_FA_v12m_risk.m renamed as elasticnet_FA_v12m_risk.m
-          graphnet_FA_v24_gender.m renamed as elasticnet_FA_v24_gender.m
-          graphnet_FA_v24m_DX.m renamed as elasticnet_FA_v24m_DX.m
-          graphnet_FA_v24m_HRp_HRm.m renamed as elasticnet_FA_v24m_HRp_HRm.m
-          graphnet_FA_v24m_HRp_LRm.m renamed as elasticnet_FA_v24m_HRp_LRm.m
-          graphnet_FA_v24m_risk.m renamed as elasticnet_FA_v24m_risk.m
-          graphnet_TR_v06_gender.m renamed as elasticnet_TR_v06_gender.m
-          graphnet_TR_v06m_DX.m renamed as elasticnet_TR_v06m_DX.m
-          graphnet_TR_v06m_HRp_HRm.m renamed as elasticnet_TR_v06m_HRp_HRm.m
-          graphnet_TR_v06m_HRp_LRm.m renamed as elasticnet_TR_v06m_HRp_LRm.m
-          graphnet_TR_v06m_risk.m renamed as elasticnet_TR_v06m_risk.m
-          graphnet_TR_v12_gender.m renamed as elasticnet_TR_v12_gender.m
-          graphnet_TR_v12m_DX.m renamed as elasticnet_TR_v12m_DX.m
-          graphnet_TR_v12m_HRp_HRm.m renamed as elasticnet_TR_v12m_HRp_HRm.m
-          graphnet_TR_v12m_HRp_LRm.m renamed as elasticnet_TR_v12m_HRp_LRm.m
-          graphnet_TR_v12m_risk.m renamed as elasticnet_TR_v12m_risk.m
-          graphnet_TR_v24_gender.m renamed as elasticnet_TR_v24_gender.m
-          graphnet_TR_v24m_DX.m renamed as elasticnet_TR_v24m_DX.m
-          graphnet_TR_v24m_HRp_HRm.m renamed as elasticnet_TR_v24m_HRp_HRm.m
-          graphnet_TR_v24m_HRp_LRm.m renamed as elasticnet_TR_v24m_HRp_LRm.m
-          graphnet_TR_v24m_risk.m renamed as elasticnet_TR_v24m_risk.m
-
+    >>> graphnet_FA_v06_gender.m renamed as elasticnet_FA_v06_gender.m
+    >>> graphnet_FA_v06m_DX.m renamed as elasticnet_FA_v06m_DX.m
+    >>> graphnet_FA_v06m_HRp_HRm.m renamed as elasticnet_FA_v06m_HRp_HRm.m
+    >>> graphnet_FA_v06m_HRp_LRm.m renamed as elasticnet_FA_v06m_HRp_LRm.m
+    >>> graphnet_FA_v06m_risk.m renamed as elasticnet_FA_v06m_risk.m
+    >>> graphnet_FA_v12_gender.m renamed as elasticnet_FA_v12_gender.m
 
     # above looks right, so now actually run it 'verbosely'
     rename -v 's/graphnet/elasticnet/;' *.m
@@ -98,6 +84,7 @@ regexp syntax with rename
 Random handy snippets
 #####################
 .. code-block:: bash
+    :linenos:
 
     #=========================================================================#
     # find files with .rst extension at current directory (maxdepth=1)
@@ -140,6 +127,7 @@ check running processes
 The one I use the most frequent
 
 .. code-block:: bash
+    :linenos:
 
     # a <- includes ``root`` in userprocess
     # u <- include ``username`` column
@@ -160,6 +148,7 @@ Moving and copying
 - http://ss64.com/bash/mv.html
 
 .. code-block:: bash
+    :linenos:
 
     # rename a directory (note '/' after directory name has NO impact here,  there are cases I should be careful of the backslash)
     mv /home/user/oldname /home/user/newname
@@ -190,6 +179,7 @@ scp user
 Warning: scp apparently overwrites existing file w/o warning. Hence ``rsync`` is a safer option.
 
 .. code-block:: bash
+    :linenos:
 
     #========================================================================#
     # relevant options
@@ -245,6 +235,7 @@ http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync
 
 
 .. code-block:: bash
+    :linenos:
 
     # equilvaent to this
     rsync -r -l -p -t -g -o -D
@@ -257,6 +248,7 @@ http://ss64.com/bash/find.html
 **My Examples**
 
 .. code-block:: bash
+    :linenos:
 
     find $DIR # recursively print out file directories
     find $PWD | grep helper.md
@@ -287,6 +279,7 @@ http://ss64.com/bash/find.html
 **Selected examples from ss64**
 
 .. code-block:: bash
+    :linenos:
 
     List filenames ending in .mp3, searching in the music folder and subfolders: 
     $ find ./music -name "*.mp3"
@@ -314,6 +307,7 @@ http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/
 Why is $(...) preferred over `...` (backticks)? (`link <http://mywiki.wooledge.org/BashFAQ/082>`_)   
 
 .. code-block:: bash
+    :linenos:
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
@@ -328,6 +322,7 @@ ls recursively (use *find*)
 http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file
 
 .. code-block:: bash
+    :linenos:
 
     # recursively lists out all files + subdirectories
     find ./test
@@ -339,6 +334,7 @@ show only symbolic links (**alias lssym**)
 
 
 .. code-block:: bash
+    :linenos:
 
     ls -l $(find ./ -maxdepth 1 -type l -print)
 
@@ -348,6 +344,7 @@ print timestamp
 http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script
 
 .. code-block:: bash
+    :linenos:
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
@@ -360,6 +357,7 @@ open image ($xdg-open image.png)
 Options with **less** (ongoing)
 ###############################
 .. code-block:: bash
+    :linenos:
 
     # -n : enable line numbers
     # -N : disable line numbers
@@ -370,6 +368,7 @@ history w/o line-numbers
 http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
 
 .. code-block:: bash
+    :linenos:
 
     history | cut -c 8-
 
@@ -383,6 +382,7 @@ awk (one-liners)
 
 
 .. code-block:: bash
+    :linenos:
 
     ls -l | awk '{printf $5 "\t" $9"\n"}'
 
@@ -409,6 +409,7 @@ http://unix.stackexchange.com/questions/24954/when-is-xargs-needed
 Get computer info
 #################
 .. code-block:: bash
+    :linenos:
 
     # get cpu information
     cat /proc/cpuinfo
@@ -427,6 +428,7 @@ Get computer info
 mogrify
 #######
 .. code-block:: bash
+    :linenos:
 
     mogrify -resize 50% *.png
     mogrify -resize 500! *.png     => changes only x-axis
@@ -448,6 +450,7 @@ http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-
   (i prefer unity with ``xargs``)
 
 .. code-block:: bash
+    :linenos:
 
     #http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list    
     # http://ss64.com/bash/find.html
@@ -471,6 +474,7 @@ grep recursively
 http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively
 
 .. code-block:: bash
+    :linenos:
 
     grep -r "texthere" .
 
@@ -493,6 +497,7 @@ http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-exp
 
 
 .. code-block:: bash
+    :linenos:
 
     # these will do
     grep '[0-9]'
@@ -505,6 +510,7 @@ just use double-quotes for regex query
 http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote
 
 .. code-block:: bash
+    :linenos:
      
     # to find 'type' => 'select'
     grep  "'type' => 'select'" file 
@@ -524,6 +530,7 @@ Remarks
 - http://ss64.com/bash/awk.html
 
 .. code-block:: bash
+    :linenos:
 
     # select 2nd item (find will spit out line-by-line output)
     itksnap -g $(find ./ | sed -n 2p) &
@@ -542,6 +549,7 @@ Use xargs to execute a command once per line of piped input
 http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input
 
 .. code-block:: bash
+    :linenos:
 
     # below is not practical, but gives a good idea of how xargs work
     find -maxdepth 1 | egrep '0627' | xargs -n1 echo
@@ -552,6 +560,7 @@ Run same command multiple times (for loop)
 http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash
 
 .. code-block:: bash
+    :linenos:
 
     for run in {1..10}
     do
@@ -565,6 +574,7 @@ http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-comman
 sed demos
 #########
 .. code-block:: bash
+    :linenos:
 
     echo $PYTHONPATH 
     /home/takanori/Dropbox/work/external-pymodules:/home/takanori/Dropbox/work/sbia_work/python/modules:/home/takanori/work-local/external-python-modules/deepnet:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
@@ -591,6 +601,7 @@ http://stackoverflow.com/questions/750172/change-the-author-of-a-commit-in-git
 
 
 .. code-block:: bash
+    :linenos:
 
     git commit --amend --author "Author Name <email@address.com>"     
 
@@ -602,6 +613,7 @@ https://help.github.com/articles/changing-author-info/
 `git-author-rewrite.sh <https://gist.githubusercontent.com/octocat/0831f3fbd83ac4d46451/raw/c197afe3e9ea2e4218f9fccbc0f36d2b8fd3c1e3/git-author-rewrite.sh>`_
 
 .. code-block:: bash
+    :linenos:
 
     #!/bin/sh
 
@@ -623,6 +635,7 @@ clipboard with xclip
 http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard
 
 .. code-block:: bash
+    :linenos:
 
 
     # Only copy the content to the X clipboard

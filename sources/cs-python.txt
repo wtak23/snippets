@@ -6,6 +6,33 @@ Python
     :depth: 2
 
 
+##########################
+Python commands from shell
+##########################
+- http://stackoverflow.com/questions/2043453/executing-python-multi-line-statements-in-the-one-line-command-line
+
+.. code-block:: bash
+    :linenos:
+
+    # for multiline commands
+    echo -e "import sys\nfor r in range(10): print 'rob'" | python
+
+    user@host:~$ python -c "import sys
+    > for r in range(10): print 'rob'"
+
+    # meh, better yet use ipython for multiline commands
+    ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()"
+    ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()" | xargs subl
+
+##################
+Matplotlib styling
+##################
+http://matplotlib.org/users/style_sheets.html
+
+.. code-block:: bash
+
+    # to edit matplotlibbrc file
+    ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()" | xargs subl
 
 ##################
 installing modules
@@ -13,11 +40,13 @@ installing modules
 http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package
 
 .. code-block:: bash
+    :linenos:
 
     #http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package
     python setup.py install --user
     pip install py4j --user
     pip install --upgrade sphinx_rtd_theme --user
+
 
 
 

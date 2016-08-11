@@ -89,19 +89,21 @@
 <li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installing-modules">3.1. installing modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gochtas">3.2. gochtas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#careful-with-array-slicing-may-change-array-values">3.2.1. careful with array slicing! may change array values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-commands-from-shell">3.1. Python commands from shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matplotlib-styling">3.2. Matplotlib styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-modules">3.3. installing modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gochtas">3.4. gochtas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#careful-with-array-slicing-may-change-array-values">3.4.1. careful with array slicing! may change array values</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#decorator">3.3. decorator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#plotting-short-snippets">3.4. Plotting - short snippets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cool-tricks">3.4.1. Cool tricks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#plotting-snippets">3.4.2. Plotting Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorator">3.5. decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-short-snippets">3.6. Plotting - short snippets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cool-tricks">3.6.1. Cool tricks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-snippets">3.6.2. Plotting Snippets</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#exceptions">3.5. Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#clever-tricks">3.6. Clever tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">3.7. Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clever-tricks">3.8. Clever tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">4. sphinx</a></li>
@@ -181,30 +183,68 @@
 <p class="topic-title first"><strong>Table of Contents</strong></p>
 <ul class="simple">
 <li><a class="reference internal" href="#python" id="id1">Python</a><ul>
-<li><a class="reference internal" href="#installing-modules" id="id2">installing modules</a></li>
-<li><a class="reference internal" href="#gochtas" id="id3">gochtas</a></li>
-<li><a class="reference internal" href="#decorator" id="id4">decorator</a></li>
-<li><a class="reference internal" href="#plotting-short-snippets" id="id5">Plotting - short snippets</a></li>
-<li><a class="reference internal" href="#exceptions" id="id6">Exceptions</a></li>
-<li><a class="reference internal" href="#clever-tricks" id="id7">Clever tricks</a></li>
+<li><a class="reference internal" href="#python-commands-from-shell" id="id2">Python commands from shell</a></li>
+<li><a class="reference internal" href="#matplotlib-styling" id="id3">Matplotlib styling</a></li>
+<li><a class="reference internal" href="#installing-modules" id="id4">installing modules</a></li>
+<li><a class="reference internal" href="#gochtas" id="id5">gochtas</a></li>
+<li><a class="reference internal" href="#decorator" id="id6">decorator</a></li>
+<li><a class="reference internal" href="#plotting-short-snippets" id="id7">Plotting - short snippets</a></li>
+<li><a class="reference internal" href="#exceptions" id="id8">Exceptions</a></li>
+<li><a class="reference internal" href="#clever-tricks" id="id9">Clever tricks</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="python-commands-from-shell">
+<h2><a class="toc-backref" href="#id2">3.1. Python commands from shell</a><a class="headerlink" href="#python-commands-from-shell" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/2043453/executing-python-multi-line-statements-in-the-one-line-command-line">http://stackoverflow.com/questions/2043453/executing-python-multi-line-statements-in-the-one-line-command-line</a></li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># for multiline commands</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;import sys\nfor r in range(10): print &#39;rob&#39;&quot;</span> <span class="p">|</span> python
+
+user@host:~$ python -c <span class="s2">&quot;import sys</span>
+<span class="s2">&gt; for r in range(10): print &#39;rob&#39;&quot;</span>
+
+<span class="c1"># meh, better yet use ipython for multiline commands</span>
+ipython -c <span class="s2">&quot;import matplotlib as mpl; print mpl.matplotlib_fname()&quot;</span>
+ipython -c <span class="s2">&quot;import matplotlib as mpl; print mpl.matplotlib_fname()&quot;</span> <span class="p">|</span> xargs subl
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="matplotlib-styling">
+<h2><a class="toc-backref" href="#id3">3.2. Matplotlib styling</a><a class="headerlink" href="#matplotlib-styling" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://matplotlib.org/users/style_sheets.html">http://matplotlib.org/users/style_sheets.html</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># to edit matplotlibbrc file</span>
+ipython -c <span class="s2">&quot;import matplotlib as mpl; print mpl.matplotlib_fname()&quot;</span> <span class="p">|</span> xargs subl
+</pre></div>
+</div>
+</div>
 <div class="section" id="installing-modules">
-<h2><a class="toc-backref" href="#id2">3.1. installing modules</a><a class="headerlink" href="#installing-modules" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">3.3. installing modules</a><a class="headerlink" href="#installing-modules" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package">http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package</a></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package</span>
 python setup.py install --user
 pip install py4j --user
 pip install --upgrade sphinx_rtd_theme --user
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="gochtas">
-<h2><a class="toc-backref" href="#id3">3.2. gochtas</a><a class="headerlink" href="#gochtas" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">3.4. gochtas</a><a class="headerlink" href="#gochtas" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="careful-with-array-slicing-may-change-array-values">
-<h3>3.2.1. careful with array slicing! may change array values<a class="headerlink" href="#careful-with-array-slicing-may-change-array-values" title="Permalink to this headline">¶</a></h3>
+<h3>3.4.1. careful with array slicing! may change array values<a class="headerlink" href="#careful-with-array-slicing-may-change-array-values" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-slicing-view-vs-copy">http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-slicing-view-vs-copy</a></p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -290,7 +330,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </div>
 </div>
 <div class="section" id="decorator">
-<h2><a class="toc-backref" href="#id4">3.3. decorator</a><a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">3.5. decorator</a><a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python?rq=1">http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python?rq=1</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators">http://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators</a></li>
@@ -334,9 +374,9 @@ pip install --upgrade sphinx_rtd_theme --user
 </div>
 </div>
 <div class="section" id="plotting-short-snippets">
-<h2><a class="toc-backref" href="#id5">3.4. Plotting - short snippets</a><a class="headerlink" href="#plotting-short-snippets" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">3.6. Plotting - short snippets</a><a class="headerlink" href="#plotting-short-snippets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="cool-tricks">
-<h3>3.4.1. Cool tricks<a class="headerlink" href="#cool-tricks" title="Permalink to this headline">¶</a></h3>
+<h3>3.6.1. Cool tricks<a class="headerlink" href="#cool-tricks" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
 <span class="n">mpl</span><span class="o">.</span><span class="n">get_backend</span><span class="p">()</span>
 <span class="n">mpl</span><span class="o">.</span><span class="n">is_interactive</span><span class="p">()</span>
@@ -420,7 +460,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </div>
 </div>
 <div class="section" id="plotting-snippets">
-<h3>3.4.2. Plotting Snippets<a class="headerlink" href="#plotting-snippets" title="Permalink to this headline">¶</a></h3>
+<h3>3.6.2. Plotting Snippets<a class="headerlink" href="#plotting-snippets" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># getting step function (just a wrapper)</span>
 <span class="c1"># http://stackoverflow.com/questions/15188005/linestyle-in-matplotlib-step-function</span>
 <span class="c1"># [‘default’ | ‘steps’ | ‘steps-pre’ | ‘steps-mid’ |‘steps-post’]</span>
@@ -438,7 +478,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </div>
 </div>
 <div class="section" id="exceptions">
-<h2><a class="toc-backref" href="#id6">3.5. Exceptions</a><a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">3.7. Exceptions</a><a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># https://docs.python.org/2/tutorial/errors.html &lt;- list of builtin exceptions</span>
 <span class="c1"># http://www.pythonforbeginners.com/error-handling/python-try-and-except</span>
 <span class="c1">#%% exceptions can be written in many ways</span>
@@ -517,7 +557,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </div>
 </div>
 <div class="section" id="clever-tricks">
-<h2><a class="toc-backref" href="#id7">3.6. Clever tricks</a><a class="headerlink" href="#clever-tricks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">3.8. Clever tricks</a><a class="headerlink" href="#clever-tricks" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;GR&#39;</span><span class="p">,</span> <span class="s1">&#39;JP&#39;</span><span class="p">])</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">countries</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)]</span>
 <span class="n">key</span>

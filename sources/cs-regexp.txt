@@ -73,6 +73,7 @@ https://docs.python.org/2/howto/regex.html#performing-matches
     subn() | Does the same thing as sub(), but returns the new string and the number of replacements
 
 .. code-block:: python
+    :linenos:
 
     p = re.compile('[a-z]+')
     m = p.match('tempo')    
@@ -116,6 +117,7 @@ Splitting strings
 - use of **capturing paranthesis** to obtain the splitted portion that normally gets dropped
 
 .. code-block:: python
+    :linenos:
 
     >>> p = re.compile(r'\W+')
     >>> p.split('This is a test, short and sweet, of split().')
@@ -149,6 +151,8 @@ Search and replace with sub
 
 
 .. code-block:: python
+    :linenos:
+    :linenos:
 
     >>> p = re.compile('(blue|white|red)')
     >>> p.sub('colour', 'blue socks and red shoes')
@@ -180,6 +184,8 @@ Search and replace with sub
 
 
 .. code-block:: python
+    :linenos:
+    :linenos:
 
     # This example matches the word section followed by a string enclosed in {, }, and changes section to subsection:
     >>> p = re.compile('section{ ( [^}]* ) }', re.VERBOSE)
@@ -228,6 +234,8 @@ Greedy vs nongreedy
 - nongreedy qualifiers: ``*?, +?, ??, or {m,n}?,``
 
 .. code-block:: python
+    :linenos:
+    :linenos:
 
     >>> s = '<html><head><title>Title</title>'
 
@@ -247,6 +255,7 @@ https://docs.python.org/2/howto/regex.html#using-re-verbose
   The re.VERBOSE flag has several effects. Whitespace in the regular expression that isn’t inside a character class is ignored. This means that an expression such as dog | cat is equivalent to the less readable dog|cat, but [a b] will still match the characters 'a', 'b', or a space. In addition, you can also put comments inside a RE; comments extend from a # character to the next newline. When used with triple-quoted strings, this enables REs to be formatted more neatly:
 
 .. code-block:: python
+    :linenos:
 
     pat = re.compile(r"""
      \s*                 # Skip leading whitespace
@@ -264,6 +273,7 @@ https://docs.python.org/2/howto/regex.html#using-re-verbose
 Another example
 
 .. code-block:: python
+    :linenos:
 
     charref = re.compile(r"""
      &[#]                # Start of a numeric entity reference
@@ -290,6 +300,7 @@ Named groups
 - ``(?:...)`` is particularly useful when modifying an existing pattern, since you can add new groups without changing how all the other groups are numbered
 
 .. code-block:: python
+    :linenos:
 
     >>> m = re.match("([abc])+", "abc")
     >>> m.groups()
@@ -333,6 +344,7 @@ Lookahed assertions
 Bunch of examples
 ********************
 .. code-block:: python
+    :linenos:
 
     # (ab)* will match zero or more repetitions of ab.
     p = re.compile('(ab)*')

@@ -193,273 +193,496 @@
 </li>
 </ul>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <div class="section" id="file-spacing">
 <h2><a class="toc-backref" href="#id2">6.1. File spacing</a><a class="headerlink" href="#file-spacing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># double space a file</span>
-awk <span class="s1">&#39;1;{print &quot;&quot;}&#39;</span>
-awk <span class="s1">&#39;BEGIN{ORS=&quot;\n\n&quot;};1&#39;</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># double space a file</span>
+ awk <span class="s1">&#39;1;{print &quot;&quot;}&#39;</span>
+ awk <span class="s1">&#39;BEGIN{ORS=&quot;\n\n&quot;};1&#39;</span>
 
-<span class="c1"># double space a file which already has blank lines in it. Output file</span>
-<span class="c1"># should contain no more than one blank line between lines of text.</span>
-<span class="c1"># NOTE: On Unix systems, DOS lines which have only CRLF (\r\n) are</span>
-<span class="c1"># often treated as non-blank, and thus &#39;NF&#39; alone will return TRUE.</span>
-awk <span class="s1">&#39;NF{print $0 &quot;\n&quot;}&#39;</span>
+ <span class="c1"># double space a file which already has blank lines in it. Output file</span>
+ <span class="c1"># should contain no more than one blank line between lines of text.</span>
+ <span class="c1"># NOTE: On Unix systems, DOS lines which have only CRLF (\r\n) are</span>
+ <span class="c1"># often treated as non-blank, and thus &#39;NF&#39; alone will return TRUE.</span>
+ awk <span class="s1">&#39;NF{print $0 &quot;\n&quot;}&#39;</span>
 
-<span class="c1"># triple space a file</span>
-awk <span class="s1">&#39;1;{print &quot;\n&quot;}&#39;</span>
+ <span class="c1"># triple space a file</span>
+ awk <span class="s1">&#39;1;{print &quot;\n&quot;}&#39;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="numbering-and-calculations">
 <h2><a class="toc-backref" href="#id3">6.2. NUMBERING AND CALCULATIONS:</a><a class="headerlink" href="#numbering-and-calculations" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># precede each line by its line number FOR THAT FILE (left alignment).</span>
-<span class="c1"># Using a tab (\t) instead of space will preserve margins.</span>
-awk <span class="s1">&#39;{print FNR &quot;\t&quot; $0}&#39;</span> files*
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># precede each line by its line number FOR THAT FILE (left alignment).</span>
+ <span class="c1"># Using a tab (\t) instead of space will preserve margins.</span>
+ awk <span class="s1">&#39;{print FNR &quot;\t&quot; $0}&#39;</span> files*
 
-<span class="c1"># precede each line by its line number FOR ALL FILES TOGETHER, with tab.</span>
-awk <span class="s1">&#39;{print NR &quot;\t&quot; $0}&#39;</span> files*
+ <span class="c1"># precede each line by its line number FOR ALL FILES TOGETHER, with tab.</span>
+ awk <span class="s1">&#39;{print NR &quot;\t&quot; $0}&#39;</span> files*
 
-<span class="c1"># number each line of a file (number on left, right-aligned)</span>
-<span class="c1"># Double the percent signs if typing from the DOS command prompt.</span>
-awk <span class="s1">&#39;{printf(&quot;%5d : %s\n&quot;, NR,$0)}&#39;</span>
+ <span class="c1"># number each line of a file (number on left, right-aligned)</span>
+ <span class="c1"># Double the percent signs if typing from the DOS command prompt.</span>
+ awk <span class="s1">&#39;{printf(&quot;%5d : %s\n&quot;, NR,$0)}&#39;</span>
 
-<span class="c1"># number each line of file, but only print numbers if line is not blank</span>
-<span class="c1"># Remember caveats about Unix treatment of \r (mentioned above)</span>
-awk <span class="s1">&#39;NF{$0=++a &quot; :&quot; $0};1&#39;</span>
-awk <span class="s1">&#39;{print (NF? ++a &quot; :&quot; :&quot;&quot;) $0}&#39;</span>
+ <span class="c1"># number each line of file, but only print numbers if line is not blank</span>
+ <span class="c1"># Remember caveats about Unix treatment of \r (mentioned above)</span>
+ awk <span class="s1">&#39;NF{$0=++a &quot; :&quot; $0};1&#39;</span>
+ awk <span class="s1">&#39;{print (NF? ++a &quot; :&quot; :&quot;&quot;) $0}&#39;</span>
 
-<span class="c1"># count lines (emulates &quot;wc -l&quot;)</span>
-awk <span class="s1">&#39;END{print NR}&#39;</span>
+ <span class="c1"># count lines (emulates &quot;wc -l&quot;)</span>
+ awk <span class="s1">&#39;END{print NR}&#39;</span>
 
-<span class="c1"># print the sums of the fields of every line</span>
-awk <span class="s1">&#39;{s=0; for (i=1; i&lt;=NF; i++) s=s+$i; print s}&#39;</span>
+ <span class="c1"># print the sums of the fields of every line</span>
+ awk <span class="s1">&#39;{s=0; for (i=1; i&lt;=NF; i++) s=s+$i; print s}&#39;</span>
 
-<span class="c1"># add all fields in all lines and print the sum</span>
-awk <span class="s1">&#39;{for (i=1; i&lt;=NF; i++) s=s+$i}; END{print s}&#39;</span>
+ <span class="c1"># add all fields in all lines and print the sum</span>
+ awk <span class="s1">&#39;{for (i=1; i&lt;=NF; i++) s=s+$i}; END{print s}&#39;</span>
 
-<span class="c1"># print every line after replacing each field with its absolute value</span>
-awk <span class="s1">&#39;{for (i=1; i&lt;=NF; i++) if ($i &lt; 0) $i = -$i; print }&#39;</span>
-awk <span class="s1">&#39;{for (i=1; i&lt;=NF; i++) $i = ($i &lt; 0) ? -$i : $i; print }&#39;</span>
+ <span class="c1"># print every line after replacing each field with its absolute value</span>
+ awk <span class="s1">&#39;{for (i=1; i&lt;=NF; i++) if ($i &lt; 0) $i = -$i; print }&#39;</span>
+ awk <span class="s1">&#39;{for (i=1; i&lt;=NF; i++) $i = ($i &lt; 0) ? -$i : $i; print }&#39;</span>
 
-<span class="c1"># print the total number of fields (&quot;words&quot;) in all lines</span>
-awk <span class="s1">&#39;{ total = total + NF }; END {print total}&#39;</span> file
+ <span class="c1"># print the total number of fields (&quot;words&quot;) in all lines</span>
+ awk <span class="s1">&#39;{ total = total + NF }; END {print total}&#39;</span> file
 
-<span class="c1"># print the total number of lines that contain &quot;Beth&quot;</span>
-awk <span class="s1">&#39;/Beth/{n++}; END {print n+0}&#39;</span> file
+ <span class="c1"># print the total number of lines that contain &quot;Beth&quot;</span>
+ awk <span class="s1">&#39;/Beth/{n++}; END {print n+0}&#39;</span> file
 
-<span class="c1"># print the largest first field and the line that contains it</span>
-<span class="c1"># Intended for finding the longest string in field #1</span>
-awk <span class="s1">&#39;$1 &gt; max {max=$1; maxline=$0}; END{ print max, maxline}&#39;</span>
+ <span class="c1"># print the largest first field and the line that contains it</span>
+ <span class="c1"># Intended for finding the longest string in field #1</span>
+ awk <span class="s1">&#39;$1 &gt; max {max=$1; maxline=$0}; END{ print max, maxline}&#39;</span>
 
-<span class="c1"># print the number of fields in each line, followed by the line</span>
-awk <span class="s1">&#39;{ print NF &quot;:&quot; $0 } &#39;</span>
+ <span class="c1"># print the number of fields in each line, followed by the line</span>
+ awk <span class="s1">&#39;{ print NF &quot;:&quot; $0 } &#39;</span>
 
-<span class="c1"># print the last field of each line</span>
-awk <span class="s1">&#39;{ print $NF }&#39;</span>
+ <span class="c1"># print the last field of each line</span>
+ awk <span class="s1">&#39;{ print $NF }&#39;</span>
 
-<span class="c1"># print the last field of the last line</span>
-awk <span class="s1">&#39;{ field = $NF }; END{ print field }&#39;</span>
+ <span class="c1"># print the last field of the last line</span>
+ awk <span class="s1">&#39;{ field = $NF }; END{ print field }&#39;</span>
 
-<span class="c1"># print every line with more than 4 fields</span>
-awk <span class="s1">&#39;NF &gt; 4&#39;</span>
+ <span class="c1"># print every line with more than 4 fields</span>
+ awk <span class="s1">&#39;NF &gt; 4&#39;</span>
 
-<span class="c1"># print every line where the value of the last field is &gt; 4</span>
-awk <span class="s1">&#39;$NF &gt; 4&#39;</span>
+ <span class="c1"># print every line where the value of the last field is &gt; 4</span>
+ awk <span class="s1">&#39;$NF &gt; 4&#39;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="string-creation">
 <h2><a class="toc-backref" href="#id4">6.3. STRING CREATION:</a><a class="headerlink" href="#string-creation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># create a string of a specific length (e.g., generate 513 spaces)</span>
-awk <span class="s1">&#39;BEGIN{while (a++&lt;513) s=s &quot; &quot;; print s}&#39;</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># create a string of a specific length (e.g., generate 513 spaces)</span>
+ awk <span class="s1">&#39;BEGIN{while (a++&lt;513) s=s &quot; &quot;; print s}&#39;</span>
 
-<span class="c1"># insert a string of specific length at a certain character position</span>
-<span class="c1"># Example: insert 49 spaces after column #6 of each input line.</span>
-gawk --re-interval <span class="s1">&#39;BEGIN{while(a++&lt;49)s=s &quot; &quot;};{sub(/^.{6}/,&quot;&amp;&quot; s)};1&#39;</span>
+ <span class="c1"># insert a string of specific length at a certain character position</span>
+ <span class="c1"># Example: insert 49 spaces after column #6 of each input line.</span>
+ gawk --re-interval <span class="s1">&#39;BEGIN{while(a++&lt;49)s=s &quot; &quot;};{sub(/^.{6}/,&quot;&amp;&quot; s)};1&#39;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="array-creation">
 <h2><a class="toc-backref" href="#id5">6.4. ARRAY CREATION:</a><a class="headerlink" href="#array-creation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># These next 2 entries are not one-line scripts, but the technique</span>
-<span class="c1"># is so handy that it merits inclusion here.</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># These next 2 entries are not one-line scripts, but the technique</span>
+ <span class="c1"># is so handy that it merits inclusion here.</span>
 
-<span class="c1"># create an array named &quot;month&quot;, indexed by numbers, so that month[1]</span>
-<span class="c1"># is &#39;Jan&#39;, month[2] is &#39;Feb&#39;, month[3] is &#39;Mar&#39; and so on.</span>
-split<span class="o">(</span><span class="s2">&quot;Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec&quot;</span>, month, <span class="s2">&quot; &quot;</span><span class="o">)</span>
+ <span class="c1"># create an array named &quot;month&quot;, indexed by numbers, so that month[1]</span>
+ <span class="c1"># is &#39;Jan&#39;, month[2] is &#39;Feb&#39;, month[3] is &#39;Mar&#39; and so on.</span>
+ split<span class="o">(</span><span class="s2">&quot;Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec&quot;</span>, month, <span class="s2">&quot; &quot;</span><span class="o">)</span>
 
-<span class="c1"># create an array named &quot;mdigit&quot;, indexed by strings, so that</span>
-<span class="c1"># mdigit[&quot;Jan&quot;] is 1, mdigit[&quot;Feb&quot;] is 2, etc. Requires &quot;month&quot; array</span>
-<span class="k">for</span> <span class="o">(</span><span class="nv">i</span><span class="o">=</span>1<span class="p">;</span> i&lt;<span class="o">=</span>12<span class="p">;</span> i++<span class="o">)</span> mdigit<span class="o">[</span>month<span class="o">[</span>i<span class="o">]]</span> <span class="o">=</span> i
+ <span class="c1"># create an array named &quot;mdigit&quot;, indexed by strings, so that</span>
+ <span class="c1"># mdigit[&quot;Jan&quot;] is 1, mdigit[&quot;Feb&quot;] is 2, etc. Requires &quot;month&quot; array</span>
+ <span class="k">for</span> <span class="o">(</span><span class="nv">i</span><span class="o">=</span>1<span class="p">;</span> i&lt;<span class="o">=</span>12<span class="p">;</span> i++<span class="o">)</span> mdigit<span class="o">[</span>month<span class="o">[</span>i<span class="o">]]</span> <span class="o">=</span> i
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="text-conversion-and-substitution">
 <h2><a class="toc-backref" href="#id6">6.5. TEXT CONVERSION AND SUBSTITUTION:</a><a class="headerlink" href="#text-conversion-and-substitution" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># IN UNIX ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format</span>
-awk <span class="s1">&#39;{sub(/\r$/,&quot;&quot;)};1&#39;</span>   <span class="c1"># assumes EACH line ends with Ctrl-M</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># IN UNIX ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format</span>
+ awk <span class="s1">&#39;{sub(/\r$/,&quot;&quot;)};1&#39;</span>   <span class="c1"># assumes EACH line ends with Ctrl-M</span>
 
-<span class="c1"># IN UNIX ENVIRONMENT: convert Unix newlines (LF) to DOS format</span>
-awk <span class="s1">&#39;{sub(/$/,&quot;\r&quot;)};1&#39;</span>
+ <span class="c1"># IN UNIX ENVIRONMENT: convert Unix newlines (LF) to DOS format</span>
+ awk <span class="s1">&#39;{sub(/$/,&quot;\r&quot;)};1&#39;</span>
 
-<span class="c1"># IN DOS ENVIRONMENT: convert Unix newlines (LF) to DOS format</span>
-awk 1
+ <span class="c1"># IN DOS ENVIRONMENT: convert Unix newlines (LF) to DOS format</span>
+ awk 1
 
-<span class="c1"># IN DOS ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format</span>
-<span class="c1"># Cannot be done with DOS versions of awk, other than gawk:</span>
-gawk -v <span class="nv">BINMODE</span><span class="o">=</span><span class="s2">&quot;w&quot;</span> <span class="s1">&#39;1&#39;</span> infile &gt;outfile
+ <span class="c1"># IN DOS ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format</span>
+ <span class="c1"># Cannot be done with DOS versions of awk, other than gawk:</span>
+ gawk -v <span class="nv">BINMODE</span><span class="o">=</span><span class="s2">&quot;w&quot;</span> <span class="s1">&#39;1&#39;</span> infile &gt;outfile
 
-<span class="c1"># Use &quot;tr&quot; instead.</span>
-tr -d <span class="se">\r</span> &lt;infile &gt;outfile            <span class="c1"># GNU tr version 1.22 or higher</span>
+ <span class="c1"># Use &quot;tr&quot; instead.</span>
+ tr -d <span class="se">\r</span> &lt;infile &gt;outfile            <span class="c1"># GNU tr version 1.22 or higher</span>
 
-<span class="c1"># delete leading whitespace (spaces, tabs) from front of each line</span>
-<span class="c1"># aligns all text flush left</span>
-awk <span class="s1">&#39;{sub(/^[ \t]+/, &quot;&quot;)};1&#39;</span>
+ <span class="c1"># delete leading whitespace (spaces, tabs) from front of each line</span>
+ <span class="c1"># aligns all text flush left</span>
+ awk <span class="s1">&#39;{sub(/^[ \t]+/, &quot;&quot;)};1&#39;</span>
 
-<span class="c1"># delete trailing whitespace (spaces, tabs) from end of each line</span>
-awk <span class="s1">&#39;{sub(/[ \t]+$/, &quot;&quot;)};1&#39;</span>
+ <span class="c1"># delete trailing whitespace (spaces, tabs) from end of each line</span>
+ awk <span class="s1">&#39;{sub(/[ \t]+$/, &quot;&quot;)};1&#39;</span>
 
-<span class="c1"># delete BOTH leading and trailing whitespace from each line</span>
-awk <span class="s1">&#39;{gsub(/^[ \t]+|[ \t]+$/,&quot;&quot;)};1&#39;</span>
-awk <span class="s1">&#39;{$1=$1};1&#39;</span>           <span class="c1"># also removes extra space between fields</span>
+ <span class="c1"># delete BOTH leading and trailing whitespace from each line</span>
+ awk <span class="s1">&#39;{gsub(/^[ \t]+|[ \t]+$/,&quot;&quot;)};1&#39;</span>
+ awk <span class="s1">&#39;{$1=$1};1&#39;</span>           <span class="c1"># also removes extra space between fields</span>
 
-<span class="c1"># insert 5 blank spaces at beginning of each line (make page offset)</span>
-awk <span class="s1">&#39;{sub(/^/, &quot;     &quot;)};1&#39;</span>
+ <span class="c1"># insert 5 blank spaces at beginning of each line (make page offset)</span>
+ awk <span class="s1">&#39;{sub(/^/, &quot;     &quot;)};1&#39;</span>
 
-<span class="c1"># align all text flush right on a 79-column width</span>
-awk <span class="s1">&#39;{printf &quot;%79s\n&quot;, $0}&#39;</span> file*
+ <span class="c1"># align all text flush right on a 79-column width</span>
+ awk <span class="s1">&#39;{printf &quot;%79s\n&quot;, $0}&#39;</span> file*
 
-<span class="c1"># center all text on a 79-character width</span>
-awk <span class="s1">&#39;{l=length();s=int((79-l)/2); printf &quot;%&quot;(s+l)&quot;s\n&quot;,$0}&#39;</span> file*
+ <span class="c1"># center all text on a 79-character width</span>
+ awk <span class="s1">&#39;{l=length();s=int((79-l)/2); printf &quot;%&quot;(s+l)&quot;s\n&quot;,$0}&#39;</span> file*
 
-<span class="c1"># substitute (find and replace) &quot;foo&quot; with &quot;bar&quot; on each line</span>
-awk <span class="s1">&#39;{sub(/foo/,&quot;bar&quot;)}; 1&#39;</span>           <span class="c1"># replace only 1st instance</span>
-gawk <span class="s1">&#39;{$0=gensub(/foo/,&quot;bar&quot;,4)}; 1&#39;</span>  <span class="c1"># replace only 4th instance</span>
-awk <span class="s1">&#39;{gsub(/foo/,&quot;bar&quot;)}; 1&#39;</span>          <span class="c1"># replace ALL instances in a line</span>
+ <span class="c1"># substitute (find and replace) &quot;foo&quot; with &quot;bar&quot; on each line</span>
+ awk <span class="s1">&#39;{sub(/foo/,&quot;bar&quot;)}; 1&#39;</span>           <span class="c1"># replace only 1st instance</span>
+ gawk <span class="s1">&#39;{$0=gensub(/foo/,&quot;bar&quot;,4)}; 1&#39;</span>  <span class="c1"># replace only 4th instance</span>
+ awk <span class="s1">&#39;{gsub(/foo/,&quot;bar&quot;)}; 1&#39;</span>          <span class="c1"># replace ALL instances in a line</span>
 
-<span class="c1"># substitute &quot;foo&quot; with &quot;bar&quot; ONLY for lines which contain &quot;baz&quot;</span>
-awk <span class="s1">&#39;/baz/{gsub(/foo/, &quot;bar&quot;)}; 1&#39;</span>
+ <span class="c1"># substitute &quot;foo&quot; with &quot;bar&quot; ONLY for lines which contain &quot;baz&quot;</span>
+ awk <span class="s1">&#39;/baz/{gsub(/foo/, &quot;bar&quot;)}; 1&#39;</span>
 
-<span class="c1"># substitute &quot;foo&quot; with &quot;bar&quot; EXCEPT for lines which contain &quot;baz&quot;</span>
-awk <span class="s1">&#39;!/baz/{gsub(/foo/, &quot;bar&quot;)}; 1&#39;</span>
+ <span class="c1"># substitute &quot;foo&quot; with &quot;bar&quot; EXCEPT for lines which contain &quot;baz&quot;</span>
+ awk <span class="s1">&#39;!/baz/{gsub(/foo/, &quot;bar&quot;)}; 1&#39;</span>
 
-<span class="c1"># change &quot;scarlet&quot; or &quot;ruby&quot; or &quot;puce&quot; to &quot;red&quot;</span>
-awk <span class="s1">&#39;{gsub(/scarlet|ruby|puce/, &quot;red&quot;)}; 1&#39;</span>
+ <span class="c1"># change &quot;scarlet&quot; or &quot;ruby&quot; or &quot;puce&quot; to &quot;red&quot;</span>
+ awk <span class="s1">&#39;{gsub(/scarlet|ruby|puce/, &quot;red&quot;)}; 1&#39;</span>
 
-<span class="c1"># reverse order of lines (emulates &quot;tac&quot;)</span>
-awk <span class="s1">&#39;{a[i++]=$0} END {for (j=i-1; j&gt;=0;) print a[j--] }&#39;</span> file*
+ <span class="c1"># reverse order of lines (emulates &quot;tac&quot;)</span>
+ awk <span class="s1">&#39;{a[i++]=$0} END {for (j=i-1; j&gt;=0;) print a[j--] }&#39;</span> file*
 
-<span class="c1"># if a line ends with a backslash, append the next line to it (fails if</span>
-<span class="c1"># there are multiple lines ending with backslash...)</span>
-awk <span class="s1">&#39;/\\$/ {sub(/\\$/,&quot;&quot;); getline t; print $0 t; next}; 1&#39;</span> file*
+ <span class="c1"># if a line ends with a backslash, append the next line to it (fails if</span>
+ <span class="c1"># there are multiple lines ending with backslash...)</span>
+ awk <span class="s1">&#39;/\\$/ {sub(/\\$/,&quot;&quot;); getline t; print $0 t; next}; 1&#39;</span> file*
 
-<span class="c1"># print and sort the login names of all users</span>
-awk -F <span class="s2">&quot;:&quot;</span> <span class="s1">&#39;{print $1 | &quot;sort&quot; }&#39;</span> /etc/passwd
+ <span class="c1"># print and sort the login names of all users</span>
+ awk -F <span class="s2">&quot;:&quot;</span> <span class="s1">&#39;{print $1 | &quot;sort&quot; }&#39;</span> /etc/passwd
 
-<span class="c1"># print the first 2 fields, in opposite order, of every line</span>
-awk <span class="s1">&#39;{print $2, $1}&#39;</span> file
+ <span class="c1"># print the first 2 fields, in opposite order, of every line</span>
+ awk <span class="s1">&#39;{print $2, $1}&#39;</span> file
 
-<span class="c1"># switch the first 2 fields of every line</span>
-awk <span class="s1">&#39;{temp = $1; $1 = $2; $2 = temp}&#39;</span> file
+ <span class="c1"># switch the first 2 fields of every line</span>
+ awk <span class="s1">&#39;{temp = $1; $1 = $2; $2 = temp}&#39;</span> file
 
-<span class="c1"># print every line, deleting the second field of that line</span>
-awk <span class="s1">&#39;{ $2 = &quot;&quot;; print }&#39;</span>
+ <span class="c1"># print every line, deleting the second field of that line</span>
+ awk <span class="s1">&#39;{ $2 = &quot;&quot;; print }&#39;</span>
 
-<span class="c1"># print in reverse order the fields of every line</span>
-awk <span class="s1">&#39;{for (i=NF; i&gt;0; i--) printf(&quot;%s &quot;,$i);print &quot;&quot;}&#39;</span> file
+ <span class="c1"># print in reverse order the fields of every line</span>
+ awk <span class="s1">&#39;{for (i=NF; i&gt;0; i--) printf(&quot;%s &quot;,$i);print &quot;&quot;}&#39;</span> file
 
-<span class="c1"># concatenate every 5 lines of input, using a comma separator</span>
-<span class="c1"># between fields</span>
-awk <span class="s1">&#39;ORS=NR%5?&quot;,&quot;:&quot;\n&quot;&#39;</span> file
+ <span class="c1"># concatenate every 5 lines of input, using a comma separator</span>
+ <span class="c1"># between fields</span>
+ awk <span class="s1">&#39;ORS=NR%5?&quot;,&quot;:&quot;\n&quot;&#39;</span> file
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="selective-printing-of-certain-lines">
 <h2><a class="toc-backref" href="#id7">6.6. SELECTIVE PRINTING OF CERTAIN LINES:</a><a class="headerlink" href="#selective-printing-of-certain-lines" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># print first 10 lines of file (emulates behavior of &quot;head&quot;)</span>
-awk <span class="s1">&#39;NR &lt; 11&#39;</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># print first 10 lines of file (emulates behavior of &quot;head&quot;)</span>
+ awk <span class="s1">&#39;NR &lt; 11&#39;</span>
 
-<span class="c1"># print first line of file (emulates &quot;head -1&quot;)</span>
-awk <span class="s1">&#39;NR&gt;1{exit};1&#39;</span>
+ <span class="c1"># print first line of file (emulates &quot;head -1&quot;)</span>
+ awk <span class="s1">&#39;NR&gt;1{exit};1&#39;</span>
 
- <span class="c1"># print the last 2 lines of a file (emulates &quot;tail -2&quot;)</span>
-awk <span class="s1">&#39;{y=x &quot;\n&quot; $0; x=$0};END{print y}&#39;</span>
+  <span class="c1"># print the last 2 lines of a file (emulates &quot;tail -2&quot;)</span>
+ awk <span class="s1">&#39;{y=x &quot;\n&quot; $0; x=$0};END{print y}&#39;</span>
 
-<span class="c1"># print the last line of a file (emulates &quot;tail -1&quot;)</span>
-awk <span class="s1">&#39;END{print}&#39;</span>
+ <span class="c1"># print the last line of a file (emulates &quot;tail -1&quot;)</span>
+ awk <span class="s1">&#39;END{print}&#39;</span>
 
-<span class="c1"># print only lines which match regular expression (emulates &quot;grep&quot;)</span>
-awk <span class="s1">&#39;/regex/&#39;</span>
+ <span class="c1"># print only lines which match regular expression (emulates &quot;grep&quot;)</span>
+ awk <span class="s1">&#39;/regex/&#39;</span>
 
-<span class="c1"># print only lines which do NOT match regex (emulates &quot;grep -v&quot;)</span>
-awk <span class="s1">&#39;!/regex/&#39;</span>
+ <span class="c1"># print only lines which do NOT match regex (emulates &quot;grep -v&quot;)</span>
+ awk <span class="s1">&#39;!/regex/&#39;</span>
 
-<span class="c1"># print any line where field #5 is equal to &quot;abc123&quot;</span>
-awk <span class="s1">&#39;$5 == &quot;abc123&quot;&#39;</span>
+ <span class="c1"># print any line where field #5 is equal to &quot;abc123&quot;</span>
+ awk <span class="s1">&#39;$5 == &quot;abc123&quot;&#39;</span>
 
-<span class="c1"># print only those lines where field #5 is NOT equal to &quot;abc123&quot;</span>
-<span class="c1"># This will also print lines which have less than 5 fields.</span>
-awk <span class="s1">&#39;$5 != &quot;abc123&quot;&#39;</span>
-awk <span class="s1">&#39;!($5 == &quot;abc123&quot;)&#39;</span>
+ <span class="c1"># print only those lines where field #5 is NOT equal to &quot;abc123&quot;</span>
+ <span class="c1"># This will also print lines which have less than 5 fields.</span>
+ awk <span class="s1">&#39;$5 != &quot;abc123&quot;&#39;</span>
+ awk <span class="s1">&#39;!($5 == &quot;abc123&quot;)&#39;</span>
 
-<span class="c1"># matching a field against a regular expression</span>
-awk <span class="s1">&#39;$7  ~ /^[a-f]/&#39;</span>    <span class="c1"># print line if field #7 matches regex</span>
-awk <span class="s1">&#39;$7 !~ /^[a-f]/&#39;</span>    <span class="c1"># print line if field #7 does NOT match regex</span>
+ <span class="c1"># matching a field against a regular expression</span>
+ awk <span class="s1">&#39;$7  ~ /^[a-f]/&#39;</span>    <span class="c1"># print line if field #7 matches regex</span>
+ awk <span class="s1">&#39;$7 !~ /^[a-f]/&#39;</span>    <span class="c1"># print line if field #7 does NOT match regex</span>
 
-<span class="c1"># print the line immediately before a regex, but not the line</span>
-<span class="c1"># containing the regex</span>
-awk <span class="s1">&#39;/regex/{print x};{x=$0}&#39;</span>
-awk <span class="s1">&#39;/regex/{print (NR==1 ? &quot;match on line 1&quot; : x)};{x=$0}&#39;</span>
+ <span class="c1"># print the line immediately before a regex, but not the line</span>
+ <span class="c1"># containing the regex</span>
+ awk <span class="s1">&#39;/regex/{print x};{x=$0}&#39;</span>
+ awk <span class="s1">&#39;/regex/{print (NR==1 ? &quot;match on line 1&quot; : x)};{x=$0}&#39;</span>
 
-<span class="c1"># print the line immediately after a regex, but not the line</span>
-<span class="c1"># containing the regex</span>
-awk <span class="s1">&#39;/regex/{getline;print}&#39;</span>
+ <span class="c1"># print the line immediately after a regex, but not the line</span>
+ <span class="c1"># containing the regex</span>
+ awk <span class="s1">&#39;/regex/{getline;print}&#39;</span>
 
-<span class="c1"># grep for AAA and BBB and CCC (in any order on the same line)</span>
-awk <span class="s1">&#39;/AAA/ &amp;&amp; /BBB/ &amp;&amp; /CCC/&#39;</span>
+ <span class="c1"># grep for AAA and BBB and CCC (in any order on the same line)</span>
+ awk <span class="s1">&#39;/AAA/ &amp;&amp; /BBB/ &amp;&amp; /CCC/&#39;</span>
 
-<span class="c1"># grep for AAA and BBB and CCC (in that order)</span>
-awk <span class="s1">&#39;/AAA.*BBB.*CCC/&#39;</span>
+ <span class="c1"># grep for AAA and BBB and CCC (in that order)</span>
+ awk <span class="s1">&#39;/AAA.*BBB.*CCC/&#39;</span>
 
-<span class="c1"># print only lines of 65 characters or longer</span>
-awk <span class="s1">&#39;length &gt; 64&#39;</span>
+ <span class="c1"># print only lines of 65 characters or longer</span>
+ awk <span class="s1">&#39;length &gt; 64&#39;</span>
 
-<span class="c1"># print only lines of less than 65 characters</span>
-awk <span class="s1">&#39;length &lt; 64&#39;</span>
+ <span class="c1"># print only lines of less than 65 characters</span>
+ awk <span class="s1">&#39;length &lt; 64&#39;</span>
 
-<span class="c1"># print section of file from regular expression to end of file</span>
-awk <span class="s1">&#39;/regex/,0&#39;</span>
-awk <span class="s1">&#39;/regex/,EOF&#39;</span>
+ <span class="c1"># print section of file from regular expression to end of file</span>
+ awk <span class="s1">&#39;/regex/,0&#39;</span>
+ awk <span class="s1">&#39;/regex/,EOF&#39;</span>
 
-<span class="c1"># print section of file based on line numbers (lines 8-12, inclusive)</span>
-awk <span class="s1">&#39;NR==8,NR==12&#39;</span>
+ <span class="c1"># print section of file based on line numbers (lines 8-12, inclusive)</span>
+ awk <span class="s1">&#39;NR==8,NR==12&#39;</span>
 
-<span class="c1"># print line number 52</span>
-awk <span class="s1">&#39;NR==52&#39;</span>
-awk <span class="s1">&#39;NR==52 {print;exit}&#39;</span>          <span class="c1"># more efficient on large files</span>
+ <span class="c1"># print line number 52</span>
+ awk <span class="s1">&#39;NR==52&#39;</span>
+ awk <span class="s1">&#39;NR==52 {print;exit}&#39;</span>          <span class="c1"># more efficient on large files</span>
 
-<span class="c1"># print section of file between two regular expressions (inclusive)</span>
-awk <span class="s1">&#39;/Iowa/,/Montana/&#39;</span>             <span class="c1"># case sensitive</span>
+ <span class="c1"># print section of file between two regular expressions (inclusive)</span>
+ awk <span class="s1">&#39;/Iowa/,/Montana/&#39;</span>             <span class="c1"># case sensitive</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="selective-deletion-of-certain-lines">
 <h2><a class="toc-backref" href="#id8">6.7. SELECTIVE DELETION OF CERTAIN LINES:</a><a class="headerlink" href="#selective-deletion-of-certain-lines" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># delete ALL blank lines from a file (same as &quot;grep &#39;.&#39; &quot;)</span>
-awk NF
-awk <span class="s1">&#39;/./&#39;</span>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># delete ALL blank lines from a file (same as &quot;grep &#39;.&#39; &quot;)</span>
+ awk NF
+ awk <span class="s1">&#39;/./&#39;</span>
 
-<span class="c1"># remove duplicate, consecutive lines (emulates &quot;uniq&quot;)</span>
-awk <span class="s1">&#39;a !~ $0; {a=$0}&#39;</span>
+ <span class="c1"># remove duplicate, consecutive lines (emulates &quot;uniq&quot;)</span>
+ awk <span class="s1">&#39;a !~ $0; {a=$0}&#39;</span>
 
-<span class="c1"># remove duplicate, nonconsecutive lines</span>
-awk <span class="s1">&#39;!a[$0]++&#39;</span>                     <span class="c1"># most concise script</span>
-awk <span class="s1">&#39;!($0 in a){a[$0];print}&#39;</span>      <span class="c1"># most efficient script</span>
+ <span class="c1"># remove duplicate, nonconsecutive lines</span>
+ awk <span class="s1">&#39;!a[$0]++&#39;</span>                     <span class="c1"># most concise script</span>
+ awk <span class="s1">&#39;!($0 in a){a[$0];print}&#39;</span>      <span class="c1"># most efficient script</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 </div>
 

@@ -13,11 +13,13 @@ awk-oneliners
 
 
 .. code-block:: bash
+    :linenos:
 
 ###############################################################################
 File spacing
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # double space a file
      awk '1;{print ""}'
@@ -36,6 +38,7 @@ File spacing
     NUMBERING AND CALCULATIONS:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # precede each line by its line number FOR THAT FILE (left alignment).
      # Using a tab (\t) instead of space will preserve margins.
@@ -95,6 +98,7 @@ File spacing
     STRING CREATION:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # create a string of a specific length (e.g., generate 513 spaces)
      awk 'BEGIN{while (a++<513) s=s " "; print s}'
@@ -107,6 +111,7 @@ File spacing
     ARRAY CREATION:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # These next 2 entries are not one-line scripts, but the technique
      # is so handy that it merits inclusion here.
@@ -123,6 +128,7 @@ File spacing
     TEXT CONVERSION AND SUBSTITUTION:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # IN UNIX ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format
      awk '{sub(/\r$/,"")};1'   # assumes EACH line ends with Ctrl-M
@@ -204,6 +210,7 @@ File spacing
     SELECTIVE PRINTING OF CERTAIN LINES:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # print first 10 lines of file (emulates behavior of "head")
      awk 'NR < 11'
@@ -275,6 +282,7 @@ File spacing
     SELECTIVE DELETION OF CERTAIN LINES:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # delete ALL blank lines from a file (same as "grep '.' ")
      awk NF

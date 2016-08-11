@@ -11,6 +11,7 @@ sed oneliners
 Typical use
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
     # === typica use case === #
     cat filename | sed '10q'        # uses piped input
@@ -38,6 +39,7 @@ Typical use
 
 
 .. code-block:: bash
+    :linenos:
 
      # double space a file
      sed G
@@ -66,6 +68,7 @@ Typical use
     NUMBERING:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # number each line of a file (simple left alignment). Using a tab (see
      # note on '\t' at end of file) instead of space will preserve margins.
@@ -85,6 +88,7 @@ Typical use
 ###############################################################################
 
 .. code-block:: bash
+    :linenos:
 
      # IN UNIX ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format.
      sed 's/.$//'               # assumes that all lines end with CR/LF
@@ -184,6 +188,7 @@ Typical use
     SELECTIVE PRINTING OF CERTAIN LINES:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # print first 10 lines of file (emulates behavior of "head")
      sed 10q
@@ -277,6 +282,7 @@ Typical use
     SELECTIVE DELETION OF CERTAIN LINES:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # print all of file EXCEPT section between 2 regular expressions
      sed '/Iowa/,/Montana/d'
@@ -338,6 +344,7 @@ Typical use
     SPECIAL APPLICATIONS:
 ###############################################################################
 .. code-block:: bash
+    :linenos:
 
      # remove nroff overstrikes (char, backspace) from man pages. The 'echo'
      # command may need an -e switch if you use Unix System V or bash shell.
