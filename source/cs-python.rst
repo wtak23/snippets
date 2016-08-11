@@ -33,7 +33,8 @@ http://matplotlib.org/users/style_sheets.html
     :linenos:
 
     # to edit matplotlibbrc file
-    ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()" | xargs subl
+    ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()" | xargs 
+    subl $(ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()")
 
 ##################
 installing modules

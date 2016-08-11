@@ -5,6 +5,6 @@
 #=============================================================================#
 rsync -r build/html/ build_published
 cd build_published
-git aac "${1}"
+git aac "${1}" # commit message
 git pu
 cd -
