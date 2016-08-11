@@ -13,7 +13,6 @@ Python commands from shell
 
 .. code-block:: bash
     :linenos:
-    :linenos:
 
     # for multiline commands
     echo -e "import sys\nfor r in range(10): print 'rob'" | python
