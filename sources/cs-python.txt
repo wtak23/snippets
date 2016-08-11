@@ -13,6 +13,7 @@ Python commands from shell
 
 .. code-block:: bash
     :linenos:
+    :linenos:
 
     # for multiline commands
     echo -e "import sys\nfor r in range(10): print 'rob'" | python
@@ -30,6 +31,7 @@ Matplotlib styling
 http://matplotlib.org/users/style_sheets.html
 
 .. code-block:: bash
+    :linenos:
 
     # to edit matplotlibbrc file
     ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()" | xargs subl
@@ -40,6 +42,7 @@ installing modules
 http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package
 
 .. code-block:: bash
+    :linenos:
     :linenos:
 
     #http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package
@@ -61,6 +64,7 @@ http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-sli
 
 
 .. code-block:: python
+    :linenos:
     :linenos:
     :emphasize-lines: 2-6
 
@@ -113,6 +117,7 @@ decorator
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
 
 .. code-block:: python
+    :linenos:
 
     def print_warning(fn):
         def wrapper():
@@ -128,6 +133,7 @@ decorator
 Using with arguments (``*args, **kwargs``)
 
 .. code-block:: python
+    :linenos:
 
     def logger(func):
         def inner(*args, **kwargs): #1
@@ -159,6 +165,7 @@ Plotting - short snippets
 Cool tricks
 ***********
 .. code-block:: python
+    :linenos:
 
     import matplotlib as mpl
     mpl.get_backend()
@@ -244,6 +251,7 @@ Cool tricks
 Plotting Snippets
 *****************
 .. code-block:: python
+    :linenos:
 
     # getting step function (just a wrapper) 
     # http://stackoverflow.com/questions/15188005/linestyle-in-matplotlib-step-function
@@ -262,6 +270,7 @@ Plotting Snippets
 Exceptions
 ##########
 .. code-block:: python
+    :linenos:
 
     # https://docs.python.org/2/tutorial/errors.html <- list of builtin exceptions
     # http://www.pythonforbeginners.com/error-handling/python-try-and-except
@@ -342,6 +351,7 @@ Exceptions
 Clever tricks
 #############
 .. code-block:: python
+    :linenos:
 
     countries = np.array(['US', 'UK', 'GR', 'JP'])
     key = countries[np.random.randint(0, 4, 1000)]
