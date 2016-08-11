@@ -6,6 +6,7 @@ Summary of AWK Commands
 There are only a few commands in AWK. The list and syntax follows: 
 
 .. code-block:: bash
+    :linenos:
 
     if ( conditional ) statement [ else statement ]
     while ( conditional ) statement
@@ -23,6 +24,7 @@ There are only a few commands in AWK. The list and syntax follows:
 t this point, you can use AWK as a language for simple calculations; If you wanted to calculate something, and not read any lines for input, you could use the BEGIN keyword discussed earlier, combined with a exit command:
 
 .. code-block:: bash
+    :linenos:
 
     #!/bin/awk -f
     BEGIN {
@@ -46,6 +48,7 @@ t this point, you can use AWK as a language for simple calculations; If you want
 The following asks for a number, and then squares it:
 
 .. code-block:: bash
+    :linenos:
 
     #!/bin/awk -f
     BEGIN {
@@ -64,6 +67,7 @@ The above isn't a good filter, because it asks for input each time. If you pipe 
 Here is a filter that you should find useful. It counts lines, totals up the numbers in the first column, and calculates the average. Pipe "wc -c *" into it, and it will count files, and tell you the average number of words per file, as well as the total words and the number of files. 
 
 .. code-block:: bash
+    :linenos:
 
     #!/bin/awk -f
     BEGIN {
@@ -93,12 +97,14 @@ Here is a filter that you should find useful. It counts lines, totals up the num
 You can pipe the output of "ls -s" into this filter to count the number of files, the total size, and the average size. There is a slight problem with this script, as it includes the output of "ls" that reports the total. This causes the number of files to be off by one. Changing
 
 .. code-block:: bash
+    :linenos:
 
     lines++;
 
 to
 
 .. code-block:: bash
+    :linenos:
 
     if ($1 != "total" ) lines++;
 

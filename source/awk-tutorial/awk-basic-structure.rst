@@ -6,12 +6,14 @@ Basic structure
 The essential organization of an AWK program follows the form:
 
 .. code-block:: bash
+    :linenos:
 
     pattern { action }
 
 The pattern specifies when the action is performed. Like most UNIX utilities, AWK is line oriented. That is, the pattern specifies a test that is performed with each line read as input. If the condition is true, then the action is taken. The default pattern is something that matches every line. This is the blank or null pattern. Two other important patterns are specified by the keywords "BEGIN" and "END". As you might expect, these two words specify actions to be taken before any lines are read, and after the last line is read. The AWK program below:
 
 .. code-block:: bash
+    :linenos:
 
     BEGIN { print "START" }
           { print         }
@@ -20,6 +22,7 @@ The pattern specifies when the action is performed. Like most UNIX utilities, AW
 adds one line before and one line after the input file. This isn't very useful, but with a simple change, we can make this into a typical AWK program:
 
 .. code-block:: bash
+    :linenos:
 
     BEGIN { print "File\tOwner"}
     { print $8, "\t", $3}
@@ -32,6 +35,7 @@ The characters "\t" Indicates a tab character so the output lines up on even bou
 There are two differences between AWK and a shell processing the characters within double quotes. AWK understands special characters follow the "\" character like "t". The Bourne and C UNIX shells do not. Also, unlike the shell (and PERL) AWK does not evaluate variables within strings. To explain, the second line could not be written like this:
 
 .. code-block:: bash
+    :linenos:
 
     {print "$8\t$3" }
 
@@ -42,6 +46,7 @@ Update: On a linux system, change "$8" to "$9".
 One more point about the use of a dollar sign. In scripting languages like Perl and the various shells, a dollar sign means the word following is the name of the variable. Awk is different. The dollar sign means that we are refering to a field or column in the current line. When switching between Perl and AWK you must remener that "$" has a different meaning. So the following piece of code prints two "fields" to standard out. The first field printed is the number "5", the second is the fifth field (or column) on the input line.
 
 .. code-block:: bash
+    :linenos:
 
     BEGIN { x=5 }
     { print x, $x}

@@ -21,6 +21,7 @@ slave script
 Create ``qsub_batch.sh`` with the following content:
 
 .. code-block:: bash
+    :linenos:
 
     #!/bin/bash
 
@@ -38,6 +39,7 @@ minimalist call
 No stdout, stderr
 
 .. code-block:: bash
+    :linenos:
 
     qsub -v arg1, arg2, arg3, arg4 qsub_batch.sh
 
@@ -46,6 +48,7 @@ master script
 This script will repeatedly call above:
 
 .. code-block:: bash
+    :linenos:
 
     #!/usr/bin/env bash
     # ===============================================================================
@@ -87,6 +90,7 @@ for old execution example
 qsub-run
 ********
 .. code-block:: bash
+    :linenos:
     
     # create 
     qsub-run -c python script.py arg1 arg2 > out.sh
@@ -101,10 +105,12 @@ place exit 1 to end script
 Similar to how i use ``sys.exit()`` in python
 
 .. code-block:: bash
+    :linenos:
 
     # ... bunch of script above ...
     exit 1
     # ... bunch of sciprt below ...
+
 ###########################
 Style-guide and conventions
 ###########################
@@ -124,6 +130,7 @@ Great reference: https://google.github.io/styleguide/shell.xml
   - my convention: use the 4-space tab
 
 .. code-block:: bash
+    :linenos:
 
     # my 4-space convention
     rsync -rvL --ignore-existing --exclude="/*/*/*/" \
@@ -140,6 +147,7 @@ http://mywiki.wooledge.org/BashGuide/Arrays
 Remember to **quote** the ``${arrayname[@]}`` expansion properly
 
 .. code-block:: bash
+    :linenos:
 
     $ for file in "${myfiles[@]}"; do
     >     cp "$file" /backups/
@@ -156,6 +164,7 @@ Remember these expansion
 - ``${!arrayname[@]}`` -- expand list of indices of array
 
 .. code-block:: bash
+    :linenos:
 
     # The easiest way to create a simple array with data is by using the =() syntax:
     names=("Bob" "Peter" "$USER" "Big Bad John")
@@ -173,8 +182,7 @@ Remember these expansion
     #  "${arrayname[*]}". 
     # This form is ONLY useful for converting arrays into a single string with all the elements joined together
     echo "Today's contestants are: ${names[*]}"
-    >>> Today's contestants are: Bob Peter takanori Big Bad John
-
+    #>>> Today's contestants are: Bob Peter takanori Big Bad John
 
     #http://unix.stackexchange.com/questions/136118/convert-all-text-from-uppercase-to-lowercase-and-vice-versa
     #http://stackoverflow.com/questions/689495/upper-to-lower-case-using-sed
@@ -194,6 +202,7 @@ Expanding indices
 ``${!arrayname[@]}`` expands to a list of the indices of an array, in sequential order. 
 
 .. code-block:: bash
+    :linenos:
 
     $ first=(Jessica Sue Peter)
     $ last=(Jones Storm Parker)
@@ -207,6 +216,7 @@ Expanding indices
 Can also use the **length of array** syntax ``${#names[@]}``
 
 .. code-block:: bash
+    :linenos:
 
     $ a=(a b c q w x y z)
     $ for ((i=0; i<${#a[@]}; i+=2)); do
@@ -219,6 +229,7 @@ practical example
 
 
 .. code-block:: bash
+    :linenos:
 
     target_dir=${HOME}/data/tob/dti_volumes
     source_dir=${HOME}/data/tob/source
@@ -232,6 +243,7 @@ practical example
 Remember to **always avoid using ls**
 
 .. code-block:: bash
+    :linenos:
 
     $ files=$(ls)    # BAD, BAD, BAD!
     $ files=($(ls))  # STILL BAD!
@@ -243,6 +255,7 @@ control rsync recursive depth
 http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders
 
 .. code-block:: bash
+    :linenos:
 
     #Facilitate the --exclude= option.
     #To sync to a depth of 2 (files within folder and subfolders):
@@ -268,6 +281,7 @@ Appending/concatenating variables
 - http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented
 
 .. code-block:: bash
+    :linenos:
 
     source_dir="watanabt@cbica-cluster.uphs.upenn.edu:"
     source_dir+="/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps"
@@ -282,6 +296,7 @@ Appending/concatenating variables
 - `source <http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks>`_
 
 .. code-block:: bash
+    :linenos:
 
     echo $(date +"%Y-%m-%d_%H:%M:%S")
 
@@ -300,6 +315,7 @@ http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-vari
 ``echo ${HOME}``
 
 .. code-block:: bash
+    :linenos:
 
     out_dir="${HOME}/data/tob/dti_volumes"
     echo ${out_dir}
@@ -313,6 +329,7 @@ Create directory if it doesn't exist 06-14-2016 (00:17)
 - http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist
 
 .. code-block:: bash
+    :linenos:
 
     if [ ! -d /home/mlzboy/b2c2/shared/db ] 
     then
@@ -325,6 +342,7 @@ Create directory if it doesn't exist 06-14-2016 (00:17)
 http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple
 
 .. code-block:: bash
+    :linenos:
 
     perls=(perl-one perl-two)
 
@@ -366,6 +384,7 @@ argh...can't comment over line breaks....
 http://stackoverflow.com/questions/9522631/how-to-put-line-comment-for-a-multi-line-command
 
 .. code-block:: bash
+    :linenos:
 
     # meh, can't do this...
     CommandName InputFiles      \ # This is the comment for the 1st line
@@ -379,5 +398,6 @@ get directory of running bash script
 http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
 
 .. code-block:: bash
+    :linenos:
 
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
