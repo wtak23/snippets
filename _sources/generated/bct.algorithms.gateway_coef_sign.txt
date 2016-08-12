@@ -1,0 +1,6 @@
+bct.algorithms.gateway_coef_sign
+================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: gateway_coef_sign

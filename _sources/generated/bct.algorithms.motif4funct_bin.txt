@@ -1,0 +1,6 @@
+bct.algorithms.motif4funct_bin
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: motif4funct_bin

@@ -1,0 +1,6 @@
+bct.nbs.BCTParamError
+=====================
+
+.. currentmodule:: bct.nbs
+
+.. autoexception:: BCTParamError

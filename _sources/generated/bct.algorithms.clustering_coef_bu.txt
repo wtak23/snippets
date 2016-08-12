@@ -1,0 +1,6 @@
+bct.algorithms.clustering_coef_bu
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: clustering_coef_bu

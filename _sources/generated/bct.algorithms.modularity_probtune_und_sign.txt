@@ -1,0 +1,6 @@
+bct.algorithms.modularity_probtune_und_sign
+===========================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: modularity_probtune_und_sign

@@ -1,0 +1,6 @@
+bct.utils.binarize
+==================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: binarize

@@ -1,0 +1,6 @@
+bct.algorithms.matching_ind_und
+===============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: matching_ind_und

@@ -1,0 +1,6 @@
+bct.algorithms.number_of_components
+===================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: number_of_components

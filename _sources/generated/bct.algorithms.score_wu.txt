@@ -1,0 +1,6 @@
+bct.algorithms.score_wu
+=======================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: score_wu

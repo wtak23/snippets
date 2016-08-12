@@ -1,0 +1,6 @@
+bct.nbs.get_components
+======================
+
+.. currentmodule:: bct.nbs
+
+.. autofunction:: get_components

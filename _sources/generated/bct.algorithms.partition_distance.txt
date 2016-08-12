@@ -1,0 +1,6 @@
+bct.algorithms.partition_distance
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: partition_distance

@@ -1,0 +1,6 @@
+bct.algorithms.modularity_finetune_und
+======================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: modularity_finetune_und

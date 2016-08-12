@@ -1,0 +1,6 @@
+bct.algorithms.pick_four_unique_nodes_quickly
+=============================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: pick_four_unique_nodes_quickly

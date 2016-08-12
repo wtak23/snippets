@@ -1,0 +1,6 @@
+bct.algorithms.findwalks
+========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: findwalks

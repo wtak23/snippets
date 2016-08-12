@@ -1,0 +1,6 @@
+bct.algorithms.flow_coef_bd
+===========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: flow_coef_bd

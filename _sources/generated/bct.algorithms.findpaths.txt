@@ -1,0 +1,6 @@
+bct.algorithms.findpaths
+========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: findpaths

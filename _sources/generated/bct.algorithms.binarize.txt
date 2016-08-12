@@ -1,0 +1,6 @@
+bct.algorithms.binarize
+=======================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: binarize

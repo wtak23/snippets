@@ -1,0 +1,6 @@
+bct.algorithms.randmio_dir_signed
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: randmio_dir_signed

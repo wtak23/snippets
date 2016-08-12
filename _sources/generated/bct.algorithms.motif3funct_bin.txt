@@ -1,0 +1,6 @@
+bct.algorithms.motif3funct_bin
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: motif3funct_bin

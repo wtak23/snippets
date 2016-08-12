@@ -1,0 +1,6 @@
+bct.algorithms.eigenvector_centrality_und
+=========================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: eigenvector_centrality_und

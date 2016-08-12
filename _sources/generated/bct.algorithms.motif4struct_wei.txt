@@ -1,0 +1,6 @@
+bct.algorithms.motif4struct_wei
+===============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: motif4struct_wei

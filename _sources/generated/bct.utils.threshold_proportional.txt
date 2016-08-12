@@ -1,0 +1,6 @@
+bct.utils.threshold_proportional
+================================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: threshold_proportional

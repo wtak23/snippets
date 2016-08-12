@@ -1,0 +1,6 @@
+bct.algorithms.betweenness_bin
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: betweenness_bin

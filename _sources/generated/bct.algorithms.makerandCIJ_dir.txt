@@ -1,0 +1,6 @@
+bct.algorithms.makerandCIJ_dir
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: makerandCIJ_dir

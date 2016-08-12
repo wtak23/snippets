@@ -1,0 +1,6 @@
+bct.algorithms.assortativity_wei
+================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: assortativity_wei

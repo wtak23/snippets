@@ -1,0 +1,6 @@
+bct.algorithms.pagerank_centrality
+==================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: pagerank_centrality

@@ -1,0 +1,6 @@
+bct.algorithms.maketoeplitzCIJ
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: maketoeplitzCIJ

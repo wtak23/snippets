@@ -1,0 +1,6 @@
+bct.algorithms.link_communities
+===============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: link_communities

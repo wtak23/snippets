@@ -1,0 +1,6 @@
+bct.algorithms.cycprob
+======================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: cycprob

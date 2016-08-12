@@ -1,0 +1,6 @@
+bct.algorithms.charpath
+=======================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: charpath

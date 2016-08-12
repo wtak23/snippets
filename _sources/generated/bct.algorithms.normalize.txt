@@ -1,0 +1,6 @@
+bct.algorithms.normalize
+========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: normalize

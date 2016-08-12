@@ -1,0 +1,6 @@
+bct.algorithms.local_assortativity_wu_sign
+==========================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: local_assortativity_wu_sign

@@ -1,0 +1,6 @@
+bct.algorithms.betweenness_wei
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: betweenness_wei

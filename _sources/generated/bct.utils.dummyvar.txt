@@ -1,0 +1,6 @@
+bct.utils.dummyvar
+==================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: dummyvar

@@ -1,0 +1,6 @@
+bct.algorithms.erange
+=====================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: erange

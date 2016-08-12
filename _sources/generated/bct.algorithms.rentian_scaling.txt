@@ -1,0 +1,6 @@
+bct.algorithms.rentian_scaling
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: rentian_scaling

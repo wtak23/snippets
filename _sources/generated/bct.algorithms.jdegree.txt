@@ -1,0 +1,6 @@
+bct.algorithms.jdegree
+======================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: jdegree

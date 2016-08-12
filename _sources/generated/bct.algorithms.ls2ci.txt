@@ -1,0 +1,6 @@
+bct.algorithms.ls2ci
+====================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: ls2ci

@@ -1,0 +1,6 @@
+bct.algorithms.breadth
+======================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: breadth

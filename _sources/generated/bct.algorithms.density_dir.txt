@@ -1,0 +1,6 @@
+bct.algorithms.density_dir
+==========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: density_dir

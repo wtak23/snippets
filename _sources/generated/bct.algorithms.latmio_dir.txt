@@ -1,0 +1,6 @@
+bct.algorithms.latmio_dir
+=========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: latmio_dir

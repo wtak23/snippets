@@ -1,0 +1,6 @@
+bct.utils.cuberoot
+==================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: cuberoot

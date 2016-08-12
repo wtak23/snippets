@@ -1,0 +1,6 @@
+bct.utils.writetoPAJ
+====================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: writetoPAJ

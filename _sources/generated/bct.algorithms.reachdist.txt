@@ -1,0 +1,6 @@
+bct.algorithms.reachdist
+========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: reachdist

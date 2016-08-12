@@ -1,0 +1,6 @@
+bct.algorithms.subgraph_centrality
+==================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: subgraph_centrality

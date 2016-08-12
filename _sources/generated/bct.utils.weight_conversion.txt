@@ -1,0 +1,6 @@
+bct.utils.weight_conversion
+===========================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: weight_conversion

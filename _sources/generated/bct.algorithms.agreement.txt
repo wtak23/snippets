@@ -1,0 +1,6 @@
+bct.algorithms.agreement
+========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: agreement

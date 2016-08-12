@@ -1,0 +1,6 @@
+bct.utils.adjacency_plot_und
+============================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: adjacency_plot_und

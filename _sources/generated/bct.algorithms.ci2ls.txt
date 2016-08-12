@@ -1,0 +1,6 @@
+bct.algorithms.ci2ls
+====================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: ci2ls

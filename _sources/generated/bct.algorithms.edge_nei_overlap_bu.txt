@@ -1,0 +1,6 @@
+bct.algorithms.edge_nei_overlap_bu
+==================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: edge_nei_overlap_bu

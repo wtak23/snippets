@@ -1,0 +1,6 @@
+bct.algorithms.agreement_weighted
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: agreement_weighted

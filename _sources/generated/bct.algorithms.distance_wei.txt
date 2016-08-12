@@ -1,0 +1,6 @@
+bct.algorithms.distance_wei
+===========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: distance_wei

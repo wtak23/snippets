@@ -1,0 +1,6 @@
+bct.algorithms.get_components_old
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: get_components_old

@@ -1,0 +1,6 @@
+bct.algorithms.rich_club_wd
+===========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: rich_club_wd

@@ -1,0 +1,6 @@
+bct.algorithms.transitivity_wu
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: transitivity_wu

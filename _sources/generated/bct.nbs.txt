@@ -1,0 +1,33 @@
+bct.nbs
+=======
+
+.. automodule:: bct.nbs
+
+   
+   
+   Functions
+   ---------
+   .. autosummary::
+      :toctree:
+
+   
+      get_components
+      nbs_bct
+   
+   
+
+   
+   
+   
+
+   
+   
+   Exceptions
+   ---------
+   .. autosummary::
+      :toctree:
+
+   
+      BCTParamError
+   
+   

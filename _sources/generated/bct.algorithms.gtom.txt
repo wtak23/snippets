@@ -1,0 +1,6 @@
+bct.algorithms.gtom
+===================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: gtom

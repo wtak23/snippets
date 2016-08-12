@@ -1,0 +1,6 @@
+bct.algorithms.efficiency_bin
+=============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: efficiency_bin

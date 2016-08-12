@@ -1,0 +1,6 @@
+bct.algorithms.kcore_bd
+=======================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: kcore_bd

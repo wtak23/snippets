@@ -1,0 +1,6 @@
+bct.utils.normalize
+===================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: normalize

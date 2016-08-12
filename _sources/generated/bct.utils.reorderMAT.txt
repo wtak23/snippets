@@ -1,0 +1,6 @@
+bct.utils.reorderMAT
+====================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: reorderMAT

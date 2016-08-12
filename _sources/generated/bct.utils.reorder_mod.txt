@@ -1,0 +1,6 @@
+bct.utils.reorder_mod
+=====================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: reorder_mod

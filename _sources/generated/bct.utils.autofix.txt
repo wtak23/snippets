@@ -1,0 +1,6 @@
+bct.utils.autofix
+=================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: autofix

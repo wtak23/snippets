@@ -1,0 +1,6 @@
+bct.algorithms.diversity_coef_sign
+==================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: diversity_coef_sign

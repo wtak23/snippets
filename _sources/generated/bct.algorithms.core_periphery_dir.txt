@@ -1,0 +1,6 @@
+bct.algorithms.core_periphery_dir
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: core_periphery_dir

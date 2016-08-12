@@ -1,0 +1,6 @@
+bct.algorithms.edge_betweenness_wei
+===================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: edge_betweenness_wei

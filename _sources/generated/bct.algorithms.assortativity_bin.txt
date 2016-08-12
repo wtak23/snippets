@@ -1,0 +1,6 @@
+bct.algorithms.assortativity_bin
+================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: assortativity_bin

@@ -1,0 +1,6 @@
+bct.algorithms.distance_bin
+===========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: distance_bin

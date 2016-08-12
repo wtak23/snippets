@@ -1,0 +1,6 @@
+bct.algorithms.module_degree_zscore
+===================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: module_degree_zscore

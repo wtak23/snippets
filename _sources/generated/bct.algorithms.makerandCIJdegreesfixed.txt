@@ -1,0 +1,6 @@
+bct.algorithms.makerandCIJdegreesfixed
+======================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: makerandCIJdegreesfixed

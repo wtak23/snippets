@@ -1,0 +1,6 @@
+bct.utils.BCTParamError
+=======================
+
+.. currentmodule:: bct.utils
+
+.. autoexception:: BCTParamError

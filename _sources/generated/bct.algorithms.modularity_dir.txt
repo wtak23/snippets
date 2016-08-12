@@ -1,0 +1,6 @@
+bct.algorithms.modularity_dir
+=============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: modularity_dir

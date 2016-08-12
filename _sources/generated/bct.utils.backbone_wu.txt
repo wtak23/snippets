@@ -1,0 +1,6 @@
+bct.utils.backbone_wu
+=====================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: backbone_wu

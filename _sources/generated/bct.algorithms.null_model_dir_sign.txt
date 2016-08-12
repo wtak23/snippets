@@ -1,0 +1,6 @@
+bct.algorithms.null_model_dir_sign
+==================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: null_model_dir_sign

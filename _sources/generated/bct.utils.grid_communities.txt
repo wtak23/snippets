@@ -1,0 +1,6 @@
+bct.utils.grid_communities
+==========================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: grid_communities

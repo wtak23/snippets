@@ -1,0 +1,50 @@
+bct.utils
+=========
+
+.. automodule:: bct.utils
+
+   
+   
+   Functions
+   ---------
+   .. autosummary::
+      :toctree:
+
+   
+      adjacency_plot_und
+      align_matrices
+      autofix
+      backbone_wu
+      binarize
+      cuberoot
+      dummyvar
+      grid_communities
+      invert
+      normalize
+      pick_four_unique_nodes_quickly
+      reorderMAT
+      reorder_matrix
+      reorder_mod
+      teachers_round
+      threshold_absolute
+      threshold_proportional
+      weight_conversion
+      writetoPAJ
+   
+   
+
+   
+   
+   
+
+   
+   
+   Exceptions
+   ---------
+   .. autosummary::
+      :toctree:
+
+   
+      BCTParamError
+   
+   

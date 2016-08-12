@@ -1,0 +1,6 @@
+bct.algorithms.generative_model
+===============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: generative_model

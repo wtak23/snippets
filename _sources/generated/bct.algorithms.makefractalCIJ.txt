@@ -1,0 +1,6 @@
+bct.algorithms.makefractalCIJ
+=============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: makefractalCIJ

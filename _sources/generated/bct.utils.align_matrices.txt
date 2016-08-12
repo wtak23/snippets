@@ -1,0 +1,6 @@
+bct.utils.align_matrices
+========================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: align_matrices

@@ -1,0 +1,6 @@
+bct.utils.teachers_round
+========================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: teachers_round

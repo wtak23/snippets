@@ -1,0 +1,6 @@
+bct.utils.reorder_matrix
+========================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: reorder_matrix

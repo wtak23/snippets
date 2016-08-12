@@ -1,0 +1,6 @@
+bct.algorithms.makeringlatticeCIJ
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: makeringlatticeCIJ

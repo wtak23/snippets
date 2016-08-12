@@ -1,0 +1,6 @@
+bct.algorithms.modularity_louvain_und_sign
+==========================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: modularity_louvain_und_sign

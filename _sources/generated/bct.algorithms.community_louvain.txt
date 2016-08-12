@@ -1,0 +1,6 @@
+bct.algorithms.community_louvain
+================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: community_louvain

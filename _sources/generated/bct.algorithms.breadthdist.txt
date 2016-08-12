@@ -1,0 +1,6 @@
+bct.algorithms.breadthdist
+==========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: breadthdist

@@ -1,0 +1,6 @@
+bct.algorithms.corr_flat_und
+============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: corr_flat_und

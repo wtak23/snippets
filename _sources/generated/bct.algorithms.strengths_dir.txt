@@ -1,0 +1,6 @@
+bct.algorithms.strengths_dir
+============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: strengths_dir

@@ -1,0 +1,6 @@
+bct.algorithms.degrees_dir
+==========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: degrees_dir

@@ -1,0 +1,6 @@
+bct.algorithms.find_motif34
+===========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: find_motif34

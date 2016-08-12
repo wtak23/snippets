@@ -1,0 +1,6 @@
+bct.algorithms.participation_coef
+=================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: participation_coef

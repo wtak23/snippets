@@ -1,0 +1,6 @@
+bct.algorithms.randmio_und
+==========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: randmio_und

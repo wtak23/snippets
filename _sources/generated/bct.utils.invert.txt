@@ -1,0 +1,6 @@
+bct.utils.invert
+================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: invert

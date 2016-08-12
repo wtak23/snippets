@@ -1,0 +1,6 @@
+bct.algorithms.kcoreness_centrality_bd
+======================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: kcoreness_centrality_bd

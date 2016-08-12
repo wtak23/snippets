@@ -1,0 +1,6 @@
+bct.utils.threshold_absolute
+============================
+
+.. currentmodule:: bct.utils
+
+.. autofunction:: threshold_absolute

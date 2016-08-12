@@ -1,0 +1,6 @@
+bct.algorithms.makeevenCIJ
+==========================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: makeevenCIJ

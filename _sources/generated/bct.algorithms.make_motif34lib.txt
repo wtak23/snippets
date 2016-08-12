@@ -1,0 +1,6 @@
+bct.algorithms.make_motif34lib
+==============================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: make_motif34lib

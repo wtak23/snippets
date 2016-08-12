@@ -1,0 +1,6 @@
+bct.algorithms.latmio_dir_connected
+===================================
+
+.. currentmodule:: bct.algorithms
+
+.. autofunction:: latmio_dir_connected
