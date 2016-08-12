@@ -6,6 +6,72 @@ Python
     :depth: 2
 
 
+#######
+Disk IO
+#######
+
+************************
+Write list items to text
+************************
+- http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python
+
+.. code-block:: python
+
+    # My favorite
+    out_txt_path = os.path.join(output_dir,'bblid_matched_seed{}.txt'.format(seed_matching))
+    with open(out_txt_path,'w') as f:
+        f.write('\n'.join(df_pnc2['bblid'].tolist()))
+
+    #=========================================================================#
+    # others
+    #=========================================================================#
+    outfile.write("\n".join(itemlist))
+
+    for item in thelist:
+      thefile.write("%s\n" % item)
+
+########################
+Seaborn and Pandas plots
+########################
+
+- http://stackoverflow.com/questions/26413185/how-to-recover-matplotlib-defaults-after-setting-stylesheet
+
+************
+mpl and sns?
+************
+- http://stackoverflow.com/questions/28430385/seaborn-cycle-through-colours-with-matplotlib-scatter
+
+*************
+Color palette
+*************
+- Great demo of **built-in** palettes: http://chrisalbon.com/python/seaborn_color_palettes.html
+
+Do this in sns 
+
+.. code-block:: python
+
+    sns.set_palette('muted') # <- looks less glaring to the eye
+    #https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.color_palette.html
+
+
+
+  Matplotlib paletes can be specified as reversed palettes by appending “_r” to 
+  the name or as dark palettes by appending “_d” to the name. 
+
+- https://stanford.edu/~mwaskom/software/seaborn/tutorial/color_palettes.html
+- https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.color_palette.html
+- http://matplotlib.org/examples/color/named_colors.html
+- http://matplotlib.org/examples/color/colormaps_reference.html
+
+.. code-block:: python
+    :linenos:
+
+    # "Paired" is pretty nice 
+    tw.figure()
+    sns.countplot(x='age_bins',hue='hue',data=df_joined,order=labels_,
+                  hue_order=sorted(df_joined['hue'].unique().tolist()),
+                  palette=sns.color_palette('Paired'))
+
 ##########################
 Python commands from shell
 ##########################
@@ -35,6 +101,39 @@ http://matplotlib.org/users/style_sheets.html
     # to edit matplotlibbrc file
     ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()" | xargs 
     subl $(ipython -c "import matplotlib as mpl; print mpl.matplotlib_fname()")
+
+*******************
+Default color cycle
+*******************
+- http://stackoverflow.com/questions/9397944/default-color-cycle-with-matplotlib
+- http://matplotlib.org/examples/color/color_cycle_demo.html
+- http://matplotlib.org/devel/color_changes.html
+
+Changed these in ``matplotlibrc``
+
+.. code-block:: python
+
+    axes.color_cycle    : b, g, r, c, m, y, k # <- original
+
+    # edited
+    axes.color_cycle    : b, r, g, c, m, y, k  # color cycle for plot lines
+                                                # as list of string colorspecs:
+                                                # single letter, long name, or
+                                                # web-style hex
+
+
+***************
+Colormap helper
+***************
+- http://matplotlib.org/examples/color/colormaps_reference.html
+- http://chrisalbon.com/python/seaborn_color_palettes.html
+
+Add "_r" at the end to reverse colormap
+
+.. code-block:: python
+
+    tw.imconnmat(np.random.randn(50,50),newfig='f',cmap='gray')
+    tw.imconnmat(np.random.randn(50,50),newfig='f',cmap='gray_r')
 
 ##################
 installing modules

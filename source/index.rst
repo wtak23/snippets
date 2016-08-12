@@ -25,9 +25,10 @@ Welcome to Snippets's documentation!
     cs-sed-oneliners.rst
     cs-sed.rst
     cs-sql.rst
+    cs-scala.rst
     awk-tutorial/index.rst
 
 
 .. code-block:: bash
 
-    ls source | grep \.rst --color=never | xclip -selection clipboard
+    echo * | sed 's/ /\n/g' | grep \.rst --color=never | xclip -selection clipboard
