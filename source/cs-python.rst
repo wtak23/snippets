@@ -6,6 +6,33 @@ Python
     :depth: 2
 
 
+###############################
+Random Stack-overflow questions
+###############################
+
+**********************
+Swap 2 items in a list
+**********************
+- http://stackoverflow.com/questions/2493920/how-to-switch-position-of-two-items-in-a-python-list
+
+  - ``foo[i], foo[j] = foo[j], foo[i]``
+
+****************************************
+Check all items in list or dict is equal
+****************************************
+
+- http://stackoverflow.com/questions/3844801/check-if-all-elements-in-a-list-are-identical
+- http://stackoverflow.com/questions/3787908/python-determine-if-all-items-of-a-list-are-the-same-item
+
+.. code-block:: python
+
+    # My favorite
+    len(set(items)) == 1
+
+    # incase of dict
+    len(set(dict_var.values()))==1
+
+
 #######
 Disk IO
 #######

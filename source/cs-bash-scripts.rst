@@ -6,6 +6,51 @@ Here snippets and explanations for writing bash scripts
 .. contents:: **Table of Contents**
     :depth: 2
 
+###############
+Overflow topics
+###############
+
+********************
+Check file existance
+********************
+- http://stackoverflow.com/questions/638975/how-do-i-tell-if-a-regular-file-does-not-exist-in-bash
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+
+.. code-block:: bash
+
+    if [ ! -f /tmp/foo.txt ]; then
+        echo "File not found!"
+    fi
+
+    [ -f /tmp/foo.txt ] || echo "File not found!" 
+
+######################
+Simple loop for python
+######################
+.. code-block:: bash
+
+    #!/usr/bin/env bash
+
+    density_list=('0.1' '0.15' '0.2' '1.0')
+    analysis_list=('age' 'sex')
+    normalize_list=(1 0)
+
+    for density in ${density_list[@]}; do
+        for analysis in ${analysis_list[@]}; do
+            for normalize in ${normalize_list[@]}; do
+                echo "ipython t_0808b_study_bct_pnc_normalized.py ${density} ${analysis} ${normalize}"
+                ipython t_0808b_study_bct_pnc_normalized.py ${density} ${analysis} ${normalize}
+            done
+        done
+    done
+
+Above was submitted for following:
+
+.. code-block:: python
+
+    density = float(sys.argv[1])  # 0.1, 0.15, 0.2, 1.0 is ready
+    analysis = sys.argv[2]        # 'age' or 'sex'
+    normalize_edge = bool(int(sys.argv[3])) # 1 or 0
 
 
 ####
