@@ -13,7 +13,7 @@
 
   
   
-    <link rel="shortcut icon" href="static/favicon-penn.ico"/>
+    <link rel="shortcut icon" href="_static/favicon-penn.ico"/>
   
 
   
@@ -26,7 +26,7 @@
 
   
   
-    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   
 
   
@@ -37,7 +37,7 @@
         <link rel="prev" title="1. bash-commands" href="cs-bash-commands.html"/> 
 
   
-  <script src="static/js/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -88,36 +88,41 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. bash-scripts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#qsub">2.1. qsub</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#my-old-qsub-approach">2.1.1. my old qsub approach</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#slave-script">2.1.1.1. slave script</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#minimalist-call">2.1.1.2. minimalist call</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#master-script">2.1.1.3. master script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overflow-topics">2.1. Overflow topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-file-existance">2.1.1. Check file existance</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#qsub-run">2.1.2. qsub-run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simple-loop-for-python">2.2. Simple loop for python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qsub">2.3. qsub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#my-old-qsub-approach">2.3.1. my old qsub approach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slave-script">2.3.1.1. slave script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minimalist-call">2.3.1.2. minimalist call</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#master-script">2.3.1.3. master script</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#place-exit-1-to-end-script">2.2. place exit 1 to end script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#style-guide-and-conventions">2.3. Style-guide and conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#arrays">2.4. arrays</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#expanding-indices">2.4.1. Expanding indices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#practical-example">2.4.2. practical example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qsub-run">2.3.2. qsub-run</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#control-rsync-recursive-depth">2.5. control rsync recursive depth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#skip-scp-if-file-exist-tldr-use-rsync">2.6. skip scp if file exist (tldr - use rsync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rsync-symlinks">2.7. rsync symlinks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#appending-concatenating-variables">2.8. Appending/concatenating variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-vs-command">2.9. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#variable-name-convention">2.10. variable name convention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-expand-tilde">2.11. How to expand ~ (tilde)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17">2.12. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vs-in-arrays">2.13. [&#64;] vs [*] in arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">2.14. 1&gt;&amp;2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#if-statements-and-test-conditions">2.15. if statements and test conditions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#argh-can-t-comment-over-line-breaks">2.16. argh...can&#8217;t comment over line breaks....</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#get-directory-of-running-bash-script">2.17. get directory of running bash script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#place-exit-1-to-end-script">2.4. place exit 1 to end script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#style-guide-and-conventions">2.5. Style-guide and conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arrays">2.6. arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#expanding-indices">2.6.1. Expanding indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practical-example">2.6.2. practical example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#control-rsync-recursive-depth">2.7. control rsync recursive depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skip-scp-if-file-exist-tldr-use-rsync">2.8. skip scp if file exist (tldr - use rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsync-symlinks">2.9. rsync symlinks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appending-concatenating-variables">2.10. Appending/concatenating variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-vs-command">2.11. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variable-name-convention">2.12. variable name convention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-expand-tilde">2.13. How to expand ~ (tilde)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17">2.14. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vs-in-arrays">2.15. [&#64;] vs [*] in arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.16. 1&gt;&amp;2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-statements-and-test-conditions">2.17. if statements and test conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#argh-can-t-comment-over-line-breaks">2.18. argh...can&#8217;t comment over line breaks....</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-directory-of-running-bash-script">2.19. get directory of running bash script</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cs-python.html">3. Python</a></li>
@@ -133,7 +138,8 @@
 <li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">13. sed oneliners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs-sed.html">14. sed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs-sql.html">15. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">16. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">16. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">17. awk-tutorial</a></li>
 </ul>
 
             
@@ -181,7 +187,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="sources/cs-bash-scripts.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/cs-bash-scripts.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -199,33 +205,77 @@
 <p class="topic-title first"><strong>Table of Contents</strong></p>
 <ul class="simple">
 <li><a class="reference internal" href="#bash-scripts" id="id2">bash-scripts</a><ul>
-<li><a class="reference internal" href="#qsub" id="id3">qsub</a></li>
-<li><a class="reference internal" href="#place-exit-1-to-end-script" id="id4">place exit 1 to end script</a></li>
-<li><a class="reference internal" href="#style-guide-and-conventions" id="id5">Style-guide and conventions</a></li>
-<li><a class="reference internal" href="#arrays" id="id6">arrays</a></li>
-<li><a class="reference internal" href="#control-rsync-recursive-depth" id="id7">control rsync recursive depth</a></li>
-<li><a class="reference internal" href="#skip-scp-if-file-exist-tldr-use-rsync" id="id8">skip scp if file exist (tldr - use rsync</a></li>
-<li><a class="reference internal" href="#rsync-symlinks" id="id9">rsync symlinks</a></li>
-<li><a class="reference internal" href="#appending-concatenating-variables" id="id10">Appending/concatenating variables</a></li>
-<li><a class="reference internal" href="#command-vs-command" id="id11"><code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
-<li><a class="reference internal" href="#variable-name-convention" id="id12">variable name convention</a></li>
-<li><a class="reference internal" href="#how-to-expand-tilde" id="id13">How to expand ~ (tilde)</a></li>
-<li><a class="reference internal" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17" id="id14">Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
-<li><a class="reference internal" href="#vs-in-arrays" id="id15">[&#64;] vs [*] in arrays</a></li>
-<li><a class="reference internal" href="#id1" id="id16">1&gt;&amp;2</a></li>
-<li><a class="reference internal" href="#if-statements-and-test-conditions" id="id17">if statements and test conditions</a></li>
-<li><a class="reference internal" href="#argh-can-t-comment-over-line-breaks" id="id18">argh...can&#8217;t comment over line breaks....</a></li>
-<li><a class="reference internal" href="#get-directory-of-running-bash-script" id="id19">get directory of running bash script</a></li>
+<li><a class="reference internal" href="#overflow-topics" id="id3">Overflow topics</a></li>
+<li><a class="reference internal" href="#simple-loop-for-python" id="id4">Simple loop for python</a></li>
+<li><a class="reference internal" href="#qsub" id="id5">qsub</a></li>
+<li><a class="reference internal" href="#place-exit-1-to-end-script" id="id6">place exit 1 to end script</a></li>
+<li><a class="reference internal" href="#style-guide-and-conventions" id="id7">Style-guide and conventions</a></li>
+<li><a class="reference internal" href="#arrays" id="id8">arrays</a></li>
+<li><a class="reference internal" href="#control-rsync-recursive-depth" id="id9">control rsync recursive depth</a></li>
+<li><a class="reference internal" href="#skip-scp-if-file-exist-tldr-use-rsync" id="id10">skip scp if file exist (tldr - use rsync</a></li>
+<li><a class="reference internal" href="#rsync-symlinks" id="id11">rsync symlinks</a></li>
+<li><a class="reference internal" href="#appending-concatenating-variables" id="id12">Appending/concatenating variables</a></li>
+<li><a class="reference internal" href="#command-vs-command" id="id13"><code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
+<li><a class="reference internal" href="#variable-name-convention" id="id14">variable name convention</a></li>
+<li><a class="reference internal" href="#how-to-expand-tilde" id="id15">How to expand ~ (tilde)</a></li>
+<li><a class="reference internal" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17" id="id16">Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
+<li><a class="reference internal" href="#vs-in-arrays" id="id17">[&#64;] vs [*] in arrays</a></li>
+<li><a class="reference internal" href="#id1" id="id18">1&gt;&amp;2</a></li>
+<li><a class="reference internal" href="#if-statements-and-test-conditions" id="id19">if statements and test conditions</a></li>
+<li><a class="reference internal" href="#argh-can-t-comment-over-line-breaks" id="id20">argh...can&#8217;t comment over line breaks....</a></li>
+<li><a class="reference internal" href="#get-directory-of-running-bash-script" id="id21">get directory of running bash script</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="overflow-topics">
+<h2><a class="toc-backref" href="#id3">2.1. Overflow topics</a><a class="headerlink" href="#overflow-topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="check-file-existance">
+<h3>2.1.1. Check file existance<a class="headerlink" href="#check-file-existance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/638975/how-do-i-tell-if-a-regular-file-does-not-exist-in-bash">http://stackoverflow.com/questions/638975/how-do-i-tell-if-a-regular-file-does-not-exist-in-bash</a></li>
+<li><a class="reference external" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html</a></li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> ! -f /tmp/foo.txt <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;File not found!&quot;</span>
+<span class="k">fi</span>
+
+<span class="o">[</span> -f /tmp/foo.txt <span class="o">]</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;File not found!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-loop-for-python">
+<h2><a class="toc-backref" href="#id4">2.2. Simple loop for python</a><a class="headerlink" href="#simple-loop-for-python" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="nv">density_list</span><span class="o">=(</span><span class="s1">&#39;0.1&#39;</span> <span class="s1">&#39;0.15&#39;</span> <span class="s1">&#39;0.2&#39;</span> <span class="s1">&#39;1.0&#39;</span><span class="o">)</span>
+<span class="nv">analysis_list</span><span class="o">=(</span><span class="s1">&#39;age&#39;</span> <span class="s1">&#39;sex&#39;</span><span class="o">)</span>
+<span class="nv">normalize_list</span><span class="o">=(</span><span class="m">1</span> 0<span class="o">)</span>
+
+<span class="k">for</span> density in <span class="si">${</span><span class="nv">density_list</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+    <span class="k">for</span> analysis in <span class="si">${</span><span class="nv">analysis_list</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+        <span class="k">for</span> normalize in <span class="si">${</span><span class="nv">normalize_list</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+            <span class="nb">echo</span> <span class="s2">&quot;ipython t_0808b_study_bct_pnc_normalized.py </span><span class="si">${</span><span class="nv">density</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">analysis</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">normalize</span><span class="si">}</span><span class="s2">&quot;</span>
+            ipython t_0808b_study_bct_pnc_normalized.py <span class="si">${</span><span class="nv">density</span><span class="si">}</span> <span class="si">${</span><span class="nv">analysis</span><span class="si">}</span> <span class="si">${</span><span class="nv">normalize</span><span class="si">}</span>
+        <span class="k">done</span>
+    <span class="k">done</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Above was submitted for following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">density</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 0.1, 0.15, 0.2, 1.0 is ready</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>        <span class="c1"># &#39;age&#39; or &#39;sex&#39;</span>
+<span class="n">normalize_edge</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="c1"># 1 or 0</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="qsub">
-<h2><a class="toc-backref" href="#id3">2.1. qsub</a><a class="headerlink" href="#qsub" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">2.3. qsub</a><a class="headerlink" href="#qsub" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="my-old-qsub-approach">
-<h3>2.1.1. my old qsub approach<a class="headerlink" href="#my-old-qsub-approach" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.1. my old qsub approach<a class="headerlink" href="#my-old-qsub-approach" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="slave-script">
-<h4>2.1.1.1. slave script<a class="headerlink" href="#slave-script" title="Permalink to this headline">¶</a></h4>
+<h4>2.3.1.1. slave script<a class="headerlink" href="#slave-script" title="Permalink to this headline">¶</a></h4>
 <p>Create <code class="docutils literal"><span class="pre">qsub_batch.sh</span></code> with the following content:</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -248,14 +298,14 @@ ipython <span class="s2">&quot;/sbia/home/watanabt/python/analysis/pnc/ncv_conn_
 </td></tr></table></div>
 </div>
 <div class="section" id="minimalist-call">
-<h4>2.1.1.2. minimalist call<a class="headerlink" href="#minimalist-call" title="Permalink to this headline">¶</a></h4>
+<h4>2.3.1.2. minimalist call<a class="headerlink" href="#minimalist-call" title="Permalink to this headline">¶</a></h4>
 <p>No stdout, stderr</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>qsub -v arg1, arg2, arg3, arg4 qsub_batch.sh
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="master-script">
-<h4>2.1.1.3. master script<a class="headerlink" href="#master-script" title="Permalink to this headline">¶</a></h4>
+<h4>2.3.1.3. master script<a class="headerlink" href="#master-script" title="Permalink to this headline">¶</a></h4>
 <p>This script will repeatedly call above:</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -327,7 +377,7 @@ for old execution example</p>
 </div>
 </div>
 <div class="section" id="qsub-run">
-<h3>2.1.2. qsub-run<a class="headerlink" href="#qsub-run" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.2. qsub-run<a class="headerlink" href="#qsub-run" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -342,7 +392,7 @@ qsub-run -c python save_0726_bct_weighted_normalized.py 0.15 True &gt; qsub_0726
 </div>
 </div>
 <div class="section" id="place-exit-1-to-end-script">
-<h2><a class="toc-backref" href="#id4">2.2. place exit 1 to end script</a><a class="headerlink" href="#place-exit-1-to-end-script" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">2.4. place exit 1 to end script</a><a class="headerlink" href="#place-exit-1-to-end-script" title="Permalink to this headline">¶</a></h2>
 <p>Similar to how i use <code class="docutils literal"><span class="pre">sys.exit()</span></code> in python</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -353,7 +403,7 @@ qsub-run -c python save_0726_bct_weighted_normalized.py 0.15 True &gt; qsub_0726
 </td></tr></table></div>
 </div>
 <div class="section" id="style-guide-and-conventions">
-<h2><a class="toc-backref" href="#id5">2.3. Style-guide and conventions</a><a class="headerlink" href="#style-guide-and-conventions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">2.5. Style-guide and conventions</a><a class="headerlink" href="#style-guide-and-conventions" title="Permalink to this headline">¶</a></h2>
 <p>Great reference: <a class="reference external" href="https://google.github.io/styleguide/shell.xml">https://google.github.io/styleguide/shell.xml</a></p>
 <ul class="simple">
 <li>Variable name: <a class="reference external" href="http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts">http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts</a><ul>
@@ -381,7 +431,7 @@ rsync -rvL --ignore-existing --exclude<span class="o">=</span><span class="s2">&
 </td></tr></table></div>
 </div>
 <div class="section" id="arrays">
-<h2><a class="toc-backref" href="#id6">2.4. arrays</a><a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">2.6. arrays</a><a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">http://mywiki.wooledge.org/BashGuide/Arrays</a></p>
 <p>Remember to <strong>quote</strong> the <code class="docutils literal"><span class="pre">${arrayname[&#64;]}</span></code> expansion properly</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -461,7 +511,7 @@ with all the elements joined together</li>
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="expanding-indices">
-<h3>2.4.1. Expanding indices<a class="headerlink" href="#expanding-indices" title="Permalink to this headline">¶</a></h3>
+<h3>2.6.1. Expanding indices<a class="headerlink" href="#expanding-indices" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">${!arrayname[&#64;]}</span></code> expands to a list of the indices of an array, in sequential order.</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -492,7 +542,7 @@ $ <span class="k">for</span> <span class="o">((</span><span class="nv">i</span><
 </td></tr></table></div>
 </div>
 <div class="section" id="practical-example">
-<h3>2.4.2. practical example<a class="headerlink" href="#practical-example" title="Permalink to this headline">¶</a></h3>
+<h3>2.6.2. practical example<a class="headerlink" href="#practical-example" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -521,7 +571,7 @@ $ <span class="nv">files</span><span class="o">=(</span>*<span class="o">)</span
 </div>
 </div>
 <div class="section" id="control-rsync-recursive-depth">
-<h2><a class="toc-backref" href="#id7">2.5. control rsync recursive depth</a><a class="headerlink" href="#control-rsync-recursive-depth" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">2.7. control rsync recursive depth</a><a class="headerlink" href="#control-rsync-recursive-depth" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders">http://unix.stackexchange.com/questions/178362/rsync-recursively-with-a-certain-depth-of-subfolders</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -532,7 +582,7 @@ rsync -r --exclude<span class="o">=</span><span class="s2">&quot;/*/*/&quot;</sp
 </td></tr></table></div>
 </div>
 <div class="section" id="skip-scp-if-file-exist-tldr-use-rsync">
-<h2><a class="toc-backref" href="#id8">2.6. skip scp if file exist (tldr - use rsync</a><a class="headerlink" href="#skip-scp-if-file-exist-tldr-use-rsync" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">2.8. skip scp if file exist (tldr - use rsync</a><a class="headerlink" href="#skip-scp-if-file-exist-tldr-use-rsync" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/14191/scp-without-replacing-existing-files-in-the-destination">http://unix.stackexchange.com/questions/14191/scp-without-replacing-existing-files-in-the-destination</a></li>
 <li><code class="docutils literal"><span class="pre">rsync</span> <span class="pre">-a</span> <span class="pre">--ignore-existing</span> <span class="pre">\${source_dir}</span> <span class="pre">\${target_dir}</span></code></li>
@@ -540,13 +590,13 @@ rsync -r --exclude<span class="o">=</span><span class="s2">&quot;/*/*/&quot;</sp
 </ul>
 </div>
 <div class="section" id="rsync-symlinks">
-<h2><a class="toc-backref" href="#id9">2.7. rsync symlinks</a><a class="headerlink" href="#rsync-symlinks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">2.9. rsync symlinks</a><a class="headerlink" href="#rsync-symlinks" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://superuser.com/questions/799354/rsync-and-symbolic-links">http://superuser.com/questions/799354/rsync-and-symbolic-links</a></li>
 </ul>
 </div>
 <div class="section" id="appending-concatenating-variables">
-<h2><a class="toc-backref" href="#id10">2.8. Appending/concatenating variables</a><a class="headerlink" href="#appending-concatenating-variables" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">2.10. Appending/concatenating variables</a><a class="headerlink" href="#appending-concatenating-variables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash">http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash</a></li>
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented">http://unix.stackexchange.com/questions/163898/how-to-assign-a-string-value-to-a-variable-over-multiple-lines-while-indented</a></li>
@@ -566,7 +616,7 @@ source_dir+<span class="o">=</span><span class="s2">&quot;/cbica/projects/autism
 </td></tr></table></div>
 </div>
 <div class="section" id="command-vs-command">
-<h2><a class="toc-backref" href="#id11">2.9. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a><a class="headerlink" href="#command-vs-command" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">2.11. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a><a class="headerlink" href="#command-vs-command" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>$(commands) does the same thing as backticks, but you can nest them.</li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks">source</a></li>
@@ -576,7 +626,7 @@ source_dir+<span class="o">=</span><span class="s2">&quot;/cbica/projects/autism
 </td></tr></table></div>
 </div>
 <div class="section" id="variable-name-convention">
-<h2><a class="toc-backref" href="#id12">2.10. variable name convention</a><a class="headerlink" href="#variable-name-convention" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">2.12. variable name convention</a><a class="headerlink" href="#variable-name-convention" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>UPPERCASE for env-vars and constant values</li>
 <li>lowercase for local vars</li>
@@ -584,7 +634,7 @@ source_dir+<span class="o">=</span><span class="s2">&quot;/cbica/projects/autism
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts">http://unix.stackexchange.com/questions/42847/are-there-naming-conventions-for-variables-in-shell-scripts</a></p>
 </div>
 <div class="section" id="how-to-expand-tilde">
-<h2><a class="toc-backref" href="#id13">2.11. How to expand ~ (tilde)</a><a class="headerlink" href="#how-to-expand-tilde" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">2.13. How to expand ~ (tilde)</a><a class="headerlink" href="#how-to-expand-tilde" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash">http://stackoverflow.com/questions/3963716/how-to-manually-expand-a-special-variable-ex-tilde-in-bash</a>
 <code class="docutils literal"><span class="pre">echo</span> <span class="pre">${HOME}</span></code></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -596,7 +646,7 @@ source_dir+<span class="o">=</span><span class="s2">&quot;/cbica/projects/autism
 </td></tr></table></div>
 </div>
 <div class="section" id="create-directory-if-it-doesn-t-exist-06-14-2016-00-17">
-<h2><a class="toc-backref" href="#id14">2.12. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a><a class="headerlink" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">2.14. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a><a class="headerlink" href="#create-directory-if-it-doesn-t-exist-06-14-2016-00-17" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">-p</span></code> option does it, but for pedagogical purpose...</li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist">http://stackoverflow.com/questions/4906579/how-to-use-bash-to-create-a-folder-if-it-doesnt-already-exist</a></li>
@@ -612,7 +662,7 @@ source_dir+<span class="o">=</span><span class="s2">&quot;/cbica/projects/autism
 </td></tr></table></div>
 </div>
 <div class="section" id="vs-in-arrays">
-<h2><a class="toc-backref" href="#id15">2.13. [&#64;] vs [*] in arrays</a><a class="headerlink" href="#vs-in-arrays" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">2.15. [&#64;] vs [*] in arrays</a><a class="headerlink" href="#vs-in-arrays" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple">http://stackoverflow.com/questions/3348443/a-confusion-about-array-versus-array-in-the-context-of-a-bash-comple</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -637,7 +687,7 @@ source_dir+<span class="o">=</span><span class="s2">&quot;/cbica/projects/autism
 </td></tr></table></div>
 </div>
 <div class="section" id="id1">
-<h2><a class="toc-backref" href="#id16">2.14. 1&gt;&amp;2</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">2.16. 1&gt;&amp;2</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean">http://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean</a></p>
 <blockquote>
 <div><ul class="simple">
@@ -652,14 +702,14 @@ filename. So the construct becomes: <code class="docutils literal"><span class="
 </div></blockquote>
 </div>
 <div class="section" id="if-statements-and-test-conditions">
-<h2><a class="toc-backref" href="#id17">2.15. if statements and test conditions</a><a class="headerlink" href="#if-statements-and-test-conditions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">2.17. if statements and test conditions</a><a class="headerlink" href="#if-statements-and-test-conditions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Great table here: <a class="reference external" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html</a></li>
 <li><a class="reference external" href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-6.html">http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-6.html</a></li>
 </ul>
 </div>
 <div class="section" id="argh-can-t-comment-over-line-breaks">
-<h2><a class="toc-backref" href="#id18">2.16. argh...can&#8217;t comment over line breaks....</a><a class="headerlink" href="#argh-can-t-comment-over-line-breaks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">2.18. argh...can&#8217;t comment over line breaks....</a><a class="headerlink" href="#argh-can-t-comment-over-line-breaks" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/9522631/how-to-put-line-comment-for-a-multi-line-command">http://stackoverflow.com/questions/9522631/how-to-put-line-comment-for-a-multi-line-command</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -672,7 +722,7 @@ CommandName InputFiles      <span class="se">\ </span><span class="c1"># This is
 </td></tr></table></div>
 </div>
 <div class="section" id="get-directory-of-running-bash-script">
-<h2><a class="toc-backref" href="#id19">2.17. get directory of running bash script</a><a class="headerlink" href="#get-directory-of-running-bash-script" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">2.19. get directory of running bash script</a><a class="headerlink" href="#get-directory-of-running-bash-script" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in">http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span> <span class="nb">cd</span> <span class="s2">&quot;</span><span class="k">$(</span> dirname <span class="s2">&quot;</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">)</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span> <span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
@@ -727,16 +777,16 @@ CommandName InputFiles      <span class="se">\ </span><span class="c1"># This is
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="static/jquery.js"></script>
-      <script type="text/javascript" src="static/underscore.js"></script>
-      <script type="text/javascript" src="static/doctools.js"></script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="static/js/theme.js"></script>
+    <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
   

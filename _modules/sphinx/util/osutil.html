@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sphinx.util.osutil &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon-penn.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-python.html">3. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sphinx.html">4. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-R.html">5. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-awk-oneliners.html">6. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-perl-oneliners.html">7. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-py-jupyter-notebook.html">8. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-qsubber.html">9. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-regexp.html">10. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-rst.html">11. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-rst-old.html">12. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sed-oneliners.html">13. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sed.html">14. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sql.html">15. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-scala.html">16. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../awk-tutorial/index.html">17. awk-tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>sphinx.util.osutil</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sphinx.util.osutil</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    sphinx.util.osutil</span>
+<span class="sd">    ~~~~~~~~~~~~~~~~~~</span>
+
+<span class="sd">    Operating system-related utility functions for Sphinx.</span>
+
+<span class="sd">    :copyright: Copyright 2007-2016 by the Sphinx team, see AUTHORS.</span>
+<span class="sd">    :license: BSD, see LICENSE for details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">errno</span>
+<span class="kn">import</span> <span class="nn">locale</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
+<span class="kn">import</span> <span class="nn">contextlib</span>
+
+<span class="kn">from</span> <span class="nn">six</span> <span class="k">import</span> <span class="n">PY2</span><span class="p">,</span> <span class="n">text_type</span>
+
+<span class="c1"># Errnos that we need.</span>
+<span class="n">EEXIST</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="s1">&#39;EEXIST&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">ENOENT</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="s1">&#39;ENOENT&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">EPIPE</span>  <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="s1">&#39;EPIPE&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">EINVAL</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="s1">&#39;EINVAL&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># SEP separates path elements in the canonical file names</span>
+<span class="c1">#</span>
+<span class="c1"># Define SEP as a manifest constant, not so much because we expect it to change</span>
+<span class="c1"># in the future as to avoid the suspicion that a stray &quot;/&quot; in the code is a</span>
+<span class="c1"># hangover from more *nix-oriented origins.</span>
+<span class="n">SEP</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">os_path</span><span class="p">(</span><span class="n">canonicalpath</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">canonicalpath</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">SEP</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">canon_path</span><span class="p">(</span><span class="n">nativepath</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return path in OS-independent form&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nativepath</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="n">SEP</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="relative_uri"><a class="viewcode-back" href="../../../DIRNAME/sphinx.util.relative_uri.html#sphinx.util.relative_uri">[docs]</a><span class="k">def</span> <span class="nf">relative_uri</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">to</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a relative URL from ``base`` to ``to``.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">to</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">SEP</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">to</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEP</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">to</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEP</span><span class="p">)</span>
+    <span class="c1"># remove common segments (except the last segment)</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">b2</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">t2</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">b2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">t2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b2</span> <span class="o">==</span> <span class="n">t2</span><span class="p">:</span>
+        <span class="c1"># Special case: relative_uri(&#39;f/index.html&#39;,&#39;f/index.html&#39;)</span>
+        <span class="c1"># returns &#39;&#39;, not &#39;index.html&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">t2</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]:</span>
+        <span class="c1"># Special case: relative_uri(&#39;f/index.html&#39;,&#39;f/&#39;) should</span>
+        <span class="c1"># return &#39;./&#39;, not &#39;&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">SEP</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;..&#39;</span> <span class="o">+</span> <span class="n">SEP</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">SEP</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">ensuredir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure that a path exists.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="c1"># 0 for Jython/Win32</span>
+        <span class="k">if</span> <span class="n">err</span><span class="o">.</span><span class="n">errno</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">EEXIST</span><span class="p">]:</span>
+            <span class="k">raise</span>
+
+
+<span class="c1"># This function is same as os.walk of Python2.6, 2.7, 3.2, 3.3 except a</span>
+<span class="c1"># customization that check UnicodeError.</span>
+<span class="c1"># The customization obstacle to replace the function with the os.walk.</span>
+<span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">followlinks</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Backport of os.walk from 2.6, where the *followlinks* argument was</span>
+<span class="sd">    added.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
+
+    <span class="n">dirs</span><span class="p">,</span> <span class="n">nondirs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fullpath</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">UnicodeError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:: ERROR: non-ASCII filename not supported on this &#39;</span>
+                  <span class="s1">&#39;filesystem encoding </span><span class="si">%r</span><span class="s1">, skipped.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fs_encoding</span><span class="p">),</span>
+                  <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">fullpath</span><span class="p">):</span>
+            <span class="n">dirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nondirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">topdown</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">top</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">nondirs</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+        <span class="n">fullpath</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">followlinks</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">islink</span><span class="p">(</span><span class="n">fullpath</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">walk</span><span class="p">(</span><span class="n">fullpath</span><span class="p">,</span> <span class="n">topdown</span><span class="p">,</span> <span class="n">followlinks</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">x</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">topdown</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">top</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">nondirs</span>
+
+
+<span class="k">def</span> <span class="nf">mtimes_of_files</span><span class="p">(</span><span class="n">dirnames</span><span class="p">,</span> <span class="n">suffix</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">dirname</span> <span class="ow">in</span> <span class="n">dirnames</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">sfile</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">sfile</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">yield</span> <span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">sfile</span><span class="p">))</span>
+                    <span class="k">except</span> <span class="ne">EnvironmentError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">movefile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Move a file, removing the destination if it exists.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dest</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">copytimes</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Copy a file&#39;s modification times.&quot;&quot;&quot;</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">os</span><span class="p">,</span> <span class="s1">&#39;utime&#39;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">utime</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">st_atime</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">copyfile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Copy a file and its modification times, if possible.&quot;&quot;&quot;</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># don&#39;t do full copystat because the source may be read-only</span>
+        <span class="n">copytimes</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="n">no_fn_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r&#39;[^a-zA-Z0-9_-]&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">make_filename</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">no_fn_re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;sphinx&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">ustrftime</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1"># [DEPRECATED] strftime for unicode strings</span>
+    <span class="c1"># It will be removed at Sphinx-1.5</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="p">:</span>
+        <span class="c1"># If time is not specified, try to use $SOURCE_DATE_EPOCH variable</span>
+        <span class="c1"># See https://wiki.debian.org/ReproducibleBuilds/TimestampsProposal</span>
+        <span class="n">source_date_epoch</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SOURCE_DATE_EPOCH&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">source_date_epoch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">time_struct</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">source_date_epoch</span><span class="p">))</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">time_struct</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">PY2</span><span class="p">:</span>
+        <span class="c1"># if a locale is set, the time strings are encoded in the encoding</span>
+        <span class="c1"># given by LC_TIME; if that is available, use it</span>
+        <span class="n">enc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_TIME</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="s1">&#39;utf-8&#39;</span>
+        <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">text_type</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">enc</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Py3</span>
+        <span class="c1"># On Windows, time.strftime() and Unicode characters will raise UnicodeEncodeError.</span>
+        <span class="c1"># http://bugs.python.org/issue8304</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">UnicodeEncodeError</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="nb">format</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;unicode-escape&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;unicode-escape&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">safe_relpath</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">path</span>
+
+
+<span class="n">fs_encoding</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getfilesystemencoding</span><span class="p">()</span> <span class="ow">or</span> <span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">abspath</span><span class="p">(</span><span class="n">pathdir</span><span class="p">):</span>
+    <span class="n">pathdir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">pathdir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pathdir</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="n">pathdir</span> <span class="o">=</span> <span class="n">pathdir</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">fs_encoding</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pathdir</span>
+
+
+<span class="k">def</span> <span class="nf">getcwd</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">os</span><span class="p">,</span> <span class="s1">&#39;getcwdu&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwdu</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+
+<span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="k">def</span> <span class="nf">cd</span><span class="p">(</span><span class="n">target_dir</span><span class="p">):</span>
+    <span class="n">cwd</span> <span class="o">=</span> <span class="n">getcwd</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">target_dir</span><span class="p">)</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">cwd</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, tw.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

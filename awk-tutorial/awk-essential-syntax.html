@@ -8,12 +8,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>16.2. The Essential Syntax of AWK &mdash; Snippets 1 documentation</title>
+  <title>17.2. The Essential Syntax of AWK &mdash; Snippets 1 documentation</title>
   
 
   
   
-    <link rel="shortcut icon" href="../static/favicon-penn.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon-penn.ico"/>
   
 
   
@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   
 
   
 
   
     <link rel="top" title="Snippets 1 documentation" href="../index.html"/>
-        <link rel="up" title="16. awk-tutorial" href="index.html"/>
-        <link rel="next" title="16.3. Summary of AWK Commands" href="awk-summary-commands.html"/>
-        <link rel="prev" title="16.1. Basic structure" href="awk-basic-structure.html"/> 
+        <link rel="up" title="17. awk-tutorial" href="index.html"/>
+        <link rel="next" title="17.3. Summary of AWK Commands" href="awk-summary-commands.html"/>
+        <link rel="prev" title="17.1. Basic structure" href="awk-basic-structure.html"/> 
 
   
-  <script src="../static/js/modernizr.min.js"></script>
+  <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -102,19 +102,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">13. sed oneliners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">14. sed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">15. sql</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">16. awk-tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">16.1. Basic structure</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">16.2. The Essential Syntax of AWK</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#unary-arithmetic-operators">16.2.1. Unary arithmetic operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-autoincrement-and-autodecrement-operators">16.2.2. The Autoincrement and Autodecrement Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#assignment-operators">16.2.3. Assignment Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#conditional-expressions">16.2.4. Conditional expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#regular-expressions">16.2.5. Regular Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#and-or-not">16.2.6. And/Or/Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">16. Scala</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">17. awk-tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">17.1. Basic structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">17.2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unary-arithmetic-operators">17.2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-autoincrement-and-autodecrement-operators">17.2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-operators">17.2.3. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-expressions">17.2.4. Conditional expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regular-expressions">17.2.5. Regular Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#and-or-not">17.2.6. And/Or/Not</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">16.3. Summary of AWK Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">16.4. AWK Built-in Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">17.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">17.4. AWK Built-in Variables</a></li>
 </ul>
 </li>
 </ul>
@@ -158,15 +159,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">16. awk-tutorial</a> &raquo;</li>
+          <li><a href="index.html">17. awk-tutorial</a> &raquo;</li>
         
-      <li>16.2. The Essential Syntax of AWK</li>
+      <li>17.2. The Essential Syntax of AWK</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../sources/awk-tutorial/awk-essential-syntax.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/awk-tutorial/awk-essential-syntax.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -178,34 +179,34 @@
            <div itemprop="articleBody">
             
   <div class="section" id="the-essential-syntax-of-awk">
-<h1>16.2. The Essential Syntax of AWK<a class="headerlink" href="#the-essential-syntax-of-awk" title="Permalink to this headline">¶</a></h1>
+<h1>17.2. The Essential Syntax of AWK<a class="headerlink" href="#the-essential-syntax-of-awk" title="Permalink to this headline">¶</a></h1>
 <p>Earlier I discussed ways to start an AWK script. This section will discuss the various grammatical elements of AWK.</p>
 <p>Note: this part, just skim at the table at
 <a class="reference external" href="http://www.grymoire.com/Unix/Awk.html#toc-uh-5">http://www.grymoire.com/Unix/Awk.html#toc-uh-5</a></p>
 <p>I&#8217;m too lazy, so just gonna type out the header names below to complete
 the toc tree</p>
 <div class="section" id="unary-arithmetic-operators">
-<h2>16.2.1. Unary arithmetic operators<a class="headerlink" href="#unary-arithmetic-operators" title="Permalink to this headline">¶</a></h2>
+<h2>17.2.1. Unary arithmetic operators<a class="headerlink" href="#unary-arithmetic-operators" title="Permalink to this headline">¶</a></h2>
 <p>a</p>
 </div>
 <div class="section" id="the-autoincrement-and-autodecrement-operators">
-<h2>16.2.2. The Autoincrement and Autodecrement Operators<a class="headerlink" href="#the-autoincrement-and-autodecrement-operators" title="Permalink to this headline">¶</a></h2>
+<h2>17.2.2. The Autoincrement and Autodecrement Operators<a class="headerlink" href="#the-autoincrement-and-autodecrement-operators" title="Permalink to this headline">¶</a></h2>
 <p>b</p>
 </div>
 <div class="section" id="assignment-operators">
-<h2>16.2.3. Assignment Operators<a class="headerlink" href="#assignment-operators" title="Permalink to this headline">¶</a></h2>
+<h2>17.2.3. Assignment Operators<a class="headerlink" href="#assignment-operators" title="Permalink to this headline">¶</a></h2>
 <p>c</p>
 </div>
 <div class="section" id="conditional-expressions">
-<h2>16.2.4. Conditional expressions<a class="headerlink" href="#conditional-expressions" title="Permalink to this headline">¶</a></h2>
+<h2>17.2.4. Conditional expressions<a class="headerlink" href="#conditional-expressions" title="Permalink to this headline">¶</a></h2>
 <p>d</p>
 </div>
 <div class="section" id="regular-expressions">
-<h2>16.2.5. Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
+<h2>17.2.5. Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
 <p>e</p>
 </div>
 <div class="section" id="and-or-not">
-<h2>16.2.6. And/Or/Not<a class="headerlink" href="#and-or-not" title="Permalink to this headline">¶</a></h2>
+<h2>17.2.6. And/Or/Not<a class="headerlink" href="#and-or-not" title="Permalink to this headline">¶</a></h2>
 <p>f</p>
 </div>
 </div>
@@ -217,10 +218,10 @@ the toc tree</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="awk-summary-commands.html" class="btn btn-neutral float-right" title="16.3. Summary of AWK Commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="awk-summary-commands.html" class="btn btn-neutral float-right" title="17.3. Summary of AWK Commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="awk-basic-structure.html" class="btn btn-neutral" title="16.1. Basic structure" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="awk-basic-structure.html" class="btn btn-neutral" title="17.1. Basic structure" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -257,16 +258,16 @@ the toc tree</p>
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="../static/jquery.js"></script>
-      <script type="text/javascript" src="../static/underscore.js"></script>
-      <script type="text/javascript" src="../static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
   
 
   
