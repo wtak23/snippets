@@ -14,10 +14,8 @@ Good tuorials
 
 
 .. contents:: **Table of Contents**
-    :depth: 4
+    :depth: 2
 
-.. sectnum::    
-    :start: 1   
 
 ###############
 Stack overflows
@@ -30,6 +28,108 @@ Stack overflows
     RDD.takeOrdered(5, key = lambda x: -x[0]) # sort by keys (descending)
     RDD.takeOrdered(5, key = lambda x: x[1])  # sort by values
     RDD.takeOrdered(5, key = lambda x: -x[1]) # sort by values (descending)
+
+***********************************************************
+numpy array to spark dataframe...trickier than i thought...
+***********************************************************
+- http://stackoverflow.com/questions/32742004/create-spark-dataframe-can-not-infer-schema-for-type-type-float
+
+This bit me in the ass during edX...
+
+.. code-block:: python
+
+    myFloatRdd = sc.parallelize([1.0,2.0,3.0])
+    #df = myFloatRdd.toDF() #<- won't work1 raises a TypeError
+    myFloatRdd.map(lambda x: (x, )).toDF().show() # <- need to give in tuple format...
+    #+---+
+    #| _1|
+    #+---+
+    #|1.0|
+    #|2.0|
+    #|3.0|
+    #+---+
+
+    # or even better...
+    from pyspark.sql import Row
+    row = Row("val") # Or some other column name
+    myFloatRdd.map(row).toDF().show()
+    #+---+
+    #|val|
+    #+---+
+    #|1.0|
+    #|2.0|
+    #|3.0|
+    #+---+
+
+
+**************************************
+Adding new columns to Spark DataFrames
+**************************************
+- http://stackoverflow.com/questions/33681487/how-do-i-add-a-new-column-to-spark-data-frame-pyspark
+
+You cannot add an arbitrary column to a ``DataFrame`` in Spark.
+
+4 approaches:
+
+1. use ``pyspark.sql.functions.lit``, **literals**
+
+.. code-block:: python
+
+    from pyspark.sql.functions import lit
+    df = sqlContext.createDataFrame(
+        [(1, "a", 23.0), (3, "B", -23.0)], ("x1", "x2", "x3"))
+    df_with_x4 = df.withColumn("x4", lit(0))
+    df_with_x4.show()
+    ## +---+---+-----+---+
+    ## | x1| x2|   x3| x4|
+    ## +---+---+-----+---+
+    ## |  1|  a| 23.0|  0|
+    ## |  3|  B|-23.0|  0|
+    ## +---+---+-----+---+
+
+2. transorm an existing column
+
+.. code-block:: python
+
+    from pyspark.sql.functions import exp
+    df_with_x5 = df_with_x4.withColumn("x5", exp("x3"))
+    df_with_x5.show()
+    ## +---+---+-----+---+--------------------+
+    ## | x1| x2|   x3| x4|                  x5|
+    ## +---+---+-----+---+--------------------+
+    ## |  1|  a| 23.0|  0| 9.744803446248903E9|
+    ## |  3|  B|-23.0|  0|1.026187963170189...|
+    ## +---+---+-----+---+--------------------+
+
+3. use ``.join``
+
+.. code-block:: python
+
+    lookup = sqlContext.createDataFrame([(1, "foo"), (2, "bar")], ("k", "v"))
+    df_with_x6 = (df_with_x5
+        .join(lookup, col("x1") == col("k"), "leftouter")
+        .drop("k")
+        .withColumnRenamed("v", "x6"))
+    ## +---+---+-----+---+--------------------+----+
+    ## | x1| x2|   x3| x4|                  x5|  x6|
+    ## +---+---+-----+---+--------------------+----+
+    ## |  1|  a| 23.0|  0| 9.744803446248903E9| foo|
+    ## |  3|  B|-23.0|  0|1.026187963170189...|null|
+    ## +---+---+-----+---+--------------------+----+
+
+4. use udf/function
+
+.. code-block:: python
+
+    from pyspark.sql.functions import rand
+    df_with_x7 = df_with_x6.withColumn("x7", rand())
+    df_with_x7.show()
+    ## +---+---+-----+---+--------------------+----+-------------------+
+    ## | x1| x2|   x3| x4|                  x5|  x6|                 x7|
+    ## +---+---+-----+---+--------------------+----+-------------------+
+    ## |  1|  a| 23.0|  0| 9.744803446248903E9| foo|0.41930610446846617|
+    ## |  3|  B|-23.0|  0|1.026187963170189...|null|0.37801881545497873|
+    ## +---+---+-----+---+--------------------+----+-------------------+
 
 
 ####################################
