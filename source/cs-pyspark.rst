@@ -392,6 +392,148 @@ inferred as the column names of the table.
     for name in names.collect():
       print(name)
 
+************
+Data Sources
+************
+**Registering** a DataFrame as a **temporary view** allows you to run SQL queries over its data
+
+.. code-block:: python
+
+    # simplest load/save (default datasource = parquet)
+    # (default can be configureated in spark.sql.sources.default)
+    df = spark.read.load("examples/src/main/resources/users.parquet")
+    df.select("name", "favorite_color").write.save("namesAndFavColors.parquet")
+
+    # or you can manually specify options
+    df = spark.read.load("examples/src/main/resources/people.json", format="json")
+    df.select("name", "age").write.save("namesAndAges.parquet", format="parquet")
+
+    # can run sql queries on files directly
+    # (Instead of using read API to load a file into DataFrame and query it, 
+    #  you can also query that file directly with SQL.)
+    df = spark.sql("SELECT * FROM parquet.`examples/src/main/resources/users.parquet`")
+
+    # for save modes, see:
+    # https://spark.apache.org/docs/latest/sql-programming-guide.html#save-modes 
+
+
+***************************
+Saving to Persistent Tables
+***************************
+https://spark.apache.org/docs/latest/sql-programming-guide.html#save-modes
+
+DataFrames can also be saved as persistent tables into Hive metastore using 
+the saveAsTable command. Notice existing Hive deployment is not necessary to 
+use this feature. Spark will create a default local Hive metastore (using 
+Derby) for you. Unlike the createOrReplaceTempView command, saveAsTable will 
+materialize the contents of the DataFrame and create a pointer to the data in 
+the Hive metastore. Persistent tables will still exist even after your Spark 
+program has restarted, as long as you maintain your connection to the same 
+metastore. A DataFrame for a persistent table can be created by calling the 
+table method on a SparkSession with the name of the table.
+
+By default saveAsTable will create a “managed table”, meaning that the 
+location of the data will be controlled by the metastore. Managed tables will 
+also have their data deleted automatically when a table is dropped.
+
+Parquet Files
+=============
+`Parquet <http://parquet.io/>`_ is a columnar format that is supported by many 
+other data processing systems. 
+
+- Spark SQL provides support for both reading and writing Parquet files that 
+  automatically preserves the schema of the original data. 
+- When writing Parquet files, all columns are automatically converted to be 
+  nullable for compatibility reasons.
+- The loaded parquet files are DataFrames
+
+.. code-block:: python
+
+    # spark from the previous example is used in this example.
+
+    schemaPeople # The DataFrame from the previous example.
+
+    # DataFrames can be saved as Parquet files, maintaining the schema information.
+    schemaPeople.write.parquet("people.parquet")
+
+    # Read in the Parquet file created above. Parquet files are self-describing so the schema is preserved.
+    # The result of loading a parquet file is also a DataFrame.
+    parquetFile = spark.read.parquet("people.parquet")
+
+    # Parquet files can also be used to create a temporary view and then used in SQL statements.
+    parquetFile.createOrReplaceTempView("parquetFile");
+    teenagers = spark.sql("SELECT name FROM parquetFile WHERE age >= 13 AND age <= 19")
+    teenNames = teenagers.map(lambda p: "Name: " + p.name)
+    for teenName in teenNames.collect():
+      print(teenName)
+
+Schema merging
+==============
+https://spark.apache.org/docs/latest/sql-programming-guide.html#schema-merging
+
+  Not a necessity in most cases.
+
+.. code-block:: python
+
+    # spark from the previous example is used in this example.
+
+    # Create a simple DataFrame, stored into a partition directory
+    df1 = spark.createDataFrame(sc.parallelize(range(1, 6))\
+                                       .map(lambda i: Row(single=i, double=i * 2)))
+    df1.write.parquet("data/test_table/key=1")
+
+    # Create another DataFrame in a new partition directory,
+    # adding a new column and dropping an existing column
+    df2 = spark.createDataFrame(sc.parallelize(range(6, 11))
+                                       .map(lambda i: Row(single=i, triple=i * 3)))
+    df2.write.parquet("data/test_table/key=2")
+
+    # Read the partitioned table
+    df3 = spark.read.option("mergeSchema", "true").parquet("data/test_table")
+    df3.printSchema()
+
+    # The final schema consists of all 3 columns in the Parquet files together
+    # with the partitioning column appeared in the partition directory paths.
+    # root
+    # |-- single: int (nullable = true)
+    # |-- double: int (nullable = true)
+    # |-- triple: int (nullable = true)
+    # |-- key : int (nullable = true)
+
+JSON Datasets
+=============
+Spark SQL can automatically infer the schema of a JSON dataset and load it as a DataFrame
+
+- Note that the file that is offered as a json file is not a typical JSON file. 
+- Each line must contain a separate, self-contained valid JSON object. 
+- As a consequence, a regular multi-line JSON file will most often fail.
+
+.. code-block:: python
+
+    # spark is an existing SparkSession.
+
+    # A JSON dataset is pointed to by path.
+    # The path can be either a single text file or a directory storing text files.
+    people = spark.read.json("examples/src/main/resources/people.json")
+
+    # The inferred schema can be visualized using the printSchema() method.
+    people.printSchema()
+    # root
+    #  |-- age: long (nullable = true)
+    #  |-- name: string (nullable = true)
+
+    # Creates a temporary view using the DataFrame.
+    people.createOrReplaceTempView("people")
+
+    # SQL statements can be run by using the sql methods provided by `spark`.
+    teenagers = spark.sql("SELECT name FROM people WHERE age >= 13 AND age <= 19")
+
+    # Alternatively, a DataFrame can be created for a JSON dataset represented by
+    # an RDD[String] storing one JSON object per string.
+    anotherPeopleRDD = sc.parallelize([
+      '{"name":"Yin","address":{"city":"Columbus","state":"Ohio"}}'])
+    anotherPeople = spark.jsonRDD(anotherPeopleRDD)
+
 ####################################
 Programming-guide: condensed summary
 ####################################
