@@ -12,13 +12,15 @@ Welcome to Snippets's documentation!
 
     cs-bash-commands.rst
     cs-bash-scripts.rst
+    cs-qsubber.rst
     cs-python.rst
+    cs-pyspark.rst
+    bct.rst
     cs-sphinx.rst
     cs-R.rst
     cs-awk-oneliners.rst
     cs-perl-oneliners.rst
     cs-py-jupyter-notebook.rst
-    cs-qsubber.rst
     cs-regexp.rst
     cs-rst.rst
     cs-rst-old.rst

@@ -6,9 +6,21 @@ Python
     :depth: 2
 
 
+
+
+
 ###############################
 Random Stack-overflow questions
 ###############################
+
+**********************************************
+When plt.tight_layout doesn't work as expected
+**********************************************
+.. code-block:: python
+
+    #http://stackoverflow.com/questions/8248467/matplotlib-tight-layout-doesnt-take-into-account-figure-suptitle
+    plt.subplots_adjust(top=1.25)
+    #plt.tight_layout()
 
 **********************
 Swap 2 items in a list

@@ -4,7 +4,7 @@
 #=============================================================================#
 make clean
 make html
-bash fix_name.sh
+# bash fix_name.sh
 cp ./source/img/favicon-penn.ico ./build/html/static
-firefox ./build/html/index.html
+# firefox ./build/html/index.html
 # rsync -r build/html/ published
