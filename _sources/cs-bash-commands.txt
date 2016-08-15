@@ -11,12 +11,42 @@ http://ss64.com/bash
     :depth: 2
 
 
+#########
+Overflows
+#########
+
+***********************
+Quotes with grep
+***********************
+- http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes
+
+.. code-block:: bash
+
+    $ echo grep -e show\(  test.txt 
+    grep -e show( test.txt
+
+    $ echo grep -e "show\("  test.txt 
+    grep -e show\( test.txt
+
+    $ echo grep -e 'show\('  test.txt 
+    grep -e show\( test.txt
+
+Reminder on single vs double quotes
+
+
+- http://stackoverflow.com/questions/3008423/quotes-when-using-grep
+
+.. code-block:: bash
+
+    $ echo "$(date) and 2+2=$((2+2))"
+    Tue Aug  5 18:52:39 PDT 2014 and 2+2=4
+    $ echo '$(date) and 2+2=$((2+2))'
+    $(date) and 2+2=$((2+2))
+
 ##################################
 Escaping single quotes (a mess...)
 ##################################
-Use ``.. code-block:: bash
-    :linenos:
-    :linenos:``
+Use ``'"'"'``
 
 http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
 
