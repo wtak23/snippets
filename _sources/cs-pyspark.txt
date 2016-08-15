@@ -9,12 +9,12 @@ pyspark
 
 Good tuorials
 
-- https://s3.amazonaws.com/sparksummit-share/ml-ams-1.0.1/index.html#1-mllib-datatypes/python/1-mllib-datatypes_answers.html
-- `Spark 2016 summit <https://spark-summit.org/2016/schedule/?utm_campaign=Spark%20Summit%20West%202016&utm_source=hs_email&utm_medium=email&utm_content=30831320&_hsenc=p2ANqtz-_goa4kT7aG-lkZ3-setVPXX6qMsjJzbiomDagOzpBmfMAid7vmB3zOnYPUSghsrhFM-s3i2M4xSOfjR9sdbxj3EJKcqg&_hsmi=30831320>`_
+- https://s3.amazonaws.com/sparksummit-share/ml-ams-1.0.1/index.html
+- `Spark 2016 summit <https://spark-summit.org/2016/>`_
 
 
 .. contents:: **Table of Contents**
-    :depth: 2
+    :depth: 3
 
 
 ###############
@@ -131,6 +131,408 @@ You cannot add an arbitrary column to a ``DataFrame`` in Spark.
     ## |  3|  B|-23.0|  0|1.026187963170189...|null|0.37801881545497873|
     ## +---+---+-----+---+--------------------+----+-------------------+
 
+##############
+Handy snippets
+##############
+https://spark.apache.org/docs/latest/quick-start.html
+
+.. code-block:: python
+
+    # this creates an RDD object
+    textFile = sc.textFile("README.md")
+
+    textFile.count() # Number of items in this RDD
+    126
+
+    textFile.first() # First item in this RDD
+    u'# Apache Spark'
+
+    linesWithSpark = textFile.filter(lambda line: "Spark" in line)
+    textFile.filter(lambda line: "Spark" in line).count() # How many lines contain "Spark"?
+    15
+
+    # find the line with the most words
+    textFile.map(lambda line: len(line.split())).reduce(lambda a, b: a if (a > b) else b)
+    15
+
+    # we can also pass a top-level python function (instead of anonymous functions like above)
+    def max(a, b):
+        if a > b:
+            return a
+        else:
+            return b
+    textFile.map(lambda line: len(line.split())).reduce(max)
+
+    #======================================================================#
+    # One common data flow pattern is MapReduce, as popularized by Hadoop. 
+    # Spark can implement MapReduce flows easily:
+    #======================================================================#
+    # compute the per-word counts in the file as an RDD of (string, int) pairs
+    wordCounts = (textFile
+                    .flatMap(lambda line: line.split())
+                    .map(lambda word: (word, 1))
+                    .reduceByKey(lambda a, b: a+b))
+
+    wordCounts.collect()
+    [(u'and', 9), (u'A', 1), (u'webpage', 1), (u'README', 1), (u'Note', 1), (u'"local"', 1), (u'variable', 1), ...]
+
+    # caching can help when you query small "hot" dataset or running iterative
+    # alg. like page-rank
+    linesWithSpark.cache()
+    linesWithSpark.count()
+    19
+    linesWithSpark.count()
+    19
+
+*********************
+Todo: run this script
+*********************
+https://spark.apache.org/docs/latest/quick-start.html#self-contained-applications
+
+.. code-block:: python
+
+    """SimpleApp.py"""
+    from pyspark import SparkContext
+
+    logFile = "YOUR_SPARK_HOME/README.md"  # Should be some file on your system
+    sc = SparkContext("local", "Simple App")
+    logData = sc.textFile(logFile).cache()
+
+    numAs = logData.filter(lambda s: 'a' in s).count()
+    numBs = logData.filter(lambda s: 'b' in s).count()
+
+    print("Lines with a: %i, lines with b: %i" % (numAs, numBs))
+
+Submit this script using ``bin/spark-submit`` script 
+
+.. code-block:: bash
+
+    # Use spark-submit to run your application
+    $ YOUR_SPARK_HOME/bin/spark-submit --master local[4] SimpleApp.py
+    ...
+    Lines with a: 46, Lines with b: 23
+
+************************
+Bunch of example scripts
+************************
+https://github.com/apache/spark/tree/master/examples/src/main/python
+
+********************************
+Use of persist (RDD persistence)
+********************************
+- https://spark.apache.org/docs/latest/programming-guide.html#basics
+- https://spark.apache.org/docs/latest/programming-guide.html#rdd-persistence
+
+One of the most important capabilities in Spark is persisting (or caching) a 
+dataset in memory across operations. When you persist an RDD, each node stores 
+any partitions of it that it computes in memory and reuses them in other 
+actions on that dataset (or datasets derived from it). This allows future 
+actions to be much faster (often by more than 10x). **Caching is a key tool for 
+iterative algorithms and fast interactive use**.
+
+You can mark an RDD to be persisted using the ``persist()`` or ``cache()`` methods on it. 
+
+- The first time it is computed in an action, it will be kept in memory on the nodes. 
+- Spark's cache is **fault-tolerant** – if any partition of an RDD is lost, 
+  it will automatically be recomputed using the transformations that 
+  originally created it.
+
+
+In addition, each persisted RDD can be stored using a different **storage level**, 
+allowing you, for example, to persist the dataset on disk, persist it in 
+memory but as serialized Java objects (to save space), replicate it across nodes. 
+
+- These levels are set by passing a ``StorageLevel`` object (Scala, Java, Python) to ``persist()``. 
+- The ``cache()`` method is a shorthand for using the default storage level, 
+  which is ``StorageLevel.MEMORY_ONLY`` (store deserialized objects in memory). 
+- The full set of storage levels is 
+  (`link <https://spark.apache.org/docs/latest/programming-guide.html#rdd-persistence>`_)
+
+.. code-block:: python
+
+    lines = sc.textFile("data.txt")
+    lineLengths = lines.map(lambda s: len(s))
+    totalLength = lineLengths.reduce(lambda a, b: a + b)
+
+    # if you want to use lineLengths again later, do this before reduce
+    # (saves the data in memory)
+    lineLengths.persist()
+
+##############
+SQL in pyspark
+##############
+Using Spark SQL within a Python Notebook
+
+You can use execute SQL commands within a python notebook by invoking %sql or using ``sqlContext.sql(...)``.
+
+.. code-block:: python
+
+    %sql show functions
+
+
+########################################
+Spark SQL, DataFrames and Datasets Guide
+########################################
+
+https://spark.apache.org/docs/latest/sql-programming-guide.html
+
+
+**********
+DataFrames
+**********
+.. code-block:: python
+
+    #======================================================================#
+    # create a basic SparkSession using SparkSession.builder
+    #======================================================================#
+    from pyspark.sql import SparkSession
+
+    # SparkSession in Spark 2.0 provides builtin support for Hive features 
+    # including the ability to write queries using HiveQL
+    spark = SparkSession\
+        .builder\
+        .appName("PythonSQL")\
+        .config("spark.some.config.option", "some-value")\
+        .getOrCreate()
+
+    # spark is an existing SparkSession
+    df = spark.read.json("examples/src/main/resources/people.json")
+   
+    # Displays the content of the DataFrame to stdout
+    df.show() 
+    ## age  name
+    ## null Michael
+    ## 30   Andy
+    ## 19   Justin
+
+    # Print the schema in a tree format
+    df.printSchema()
+    ## root
+    ## |-- age: long (nullable = true)
+    ## |-- name: string (nullable = true)
+
+    # Select only the "name" column
+    df.select("name").show()
+
+    # Select everybody, but increment the age by 1
+    df.select(df['name'], df['age'] + 1).show()
+    ## name    (age + 1)
+    ## Michael null
+    ## Andy    31
+    ## Justin  20
+
+    # Select people older than 21
+    df.filter(df['age'] > 21).show()
+    ## age name
+    ## 30  Andy
+
+    #======================================================================#
+    # run SQL Queries programatically
+    #======================================================================#
+    # spark is an existing SparkSession
+    df = spark.sql("SELECT * FROM table")
+
+********************************
+Inter-operating RDD & DataFrames
+********************************
+``Rows`` are constructed from a list of key/value pairs. The key will be 
+inferred as the column names of the table.
+
+
+
+.. code-block:: python
+
+    # spark is an existing SparkSession.
+    from pyspark.sql import Row
+    sc = spark.sparkContext
+
+    # Load a text file and convert each line to a Row.
+    lines = sc.textFile("examples/src/main/resources/people.txt")
+    parts = lines.map(lambda l: l.split(","))
+    people = parts.map(lambda p: Row(name=p[0], age=int(p[1])))
+
+    #======================================================================#
+    # Here, create DF from Row object by inferring scheme
+    # (key values will be used as column names)
+    #======================================================================#
+    # Infer the schema, and register the DataFrame as a table.
+    schemaPeople = spark.createDataFrame(people)
+    schemaPeople.createOrReplaceTempView("people")
+
+    # SQL can be run over DataFrames that have been registered as a table.
+    teenagers = spark.sql("SELECT name FROM people WHERE age >= 13 AND age <= 19")
+
+    # The results of SQL queries are RDDs and support all the normal RDD operations.
+    teenNames = teenagers.map(lambda p: "Name: " + p.name)
+    for teenName in teenNames.collect():
+      print(teenName)
+
+    #======================================================================#
+    # Programmatically Specifying the Schema
+    #======================================================================#
+    from pyspark.sql.types import *
+
+    # The schema is encoded in a string.
+    schemaString = "name age"
+
+    fields = [StructField(field_name, StringType(), True) for field_name in schemaString.split()]
+    schema = StructType(fields)
+
+    # Apply the schema to the RDD.
+    schemaPeople = spark.createDataFrame(people, schema)
+
+    # Creates a temporary view using the DataFrame
+    schemaPeople.createOrReplaceTempView("people")
+
+    # SQL can be run over DataFrames that have been registered as a table.
+    results = spark.sql("SELECT name FROM people")
+
+    # The results of SQL queries are RDDs and support all the normal RDD operations.
+    names = results.map(lambda p: "Name: " + p.name)
+    for name in names.collect():
+      print(name)
+
+************
+Data Sources
+************
+**Registering** a DataFrame as a **temporary view** allows you to run SQL queries over its data
+
+.. code-block:: python
+
+    # simplest load/save (default datasource = parquet)
+    # (default can be configureated in spark.sql.sources.default)
+    df = spark.read.load("examples/src/main/resources/users.parquet")
+    df.select("name", "favorite_color").write.save("namesAndFavColors.parquet")
+
+    # or you can manually specify options
+    df = spark.read.load("examples/src/main/resources/people.json", format="json")
+    df.select("name", "age").write.save("namesAndAges.parquet", format="parquet")
+
+    # can run sql queries on files directly
+    # (Instead of using read API to load a file into DataFrame and query it, 
+    #  you can also query that file directly with SQL.)
+    df = spark.sql("SELECT * FROM parquet.`examples/src/main/resources/users.parquet`")
+
+    # for save modes, see:
+    # https://spark.apache.org/docs/latest/sql-programming-guide.html#save-modes 
+
+
+***************************
+Saving to Persistent Tables
+***************************
+https://spark.apache.org/docs/latest/sql-programming-guide.html#save-modes
+
+DataFrames can also be saved as persistent tables into Hive metastore using 
+the saveAsTable command. Notice existing Hive deployment is not necessary to 
+use this feature. Spark will create a default local Hive metastore (using 
+Derby) for you. Unlike the createOrReplaceTempView command, saveAsTable will 
+materialize the contents of the DataFrame and create a pointer to the data in 
+the Hive metastore. Persistent tables will still exist even after your Spark 
+program has restarted, as long as you maintain your connection to the same 
+metastore. A DataFrame for a persistent table can be created by calling the 
+table method on a SparkSession with the name of the table.
+
+By default saveAsTable will create a “managed table”, meaning that the 
+location of the data will be controlled by the metastore. Managed tables will 
+also have their data deleted automatically when a table is dropped.
+
+Parquet Files
+=============
+`Parquet <http://parquet.io/>`_ is a columnar format that is supported by many 
+other data processing systems. 
+
+- Spark SQL provides support for both reading and writing Parquet files that 
+  automatically preserves the schema of the original data. 
+- When writing Parquet files, all columns are automatically converted to be 
+  nullable for compatibility reasons.
+- The loaded parquet files are DataFrames
+
+.. code-block:: python
+
+    # spark from the previous example is used in this example.
+
+    schemaPeople # The DataFrame from the previous example.
+
+    # DataFrames can be saved as Parquet files, maintaining the schema information.
+    schemaPeople.write.parquet("people.parquet")
+
+    # Read in the Parquet file created above. Parquet files are self-describing so the schema is preserved.
+    # The result of loading a parquet file is also a DataFrame.
+    parquetFile = spark.read.parquet("people.parquet")
+
+    # Parquet files can also be used to create a temporary view and then used in SQL statements.
+    parquetFile.createOrReplaceTempView("parquetFile");
+    teenagers = spark.sql("SELECT name FROM parquetFile WHERE age >= 13 AND age <= 19")
+    teenNames = teenagers.map(lambda p: "Name: " + p.name)
+    for teenName in teenNames.collect():
+      print(teenName)
+
+Schema merging
+==============
+https://spark.apache.org/docs/latest/sql-programming-guide.html#schema-merging
+
+  Not a necessity in most cases.
+
+.. code-block:: python
+
+    # spark from the previous example is used in this example.
+
+    # Create a simple DataFrame, stored into a partition directory
+    df1 = spark.createDataFrame(sc.parallelize(range(1, 6))\
+                                       .map(lambda i: Row(single=i, double=i * 2)))
+    df1.write.parquet("data/test_table/key=1")
+
+    # Create another DataFrame in a new partition directory,
+    # adding a new column and dropping an existing column
+    df2 = spark.createDataFrame(sc.parallelize(range(6, 11))
+                                       .map(lambda i: Row(single=i, triple=i * 3)))
+    df2.write.parquet("data/test_table/key=2")
+
+    # Read the partitioned table
+    df3 = spark.read.option("mergeSchema", "true").parquet("data/test_table")
+    df3.printSchema()
+
+    # The final schema consists of all 3 columns in the Parquet files together
+    # with the partitioning column appeared in the partition directory paths.
+    # root
+    # |-- single: int (nullable = true)
+    # |-- double: int (nullable = true)
+    # |-- triple: int (nullable = true)
+    # |-- key : int (nullable = true)
+
+JSON Datasets
+=============
+Spark SQL can automatically infer the schema of a JSON dataset and load it as a DataFrame
+
+- Note that the file that is offered as a json file is not a typical JSON file. 
+- Each line must contain a separate, self-contained valid JSON object. 
+- As a consequence, a regular multi-line JSON file will most often fail.
+
+.. code-block:: python
+
+    # spark is an existing SparkSession.
+
+    # A JSON dataset is pointed to by path.
+    # The path can be either a single text file or a directory storing text files.
+    people = spark.read.json("examples/src/main/resources/people.json")
+
+    # The inferred schema can be visualized using the printSchema() method.
+    people.printSchema()
+    # root
+    #  |-- age: long (nullable = true)
+    #  |-- name: string (nullable = true)
+
+    # Creates a temporary view using the DataFrame.
+    people.createOrReplaceTempView("people")
+
+    # SQL statements can be run by using the sql methods provided by `spark`.
+    teenagers = spark.sql("SELECT name FROM people WHERE age >= 13 AND age <= 19")
+
+    # Alternatively, a DataFrame can be created for a JSON dataset represented by
+    # an RDD[String] storing one JSON object per string.
+    anotherPeopleRDD = sc.parallelize([
+      '{"name":"Yin","address":{"city":"Columbus","state":"Ohio"}}'])
+    anotherPeople = spark.jsonRDD(anotherPeopleRDD)
 
 ####################################
 Programming-guide: condensed summary
@@ -172,7 +574,9 @@ Super basics
     data = [1, 2, 3, 4, 5]
     distData = sc.parallelize(data) # create Parallelized collections
     distData.reduce(lambda a, b: a + b)
-    distData = sc.parallelize(data,partitions=10) # can also specify # partitions (typically 2-4 partitions for each CPU in cluster
+
+    # partitions (typically 2-4 partitions for each CPU in cluster
+    distData = sc.parallelize(data,partitions=10) # can also specify 
     wordsRDD = sc.parallelize(["fish", "cats", "dogs"])
     
 
@@ -182,7 +586,8 @@ Super basics
     distFile = sc.textFile("data.txt")
     distFile.map(lambda s: len(s)).reduce(lambda a, b: a + b)
 
-    # All of Spark’s file-based input methods, including textFile, support running on directories, compressed files, and wildcards
+    # All of Spark’s file-based input methods, including textFile, 
+    # support running on directories, compressed files, and wildcards
     sc.textFile("/my/directory")
     sc.textFile("/my/directory/*.txt")
     sc.textFile("/my/directory/*.gz")
@@ -201,18 +606,22 @@ Super basics
 Shared variables
 ****************
 - General, read-write shared variables across tasks would be inefficient. 
-- However, Spark does provide two limited types of shared variables for two common usage patterns: broadcast variables and accumulators.
+- However, Spark does provide two limited types of shared variables for two \
+  common usage patterns: broadcast variables and accumulators.
 
 
 Broadast variables
 ==================
 - ``SparkContext.broadcast(v)`` - creates Broadcast variables from variable v. 
 
-  - The broadcast variable is a wrapper around v, and its value can be accessed by calling the ``.value`` method
-- Broadcast variables are used to keep a read-only variable cached on each machine (rather than shipping a copy of it with tasks). 
+  - The broadcast variable is a wrapper around v, and its value can be accessed by 
+    calling the ``.value`` method
+- Broadcast variables are used to keep a read-only variable cached on each machine 
+  (rather than shipping a copy of it with tasks). 
 
   - example usage: to give every node a copy of a large input dataset in an efficient manner. 
-- explicitly creating broadcast variables is only useful when tasks across multiple stages need the same data or when caching the data in deserialized form is important.
+- explicitly creating broadcast variables is only useful when tasks across multiple 
+  stages need the same data or when caching the data in deserialized form is important.
 
 .. code-block:: python
 
@@ -285,63 +694,20 @@ Some caveats when defining class attributes
 
 RDD Transformations
 ===================
-some of the common transformations supported by Spark
-
-Regex used to get below: **search**: ``(^[a-zA-Z]*\(.*?\))``, **replace**: ``\1 |`` 
-
-.. csv-table:: 
-    :header: Transformation, Meaning
-    :widths: 20,70
-    :delim: |
-
-    map(func)  |    Return a new distributed dataset formed by passing each element of the source through a function func.
-    filter(func)  |     Return a new dataset formed by selecting those elements of the source on which func returns true.
-    flatMap(func)  |    Similar to map, but each input item can be mapped to 0 or more output items (so func should return a Seq rather than a single item).
-    mapPartitions(func)  |  Similar to map, but runs separately on each partition (block) of the RDD, so func must be of type Iterator<T> => Iterator<U> when running on an RDD of type T.
-    mapPartitionsWithIndex(func)  |     Similar to mapPartitions, but also provides func with an integer value representing the index of the partition, so func must be of type (Int, Iterator<T>) => Iterator<U> when running on an RDD of type T.
-    sample(withReplacement, fraction, seed)  |  Sample a fraction fraction of the data, with or without replacement, using a given random number generator seed.
-    union(otherDataset)  |  Return a new dataset that contains the union of the elements in the source dataset and the argument.
-    intersection(otherDataset)  |   Return a new RDD that contains the intersection of elements in the source dataset and the argument.
-    distinct([numTasks])  |   Return a new dataset that contains the distinct elements of the source dataset.
-    groupByKey([numTasks])  |   When called on a dataset of (K, V) pairs, returns a dataset of (K, Iterable<V>) pairs. Note: If you are grouping in order to perform an aggregation (such as a sum or average) over each key, using reduceByKey or aggregateByKey will yield much better performance. \Note: By default, the level of parallelism in the output depends on the number of partitions of the parent RDD. You can pass an optional numTasks argument to set a different number of tasks.
-    reduceByKey(func, [numTasks])  |    When called on a dataset of (K, V) pairs, returns a dataset of (K, V) pairs where the values for each key are aggregated using the given reduce function func, which must be of type (V,V) => V. Like in groupByKey, the number of reduce tasks is configurable through an optional second argument.
-    aggregateByKey(zeroValue)  | (seqOp, combOp, [numTasks])    When called on a dataset of (K, V) pairs, returns a dataset of (K, U) pairs where the values for each key are aggregated using the given combine functions and a neutral "zero" value. Allows an aggregated value type that is different than the input value type, while avoiding unnecessary allocations. Like in groupByKey, the number of reduce tasks is configurable through an optional second argument.
-    sortByKey([ascending], [numTasks])  |   When called on a dataset of (K, V) pairs where K implements Ordered, returns a dataset of (K, V) pairs sorted by keys in ascending or descending order, as specified in the boolean ascending argument.
-    join(otherDataset, [numTasks])  |   When called on datasets of type (K, V) and (K, W), returns a dataset of (K, (V, W)) pairs with all pairs of elements for each key. Outer joins are supported through leftOuterJoin, rightOuterJoin, and fullOuterJoin.
-    cogroup(otherDataset, [numTasks])  |    When called on datasets of type (K, V) and (K, W), returns a dataset of (K, (Iterable<V>, Iterable<W>)) tuples. This operation is also called groupWith.
-    cartesian(otherDataset)  |  When called on datasets of types T and U, returns a dataset of (T, U) pairs (all pairs of elements).
-    pipe(command, [envVars])  |     Pipe each partition of the RDD through a shell command, e.g. a Perl or bash script. RDD elements are written to the process's stdin and lines output to its stdout are returned as an RDD of strings.
-    coalesce(numPartitions)  |  Decrease the number of partitions in the RDD to numPartitions. Useful for running operations more efficiently after filtering down a large dataset.
-    repartition(numPartitions)  |   Reshuffle the data in the RDD randomly to create either more or fewer partitions and balance it across them. This always shuffles all data over the network.
-    repartitionAndSortWithinPartitions(partitioner)  |  Repartition the RDD according to the given partitioner and, within each resulting partition, sort records by their keys. This is more efficient than calling repartition and then sorting within each partition because it can push the sorting down into the shuffle machinery.
-
+http://spark.apache.org/docs/latest/programming-guide.html#transformations
 
 RDD Actions
 ===========
-.. csv-table:: 
-    :header: Action, Meaning
-    :widths: 20,70
-    :delim: |
-
-    reduce(func)  |   Aggregate the elements of the dataset using a function func (which takes two arguments and returns one). The function should be commutative and associative so that it can be computed correctly in parallel.
-    collect()  |  Return all the elements of the dataset as an array at the driver program. This is usually useful after a filter or other operation that returns a sufficiently small subset of the data.
-    count()  |  Return the number of elements in the dataset.
-    first()  |  Return the first element of the dataset (similar to take(1)).
-    take(n)  |  Return an array with the first n elements of the dataset.
-    takeSample(withReplacement, num, [seed])  |   Return an array with a random sample of num elements of the dataset, with or without replacement, optionally pre-specifying a random number generator seed.
-    takeOrdered(n, [ordering])  |   Return the first n elements of the RDD using either their natural order or a custom comparator.
-    saveAsTextFile(path)  |   Write the elements of the dataset as a text file (or set of text files) in a given directory in the local filesystem, HDFS or any other Hadoop-supported file system. Spark will call toString on each element to convert it to a line of text in the file.
-    saveAsSequenceFile(path)  (Java and Scala) |         Write the elements of the dataset as a Hadoop SequenceFile in a given path in the local filesystem, HDFS or any other Hadoop-supported file system. This is available on RDDs of key-value pairs that implement Hadoop's Writable interface. In Scala, it is also available on types that are implicitly convertible to Writable (Spark includes conversions for basic types like Int, Double, String, etc).
-    saveAsObjectFile(path)  (Java and Scala) |      Write the elements of the dataset in a simple format using Java serialization, which can then be loaded using SparkContext.objectFile().
-    countByKey()  |   Only available on RDDs of type (K, V). Returns a hashmap of (K, Int) pairs with the count of each key.
-    foreach(func)  |  Run a function func on each element of the dataset. This is usually done for side effects such as updating an Accumulator or interacting with external storage systems.  Note: modifying variables other than Accumulators outside of the foreach() may result in undefined behavior. See Understanding closures for more details.
+http://spark.apache.org/docs/latest/programming-guide.html#actions
 
 closures
 ========
 Common confusion in Spark:
 
-- understanding the **scope** and **life cycle** of variables and methods when executing code across a cluster.
-- In general, **closures** - constructs like loops or locally defined methods, should not be used to mutate some global state. 
+- understanding the **scope** and **life cycle** of variables and methods when
+  executing code across a cluster.
+- In general, **closures** - constructs like loops or locally defined methods, 
+  should not be used to mutate some global state. 
 - Use an **Accumulator** instead if some global aggregation is needed.
 
 Example: wrong way to increment a counter
@@ -377,7 +743,6 @@ Random handy snippets
 compute average
 ****************
 .. code-block:: python
-
     
     # using RDDs
     rdd = sc.textFile(...).map(_.split(" "))
@@ -395,4 +760,4 @@ compute average
     .agg(avg("value"))
     .collect()
 
-dfasd
+
