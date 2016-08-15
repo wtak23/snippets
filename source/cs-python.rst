@@ -181,7 +181,6 @@ http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a
 
 .. code-block:: bash
     :linenos:
-    :linenos:
 
     #http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package
     python setup.py install --user
@@ -202,7 +201,6 @@ http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-sli
 
 
 .. code-block:: python
-    :linenos:
     :linenos:
     :emphasize-lines: 2-6
 

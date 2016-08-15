@@ -6,10 +6,7 @@ regular expressions
 .. contents:: **Table of Contents**
     :depth: 2
 
-
-#############################
-Regular expression references
-#############################
+**Regular expression references**
 
 Two best tutorials
 
@@ -25,6 +22,41 @@ Best python tutorial
   - http://www.rexegg.com/regex-quantifiers.html#cheat_sheet
 
 | Sublime Text uses the Perl Compatible Regular Expressions (PCRE) engine from the Boost library to power regular expressions in search panels.
+
+#########
+Overflows
+#########
+***********************
+Use Perl engine in bash
+***********************
+- http://unix.stackexchange.com/questions/84477/forcing-bash-to-use-perl-regex-engine
+
+
+*********************
+Negate specific word?
+*********************
+- http://stackoverflow.com/questions/1240275/how-to-negate-specific-word-in-regex
+- http://stackoverflow.com/questions/899422/regular-expression-for-a-string-that-does-not-start-with-a-sequence
+
+.. code-block:: bash
+
+    # i want to negate word bar, but ``[^bar]`` won't work (works char-wise)
+
+    # S.O.'s answer: use negative lookahead (hmmm...doesn't wrok in my regex engine in bash...flag issue?
+    grep -P '^(?!.*bar).*$'
+
+    # avoid line containing 'age'
+    find . | grep  '^(?!.*age).*$' | sort
+
+    # note: i can't add comment at linebreaks like below; below just for my own help
+    find . -maxdepth 1 \
+        | sed 's/\.\///g' \# clean up "./" 
+        | sort
+        | grep -P '(?<!^age).+age' # get line with "age", but doesn't start with "age"
+    find . -maxdepth 1 | sed 's/\.\///g' | sort | grep -P '(?<!^age).+age'
+
+
+
 
 ###########
 Sublimetext
@@ -152,7 +184,6 @@ Search and replace with sub
 
 .. code-block:: python
     :linenos:
-    :linenos:
 
     >>> p = re.compile('(blue|white|red)')
     >>> p.sub('colour', 'blue socks and red shoes')
@@ -184,7 +215,6 @@ Search and replace with sub
 
 
 .. code-block:: python
-    :linenos:
     :linenos:
 
     # This example matches the word section followed by a string enclosed in {, }, and changes section to subsection:
@@ -234,7 +264,6 @@ Greedy vs nongreedy
 - nongreedy qualifiers: ``*?, +?, ??, or {m,n}?,``
 
 .. code-block:: python
-    :linenos:
     :linenos:
 
     >>> s = '<html><head><title>Title</title>'
