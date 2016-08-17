@@ -7,7 +7,7 @@ Brain Connectivity Toolbox
 Gem from the great `Brain connectivity toolbox <https://sites.google.com/site/bctnet/>`_.
 API created via Sphinx.
 
-`Table <bct_table.pdf>`_ of network measures.
+`Table <./_static/pdf/bct_table.pdf>`_ of network measures.
 
 .. toctree::
     :maxdepth: 1
