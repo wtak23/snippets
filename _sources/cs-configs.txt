@@ -1,0 +1,24 @@
+misc
+""""
+
+My personal config files (most expanded in sphinx using ``literalinclude`` on symlinks)
+
+.. contents:: **Table of Contents**
+    :depth: 2
+
+
+############################
+Current sublimetext snippets
+############################
+https://github.com/wtak23/configs_master/tree/master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia
+
+#########################
+My current gitconfig file
+#########################
+.. note::
+
+    Below I have a symlink to my ``gitconfig`` file for the take of having Sphinx understand its path location
+
+.. literalinclude:: ./symlinks/.gitconfig
+    :language: bash
+    :linenos:

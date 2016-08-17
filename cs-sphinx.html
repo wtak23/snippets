@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. sphinx &mdash; Snippets 1 documentation</title>
+  <title>9. sphinx &mdash; Snippets 1 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="Snippets 1 documentation" href="index.html"/>
-        <link rel="next" title="8. R" href="cs-R.html"/>
-        <link rel="prev" title="6.3.2.1. bct.nbs.BCTParamError" href="generated/bct.nbs.BCTParamError.html"/> 
+        <link rel="next" title="10. R" href="cs-R.html"/>
+        <link rel="prev" title="8. misc" href="cs-configs.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -92,93 +92,95 @@
 <li class="toctree-l1"><a class="reference internal" href="cs-python.html">4. Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs-pyspark.html">5. pyspark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bct.html">6. Brain Connectivity Toolbox</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7. sphinx</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lookups">7.1. Lookups</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#references-for-rst-in-general-non-sphinx">7.1.1. References for rst in general (non-sphinx)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-git.html">7. git-snippet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-configs.html">8. misc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lookups">9.1. Lookups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references-for-rst-in-general-non-sphinx">9.1.1. References for rst in general (non-sphinx)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#autodoc-related">7.2. Autodoc related</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#main-directives">7.2.1. Main directives</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#directive-options">7.2.2. directive options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#my-usage-example">7.2.2.1. My usage example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autodoc-related">9.2. Autodoc related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-directives">9.2.1. Main directives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directive-options">9.2.2. directive options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#my-usage-example">9.2.2.1. My usage example</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page">7.2.3. autosummary (my notes highly incomplete...better to look at the doc page)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#autosummary-directive">7.2.3.1. autosummary directive</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#options">7.2.3.2. options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pandas-example">7.2.3.3. pandas example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#conf-py-related">7.3. conf.py related</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example-conf-py">7.3.1. Example conf.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#extensions">7.3.2. extensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones">7.3.2.1. Ones i care about (including 3rd party...keep adding to the list as i find new ones)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">7.3.2.2. Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sphinx-built-in">7.3.2.3. Sphinx built-in</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rd-party-extensions">7.3.2.4. 3rd party extensions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#rtd-theme-one-of-my-favorite-html-theme">7.3.3. rtd theme (one of my favorite html-theme)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#functions-i-use-frequently-non-autodoc-ones">7.4. Functions I use frequently (non-autodoc ones)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#toctree">7.4.1. toctree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#code">7.4.2. Code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#literal-includes-include-code-from-external-file">7.4.2.1. Literal includes (include code from external file)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#python-directives-and-roles">7.4.3. Python directives and roles</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#directives">7.4.3.1. Directives</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#roles">7.4.3.2. roles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#info-field">7.4.3.3. Info field</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#inline-markups-mostly-for-cross-referencing-via-ref">7.4.4. inline markups (mostly for cross-referencing via :ref:)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ref">7.4.4.1. ref</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-usage">7.4.4.2. Example usage</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#paragraph-level-directives">7.4.5. Paragraph-level directives</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#restructured-text-primer">7.5. restructured text primer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#heading-level-convention">7.5.1. Heading-level convention</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#line-blocks">7.5.2. Line blocks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#citations">7.5.3. Citations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#links">7.5.4. links</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">7.5.5. citations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#substitutions-stuffs">7.5.6. substitutions |stuffs|</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#comments">7.5.7. comments</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#master-document-index-rst">7.6. master document (index.rst)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#publishing-on-github">7.7. Publishing on github</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sphinx-quickstart">7.8. sphinx quickstart</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#queries">7.8.1. queries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#doc">7.8.2. doc</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#google-style-vs-numpy-style-docstring">7.9. Google-style vs numpy-style docstring</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#google-style-like-theano">7.9.1. Google style (like theano)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#numpy-style-my-preference">7.9.2. NumPy style (my preference)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page">9.2.3. autosummary (my notes highly incomplete...better to look at the doc page)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autosummary-directive">9.2.3.1. autosummary directive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">9.2.3.2. options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pandas-example">9.2.3.3. pandas example</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cs-R.html">8. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">9. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">10. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">11. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">12. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">13. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">14. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">15. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">16. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">17. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">18. Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">19. awk-tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conf-py-related">9.3. conf.py related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-conf-py">9.3.1. Example conf.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extensions">9.3.2. extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones">9.3.2.1. Ones i care about (including 3rd party...keep adding to the list as i find new ones)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">9.3.2.2. Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sphinx-built-in">9.3.2.3. Sphinx built-in</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rd-party-extensions">9.3.2.4. 3rd party extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rtd-theme-one-of-my-favorite-html-theme">9.3.3. rtd theme (one of my favorite html-theme)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions-i-use-frequently-non-autodoc-ones">9.4. Functions I use frequently (non-autodoc ones)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#toctree">9.4.1. toctree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">9.4.2. Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#literal-includes-include-code-from-external-file">9.4.2.1. Literal includes (include code from external file)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-directives-and-roles">9.4.3. Python directives and roles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#directives">9.4.3.1. Directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#roles">9.4.3.2. roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info-field">9.4.3.3. Info field</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inline-markups-mostly-for-cross-referencing-via-ref">9.4.4. inline markups (mostly for cross-referencing via :ref:)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ref">9.4.4.1. ref</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-usage">9.4.4.2. Example usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#paragraph-level-directives">9.4.5. Paragraph-level directives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#restructured-text-primer">9.5. restructured text primer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#heading-level-convention">9.5.1. Heading-level convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line-blocks">9.5.2. Line blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#citations">9.5.3. Citations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#links">9.5.4. links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">9.5.5. citations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#substitutions-stuffs">9.5.6. substitutions |stuffs|</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">9.5.7. comments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#master-document-index-rst">9.6. master document (index.rst)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-on-github">9.7. Publishing on github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-quickstart">9.8. sphinx quickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#queries">9.8.1. queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doc">9.8.2. doc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#google-style-vs-numpy-style-docstring">9.9. Google-style vs numpy-style docstring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#google-style-like-theano">9.9.1. Google style (like theano)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numpy-style-my-preference">9.9.2. NumPy style (my preference)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">10. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">11. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">12. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">14. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">15. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">16. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">17. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">18. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">19. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">20. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">21. awk-tutorial</a></li>
 </ul>
 
             
@@ -220,7 +222,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>7. sphinx</li>
+      <li>9. sphinx</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -238,7 +240,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="sphinx">
-<h1><a class="toc-backref" href="#id7">7. sphinx</a><a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id7">9. sphinx</a><a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first"><strong>Table of Contents</strong></p>
 <ul class="simple">
@@ -294,7 +296,7 @@
 </ul>
 </div>
 <div class="section" id="lookups">
-<h2><a class="toc-backref" href="#id8">7.1. Lookups</a><a class="headerlink" href="#lookups" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">9.1. Lookups</a><a class="headerlink" href="#lookups" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html</a></p>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/contents.html">http://www.sphinx-doc.org/en/stable/contents.html</a> - Main TOC in the Sphinx-DOC</p>
 <p>Ones I lookup frequently</p>
@@ -309,7 +311,7 @@
 <li><strong>reStructuredText Primer</strong> <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a> (helpful refresher on rst syntax)</li>
 </ul>
 <div class="section" id="references-for-rst-in-general-non-sphinx">
-<h3><a class="toc-backref" href="#id9">7.1.1. References for rst in general (non-sphinx)</a><a class="headerlink" href="#references-for-rst-in-general-non-sphinx" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">9.1.1. References for rst in general (non-sphinx)</a><a class="headerlink" href="#references-for-rst-in-general-non-sphinx" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></li>
 <li>Roles: <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html">http://docutils.sourceforge.net/docs/ref/rst/roles.html</a></li>
@@ -322,13 +324,13 @@
 </div>
 </div>
 <div class="section" id="autodoc-related">
-<h2><a class="toc-backref" href="#id10">7.2. Autodoc related</a><a class="headerlink" href="#autodoc-related" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">9.2. Autodoc related</a><a class="headerlink" href="#autodoc-related" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autodoc.html">http://www.sphinx-doc.org/en/stable/ext/autodoc.html</a></li>
 <li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html</a></li>
 </ul>
 <div class="section" id="main-directives">
-<h3><a class="toc-backref" href="#id11">7.2.1. Main directives</a><a class="headerlink" href="#main-directives" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">9.2.1. Main directives</a><a class="headerlink" href="#main-directives" title="Permalink to this headline">¶</a></h3>
 <p>List</p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">automodule</span><span class="p">::</span>
 <span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span>
@@ -361,7 +363,7 @@
 </div>
 </div>
 <div class="section" id="directive-options">
-<h3><a class="toc-backref" href="#id12">7.2.2. directive options</a><a class="headerlink" href="#directive-options" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">9.2.2. directive options</a><a class="headerlink" href="#directive-options" title="Permalink to this headline">¶</a></h3>
 <p>Summary</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>:members:            <span class="c1"># recursively include all member functions (or explicitly send member function names)</span>
 :undoc-members:      <span class="c1"># include member functions without docstring (default ignores them)</span>
@@ -394,7 +396,7 @@
 </pre></div>
 </div>
 <div class="section" id="my-usage-example">
-<h4>7.2.2.1. My usage example<a class="headerlink" href="#my-usage-example" title="Permalink to this headline">¶</a></h4>
+<h4>9.2.2.1. My usage example<a class="headerlink" href="#my-usage-example" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/pyspark.ml.html">https://tedboy.github.io/pyspark_doc/pyspark.ml.html</a></li>
 <li><a class="reference external" href="https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt">https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt</a></li>
@@ -408,7 +410,7 @@
 </div>
 </div>
 <div class="section" id="autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page">
-<h3><a class="toc-backref" href="#id13">7.2.3. autosummary (my notes highly incomplete...better to look at the doc page)</a><a class="headerlink" href="#autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">9.2.3. autosummary (my notes highly incomplete...better to look at the doc page)</a><a class="headerlink" href="#autosummary-my-notes-highly-incomplete-better-to-look-at-the-doc-page" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autosummary.html">http://www.sphinx-doc.org/en/stable/ext/autosummary.html</a></p>
 <ul class="simple">
 <li>Pandas uses this in their api page (see below)</li>
@@ -433,14 +435,14 @@ with templates.</li>
 </pre></div>
 </div>
 <div class="section" id="autosummary-directive">
-<h4>7.2.3.1. autosummary directive<a class="headerlink" href="#autosummary-directive" title="Permalink to this headline">¶</a></h4>
+<h4>9.2.3.1. autosummary directive<a class="headerlink" href="#autosummary-directive" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal"><span class="pre">..</span> <span class="pre">autosummary::</span></code> inserts a table that contains links to documented items,
 and a short summary blurb (the first sentence of the docstring) for each of them.</p>
 <p>The autosummary directive can also optionally serve as a toctree entry for the included items. Optionally, stub .rst files
 for these items can also be automatically generated.</p>
 </div>
 <div class="section" id="options">
-<h4>7.2.3.2. options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h4>
+<h4>9.2.3.2. options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h4>
 <p>By default, no toctree is generated:</p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> sphinx
 
@@ -468,7 +470,7 @@ for these items can also be automatically generated.</p>
 </div>
 </div>
 <div class="section" id="pandas-example">
-<h4>7.2.3.3. pandas example<a class="headerlink" href="#pandas-example" title="Permalink to this headline">¶</a></h4>
+<h4>9.2.3.3. pandas example<a class="headerlink" href="#pandas-example" title="Permalink to this headline">¶</a></h4>
 <p><strong>pandas</strong></p>
 <ul class="simple">
 <li><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/api.html">http://pandas.pydata.org/pandas-docs/stable/api.html</a></li>
@@ -510,7 +512,7 @@ for these items can also be automatically generated.</p>
 </div>
 </div>
 <div class="section" id="conf-py-related">
-<h2><a class="toc-backref" href="#id14">7.3. conf.py related</a><a class="headerlink" href="#conf-py-related" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">9.3. conf.py related</a><a class="headerlink" href="#conf-py-related" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">http://www.sphinx-doc.org/en/stable/config.html</a></li>
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/theming.html">http://www.sphinx-doc.org/en/stable/theming.html</a> (examples of html themes)</li>
@@ -522,7 +524,7 @@ for these items can also be automatically generated.</p>
 </pre></div>
 </div>
 <div class="section" id="example-conf-py">
-<h3><a class="toc-backref" href="#id15">7.3.1. Example conf.py</a><a class="headerlink" href="#example-conf-py" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">9.3.1. Example conf.py</a><a class="headerlink" href="#example-conf-py" title="Permalink to this headline">¶</a></h3>
 <p>See <a class="reference external" href="https://github.com/takwatanabe2004/snippets/blob/master/cs-rst.rst#examples-conf-py-and-github">https://github.com/takwatanabe2004/snippets/blob/master/cs-rst.rst#examples-conf-py-and-github</a></p>
 <ul class="simple">
 <li>Pandas: <a class="reference external" href="https://github.com/pydata/pandas/blob/master/doc/source/conf.py">https://github.com/pydata/pandas/blob/master/doc/source/conf.py</a></li>
@@ -538,7 +540,7 @@ subl /home/takanori/Dropbox/git/tedboy/bs4doc_source/source/conf.py
 </div>
 </div>
 <div class="section" id="extensions">
-<h3><a class="toc-backref" href="#id16">7.3.2. extensions</a><a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">9.3.2. extensions</a><a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>extension</strong> = a Python module that provides additional features for Sphinx projects</li>
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/extensions.html">http://www.sphinx-doc.org/en/stable/extensions.html</a></li>
@@ -553,7 +555,7 @@ subl /home/takanori/Dropbox/git/tedboy/bs4doc_source/source/conf.py
 </pre></div>
 </div>
 <div class="section" id="ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones">
-<h4>7.3.2.1. Ones i care about (including 3rd party...keep adding to the list as i find new ones)<a class="headerlink" href="#ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones" title="Permalink to this headline">¶</a></h4>
+<h4>9.3.2.1. Ones i care about (including 3rd party...keep adding to the list as i find new ones)<a class="headerlink" href="#ones-i-care-about-including-3rd-party-keep-adding-to-the-list-as-i-find-new-ones" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx</span>
 <span class="kn">import</span> <span class="nn">numpydoc</span>
 <span class="kn">import</span> <span class="nn">IPython.sphinxext</span>
@@ -581,7 +583,7 @@ subl /home/takanori/Dropbox/git/tedboy/bs4doc_source/source/conf.py
 </div>
 </div>
 <div class="section" id="examples">
-<h4>7.3.2.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<h4>9.3.2.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
 <p>matplotlib: <a class="reference external" href="https://github.com/matplotlib/matplotlib/tree/master/doc">https://github.com/matplotlib/matplotlib/tree/master/doc</a></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;matplotlib.sphinxext.mathmpl&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinxext.math_symbol_table&#39;</span><span class="p">,</span>
               <span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib.sphinxext.only_directives&#39;</span><span class="p">,</span>
@@ -654,7 +656,7 @@ subl /home/takanori/Dropbox/git/tedboy/bs4doc_source/source/conf.py
 </div>
 </div>
 <div class="section" id="sphinx-built-in">
-<h4>7.3.2.3. Sphinx built-in<a class="headerlink" href="#sphinx-built-in" title="Permalink to this headline">¶</a></h4>
+<h4>9.3.2.3. Sphinx built-in<a class="headerlink" href="#sphinx-built-in" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>sphinx.ext.autodoc <span class="c1"># Include documentation from docstrings</span>
 sphinx.ext.autosectionlabel <span class="c1"># Allow reference sections using its title</span>
 sphinx.ext.autosummary <span class="c1"># Generate autodoc summaries</span>
@@ -664,7 +666,7 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="rd-party-extensions">
-<h4>7.3.2.4. 3rd party extensions<a class="headerlink" href="#rd-party-extensions" title="Permalink to this headline">¶</a></h4>
+<h4>9.3.2.4. 3rd party extensions<a class="headerlink" href="#rd-party-extensions" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><a class="reference external" href="https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html">https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html</a></li>
 </ul>
@@ -677,7 +679,7 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="rtd-theme-one-of-my-favorite-html-theme">
-<h3><a class="toc-backref" href="#id17">7.3.3. rtd theme (one of my favorite html-theme)</a><a class="headerlink" href="#rtd-theme-one-of-my-favorite-html-theme" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">9.3.3. rtd theme (one of my favorite html-theme)</a><a class="headerlink" href="#rtd-theme-one-of-my-favorite-html-theme" title="Permalink to this headline">¶</a></h3>
 <p>To see theme options available in rtd, open:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ cat /home/takanori/.local/lib/python2.7/site-packages/sphinx_rtd_theme-0.1.10a0-py2.7.egg/sphinx_rtd_theme/theme.conf
 
@@ -713,11 +715,11 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="functions-i-use-frequently-non-autodoc-ones">
-<h2><a class="toc-backref" href="#id18">7.4. Functions I use frequently (non-autodoc ones)</a><a class="headerlink" href="#functions-i-use-frequently-non-autodoc-ones" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">9.4. Functions I use frequently (non-autodoc ones)</a><a class="headerlink" href="#functions-i-use-frequently-non-autodoc-ones" title="Permalink to this headline">¶</a></h2>
 <p>By <strong>function</strong>, I mean roles/directives.</p>
 <p>Stuffs in this section mostly from <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/index.html">http://www.sphinx-doc.org/en/stable/markup/index.html</a></p>
 <div class="section" id="toctree">
-<h3><a class="toc-backref" href="#id19">7.4.1. toctree</a><a class="headerlink" href="#toctree" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">9.4.1. toctree</a><a class="headerlink" href="#toctree" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/toctree.html">http://www.sphinx-doc.org/en/stable/markup/toctree.html</a></p>
 <p><a class="reference external" href="https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt">Usage</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>.. toctree::
@@ -733,7 +735,7 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="code">
-<h3><a class="toc-backref" href="#id20">7.4.2. Code</a><a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">9.4.2. Code</a><a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/code.html">http://www.sphinx-doc.org/en/stable/markup/code.html</a></p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span># This will produce line numbers for all code blocks longer than five lines.
 <span class="p">..</span> <span class="ow">highlight</span><span class="p">::</span> python
@@ -748,7 +750,7 @@ sphinx.ext.doctest – Test snippets in the documentation
 </pre></div>
 </div>
 <div class="section" id="literal-includes-include-code-from-external-file">
-<h4>7.4.2.1. Literal includes (include code from external file)<a class="headerlink" href="#literal-includes-include-code-from-external-file" title="Permalink to this headline">¶</a></h4>
+<h4>9.4.2.1. Literal includes (include code from external file)<a class="headerlink" href="#literal-includes-include-code-from-external-file" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.py
 
 <span class="p">..</span> <span class="ow">literalinclude</span><span class="p">::</span> example.rb
@@ -776,11 +778,11 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="python-directives-and-roles">
-<h3><a class="toc-backref" href="#id21">7.4.3. Python directives and roles</a><a class="headerlink" href="#python-directives-and-roles" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">9.4.3. Python directives and roles</a><a class="headerlink" href="#python-directives-and-roles" title="Permalink to this headline">¶</a></h3>
 <p><strong>Domain</strong> = a collection of markup (reStructuredText directives and roles) to describe and link to objects belonging together, e.g. elements of a programming language.</p>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html">http://www.sphinx-doc.org/en/stable/domains.html</a></p>
 <div class="section" id="directives">
-<h4>7.4.3.1. Directives<a class="headerlink" href="#directives" title="Permalink to this headline">¶</a></h4>
+<h4>9.4.3.1. Directives<a class="headerlink" href="#directives" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects">http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects</a></p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">default-domain</span><span class="p">::</span> python
 <span class="p">..</span> <span class="ow">module</span><span class="p">::</span> name
@@ -801,7 +803,7 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="roles">
-<h4>7.4.3.2. roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h4>
+<h4>9.4.3.2. roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects">http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects</a></li>
 <li>Handy for cross-referencing Python objects (also gives hyperlinks if a matching identifier is found)</li>
@@ -816,7 +818,7 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="info-field">
-<h4>7.4.3.3. Info field<a class="headerlink" href="#info-field" title="Permalink to this headline">¶</a></h4>
+<h4>9.4.3.3. Info field<a class="headerlink" href="#info-field" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>I&#8217;ll probably never use this, but know it exists</li>
 <li>See how below will render at: <a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#info-field-lists">http://www.sphinx-doc.org/en/stable/domains.html#info-field-lists</a></li>
@@ -839,7 +841,7 @@ sphinx.ext.doctest – Test snippets in the documentation
 </div>
 </div>
 <div class="section" id="inline-markups-mostly-for-cross-referencing-via-ref">
-<h3><a class="toc-backref" href="#id22">7.4.4. inline markups (mostly for cross-referencing via :ref:)</a><a class="headerlink" href="#inline-markups-mostly-for-cross-referencing-via-ref" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">9.4.4. inline markups (mostly for cross-referencing via :ref:)</a><a class="headerlink" href="#inline-markups-mostly-for-cross-referencing-via-ref" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/inline.html">http://www.sphinx-doc.org/en/stable/markup/inline.html</a></p>
 <p>There are bunch of them on the above link, but I rarely used them... <code class="docutils literal"><span class="pre">:ref:</span></code>
 is pretty much all i use here...</p>
@@ -852,7 +854,7 @@ See <span class="na">:download:</span><span class="nv">`this example script &lt;
 </pre></div>
 </div>
 <div class="section" id="ref">
-<h4>7.4.4.1. ref<a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h4>
+<h4>9.4.4.1. ref<a class="headerlink" href="#ref" title="Permalink to this headline">¶</a></h4>
 <p>Beauty of <code class="docutils literal"><span class="pre">:ref:</span></code> is that it works across files!</p>
 <p>Idea:</p>
 <ul class="simple">
@@ -879,7 +881,7 @@ but you must give the link an explicit title, using this syntax:
 <code class="docutils literal"><span class="pre">:ref:`Link</span> <span class="pre">title</span> <span class="pre">&lt;label-name&gt;`.</span></code> (however, this never worked for me so far...)</p>
 </div>
 <div class="section" id="example-usage">
-<h4>7.4.4.2. Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h4>
+<h4>9.4.4.2. Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>See how <code class="docutils literal"><span class="pre">..</span> <span class="pre">_ml:</span></code> is used right before the section name?</li>
 <li>Now I can reference them and hyperlink them via <span class="xref std std-ref">ml</span><ul>
@@ -894,7 +896,7 @@ but you must give the link an explicit title, using this syntax:
 </div>
 </div>
 <div class="section" id="paragraph-level-directives">
-<h3><a class="toc-backref" href="#id23">7.4.5. Paragraph-level directives</a><a class="headerlink" href="#paragraph-level-directives" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">9.4.5. Paragraph-level directives</a><a class="headerlink" href="#paragraph-level-directives" title="Permalink to this headline">¶</a></h3>
 <p>See this link for details of below: <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/para.html">http://www.sphinx-doc.org/en/stable/markup/para.html</a></p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">note</span><span class="p">::</span>
 
@@ -933,7 +935,7 @@ but you must give the link an explicit title, using this syntax:
 </div>
 </div>
 <div class="section" id="restructured-text-primer">
-<h2><a class="toc-backref" href="#id24">7.5. restructured text primer</a><a class="headerlink" href="#restructured-text-primer" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">9.5. restructured text primer</a><a class="headerlink" href="#restructured-text-primer" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a></li>
@@ -946,7 +948,7 @@ but you must give the link an explicit title, using this syntax:
 <li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html</a></li>
 </ul>
 <div class="section" id="heading-level-convention">
-<h3><a class="toc-backref" href="#id25">7.5.1. Heading-level convention</a><a class="headerlink" href="#heading-level-convention" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">9.5.1. Heading-level convention</a><a class="headerlink" href="#heading-level-convention" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">#</span></code> with overline, for <strong>parts</strong></li>
 <li><code class="docutils literal"><span class="pre">*</span></code> with overline, for <strong>chapters</strong></li>
@@ -957,7 +959,7 @@ but you must give the link an explicit title, using this syntax:
 </ul>
 </div>
 <div class="section" id="line-blocks">
-<h3><a class="toc-backref" href="#id26">7.5.2. Line blocks</a><a class="headerlink" href="#line-blocks" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">9.5.2. Line blocks</a><a class="headerlink" href="#line-blocks" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="o">|</span> These lines are
 <span class="o">|</span> broken exactly like in
 <span class="o">|</span> the source file.
@@ -970,7 +972,7 @@ but you must give the link an explicit title, using this syntax:
 </div>
 </div>
 <div class="section" id="citations">
-<h3><a class="toc-backref" href="#id27">7.5.3. Citations</a><a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">9.5.3. Citations</a><a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-rst"><div class="highlight"><pre><span></span>Lorem ipsum <span class="s">[Ref]_</span> dolor sit amet.
 
 <span class="p">..</span> <span class="nt">[Ref]</span> Book or article reference, URL or whatever.
@@ -978,7 +980,7 @@ but you must give the link an explicit title, using this syntax:
 </div>
 </div>
 <div class="section" id="links">
-<h3><a class="toc-backref" href="#id28">7.5.4. links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">9.5.4. links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-rst"><div class="highlight"><pre><span></span>This is a paragraph that contains <span class="s">`a link`_ and an `inline link </span><span class="si">&lt;http://www.espn.com&gt;</span><span class="s">`_</span>
 
 <span class="p">..</span> <span class="nt">_a link:</span> http://example.com/
@@ -987,7 +989,7 @@ but you must give the link an explicit title, using this syntax:
 <p>This is a paragraph that contains <a class="reference external" href="http://example.com/">a link</a> and an <a class="reference external" href="http://www.espn.com">inline link</a></p>
 </div>
 <div class="section" id="id1">
-<h3><a class="toc-backref" href="#id29">7.5.5. citations</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">9.5.5. citations</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>In Sphinx, all citations can be referenced from all files.</p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span>Lorem ipsum <span class="s">[Ref]_</span> dolor sit amet.
 
@@ -1003,7 +1005,7 @@ but you must give the link an explicit title, using this syntax:
 </table>
 </div>
 <div class="section" id="substitutions-stuffs">
-<h3><a class="toc-backref" href="#id30">7.5.6. substitutions <a href="#id5"><span class="problematic" id="id6">|stuffs|</span></a></a><a class="headerlink" href="#substitutions-stuffs" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id30">9.5.6. substitutions <a href="#id5"><span class="problematic" id="id6">|stuffs|</span></a></a><a class="headerlink" href="#substitutions-stuffs" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#substitution-definitions">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#substitution-definitions</a></p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">|name|</span> <span class="ow">replace</span><span class="p">::</span> replacement <span class="ge">*text*</span>
 <span class="p">..</span> <span class="nt">|caution|</span> <span class="ow">image</span><span class="p">::</span> warning.png
@@ -1018,7 +1020,7 @@ but you must give the link an explicit title, using this syntax:
 </div>
 </div>
 <div class="section" id="comments">
-<h3><a class="toc-backref" href="#id31">7.5.7. comments</a><a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">9.5.7. comments</a><a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="cp">..</span>
 <span class="cp">   This whole indented block</span>
 <span class="cp">   is a comment.</span>
@@ -1029,7 +1031,7 @@ but you must give the link an explicit title, using this syntax:
 </div>
 </div>
 <div class="section" id="master-document-index-rst">
-<h2><a class="toc-backref" href="#id32">7.6. master document (index.rst)</a><a class="headerlink" href="#master-document-index-rst" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">9.6. master document (index.rst)</a><a class="headerlink" href="#master-document-index-rst" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">index.rst</span></code></p>
 <ul class="simple">
 <li>contains the root of the <strong>toctree</strong> (connect multiple files to a single hierarchy of documents) (<a class="reference external" href="http://www.sphinx-doc.org/en/stable/tutorial.html#defining-document-structure">link</a>)</li>
@@ -1037,7 +1039,7 @@ but you must give the link an explicit title, using this syntax:
 </ul>
 </div>
 <div class="section" id="publishing-on-github">
-<h2><a class="toc-backref" href="#id33">7.7. Publishing on github</a><a class="headerlink" href="#publishing-on-github" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">9.7. Publishing on github</a><a class="headerlink" href="#publishing-on-github" title="Permalink to this headline">¶</a></h2>
 <p>need to rename the following folders to <em>without</em> underscores</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_modules</span> <span class="o">-&gt;</span> <span class="n">modules</span>
 <span class="n">_sources</span> <span class="o">-&gt;</span> <span class="n">sources</span>
@@ -1047,13 +1049,13 @@ but you must give the link an explicit title, using this syntax:
 <p>Also need to correct folder name on corresponding html file above (I simply use sed)</p>
 </div>
 <div class="section" id="sphinx-quickstart">
-<h2><a class="toc-backref" href="#id34">7.8. sphinx quickstart</a><a class="headerlink" href="#sphinx-quickstart" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">9.8. sphinx quickstart</a><a class="headerlink" href="#sphinx-quickstart" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/34483545/how-to-use-sphinx-quickstart-in-non-interactive-mode">http://stackoverflow.com/questions/34483545/how-to-use-sphinx-quickstart-in-non-interactive-mode</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>sphinx-quickstart --quiet --project<span class="o">=</span>a --author<span class="o">=</span>a -v <span class="m">1</span> --ext-autodoc --ext-mathjax --no-batchfile
 </pre></div>
 </div>
 <div class="section" id="queries">
-<h3><a class="toc-backref" href="#id35">7.8.1. queries</a><a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">9.8.1. queries</a><a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>Welcome to the Sphinx 1.4.5 quickstart utility.
 
 Please enter values <span class="k">for</span> the following settings <span class="o">(</span>just press Enter to
@@ -1139,7 +1141,7 @@ where <span class="s2">&quot;builder&quot;</span> is one of the supported builde
 </div>
 </div>
 <div class="section" id="doc">
-<h3><a class="toc-backref" href="#id36">7.8.2. doc</a><a class="headerlink" href="#doc" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">9.8.2. doc</a><a class="headerlink" href="#doc" title="Permalink to this headline">¶</a></h3>
 <p>Here&#8217;s the doc:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>Sphinx v1.4.5
 Usage: sphinx-quickstart [options] [projectdir]
@@ -1196,10 +1198,10 @@ For more information, visit &lt;http://sphinx-doc.org/&gt;.
 <p>    For more information, visit &lt;<a class="reference external" href="http://sphinx-doc.org/">http://sphinx-doc.org/</a>&gt;.</p>
 </div>
 <div class="section" id="google-style-vs-numpy-style-docstring">
-<h2><a class="toc-backref" href="#id37">7.9. Google-style vs numpy-style docstring</a><a class="headerlink" href="#google-style-vs-numpy-style-docstring" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">9.9. Google-style vs numpy-style docstring</a><a class="headerlink" href="#google-style-vs-numpy-style-docstring" title="Permalink to this headline">¶</a></h2>
 <p>ref - <a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-napoleon">https://pypi.python.org/pypi/sphinxcontrib-napoleon</a></p>
 <div class="section" id="google-style-like-theano">
-<h3><a class="toc-backref" href="#id38">7.9.1. Google style (like theano)</a><a class="headerlink" href="#google-style-like-theano" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">9.9.1. Google style (like theano)</a><a class="headerlink" href="#google-style-like-theano" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Summary line.</span>
 
@@ -1218,7 +1220,7 @@ For more information, visit &lt;http://sphinx-doc.org/&gt;.
 </div>
 </div>
 <div class="section" id="numpy-style-my-preference">
-<h3><a class="toc-backref" href="#id39">7.9.2. NumPy style (my preference)</a><a class="headerlink" href="#numpy-style-my-preference" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">9.9.2. NumPy style (my preference)</a><a class="headerlink" href="#numpy-style-my-preference" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Summary line.</span>
 
@@ -1259,10 +1261,10 @@ For more information, visit &lt;http://sphinx-doc.org/&gt;.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cs-R.html" class="btn btn-neutral float-right" title="8. R" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cs-R.html" class="btn btn-neutral float-right" title="10. R" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="generated/bct.nbs.BCTParamError.html" class="btn btn-neutral" title="6.3.2.1. bct.nbs.BCTParamError" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cs-configs.html" class="btn btn-neutral" title="8. misc" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -15,9 +15,42 @@ http://ss64.com/bash
 Overflows
 #########
 
-***********************
+**********************
+Display function names
+**********************
+- http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell
+
+.. note:: ``typeset`` and ``declare`` is synonymous
+
+.. code-block:: bash
+
+    # show all functions (with def)
+    typeset -f
+
+    # show just function names
+    typeset -F
+
+    # show just function names (but skip first two fields separated by space)
+    typeset -F | cut -d ' ' -f 3
+
+    # show specific function
+    typeset function_name
+
+
+*********************************
+get n-th line of output (used sed
+*********************************
+http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout
+
+.. code-block:: bash
+
+    ls -l | sed -n 2p
+
+    
+
+****************
 Quotes with grep
-***********************
+****************
 - http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes
 
 .. code-block:: bash
@@ -72,9 +105,9 @@ Using rename command
     # creates 3 dir at once
     mkdir {a,b,c}
 
-****************************
+**********************************
 Rename files with suffix or prefix
-****************************
+**********************************
 - 2nd answer in http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix
 
 .. code-block:: bash
@@ -320,9 +353,9 @@ http://ss64.com/bash/find.html
     Find .doc files that do NOT start with 'Accounts' (NOT)
     $ find . -name '*.doc' ! -name Accounts*        
 
-********************
+****************************
 Note: **find** vs **locate**
-********************
+****************************
 http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/
 
   - Locate searches a pre-written database, making it faster at the sacrifice of accuracy. 
@@ -346,9 +379,9 @@ Why is $(...) preferred over `...` (backticks)? (`link <http://mywiki.wooledge.o
 ls tricks
 #########
 
-********************
+***************************
 ls recursively (use *find*)
-********************
+***************************
 http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file
 
 .. code-block:: bash
@@ -358,10 +391,10 @@ http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-
     find ./test
 
 
-******************************************
-show only symbolic links (**alias lssym**)
-******************************************
-
+*******************************************
+show only symbolic links (**alias ls_sym**)
+*******************************************
+Display only files and folders that are symbolic links in tcsh or bash
 
 .. code-block:: bash
     :linenos:
@@ -520,9 +553,9 @@ To grep a string, pipe output of echo
 http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name
 
 
-**************************************
-\d not supported in linux grep as default...seems like
-**************************************
+**********************************************************
+``\d`` not supported in linux grep as default...seems like
+**********************************************************
 http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions
 
 

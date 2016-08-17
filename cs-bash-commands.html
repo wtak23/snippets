@@ -88,7 +88,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. bash-commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overflows">1.1. Overflows</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#quotes-with-grep">1.1.1. Quotes with grep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display-function-names">1.1.1. Display function names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-n-th-line-of-output-used-sed">1.1.2. get n-th line of output (used sed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quotes-with-grep">1.1.3. Quotes with grep</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
@@ -119,7 +121,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#command-vs-command-use-latter">1.10. ``command`` vs $(command) (use latter)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ls-tricks">1.11. ls tricks</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ls-recursively-use-find">1.11.1. ls recursively (use <em>find</em>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#show-only-symbolic-links-alias-lssym">1.11.2. show only symbolic links (<strong>alias lssym</strong>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-only-symbolic-links-alias-ls-sym">1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#print-timestamp">1.12. print timestamp</a></li>
@@ -134,7 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#grep">1.21. Grep</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#grep-recursively">1.21.1. grep recursively</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#to-grep-a-string-pipe-output-of-echo">1.21.2. To grep a string, pipe output of echo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#d-not-supported-in-linux-grep-as-default-seems-like">1.21.3. d not supported in linux grep as default...seems like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-not-supported-in-linux-grep-as-default-seems-like">1.21.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#just-use-double-quotes-for-regex-query">1.21.4. just use double-quotes for regex query</a></li>
 </ul>
 </li>
@@ -154,19 +156,21 @@
 <li class="toctree-l1"><a class="reference internal" href="cs-python.html">4. Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs-pyspark.html">5. pyspark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bct.html">6. Brain Connectivity Toolbox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">7. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-R.html">8. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">9. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">10. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">11. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">12. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">13. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">14. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">15. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">16. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">17. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">18. Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">19. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-git.html">7. git-snippet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-configs.html">8. misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">9. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">10. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">11. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">12. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">14. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">15. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">16. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">17. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">18. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">19. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">20. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">21. awk-tutorial</a></li>
 </ul>
 
             
@@ -269,8 +273,38 @@
 </div>
 <div class="section" id="overflows">
 <h2><a class="toc-backref" href="#id2">1.1. Overflows</a><a class="headerlink" href="#overflows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="display-function-names">
+<h3>1.1.1. Display function names<a class="headerlink" href="#display-function-names" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell">http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell</a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">typeset</span></code> and <code class="docutils literal"><span class="pre">declare</span></code> is synonymous</p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># show all functions (with def)</span>
+<span class="nb">typeset</span> -f
+
+<span class="c1"># show just function names</span>
+<span class="nb">typeset</span> -F
+
+<span class="c1"># show just function names (but skip first two fields separated by space)</span>
+<span class="nb">typeset</span> -F <span class="p">|</span> cut -d <span class="s1">&#39; &#39;</span> -f 3
+
+<span class="c1"># show specific function</span>
+<span class="nb">typeset</span> function_name
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-n-th-line-of-output-used-sed">
+<h3>1.1.2. get n-th line of output (used sed<a class="headerlink" href="#get-n-th-line-of-output-used-sed" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout">http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ls -l <span class="p">|</span> sed -n 2p
+</pre></div>
+</div>
+</div>
 <div class="section" id="quotes-with-grep">
-<h3>1.1.1. Quotes with grep<a class="headerlink" href="#quotes-with-grep" title="Permalink to this headline">¶</a></h3>
+<h3>1.1.3. Quotes with grep<a class="headerlink" href="#quotes-with-grep" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes">http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes</a></li>
 </ul>
@@ -676,8 +710,9 @@ find ./test
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="show-only-symbolic-links-alias-lssym">
-<h3>1.11.2. show only symbolic links (<strong>alias lssym</strong>)<a class="headerlink" href="#show-only-symbolic-links-alias-lssym" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="show-only-symbolic-links-alias-ls-sym">
+<h3>1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)<a class="headerlink" href="#show-only-symbolic-links-alias-ls-sym" title="Permalink to this headline">¶</a></h3>
+<p>Display only files and folders that are symbolic links in tcsh or bash</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ls -l <span class="k">$(</span>find ./ -maxdepth <span class="m">1</span> -type l -print<span class="k">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -839,7 +874,7 @@ grep -r --include<span class="o">=</span>*.<span class="o">{</span>py,m<span cla
 <p><a class="reference external" href="http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name">http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name</a></p>
 </div>
 <div class="section" id="d-not-supported-in-linux-grep-as-default-seems-like">
-<h3>1.21.3. d not supported in linux grep as default...seems like<a class="headerlink" href="#d-not-supported-in-linux-grep-as-default-seems-like" title="Permalink to this headline">¶</a></h3>
+<h3>1.21.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like<a class="headerlink" href="#d-not-supported-in-linux-grep-as-default-seems-like" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions">http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2

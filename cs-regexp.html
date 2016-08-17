@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>12. regular expressions &mdash; Snippets 1 documentation</title>
+  <title>14. regular expressions &mdash; Snippets 1 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="Snippets 1 documentation" href="index.html"/>
-        <link rel="next" title="13. rst" href="cs-rst.html"/>
-        <link rel="prev" title="11. python-jupyter-notebook" href="cs-py-jupyter-notebook.html"/> 
+        <link rel="next" title="15. rst" href="cs-rst.html"/>
+        <link rel="prev" title="13. python-jupyter-notebook" href="cs-py-jupyter-notebook.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -92,39 +92,41 @@
 <li class="toctree-l1"><a class="reference internal" href="cs-python.html">4. Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs-pyspark.html">5. pyspark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bct.html">6. Brain Connectivity Toolbox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">7. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-R.html">8. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">9. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">10. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">11. python-jupyter-notebook</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">12. regular expressions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overflows">12.1. Overflows</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#use-perl-engine-in-bash">12.1.1. Use Perl engine in bash</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#negate-specific-word">12.1.2. Negate specific word?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-git.html">7. git-snippet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-configs.html">8. misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">9. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">10. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">11. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">12. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. regular expressions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overflows">14.1. Overflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#use-perl-engine-in-bash">14.1.1. Use Perl engine in bash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#negate-specific-word">14.1.2. Negate specific word?</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#sublimetext">12.2. Sublimetext</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#regular-expression-regexp-for-python">12.3. Regular expression (regexp) for python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#basic-functions-modules">12.3.1. Basic functions/modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#splitting-strings">12.3.2. Splitting strings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#search-and-replace-with-sub">12.3.3. Search and replace with sub</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compilation-flags">12.3.4. Compilation flags</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#greedy-vs-nongreedy">12.3.5. Greedy vs nongreedy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#improve-readibility-with-re-verbose-flag">12.3.6. Improve readibility with re.Verbose flag</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#named-groups">12.3.7. Named groups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lookahed-assertions">12.3.8. Lookahed assertions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bunch-of-examples">12.3.9. Bunch of examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sublimetext">14.2. Sublimetext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#regular-expression-regexp-for-python">14.3. Regular expression (regexp) for python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-functions-modules">14.3.1. Basic functions/modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splitting-strings">14.3.2. Splitting strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-and-replace-with-sub">14.3.3. Search and replace with sub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compilation-flags">14.3.4. Compilation flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#greedy-vs-nongreedy">14.3.5. Greedy vs nongreedy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improve-readibility-with-re-verbose-flag">14.3.6. Improve readibility with re.Verbose flag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#named-groups">14.3.7. Named groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lookahed-assertions">14.3.8. Lookahed assertions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bunch-of-examples">14.3.9. Bunch of examples</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">13. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">14. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">15. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">16. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">17. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">18. Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">19. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">15. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">16. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">17. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">18. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sql.html">19. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">20. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">21. awk-tutorial</a></li>
 </ul>
 
             
@@ -166,7 +168,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>12. regular expressions</li>
+      <li>14. regular expressions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,7 +186,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="regular-expressions">
-<span id="regexp"></span><h1><a class="toc-backref" href="#id1">12. regular expressions</a><a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h1>
+<span id="regexp"></span><h1><a class="toc-backref" href="#id1">14. regular expressions</a><a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first"><strong>Table of Contents</strong></p>
 <ul class="simple">
@@ -214,15 +216,15 @@
 <div class="line">Sublime Text uses the Perl Compatible Regular Expressions (PCRE) engine from the Boost library to power regular expressions in search panels.</div>
 </div>
 <div class="section" id="overflows">
-<h2><a class="toc-backref" href="#id2">12.1. Overflows</a><a class="headerlink" href="#overflows" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">14.1. Overflows</a><a class="headerlink" href="#overflows" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="use-perl-engine-in-bash">
-<h3>12.1.1. Use Perl engine in bash<a class="headerlink" href="#use-perl-engine-in-bash" title="Permalink to this headline">¶</a></h3>
+<h3>14.1.1. Use Perl engine in bash<a class="headerlink" href="#use-perl-engine-in-bash" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/84477/forcing-bash-to-use-perl-regex-engine">http://unix.stackexchange.com/questions/84477/forcing-bash-to-use-perl-regex-engine</a></li>
 </ul>
 </div>
 <div class="section" id="negate-specific-word">
-<h3>12.1.2. Negate specific word?<a class="headerlink" href="#negate-specific-word" title="Permalink to this headline">¶</a></h3>
+<h3>14.1.2. Negate specific word?<a class="headerlink" href="#negate-specific-word" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/1240275/how-to-negate-specific-word-in-regex">http://stackoverflow.com/questions/1240275/how-to-negate-specific-word-in-regex</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/899422/regular-expression-for-a-string-that-does-not-start-with-a-sequence">http://stackoverflow.com/questions/899422/regular-expression-for-a-string-that-does-not-start-with-a-sequence</a></li>
@@ -246,7 +248,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </div>
 </div>
 <div class="section" id="sublimetext">
-<h2><a class="toc-backref" href="#id3">12.2. Sublimetext</a><a class="headerlink" href="#sublimetext" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">14.2. Sublimetext</a><a class="headerlink" href="#sublimetext" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/dmikalova/sublime-cheat-sheets/blob/master/cheat-sheets/Regular%20Expressions.cheatsheet">https://github.com/dmikalova/sublime-cheat-sheets/blob/master/cheat-sheets/Regular%20Expressions.cheatsheet</a></p>
 <ul>
 <li><p class="first"><a class="reference external" href="http://docs.sublimetext.info/en/latest/search_and_replace/search_and_replace_overview.html">http://docs.sublimetext.info/en/latest/search_and_replace/search_and_replace_overview.html</a></p>
@@ -261,7 +263,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </ul>
 </div>
 <div class="section" id="regular-expression-regexp-for-python">
-<h2><a class="toc-backref" href="#id4">12.3. Regular expression (regexp) for python</a><a class="headerlink" href="#regular-expression-regexp-for-python" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">14.3. Regular expression (regexp) for python</a><a class="headerlink" href="#regular-expression-regexp-for-python" title="Permalink to this headline">¶</a></h2>
 <p><strong>References</strong></p>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/2/howto/regex.html">https://docs.python.org/2/howto/regex.html</a></li>
@@ -271,7 +273,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </li>
 </ul>
 <div class="section" id="basic-functions-modules">
-<h3>12.3.1. Basic functions/modules<a class="headerlink" href="#basic-functions-modules" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.1. Basic functions/modules<a class="headerlink" href="#basic-functions-modules" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://docs.python.org/2/howto/regex.html#performing-matches">https://docs.python.org/2/howto/regex.html#performing-matches</a></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -398,7 +400,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="splitting-strings">
-<h3>12.3.2. Splitting strings<a class="headerlink" href="#splitting-strings" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.2. Splitting strings<a class="headerlink" href="#splitting-strings" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>use of <strong>capturing paranthesis</strong> to obtain the splitted portion that normally gets dropped</li>
 </ul>
@@ -451,7 +453,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="search-and-replace-with-sub">
-<h3>12.3.3. Search and replace with sub<a class="headerlink" href="#search-and-replace-with-sub" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.3. Search and replace with sub<a class="headerlink" href="#search-and-replace-with-sub" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -549,7 +551,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="compilation-flags">
-<h3>12.3.4. Compilation flags<a class="headerlink" href="#compilation-flags" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.4. Compilation flags<a class="headerlink" href="#compilation-flags" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://docs.python.org/2/howto/regex.html#compilation-flags">https://docs.python.org/2/howto/regex.html#compilation-flags</a></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -584,7 +586,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </table>
 </div>
 <div class="section" id="greedy-vs-nongreedy">
-<h3>12.3.5. Greedy vs nongreedy<a class="headerlink" href="#greedy-vs-nongreedy" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.5. Greedy vs nongreedy<a class="headerlink" href="#greedy-vs-nongreedy" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>nongreedy qualifiers: <code class="docutils literal"><span class="pre">*?,</span> <span class="pre">+?,</span> <span class="pre">??,</span> <span class="pre">or</span> <span class="pre">{m,n}?,</span></code></li>
 </ul>
@@ -609,7 +611,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="improve-readibility-with-re-verbose-flag">
-<h3>12.3.6. Improve readibility with re.Verbose flag<a class="headerlink" href="#improve-readibility-with-re-verbose-flag" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.6. Improve readibility with re.Verbose flag<a class="headerlink" href="#improve-readibility-with-re-verbose-flag" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://docs.python.org/2/howto/regex.html#using-re-verbose">https://docs.python.org/2/howto/regex.html#using-re-verbose</a></p>
 <blockquote>
 <div>The re.VERBOSE flag has several effects. Whitespace in the regular expression that isn’t inside a character class is ignored. This means that an expression such as dog | cat is equivalent to the less readable dog|cat, but [a b] will still match the characters &#8216;a&#8217;, &#8216;b&#8217;, or a space. In addition, you can also put comments inside a RE; comments extend from a # character to the next newline. When used with triple-quoted strings, this enables REs to be formatted more neatly:</div></blockquote>
@@ -670,7 +672,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="named-groups">
-<h3>12.3.7. Named groups<a class="headerlink" href="#named-groups" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.7. Named groups<a class="headerlink" href="#named-groups" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">(?P&lt;name&gt;...)</span></code> defines a <strong>named group</strong>,</li>
 <li><code class="docutils literal"><span class="pre">(?P=name)</span></code> is a <strong>backreference</strong> to a named group</li>
@@ -733,7 +735,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="lookahed-assertions">
-<h3>12.3.8. Lookahed assertions<a class="headerlink" href="#lookahed-assertions" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.8. Lookahed assertions<a class="headerlink" href="#lookahed-assertions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">(?=...)</span></code> Positive lookahead assertion.<ul>
 <li>successfully matches at the current location</li>
@@ -746,7 +748,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
 </ul>
 </div>
 <div class="section" id="bunch-of-examples">
-<h3>12.3.9. Bunch of examples<a class="headerlink" href="#bunch-of-examples" title="Permalink to this headline">¶</a></h3>
+<h3>14.3.9. Bunch of examples<a class="headerlink" href="#bunch-of-examples" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -791,10 +793,10 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sed <span cla
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cs-rst.html" class="btn btn-neutral float-right" title="13. rst" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cs-rst.html" class="btn btn-neutral float-right" title="15. rst" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cs-py-jupyter-notebook.html" class="btn btn-neutral" title="11. python-jupyter-notebook" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cs-py-jupyter-notebook.html" class="btn btn-neutral" title="13. python-jupyter-notebook" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

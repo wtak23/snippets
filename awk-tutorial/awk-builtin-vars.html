@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>19.4. AWK Built-in Variables &mdash; Snippets 1 documentation</title>
+  <title>21.4. AWK Built-in Variables &mdash; Snippets 1 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="Snippets 1 documentation" href="../index.html"/>
-        <link rel="up" title="19. awk-tutorial" href="index.html"/>
-        <link rel="prev" title="19.3. Summary of AWK Commands" href="awk-summary-commands.html"/> 
+        <link rel="up" title="21. awk-tutorial" href="index.html"/>
+        <link rel="prev" title="21.3. Summary of AWK Commands" href="awk-summary-commands.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,30 +92,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../cs-python.html">4. Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cs-pyspark.html">5. pyspark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bct.html">6. Brain Connectivity Toolbox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">7. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">8. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">9. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">10. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">11. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">12. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">13. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">14. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">15. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">16. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">17. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">18. Scala</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">19. awk-tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">19.1. Basic structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">19.2. The Essential Syntax of AWK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">19.3. Summary of AWK Commands</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">19.4. AWK Built-in Variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#fs-the-input-field-separator-variable">19.4.1. FS - The Input Field Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ofs-the-output-field-separator-variable">19.4.2. OFS - The Output Field Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nf-the-number-of-fields-variable">19.4.3. NF - The Number of Fields Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nr-the-number-of-records-variable">19.4.4. NR - The Number of Records Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rs-the-record-separator-variable">19.4.5. RS - The Record Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ors-the-output-record-separator-variable">19.4.6. ORS - The Output Record Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filename-the-current-filename-variable">19.4.7. FILENAME - The Current Filename Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-git.html">7. git-snippet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-configs.html">8. misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">9. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">10. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">11. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">12. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">14. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">15. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">16. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">17. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">18. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">19. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">20. Scala</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">21. awk-tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">21.1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">21.2. The Essential Syntax of AWK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">21.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">21.4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fs-the-input-field-separator-variable">21.4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ofs-the-output-field-separator-variable">21.4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nf-the-number-of-fields-variable">21.4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nr-the-number-of-records-variable">21.4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rs-the-record-separator-variable">21.4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ors-the-output-record-separator-variable">21.4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filename-the-current-filename-variable">21.4.7. FILENAME - The Current Filename Variable</a></li>
 </ul>
 </li>
 </ul>
@@ -161,9 +163,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">19. awk-tutorial</a> &raquo;</li>
+          <li><a href="index.html">21. awk-tutorial</a> &raquo;</li>
         
-      <li>19.4. AWK Built-in Variables</li>
+      <li>21.4. AWK Built-in Variables</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -181,7 +183,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="awk-built-in-variables">
-<h1>19.4. AWK Built-in Variables<a class="headerlink" href="#awk-built-in-variables" title="Permalink to this headline">¶</a></h1>
+<h1>21.4. AWK Built-in Variables<a class="headerlink" href="#awk-built-in-variables" title="Permalink to this headline">¶</a></h1>
 <p>I have mentioned two kinds of variables: positional and user defined. A user defined variable is one you create. A positional variable is not a special variable, but a function triggered by the dollar sign. Therefore</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>print <span class="nv">$1</span><span class="p">;</span>
 </pre></div>
@@ -232,7 +234,7 @@ print<span class="p">;</span>
 </td></tr></table></div>
 <p>These perform similarly, but not identically. The number of spaces between the values vary. There are two reasons for this. The actual number of fields does not change. Setting a positional variable to an empty string does not delete the variable. It&#8217;s still there, but the contents has been deleted. The other reason is the way AWK outputs the entire line. There is a field separator that specifies what character to put between the fields on output. The first example outputs four fields, while the second outputs two. In-between each field is a space. This is easier to explain if the characters between fields could be modified to be made more visible. Well, it can. AWK provides special variables for just that purpose.</p>
 <div class="section" id="fs-the-input-field-separator-variable">
-<h2>19.4.1. FS - The Input Field Separator Variable<a class="headerlink" href="#fs-the-input-field-separator-variable" title="Permalink to this headline">¶</a></h2>
+<h2>21.4.1. FS - The Input Field Separator Variable<a class="headerlink" href="#fs-the-input-field-separator-variable" title="Permalink to this headline">¶</a></h2>
 <p>AWK can be used to parse many system administration files. However, many of these files do not have whitespace as a separator. as an example, the password file uses colons. You can easily change the field separator character to be a colon using the &#8220;-F&#8221; command line option. The following command will print out accounts that don&#8217;t have passwords:</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>awk -F: <span class="s1">&#39;{if ($2 == &quot;&quot;) print $1 &quot;: no password!&quot;}&#39;</span> &lt;/etc/passwd
 </pre></div>
@@ -385,7 +387,7 @@ SEVEN <span class="m">7</span> VII
 <p>This example eliminates the need to have the special &#8220;#START&#8221; and &#8220;#STOP&#8221; lines in the input.</p>
 </div>
 <div class="section" id="ofs-the-output-field-separator-variable">
-<h2>19.4.2. OFS - The Output Field Separator Variable<a class="headerlink" href="#ofs-the-output-field-separator-variable" title="Permalink to this headline">¶</a></h2>
+<h2>21.4.2. OFS - The Output Field Separator Variable<a class="headerlink" href="#ofs-the-output-field-separator-variable" title="Permalink to this headline">¶</a></h2>
 <p>There is an important difference between</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>print <span class="nv">$2</span> <span class="nv">$3</span>
 </pre></div>
@@ -419,7 +421,7 @@ BEGIN <span class="o">{</span>
 <p>Give this script the password file, and it will delete the password, but leave everything else the same. You can make the output field separator any number of characters. You are not limited to a single character.</p>
 </div>
 <div class="section" id="nf-the-number-of-fields-variable">
-<h2>19.4.3. NF - The Number of Fields Variable<a class="headerlink" href="#nf-the-number-of-fields-variable" title="Permalink to this headline">¶</a></h2>
+<h2>21.4.3. NF - The Number of Fields Variable<a class="headerlink" href="#nf-the-number-of-fields-variable" title="Permalink to this headline">¶</a></h2>
 <p>It is useful to know how many fields are on a line. You may want to have your script change its operation based on the number of fields. As an example, the command &#8220;ls -l&#8221; may generate eight or nine fields, depending on which version you are executing. The System V version, &#8220;/usr/bin/ls -l&#8221; generates nine fields, which is equivalent to the Berkeley &#8220;/usr/ucb/ls -lg&#8221; command. If you wanted to print the owner and filename then the following AWK script would work with either version of &#8220;ls:&#8221;</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -455,7 +457,7 @@ BEGIN <span class="o">{</span>
 <p>One warning about AWK. There is a limit of 99 fields in a single line. PERL does not have any such limitations.</p>
 </div>
 <div class="section" id="nr-the-number-of-records-variable">
-<h2>19.4.4. NR - The Number of Records Variable<a class="headerlink" href="#nr-the-number-of-records-variable" title="Permalink to this headline">¶</a></h2>
+<h2>21.4.4. NR - The Number of Records Variable<a class="headerlink" href="#nr-the-number-of-records-variable" title="Permalink to this headline">¶</a></h2>
 <p>Another useful variable is &#8220;NR&#8221;. This tells you the number of records, or the line number. You can use AWK to only examine certain lines. This example prints lines after the first 100 lines, and puts a line number before each line after 100:</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -469,7 +471,7 @@ BEGIN <span class="o">{</span>
 <p>Click link to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/awk_example5.awk">awk_example5.awk</a></p>
 </div>
 <div class="section" id="rs-the-record-separator-variable">
-<h2>19.4.5. RS - The Record Separator Variable<a class="headerlink" href="#rs-the-record-separator-variable" title="Permalink to this headline">¶</a></h2>
+<h2>21.4.5. RS - The Record Separator Variable<a class="headerlink" href="#rs-the-record-separator-variable" title="Permalink to this headline">¶</a></h2>
 <p>Normally, AWK reads one line at a time, and breaks up the line into fields. You can set the &#8220;RS&#8221; variable to change AWK&#8217;s definition of a &#8220;line&#8221;. If you set it to an empty string, then AWK will read the entire file into memory. You can combine this with changing the &#8220;FS&#8221; variable. This example treats each line as a field, and prints out the second and third line:</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -515,7 +517,7 @@ BEGIN <span class="o">{</span>
 <p>but this only works if all of the words are separated by a space. If there is a tab or punctuation inside, it would not.</p>
 </div>
 <div class="section" id="ors-the-output-record-separator-variable">
-<h2>19.4.6. ORS - The Output Record Separator Variable<a class="headerlink" href="#ors-the-output-record-separator-variable" title="Permalink to this headline">¶</a></h2>
+<h2>21.4.6. ORS - The Output Record Separator Variable<a class="headerlink" href="#ors-the-output-record-separator-variable" title="Permalink to this headline">¶</a></h2>
 <p>The default output record separator is a newline, like the input. This can be set to be a newline and carriage return, if you need to generate a text file for a non-UNIX system.</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -535,7 +537,7 @@ BEGIN <span class="o">{</span>
 <p>Click here to get file: <a class="reference external" href="http://www.grymoire.com/Unix/Scripts/add_cr.awk">http://www.grymoire.com/Unix/Scripts/add_cr.awk</a></p>
 </div>
 <div class="section" id="filename-the-current-filename-variable">
-<h2>19.4.7. FILENAME - The Current Filename Variable<a class="headerlink" href="#filename-the-current-filename-variable" title="Permalink to this headline">¶</a></h2>
+<h2>21.4.7. FILENAME - The Current Filename Variable<a class="headerlink" href="#filename-the-current-filename-variable" title="Permalink to this headline">¶</a></h2>
 <p>The last variable known to regular AWK is &#8220;FILENAME&#8221;, which tells you the name of the file being read.
 .. code-block:: bash</p>
 <blockquote>
@@ -614,7 +616,7 @@ print;</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="awk-summary-commands.html" class="btn btn-neutral" title="19.3. Summary of AWK Commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="awk-summary-commands.html" class="btn btn-neutral" title="21.3. Summary of AWK Commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>19. awk-tutorial &mdash; Snippets 1 documentation</title>
+  <title>21. awk-tutorial &mdash; Snippets 1 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="Snippets 1 documentation" href="../index.html"/>
-        <link rel="next" title="19.1. Basic structure" href="awk-basic-structure.html"/>
-        <link rel="prev" title="18. Scala" href="../cs-scala.html"/> 
+        <link rel="next" title="21.1. Basic structure" href="awk-basic-structure.html"/>
+        <link rel="prev" title="20. Scala" href="../cs-scala.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,23 +92,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../cs-python.html">4. Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cs-pyspark.html">5. pyspark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bct.html">6. Brain Connectivity Toolbox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">7. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">8. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">9. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">10. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">11. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">12. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">13. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">14. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">15. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">16. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">17. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">18. Scala</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">19. awk-tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">19.1. Basic structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">19.2. The Essential Syntax of AWK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">19.3. Summary of AWK Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">19.4. AWK Built-in Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-git.html">7. git-snippet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-configs.html">8. misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">9. sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">10. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">11. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">12. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">14. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">15. rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">16. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">17. sed oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">18. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">19. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">20. Scala</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">21. awk-tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">21.1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">21.2. The Essential Syntax of AWK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">21.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">21.4. AWK Built-in Variables</a></li>
 </ul>
 </li>
 </ul>
@@ -152,7 +154,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>19. awk-tutorial</li>
+      <li>21. awk-tutorial</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -170,31 +172,36 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>19. awk-tutorial<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>21. awk-tutorial<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>Tutorial from <a class="reference external" href="http://www.grymoire.com/Unix/Awk.html">http://www.grymoire.com/Unix/Awk.html</a></p>
 <p>Grossly incomplete. Took notes (copy and paste) from parts that I find useful.</p>
+<p>To do:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.gnu.org/software/gawk/manual/gawk.html">https://www.gnu.org/software/gawk/manual/gawk.html</a></li>
+<li><a class="reference external" href="http://www.tutorialspoint.com/awk/">http://www.tutorialspoint.com/awk/</a></li>
+</ul>
 <div class="toctree-wrapper compound" id="table-of-contents">
 <p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#table-of-contents" title="Permalink to this toctree">¶</a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="awk-basic-structure.html">19.1. Basic structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-essential-syntax.html">19.2. The Essential Syntax of AWK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#unary-arithmetic-operators">19.2.1. Unary arithmetic operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">19.2.2. The Autoincrement and Autodecrement Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#assignment-operators">19.2.3. Assignment Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#conditional-expressions">19.2.4. Conditional expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#regular-expressions">19.2.5. Regular Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#and-or-not">19.2.6. And/Or/Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-basic-structure.html">21.1. Basic structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-essential-syntax.html">21.2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#unary-arithmetic-operators">21.2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">21.2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#assignment-operators">21.2.3. Assignment Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#conditional-expressions">21.2.4. Conditional expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#regular-expressions">21.2.5. Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html#and-or-not">21.2.6. And/Or/Not</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="awk-summary-commands.html">19.3. Summary of AWK Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-builtin-vars.html">19.4. AWK Built-in Variables</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#fs-the-input-field-separator-variable">19.4.1. FS - The Input Field Separator Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#ofs-the-output-field-separator-variable">19.4.2. OFS - The Output Field Separator Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#nf-the-number-of-fields-variable">19.4.3. NF - The Number of Fields Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#nr-the-number-of-records-variable">19.4.4. NR - The Number of Records Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#rs-the-record-separator-variable">19.4.5. RS - The Record Separator Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#ors-the-output-record-separator-variable">19.4.6. ORS - The Output Record Separator Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#filename-the-current-filename-variable">19.4.7. FILENAME - The Current Filename Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-summary-commands.html">21.3. Summary of AWK Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-builtin-vars.html">21.4. AWK Built-in Variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#fs-the-input-field-separator-variable">21.4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#ofs-the-output-field-separator-variable">21.4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#nf-the-number-of-fields-variable">21.4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#nr-the-number-of-records-variable">21.4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#rs-the-record-separator-variable">21.4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#ors-the-output-record-separator-variable">21.4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html#filename-the-current-filename-variable">21.4.7. FILENAME - The Current Filename Variable</a></li>
 </ul>
 </li>
 </ul>
@@ -208,10 +215,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="awk-basic-structure.html" class="btn btn-neutral float-right" title="19.1. Basic structure" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="awk-basic-structure.html" class="btn btn-neutral float-right" title="21.1. Basic structure" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../cs-scala.html" class="btn btn-neutral" title="18. Scala" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../cs-scala.html" class="btn btn-neutral" title="20. Scala" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

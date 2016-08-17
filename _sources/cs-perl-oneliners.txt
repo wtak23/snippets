@@ -5,6 +5,7 @@ perl one-liners
     :depth: 2
 
 
+For quick refresher on perl syntax, I like to use this: http://www.tutorialspoint.com/perl/
 
 
 **TODO**: Read http://www.rexegg.com/regex-perl-one-liners.html
