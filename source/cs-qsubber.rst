@@ -17,13 +17,13 @@ qsub helper
     # create my own qsub-run script that suppresses email
     myqsub-run.sh python tobpnc_save_bct_csv0721.py 0.1 True
 
-####################
-qsub helper (old, pre April 2016  
-####################
+################################
+qsub helper (old, pre April 2016
+################################
 
-********************
+***************************
 A 3 step receipe for matlab
-********************
+***************************
 
 
 .. code-block:: bash
@@ -32,9 +32,9 @@ A 3 step receipe for matlab
   qsub-run -c ./myprog > myprog.sh  # <- don't forget to include "./"
   qsub myprog.sh
 
-********************
+****************************************************
 ``memrec`` (to evaluate appropriate ``h_vmem`` value
-********************
+****************************************************
 .. code-block:: bash
 
   memrec -d 5 ./myprog & # "-d 5" makes recording every 5 sec
@@ -46,9 +46,9 @@ A 3 step receipe for matlab
 - Set ``h_vmem`` at 10~\15% above (2)+(3) above  
 
 
-********************
+*********
 ``qstat``
-********************
+*********
 .. code-block:: bash
 
   qstat -r
@@ -59,9 +59,9 @@ A 3 step receipe for matlab
   # delete jobs
   qdel JOBID
 
-********************
+*********************************************
 ``/usr/bin/time`` to see multithreaded or not
-********************
+*********************************************
 .. code-block:: bash
 
   /usr/bin/time -pv myprog

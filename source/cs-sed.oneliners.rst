@@ -18,9 +18,9 @@ sed oneliners
     
 
 
-###############################################################################
+###########
 Typical use
-###############################################################################
+###########
 .. code-block:: bash
     :linenos:
 
@@ -44,11 +44,9 @@ Typical use
     sed -n '45,50p' filename           # print line nos. 45-50 of a file
     sed -n '51q;45,50p' filename       # same, but executes much faster
 
-###############################################################################
-    FILE SPACING:
-###############################################################################
-
-
+#############
+FILE SPACING:
+#############
 .. code-block:: bash
     :linenos:
 
@@ -75,9 +73,9 @@ Typical use
      sed '/regex/{x;p;x;G;}'
 
 
-###############################################################################
-    NUMBERING:
-###############################################################################
+##########
+NUMBERING:
+##########
 .. code-block:: bash
     :linenos:
 
@@ -94,9 +92,9 @@ Typical use
      # count lines (emulates "wc -l")
      sed -n '$='
 
-###############################################################################
-    TEXT CONVERSION AND SUBSTITUTION:
-###############################################################################
+#################################
+TEXT CONVERSION AND SUBSTITUTION:
+#################################
 
 .. code-block:: bash
     :linenos:
@@ -195,9 +193,9 @@ Typical use
      gsed '0~5G'                  # GNU sed only
      sed 'n;n;n;n;G;'             # other seds
 
-###############################################################################
-    SELECTIVE PRINTING OF CERTAIN LINES:
-###############################################################################
+####################################
+SELECTIVE PRINTING OF CERTAIN LINES:
+####################################
 .. code-block:: bash
     :linenos:
 
@@ -289,9 +287,9 @@ Typical use
      # print section of file between two regular expressions (inclusive)
      sed -n '/Iowa/,/Montana/p'             # case sensitive
 
-###############################################################################
-    SELECTIVE DELETION OF CERTAIN LINES:
-###############################################################################
+####################################
+SELECTIVE DELETION OF CERTAIN LINES:
+####################################
 .. code-block:: bash
     :linenos:
 
@@ -351,9 +349,9 @@ Typical use
      # delete the last line of each paragraph
      sed -n '/^$/{p;h;};/./{x;/./p;}'
 
-###############################################################################
-    SPECIAL APPLICATIONS:
-###############################################################################
+#####################
+SPECIAL APPLICATIONS:
+#####################
 .. code-block:: bash
     :linenos:
 
@@ -409,10 +407,10 @@ Typical use
 
 
 
-###############################################################################
+####
 Misc
-###############################################################################
-.. code-block::
+####
+.. code-block:: none
 
     TYPICAL USE: Sed takes one or more editing commands and applies all of
     them, in sequence, to each line of input. After all the commands have

@@ -99,7 +99,7 @@ SELECT basics
           (subject='Literature' AND yr>=2004)
 
 sorting records with ORDER BY
-============================
+=============================
 .. code-block:: sql
     :linenos:
 

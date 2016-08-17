@@ -1,4 +1,4 @@
-.. _awk-tutorial:
+
 ############
 awk-tutorial
 ############

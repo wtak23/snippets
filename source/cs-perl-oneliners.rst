@@ -76,7 +76,7 @@ FILE SPACING
 
 
 LINE NUMBERING
-------------
+--------------
 
 .. code-block:: perl
     :linenos:

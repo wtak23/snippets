@@ -129,14 +129,14 @@ from help:
 *****************
 deletion commands
 *****************
-.. code-block:: 
+.. code-block:: bash
 
     # basic syntax: 
     /regexp/action
 
     p = prints the line
     d = deletes the line
-    s/regexp/pattern/ <= substitues regexp with pattern
+    s/regexp/pattern/ #<= substitues regexp with pattern
 
 .. code-block:: bash
     :linenos:

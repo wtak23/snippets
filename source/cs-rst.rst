@@ -4,11 +4,6 @@ rst
 .. contents:: **Table of Contents**
     :depth: 2
 
- 
-
-
-
-
 #######
 Lookups
 #######
@@ -17,16 +12,16 @@ Lookups
   
   - http://docutils.sourceforge.net/docs/ref/rst/roles.html
 
-********************
+*********
 Tutorials
-********************
+*********
 - https://pythonhosted.org/an_example_pypi_project/sphinx.html
 - http://www.sphinx-doc.org/en/stable/rest.html
 - http://docutils.sourceforge.net/docs/user/rst/quickref.html <= best one
 
-********************
+**********************
 header convention (me)
-********************
+**********************
 However, it is better to stick to the same convention throughout a project. For instance (`ref <http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#headings>`_):
 
 - # with overline, for parts
@@ -61,45 +56,9 @@ autodoc
 This will by default, above will only insert the docstring of the object itself:
 
 
-.. code-block:: rst
-
-  .. autoclass:: Noodle
-  .. This will produce something like:
-
-
-::
-
-  .. class:: Noodle
-
-     Noodle's docstring.
-
-
-recursive docstringing objects
-==============================
-.. code-block:: rst
-
-    .. recursive autodoc all module members
-    .. automodule:: noodle
-       :members:
-
-    .. recursively document all non-private member functions and properties
-    .. autoclass:: Noodle
-       :members:
-
-      .. You can also give an explicit list of members; only these will then be documented
-    .. autoclass:: Noodle
-       :members: eat, slurp
-
-    .. 
-      By default, non-documented member functions will be ignored. 
-      To avoid that, use :undoc-members: option
-    .. autoclass:: Noodle
-       :members:
-       :undoc-members:
-
-********************
+***********
 Links (url)
-********************
+***********
 .. code-block:: rst
 
     This is a paragraph that contains `a link`_.
@@ -115,9 +74,9 @@ This is an inline `link <http://example.com/>`_
 .. _a link: http://example.com/
 
 
-**************
+*****************************
 markup, showing code, inlines
-**************
+*****************************
 http://www.sphinx-doc.org/en/stable/markup/code.html
 
 .. code-block:: rst
@@ -134,9 +93,9 @@ http://www.sphinx-doc.org/en/stable/markup/code.html
     .. literalinclude:: example.py
        :diff: example.py.orig
 
-**************************
+***********************
 inline (bunch of roles)
-**************************
+***********************
 http://www.sphinx-doc.org/en/stable/markup/inline.html
 
 - ``:any:``
@@ -224,15 +183,15 @@ this is the thing included in the list ``extensions=[...]`` in **conf.py**
   - http://www.sphinx-doc.org/en/stable/ext/autodoc.html
   - http://www.sphinx-doc.org/en/stable/ext/math.html
 
-********************
+***************************
 Examples conf.py and github
-********************
+***************************
 For bunch of **themes**: http://www.sphinx-doc.org/en/stable/theming.html
 
 Options for ``extensions``: http://www.sphinx-doc.org/en/stable/extensions.html
 
 Great cheatsheet (standard)
-====================
+===========================
 - http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#headings  
 - https://github.com/cokelaer/sphinx_tutorial
 - https://github.com/cokelaer/sphinx_tutorial/blob/master/source/conf.py
@@ -263,7 +222,7 @@ Great cheatsheet (standard)
 
 
 Sphinx doc (sphinx13)
-====================
+=====================
 - http://www.sphinx-doc.org/en/stable/contents.html
 - https://github.com/sphinx-doc/sphinx/blob/master/doc/conf.py
 
@@ -284,7 +243,7 @@ Sphinx doc (sphinx13)
 
 
 nimfa (alabaster)
-====================
+=================
 - http://nimfa.biolab.si/
 - https://github.com/marinkaz/nimfa/blob/master/docs/source/conf.py
 
@@ -318,7 +277,7 @@ nimfa (alabaster)
 
 
 pandas
-====================
+======
 https://github.com/pydata/pandas/blob/master/doc/source/conf.py
 
 .. code-block:: python
@@ -341,7 +300,7 @@ https://github.com/pydata/pandas/blob/master/doc/source/conf.py
                   ]
 
 scipy lecture notes
-====================
+===================
 http://www.scipy-lectures.org/
 
 https://github.com/scipy-lectures/scipy-lecture-notes
@@ -422,9 +381,9 @@ inside ``conf.py``
     # Add any paths that contain custom themes here, relative to this directory.
     html_theme_path = ['themes']
 
-********************
+******
 themes
-********************
+******
 http://www.sphinx-doc.org/en/stable/theming.html
 
 .. code-block:: python
@@ -445,6 +404,7 @@ http://www.sphinx-doc.org/en/stable/theming.html
 
 
 Bootstrap
+=========
 
 .. code-block:: python
 
@@ -515,9 +475,9 @@ Bootstrap
         #'bootstrap_version': "3",
     }
 
-********************
+***************
 toctree options
-********************
+***************
 - `link <http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#include-other-rst-files-with-the-toctree-directive>`_
 - http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#include-other-rst-files-with-the-toctree-directive
 
@@ -533,9 +493,9 @@ toctree options
 
 
 
-*************************
+************************
 References and citations
-*************************
+************************
 .. code-block:: rst
 
     http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#citations
@@ -572,9 +532,9 @@ http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#citations
 
 .. [Hutchins2008] Lucie N. Hutchins, Sean P. Murphy, Priyam Singh and Joel H. Graber. Position-dependent motif characterization using non-negative matrix factorization. Bioinformatics, 24(23): 2684-2690, 2008.
 
-****************************
+*************************************
 matplotlib, ipython directive options
-****************************
+*************************************
 In bookmark bar, type ``lookup sphinx pyplot/ipyhthon``
 
 - http://matplotlib.org/sampledoc/extensions.html
@@ -697,9 +657,9 @@ See here for interesting unicodes: http://unicode.scarfboy.com/?s=U%2bf08c
 
 |github|, |pdf|, |archive|, |linkedin|
 
-**********
+*****
 image
-**********
+*****
 ::
 
     .. image:: http://mgoblog.com/sites/mgoblog.com/files/tapestry_logo.png
@@ -717,9 +677,9 @@ image
    :align: right
 
 
-********************
+*********
 csv-table
-********************
+*********
 .. csv-table:: OPTIONAL-TITLE
     :header: OPTIONAL-COL-HEADER
     :widths: 20,70
@@ -750,9 +710,9 @@ csv-table
    "Gannet Ripple", 1.99, "On a stick!"
 
 
-********************
+*****************
 header and footer
-********************
+*****************
 ::
 
     .. header:: This is a header (see top of page).
@@ -762,9 +722,9 @@ header and footer
 .. .. header:: This is a header (see top of page).
 .. footer:: This is a footer (see bottom of page).
 
-********************
-math (won't render on github (works on bitbucket)
-********************
+*************************************************
+math (won't render on github..works on bitbucket)
+*************************************************
 ::
 
     Inline math using rst-"roles": :math:`\frac{x}{2} = \gamma \times\frac{\beta}{\alpha}`
@@ -783,9 +743,9 @@ Inline math using rst-"roles": :math:`\frac{x}{2} = \gamma \times\frac{\beta}{\a
 
 
 
-********************
+*******
 replace
-********************
+*******
 ::
     
     .. |reST| replace:: reStructuredText
@@ -865,9 +825,9 @@ Lists
 #. bye
 #. ke
 
-********************
+********
 Comments
-********************
+********
 .. code-block:: rst
 
   .. this is a comment
@@ -889,9 +849,9 @@ Hello
   multiple lines
 
 
-####################
+############
 roles in RST
-####################
+############
 Ref: http://docutils.sourceforge.net/docs/ref/rst/roles.html
 
 - Basic syntax: ``ROLENAME:`INTERPRETED-TEXT``` (note the use of the backtick ````` in the second-half)
@@ -907,9 +867,9 @@ As an example, the following are equivalent::
 - This is `interpreted text` using the default role.
 - This is :title:`interpreted text` using an explicit role.
 
-********************
+***********************************************
 List of equivalent ``roles`` (ultra-incomplete)
-********************
+***********************************************
 .. code-block::
 
     *text*
@@ -922,9 +882,9 @@ List of equivalent ``roles`` (ultra-incomplete)
     :literal:`text`
     
  
-********************
+**********************************
 Some interesting looking ``roles``
-********************
+**********************************
 From main doc http://docutils.sourceforge.net/docs/ref/rst/roles.html
 
 .. code-block::

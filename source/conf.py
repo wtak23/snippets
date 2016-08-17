@@ -32,11 +32,14 @@ sys.path.insert(0, os.path.abspath('.'))
 autosummary_generate=True
 import IPython.sphinxext
 import numpydoc
+numpydoc_class_members_toctree = False
+numpydoc_show_class_members = False
 extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.viewcode',
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
+    'sphinx.ext.todo',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'numpydoc', # used to parse numpy-style docstrings for autodoc    
@@ -59,8 +62,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Snippets'
-copyright = u'2016, tw'
-author = u'tw'
+copyright = u'2016, Takanori Watanabe'
+author = u'Takanori Watanabe'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -90,7 +93,12 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = []
+exclude_patterns = [
+'cs-rst.rst',
+'cs-sphinx.rst',
+# 'bct.rst',
+]
+
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -121,7 +129,7 @@ pygments_style = 'sphinx'
 # keep_warnings = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+todo_include_todos = True
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -162,7 +170,7 @@ html_theme_options = {
 # pixels large.
 #
 # html_favicon = './img/blockm.gif'
-html_favicon = './img/favicon-penn.ico'
+html_favicon = '_static/img/favicon-penn.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

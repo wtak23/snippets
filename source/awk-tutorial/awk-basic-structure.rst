@@ -1,8 +1,9 @@
 
 .. _awk-basic-structure:
-#######################
+
+###############
 Basic structure
-#######################
+###############
 The essential organization of an AWK program follows the form:
 
 .. code-block:: bash

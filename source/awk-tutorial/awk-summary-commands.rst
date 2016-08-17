@@ -1,5 +1,6 @@
 
 .. _awk-summary-commands:
+
 #######################
 Summary of AWK Commands
 #######################
@@ -64,7 +65,7 @@ The following asks for a number, and then squares it:
 
 The above isn't a good filter, because it asks for input each time. If you pipe the output of another program into it, you would generate a lot of meaningless prompts.
 
-Here is a filter that you should find useful. It counts lines, totals up the numbers in the first column, and calculates the average. Pipe "wc -c *" into it, and it will count files, and tell you the average number of words per file, as well as the total words and the number of files. 
+Here is a filter that you should find useful. It counts lines, totals up the numbers in the first column, and calculates the average. Pipe ``"wc -c *"`` into it, and it will count files, and tell you the average number of words per file, as well as the total words and the number of files. 
 
 .. code-block:: bash
     :linenos:

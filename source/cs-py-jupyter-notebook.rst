@@ -4,8 +4,6 @@ python-jupyter-notebook
 .. contents:: **Table of Contents**
     :depth: 2
 
-
-
 #########################
 Ipython notebook defaults
 #########################
@@ -21,9 +19,9 @@ Ipython notebook defaults
     pd.set_option('precision',4)
 
 
-********************
+**********************
 Frequently used config
-********************
+**********************
 .. code-block:: python
     :linenos:
 
@@ -51,8 +49,9 @@ widgets
         <function ipywidgets.widgets.interaction.interact>
         <function ipywidgets.widgets.interaction.interactive>
 
+****************
 All widget types
-====================
+****************
 .. code-block:: python
     :linenos:
 
