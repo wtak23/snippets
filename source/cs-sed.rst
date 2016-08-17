@@ -1,8 +1,72 @@
 sed
 """
+.. rubric:: Other references
 
-.. contents:: **Table of Contents**
+- http://www.tutorialspoint.com/sed/index.htm
+- http://ss64.com/bash/sed.html
+- http://www.grymoire.com/Unix/Sed.html
+- https://www.gnu.org/software/sed/manual/sed.html (gnu manual)
+
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Subpages
+
+
+    cs-sed.oneliners.rst
+    cs-sed.man.rst
+
+.. contents:: **Contents (current page)**
     :depth: 3   
+
+######################
+Output from sed --help
+######################
+Output from ``sed --help``
+
+.. code-block:: none
+    :linenos:
+
+    Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+
+      -n, --quiet, --silent
+                     suppress automatic printing of pattern space
+      -e script, --expression=script
+                     add the script to the commands to be executed
+      -f script-file, --file=script-file
+                     add the contents of script-file to the commands to be executed
+      --follow-symlinks
+                     follow symlinks when processing in place
+      -i[SUFFIX], --in-place[=SUFFIX]
+                     edit files in place (makes backup if SUFFIX supplied)
+      -l N, --line-length=N
+                     specify the desired line-wrap length for the `l' command
+      --posix
+                     disable all GNU extensions.
+      -r, --regexp-extended
+                     use extended regular expressions in the script.
+      -s, --separate
+                     consider files as separate rather than as a single continuous
+                     long stream.
+      -u, --unbuffered
+                     load minimal amounts of data from the input files and flush
+                     the output buffers more often
+      -z, --null-data
+                     separate lines by NUL characters
+          --help     display this help and exit
+          --version  output version information and exit
+
+    If no -e, --expression, -f, or --file option is given, then the first
+    non-option argument is taken as the sed script to interpret.  All
+    remaining arguments are names of input files; if no input files are
+    specified, then the standard input is read.
+
+    GNU sed home page: <http://www.gnu.org/software/sed/>.
+    General help using GNU software: <http://www.gnu.org/gethelp/>.
+    E-mail bug reports to: <bug-sed@gnu.org>.
+    Be sure to include the word ``sed'' somewhere in the ``Subject:'' field.
 
 
 ############
@@ -130,3 +194,28 @@ substitution flags
     I or i | Match in a case-insensitive manner.
     M  or m | In addition to the normal behavior of the special regular expression characters ^ and $, this flag causes ^ to match the empty string after a newline and $ to match the empty string before a newline.
 
+##########
+fixname.sh
+##########
+.. code-block:: bash
+
+    #=========================================================================#
+    # Repalce string "_static" with "static"
+    # Repalce string "_sources" with "sources"
+    # Repalce string "_images" with "images"
+    #=========================================================================#
+    #http://stackoverflow.com/questions/14505047/bash-loop-through-all-the-files-with-a-specific-extension
+    build_dir='./_build/html'
+    for file in "${build_dir}/*.html"; do
+        #echo $file
+        sed -i 's/_static\//static\//' $file
+        sed -i 's/_sources\//sources\//' $file
+        sed -i 's/_modules\//sources\//' $file
+        #sed -i 's/_images\//images\//' $file
+    done
+
+    # rename directories with underscore
+    #mv ${build_dir}/_images ${build_dir}/images
+    mv ${build_dir}/_modules ${build_dir}/modules
+    mv ${build_dir}/_sources ${build_dir}/sources
+    mv ${build_dir}/_static ${build_dir}/static

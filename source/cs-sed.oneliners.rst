@@ -1,12 +1,23 @@
 sed oneliners
 """""""""""""
 - Created this to get nice syntax coloring. 
-    - originally from http://sed.sourceforge.net/sed1line.txt
+
+  - originally from http://sed.sourceforge.net/sed1line.txt
 - For sed commands, see table at: http://www.grymoire.com/Unix/Sed.html
+
+
+.. rubric:: Other references
+
+- http://www.tutorialspoint.com/sed/index.htm
+- http://ss64.com/bash/sed.html
+- http://www.grymoire.com/Unix/Sed.html
+- https://www.gnu.org/software/sed/manual/sed.html (gnu manual)
 
 .. contents:: **Table of Contents**
     :depth: 2
     
+
+
 ###############################################################################
 Typical use
 ###############################################################################

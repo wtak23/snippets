@@ -16,6 +16,8 @@ Welcome to Snippets's documentation!
     cs-python.rst
     cs-pyspark.rst
     bct.rst
+    cs-git.rst
+    configs/configs.rst
     cs-sphinx.rst
     cs-R.rst
     cs-awk-oneliners.rst
@@ -24,11 +26,11 @@ Welcome to Snippets's documentation!
     cs-regexp.rst
     cs-rst.rst
     cs-rst-old.rst
-    cs-sed-oneliners.rst
     cs-sed.rst
     cs-sql.rst
     cs-scala.rst
     awk-tutorial/index.rst
+    sed-tutorial/index.rst
 
 
 .. code-block:: bash

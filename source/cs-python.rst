@@ -12,6 +12,19 @@ Python
 ###############################
 Random Stack-overflow questions
 ###############################
+******************************
+Find first occurence in a list
+******************************
+- http://stackoverflow.com/questions/2361426/what-is-the-best-way-to-get-the-first-item-from-an-iterable-matching-a-condition
+- http://stackoverflow.com/questions/9868653/find-first-list-item-that-matches-criteria
+
+.. code-block:: python
+
+    next(x for x in the_iterable if x > 3)
+    next(obj for obj in objs if obj.val==5)
+
+    # next also provides a default value in case object does not exist
+    next((i for i in range(500) if i > 600), 600)
 
 **********************************************
 When plt.tight_layout doesn't work as expected
