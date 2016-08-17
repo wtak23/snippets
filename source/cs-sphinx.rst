@@ -22,9 +22,9 @@ http://www.sphinx-doc.org/en/stable/ext/autodoc.html
 - http://www.sphinx-doc.org/en/stable/theming.html (examples of themes)
 - **reStructuredText Primer** http://www.sphinx-doc.org/en/stable/rest.html (helpful refresher on rst syntax)
 
-*******************************************************************************
+******************************************
 References for rst in general (non-sphinx)
-*******************************************************************************
+******************************************
 - http://docutils.sourceforge.net/docs/user/rst/quickref.html
 - Roles: http://docutils.sourceforge.net/docs/ref/rst/roles.html
 - Directives: http://docutils.sourceforge.net/docs/ref/rst/directives.html
@@ -39,9 +39,9 @@ Autodoc related
 - http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html
 
 
-*********************
+***************
 Main directives
-*********************
+***************
 List
 
 .. code-block:: rst
@@ -59,29 +59,12 @@ List
 
         
 
-Usage 
-
-.. code-block:: rst
-
-    .. recursive autodoc all module members
-    .. automodule:: noodle
-       :members:
-
-    .. only include the docstring of the object itself
-    .. autoclass:: Noodle
-
-    .. recursively document all non-private member functions and properties
-    .. autoclass:: Noodle
-       :members:
-
-    .. You can also give an explicit list of members; only these will then be documented
-    .. autoclass:: Noodle
-       :members: eat, slurp
 
 
-*********************
+
+*****************
 directive options
-*********************
+*****************
 Summary
 
 .. code-block:: bash
@@ -133,9 +116,9 @@ My usage example
 
 
 
-****************************************************************************
+*************************************************************************
 autosummary (my notes highly incomplete...better to look at the doc page)
-****************************************************************************
+*************************************************************************
 http://www.sphinx-doc.org/en/stable/ext/autosummary.html
 
 - Pandas uses this in their api page (see below)
@@ -170,38 +153,10 @@ The autosummary directive can also optionally serve as a toctree entry for the i
 for these items can also be automatically generated.
 
 options
-========
+=======
 By default, no toctree is generated:
 
-.. code-block:: rst
 
-    .. currentmodule:: sphinx
-
-    .. autosummary::
-
-       environment.BuildEnvironment
-       util.relative_uri
-
-
-**autosummary table** also serves as a toctree entry:
-
-.. code-block:: rst
-
-    .. autosummary::
-       :toctree: DIRNAME
-
-       sphinx.environment.BuildEnvironment
-       sphinx.util.relative_uri
-
-Hide function signatures
-
-.. code-block:: rst
-
-    .. autosummary::
-       :nosignatures:
-
-       sphinx.environment.BuildEnvironment
-       sphinx.util.relative_uri
 
 
 pandas example
@@ -217,34 +172,6 @@ Below auto-generates html files in directory ``generated`` via the option ``:toc
 
 - http://pandas.pydata.org/pandas-docs/stable/api.html
 - http://pandas.pydata.org/pandas-docs/stable/**generated**/pandas.read_excel.html
-
-.. code-block:: rst
-
-    JSON
-    ~~~~
-
-    .. autosummary::
-       :toctree: generated/
-
-       read_json
-
-    .. currentmodule:: pandas.io.json
-
-    .. autosummary::
-       :toctree: generated/
-
-       json_normalize
-
-    .. currentmodule:: pandas
-
-    HTML
-    ~~~~
-
-    .. autosummary::
-       :toctree: generated/
-
-       read_html
-
 
 ###############
 conf.py related
@@ -471,9 +398,9 @@ So in ``conf.py``, we can do something like this:
     }
 
 
-####################################################
+#############################################
 Functions I use frequently (non-autodoc ones)
-####################################################
+#############################################
 By **function**, I mean roles/directives.
 
 Stuffs in this section mostly from http://www.sphinx-doc.org/en/stable/markup/index.html
@@ -502,49 +429,13 @@ Code
 ****
 http://www.sphinx-doc.org/en/stable/markup/code.html
 
-.. code-block:: rst
 
-    # This will produce line numbers for all code blocks longer than five lines.
-    .. highlight:: python
-       :linenothreshold: 5
 
-    .. code-block:: ruby
-       :linenos:
 
-    # emphasize particular lines
-    .. code-block:: python
-       :emphasize-lines: 3,5
 
-Literal includes (include code from external file)
-==================================================
-.. code-block:: rst
-
-    .. literalinclude:: example.py
-
-    .. literalinclude:: example.rb
-       :language: ruby
-       :emphasize-lines: 12,15-18
-       :linenos:
-
-    # specify parts of file (for a Python module, you can selection class/function/method via the :pyobject: option
-    .. literalinclude:: example.py
-       :pyobject: Timer.start
-
-    # specify line-numbers to include (i think scikit's tutorial use this often)
-    .. literalinclude:: example.py
-       :lines: 1,3,5-10,20-
-
-    # show diffs between files
-    .. literalinclude:: example.py
-       :diff: example.py.orig
-
-    # can specify encoding
-    .. literalinclude:: example.py
-       :encoding: latin-1
-
-******************************
+***************************
 Python directives and roles
-******************************
+***************************
 **Domain** = a collection of markup (reStructuredText directives and roles) to describe and link to objects belonging together, e.g. elements of a programming language. 
 
 http://www.sphinx-doc.org/en/stable/domains.html
@@ -553,25 +444,7 @@ Directives
 ==========
 http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects
 
-.. code-block:: rst
 
-    .. default-domain:: python
-    .. module:: name
-    .. currentmodule:: name
-    .. function:: name
-    .. class:: name
-    .. attribute:: name
-    .. method:: name
-
-Example
-
-.. code-block:: rst
-
-    .. function:: foo(x)
-                  foo(y, z)
-       :module: some.module.name
-
-       Return a line of text input from the user.
 
 roles       
 ==========
@@ -659,19 +532,6 @@ Labels that aren’t placed before a section title can still be referenced to,
 but you must give the link an explicit title, using this syntax: 
 ``:ref:`Link title <label-name>`.`` (however, this never worked for me so far...)
 
-Example usage
-==============
-- See how ``.. _ml:`` is used right before the section name?
-- Now I can reference them and hyperlink them via :ref:`ml`
-
-  - https://tedboy.github.io/pyspark_doc/pyspark.ml.html
-  - https://tedboy.github.io/pyspark_doc/pyspark.ml.param.html
-  - https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.txt
-  - https://tedboy.github.io/pyspark_doc/sources/pyspark.ml.param.txt
-
-
-
-dd
 
 **************************
 Paragraph-level directives
@@ -860,7 +720,7 @@ http://stackoverflow.com/questions/34483545/how-to-use-sphinx-quickstart-in-non-
 *******
 queries
 *******
-.. code-block:: bash
+.. code-block:: none
 
     Welcome to the Sphinx 1.4.5 quickstart utility.
 
@@ -1028,9 +888,9 @@ Google style (like theano)
         """
         return True
 
-**************************
+***************************
 NumPy style (my preference)
-**************************
+***************************
 .. code-block:: python
 
     def func(arg1, arg2):
