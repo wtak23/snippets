@@ -23,7 +23,7 @@ bct.nbs
    
    
    Exceptions
-   ---------
+   ----------
    .. autosummary::
       :toctree:
 

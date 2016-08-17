@@ -1,14 +1,128 @@
 bash-commands
 """""""""""""
+.. rubric :: Some References
 
-http://ss64.com/bash
+- http://ss64.com/bash
+- http://www.tldp.org/LDP/abs/html/ (**Advanced Bash-Scripting Guide**)
+- http://mywiki.wooledge.org/
 
-- Here keep list of \*one-liner\* bash commands.
+
+
+
 - ``ctrl+f => ongonig`` for **ongoing** cheat-sheets
 
 
 .. contents:: **Table of Contents**
     :depth: 2
+
+
+##############
+IO Redirection
+##############
+
+
+************************************************
+Output stdout and stderr to terminal and logfile
+************************************************
+- http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
+- http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console
+
+.. code-block:: bash
+
+    # save stdout and stderr to a file
+    bash mymake.sh >> log.txt 2>&1
+
+    # save logfile like above, but also print on terminal screen http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
+    bash mymake.sh 2>&1 | tee log.txt
+
+****************
+syntax reference
+****************
+- http://www.tldp.org/LDP/abs/html/io-redirection.html
+
+
+.. code-block:: bash
+
+    # Single-line redirection commands (affect only the line they are on):
+    # --------------------------------------------------------------------
+    1>filename
+       # Redirect stdout to file "filename."
+    1>>filename
+       # Redirect and append stdout to file "filename."
+    2>filename
+       # Redirect stderr to file "filename."
+    2>>filename
+       # Redirect and append stderr to file "filename."
+    &>filename
+       # Redirect both stdout and stderr to file "filename."
+       # This operator is now functional, as of Bash 4, final release.
+    2>&1
+       # Redirects stderr to stdout.
+       # Error messages get sent to same place as standard output.
+    i>&j
+       # Redirects file descriptor i to j.
+       # All output of file pointed to by i gets sent to file pointed to by j.
+    >&j
+       # Redirects, by default, file descriptor 1 (stdout) to j.
+       # All stdout gets sent to file pointed to by j.
+    |
+       # Pipe.
+       # General purpose process and command chaining tool.
+       # Similar to ">", but more general in effect.
+       # Useful for chaining commands, scripts, files, and programs together.
+       cat *.txt | sort | uniq > result-file
+       # Sorts the output of all the .txt files and deletes duplicate lines,
+       # finally saves results to "result-file".
+
+
+.. code-block:: bash
+
+    COMMAND_OUTPUT >
+       # Redirect stdout to a file.
+       # Creates the file if not present, otherwise overwrites it.
+
+    : > filename
+       # The > truncates file "filename" to zero length.
+       # If file not present, creates zero-length file (same effect as 'touch').
+       # The : serves as a dummy placeholder, producing no output.
+
+    > filename    
+       # The > truncates file "filename" to zero length.
+       # If file not present, creates zero-length file (same effect as 'touch').
+       # (Same result as ": >", above, but this does not work with some shells.)
+
+    COMMAND_OUTPUT >>
+       # Redirect stdout to a file.
+       # Creates the file if not present, otherwise appends to it.
+
+    M>N
+      # "M" is a file descriptor, which defaults to 1, if not explicitly set.
+      # "N" is a filename.
+      # File descriptor "M" is redirect to file "N."
+    M>&N
+      # "M" is a file descriptor, which defaults to 1, if not set.
+      # "N" is another file descriptor.
+      0< FILENAME
+       < FILENAME
+         # Accept input from a file.
+         # Companion command to ">", and often used in combination with it.
+         #
+         # grep search-word <filename
+
+      [j]<>filename
+         #  Open file "filename" for reading and writing,
+         #+ and assign file descriptor "j" to it.
+         #  If "filename" does not exist, create it.
+         #  If file descriptor "j" is not specified, default to fd 0, stdin.
+         #
+         #  An application of this is writing at a specified place in a file. 
+         echo 1234567890 > File    # Write string to "File".
+         exec 3<> File             # Open "File" and assign fd 3 to it.
+         read -n 4 <&3             # Read only 4 characters.
+         echo -n . >&3             # Write a decimal point there.
+         exec 3>&-                 # Close fd 3.
+         cat File                  # ==> 1234.67890
+         #  Random access, by golly.
 
 
 #########

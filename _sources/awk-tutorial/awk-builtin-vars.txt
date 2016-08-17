@@ -1,5 +1,6 @@
 
 .. awk-buildin-vars:
+
 **********************
 AWK Built-in Variables
 **********************
@@ -368,6 +369,7 @@ FILENAME - The Current Filename Variable
 
 
 The last variable known to regular AWK is "FILENAME", which tells you the name of the file being read.
+
 .. code-block:: bash
     :linenos:
 

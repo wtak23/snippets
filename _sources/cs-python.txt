@@ -105,10 +105,8 @@ Do this in sns
     sns.set_palette('muted') # <- looks less glaring to the eye
     #https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.color_palette.html
 
-
-
-  Matplotlib paletes can be specified as reversed palettes by appending “_r” to 
-  the name or as dark palettes by appending “_d” to the name. 
+Matplotlib paletes can be specified as reversed palettes by appending “_r” to 
+the name or as dark palettes by appending “_d” to the name. 
 
 - https://stanford.edu/~mwaskom/software/seaborn/tutorial/color_palettes.html
 - https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.color_palette.html

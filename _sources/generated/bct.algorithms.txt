@@ -145,7 +145,7 @@ bct.algorithms
    
    
    Exceptions
-   ---------
+   ----------
    .. autosummary::
       :toctree:
 

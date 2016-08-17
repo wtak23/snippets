@@ -92,20 +92,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../cs-pyspark.html">5. pyspark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../bct.html">6. Brain Connectivity Toolbox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cs-git.html">7. git-snippet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-configs.html">8. misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-sphinx.html">9. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-R.html">10. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-awk-oneliners.html">11. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-perl-oneliners.html">12. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-regexp.html">14. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-rst.html">15. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-rst-old.html">16. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-sed-oneliners.html">17. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-sed.html">18. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-sql.html">19. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cs-scala.html">20. Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../awk-tutorial/index.html">21. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configs/configs.html">8. configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-R.html">9. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-awk-oneliners.html">10. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-perl-oneliners.html">11. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-py-jupyter-notebook.html">12. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-regexp.html">13. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-rst-old.html">14. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sed.html">15. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-sql.html">16. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs-scala.html">17. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../awk-tutorial/index.html">18. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sed-tutorial/index.html">19. Sed things</a></li>
 </ul>
 
             
@@ -438,16 +436,18 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">       The input matrix must be a connection-length matrix, typically</span>
+<span class="sd">    The input matrix must be a connection-length matrix, typically</span>
 <span class="sd">    obtained via a mapping from weight to length. For instance, in a</span>
 <span class="sd">    weighted correlation network higher correlations are more naturally</span>
 <span class="sd">    interpreted as shorter distances and the input matrix should</span>
 <span class="sd">    consequently be some inverse of the connectivity matrix.</span>
-<span class="sd">       The number of edges in shortest weighted paths may in general</span>
+<span class="sd">    </span>
+<span class="sd">    The number of edges in shortest weighted paths may in general</span>
 <span class="sd">    exceed the number of edges in shortest binary paths (i.e. shortest</span>
 <span class="sd">    paths computed on the binarized connectivity matrix), because shortest</span>
 <span class="sd">    weighted paths have the minimal weighted distance, but not necessarily</span>
 <span class="sd">    the minimal number of edges.</span>
+<span class="sd">    </span>
 <span class="sd">       Lengths between disconnected nodes are set to Inf.</span>
 <span class="sd">       Lengths on the main diagonal are set to 0.</span>
 
@@ -587,11 +587,12 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">       The  efficiency is computed using an auxiliary connection-length</span>
+<span class="sd">    The  efficiency is computed using an auxiliary connection-length</span>
 <span class="sd">    matrix L, defined as L_ij = 1/W_ij for all nonzero L_ij; This has an</span>
 <span class="sd">    intuitive interpretation, as higher connection weights intuitively</span>
 <span class="sd">    correspond to shorter lengths.</span>
-<span class="sd">       The weighted local efficiency broadly parallels the weighted</span>
+<span class="sd">    </span>
+<span class="sd">    The weighted local efficiency broadly parallels the weighted</span>
 <span class="sd">    clustering coefficient of Onnela et al. (2005) and distinguishes the</span>
 <span class="sd">    influence of different paths based on connection weights of the</span>
 <span class="sd">    corresponding neighbors to the node in question. In other words, a path</span>
@@ -940,7 +941,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, tw.
+        &copy; Copyright 2016, Takanori Watanabe.
 
     </p>
   </div>

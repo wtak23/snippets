@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>19. sql &mdash; Snippets 1 documentation</title>
+  <title>16. sql &mdash; Snippets 1 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="Snippets 1 documentation" href="index.html"/>
-        <link rel="next" title="20. Scala" href="cs-scala.html"/>
-        <link rel="prev" title="18. sed" href="cs-sed.html"/> 
+        <link rel="next" title="17. Scala" href="cs-scala.html"/>
+        <link rel="prev" title="15.2. output from man page" href="cs-sed.man.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -93,39 +93,37 @@
 <li class="toctree-l1"><a class="reference internal" href="cs-pyspark.html">5. pyspark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bct.html">6. Brain Connectivity Toolbox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs-git.html">7. git-snippet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-configs.html">8. misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sphinx.html">9. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-R.html">10. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">11. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">12. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">14. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst.html">15. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">16. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed-oneliners.html">17. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">18. sed</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">19. sql</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#style-guidelines-conventions">19.1. Style guidelines, conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-commands-keywords">19.2. Basic commands/keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sql-zoo">19.3. sql-zoo</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#select-basics">19.3.1. SELECT basics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sorting-records-with-order-by">19.3.1.1. sorting records with ORDER BY</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wildcards">19.3.1.2. wildcards</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#case-statement">19.3.1.3. CASE statement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs/configs.html">8. configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-R.html">9. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-awk-oneliners.html">10. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-perl-oneliners.html">11. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-py-jupyter-notebook.html">12. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-regexp.html">13. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-rst-old.html">14. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-sed.html">15. sed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">16. sql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#style-guidelines-conventions">16.1. Style guidelines, conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands-keywords">16.2. Basic commands/keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sql-zoo">16.3. sql-zoo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-basics">16.3.1. SELECT basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sorting-records-with-order-by">16.3.1.1. sorting records with ORDER BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wildcards">16.3.1.2. wildcards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-statement">16.3.1.3. CASE statement</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#math-functions">19.3.2. math functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#aggregate-functions-sum-count-avg-etc">19.3.2.1. Aggregate functions (SUM, COUNT, AVG, etc)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#group-by-and-having">19.3.2.2. GROUP BY and HAVING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#math-functions">16.3.2. math functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aggregate-functions-sum-count-avg-etc">16.3.2.1. Aggregate functions (SUM, COUNT, AVG, etc)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-by-and-having">16.3.2.2. GROUP BY and HAVING</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#different-rdbms">19.4. different RDBMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#different-rdbms">16.4. different RDBMS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">20. Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">21. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs-scala.html">17. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">18. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sed-tutorial/index.html">19. Sed things</a></li>
 </ul>
 
             
@@ -167,7 +165,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>19. sql</li>
+      <li>16. sql</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,7 +183,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="sql">
-<h1><a class="toc-backref" href="#id1">19. sql</a><a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1">16. sql</a><a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first"><strong>Table of Contents</strong></p>
 <ul class="simple">
@@ -203,14 +201,14 @@
 </ul>
 </div>
 <div class="section" id="style-guidelines-conventions">
-<h2><a class="toc-backref" href="#id2">19.1. Style guidelines, conventions</a><a class="headerlink" href="#style-guidelines-conventions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">16.1. Style guidelines, conventions</a><a class="headerlink" href="#style-guidelines-conventions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/272210/sql-statement-indentation-good-practice">http://stackoverflow.com/questions/272210/sql-statement-indentation-good-practice</a></li>
 <li><a class="reference external" href="http://www.sqlstyle.guide/">http://www.sqlstyle.guide/</a></li>
 </ul>
 </div>
 <div class="section" id="basic-commands-keywords">
-<h2><a class="toc-backref" href="#id3">19.2. Basic commands/keywords</a><a class="headerlink" href="#basic-commands-keywords" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">16.2. Basic commands/keywords</a><a class="headerlink" href="#basic-commands-keywords" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -264,10 +262,10 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="sql-zoo">
-<h2><a class="toc-backref" href="#id4">19.3. sql-zoo</a><a class="headerlink" href="#sql-zoo" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">16.3. sql-zoo</a><a class="headerlink" href="#sql-zoo" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_basics">http://sqlzoo.net/wiki/SELECT_basics</a></p>
 <div class="section" id="select-basics">
-<h3><a class="toc-backref" href="#id5">19.3.1. SELECT basics</a><a class="headerlink" href="#select-basics" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">16.3.1. SELECT basics</a><a class="headerlink" href="#select-basics" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_basics">http://sqlzoo.net/wiki/SELECT_basics</a><ul>
 <li><a class="reference external" href="https://github.com/jisaw/sqlzoo-solutions/blob/master/select-basics.sql">https://github.com/jisaw/sqlzoo-solutions/blob/master/select-basics.sql</a></li>
@@ -349,7 +347,7 @@
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="sorting-records-with-order-by">
-<h4>19.3.1.1. sorting records with ORDER BY<a class="headerlink" href="#sorting-records-with-order-by" title="Permalink to this headline">¶</a></h4>
+<h4>16.3.1.1. sorting records with ORDER BY<a class="headerlink" href="#sorting-records-with-order-by" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -385,7 +383,7 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="wildcards">
-<h4>19.3.1.2. wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h4>
+<h4>16.3.1.2. wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h4>
 <p>wildcards using <code class="docutils literal"><span class="pre">LIKE</span></code> and <code class="docutils literal"><span class="pre">%</span></code> wildcard</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">%</span></code> kinda like <code class="docutils literal"><span class="pre">*</span></code> in shell</li>
@@ -458,7 +456,7 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="case-statement">
-<h4>19.3.1.3. CASE statement<a class="headerlink" href="#case-statement" title="Permalink to this headline">¶</a></h4>
+<h4>16.3.1.3. CASE statement<a class="headerlink" href="#case-statement" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial">http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial</a></p>
 <div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -518,16 +516,16 @@
 </div>
 </div>
 <div class="section" id="math-functions">
-<h3><a class="toc-backref" href="#id6">19.3.2. math functions</a><a class="headerlink" href="#math-functions" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">16.3.2. math functions</a><a class="headerlink" href="#math-functions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="aggregate-functions-sum-count-avg-etc">
-<h4>19.3.2.1. Aggregate functions (SUM, COUNT, AVG, etc)<a class="headerlink" href="#aggregate-functions-sum-count-avg-etc" title="Permalink to this headline">¶</a></h4>
+<h4>16.3.2.1. Aggregate functions (SUM, COUNT, AVG, etc)<a class="headerlink" href="#aggregate-functions-sum-count-avg-etc" title="Permalink to this headline">¶</a></h4>
 <p><strong>Aggregate function</strong> = takes many values and outputs a single-value</p>
 <div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">world</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="group-by-and-having">
-<h4>19.3.2.2. GROUP BY and HAVING<a class="headerlink" href="#group-by-and-having" title="Permalink to this headline">¶</a></h4>
+<h4>16.3.2.2. GROUP BY and HAVING<a class="headerlink" href="#group-by-and-having" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-sql"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -541,7 +539,7 @@
 </div>
 </div>
 <div class="section" id="different-rdbms">
-<h2><a class="toc-backref" href="#id7">19.4. different RDBMS</a><a class="headerlink" href="#different-rdbms" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">16.4. different RDBMS</a><a class="headerlink" href="#different-rdbms" title="Permalink to this headline">¶</a></h2>
 <p>To read:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models">https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models</a></li>
@@ -558,10 +556,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cs-scala.html" class="btn btn-neutral float-right" title="20. Scala" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cs-scala.html" class="btn btn-neutral float-right" title="17. Scala" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cs-sed.html" class="btn btn-neutral" title="18. sed" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cs-sed.man.html" class="btn btn-neutral" title="15.2. output from man page" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -570,7 +568,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, tw.
+        &copy; Copyright 2016, Takanori Watanabe.
 
     </p>
   </div>

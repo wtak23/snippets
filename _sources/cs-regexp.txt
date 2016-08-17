@@ -70,9 +70,9 @@ https://github.com/dmikalova/sublime-cheat-sheets/blob/master/cheat-sheets/Regul
 - http://www.boost.org/doc/libs/1_61_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
 - http://www.boost.org/doc/libs/1_61_0/libs/regex/doc/html/boost_regex/format/perl_format.html
 
-###############################################################################
+######################################
 Regular expression (regexp) for python
-###############################################################################
+######################################
 **References**
 
 - https://docs.python.org/2/howto/regex.html
@@ -80,9 +80,9 @@ Regular expression (regexp) for python
   
   - great to use as cheatsheets
 
-********************
+***********************
 Basic functions/modules
-********************
+***********************
 https://docs.python.org/2/howto/regex.html#performing-matches
 
 .. csv-table:: 
@@ -143,9 +143,9 @@ https://docs.python.org/2/howto/regex.html#performing-matches
     else:
         print 'No match'
 
-********************
+*****************
 Splitting strings
-********************
+*****************
 - use of **capturing paranthesis** to obtain the splitted portion that normally gets dropped
 
 .. code-block:: python
@@ -175,13 +175,9 @@ Splitting strings
     >>> re.split('[\W]+', 'Words, words, words.', 1)
     ['Words', 'words, words.']
 
-********************
+***************************
 Search and replace with sub
-********************
-
-
-
-
+***************************
 .. code-block:: python
     :linenos:
 
@@ -241,9 +237,9 @@ Search and replace with sub
     'Call 0xffd2 for printing, 0xc000 for user code.'
 
 
-********************
+*****************
 Compilation flags
-********************
+*****************
 https://docs.python.org/2/howto/regex.html#compilation-flags
 
 .. csv-table:: 
@@ -258,9 +254,9 @@ https://docs.python.org/2/howto/regex.html#compilation-flags
     VERBOSE, X | Enable verbose REs, which can be organized more cleanly and understandably.
     UNICODE, U | Makes several escapes like \w, \b, \s and \d dependent on the Unicode character database.
 
-********************
+*******************
 Greedy vs nongreedy
-********************
+*******************
 - nongreedy qualifiers: ``*?, +?, ??, or {m,n}?,``
 
 .. code-block:: python
@@ -276,9 +272,9 @@ Greedy vs nongreedy
     >>> print re.match('<.*?>', s).group()
         <html>
 
-********************
+****************************************
 Improve readibility with re.Verbose flag
-********************
+****************************************
 https://docs.python.org/2/howto/regex.html#using-re-verbose
 
   The re.VERBOSE flag has several effects. Whitespace in the regular expression that isn’t inside a character class is ignored. This means that an expression such as dog | cat is equivalent to the less readable dog|cat, but [a b] will still match the characters 'a', 'b', or a space. In addition, you can also put comments inside a RE; comments extend from a # character to the next newline. When used with triple-quoted strings, this enables REs to be formatted more neatly:
@@ -321,9 +317,9 @@ Another example
                          "|x[0-9a-fA-F]+);")
 
 
-********************
+************
 Named groups
-********************
+************
 - ``(?P<name>...)`` defines a **named group**, 
 - ``(?P=name)`` is a **backreference** to a named group
 - ``(?:...)`` is particularly useful when modifying an existing pattern, since you can add new groups without changing how all the other groups are numbered
@@ -359,9 +355,9 @@ Named groups
     >>> p.search('Paris in the the spring').group()
     'the the'
 
-********************
+*******************
 Lookahed assertions
-********************
+*******************
 - ``(?=...)`` Positive lookahead assertion.
 
   - successfully matches at the current location
@@ -369,9 +365,9 @@ Lookahed assertions
   
   - succeeds if the contained expression **doesn’t** match
 
-********************
+*****************
 Bunch of examples
-********************
+*****************
 .. code-block:: python
     :linenos:
 

@@ -3,6 +3,12 @@ bash-scripts
 
 Here snippets and explanations for writing bash scripts
 
+.. rubric :: Some References
+
+- http://ss64.com/bash
+- http://www.tldp.org/LDP/abs/html/ (**Advanced Bash-Scripting Guide**)
+- http://mywiki.wooledge.org/
+
 .. contents:: **Table of Contents**
     :depth: 2
 
@@ -334,6 +340,7 @@ Appending/concatenating variables
     # or 
     source_dir="watanabt@cbica-cluster.uphs.upenn.edu:"
     source_dir="${source_dir}/cbica/projects/autism/TobaccoCAR/Data/Results/Smoothed_Template_Space_Maps"
+
 #########################
 ``command`` vs $(command)
 #########################

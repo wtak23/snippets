@@ -739,9 +739,9 @@ Working with key-value pairs
 Random handy snippets
 #####################
 
-****************
+***************
 compute average
-****************
+***************
 .. code-block:: python
     
     # using RDDs

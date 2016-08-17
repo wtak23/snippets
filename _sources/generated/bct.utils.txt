@@ -40,7 +40,7 @@ bct.utils
    
    
    Exceptions
-   ---------
+   ----------
    .. autosummary::
       :toctree:
 

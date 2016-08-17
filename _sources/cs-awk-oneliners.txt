@@ -15,9 +15,9 @@ awk-oneliners
 .. code-block:: bash
     :linenos:
 
-###############################################################################
+############
 File spacing
-###############################################################################
+############
 .. code-block:: bash
     :linenos:
 
@@ -34,9 +34,9 @@ File spacing
      # triple space a file
      awk '1;{print "\n"}'
 
-###############################################################################
-    NUMBERING AND CALCULATIONS:
-###############################################################################
+###########################
+NUMBERING AND CALCULATIONS:
+###########################
 .. code-block:: bash
     :linenos:
 
@@ -94,9 +94,9 @@ File spacing
      # print every line where the value of the last field is > 4
      awk '$NF > 4'
 
-###############################################################################
-    STRING CREATION:
-###############################################################################
+################
+STRING CREATION:
+################
 .. code-block:: bash
     :linenos:
 
@@ -107,9 +107,9 @@ File spacing
      # Example: insert 49 spaces after column #6 of each input line.
      gawk --re-interval 'BEGIN{while(a++<49)s=s " "};{sub(/^.{6}/,"&" s)};1'
 
-###############################################################################
-    ARRAY CREATION:
-###############################################################################
+###############
+ARRAY CREATION:
+###############
 .. code-block:: bash
     :linenos:
 
@@ -124,9 +124,9 @@ File spacing
      # mdigit["Jan"] is 1, mdigit["Feb"] is 2, etc. Requires "month" array
      for (i=1; i<=12; i++) mdigit[month[i]] = i
 
-###############################################################################
-    TEXT CONVERSION AND SUBSTITUTION:
-###############################################################################
+#################################
+TEXT CONVERSION AND SUBSTITUTION:
+#################################
 .. code-block:: bash
     :linenos:
 
@@ -206,9 +206,9 @@ File spacing
      # between fields
      awk 'ORS=NR%5?",":"\n"' file
 
-###############################################################################
-    SELECTIVE PRINTING OF CERTAIN LINES:
-###############################################################################
+####################################
+SELECTIVE PRINTING OF CERTAIN LINES:
+####################################
 .. code-block:: bash
     :linenos:
 
@@ -278,9 +278,9 @@ File spacing
      awk '/Iowa/,/Montana/'             # case sensitive
 
 
-###############################################################################
-    SELECTIVE DELETION OF CERTAIN LINES:
-###############################################################################
+####################################
+SELECTIVE DELETION OF CERTAIN LINES:
+####################################
 .. code-block:: bash
     :linenos:
 

@@ -229,20 +229,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cs-git.html">7. git-snippet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-configs.html">8. misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">9. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">10. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">11. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">12. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">14. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">15. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">16. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">17. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">18. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">19. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">20. Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">21. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configs/configs.html">8. configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">9. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">10. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">11. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">12. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">13. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">14. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">15. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">16. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">17. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">18. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sed-tutorial/index.html">19. Sed things</a></li>
 </ul>
 
             
@@ -337,13 +335,14 @@ NB L is not the adjacency matrix. See below.</p>
 </tr>
 </tbody>
 </table>
-<p>obtained via a mapping from weight to length. For instance, in a
+<p class="rubric">Notes</p>
+<p>The input matrix must be a connection-length matrix, typically
+obtained via a mapping from weight to length. For instance, in a
 weighted correlation network higher correlations are more naturally
 interpreted as shorter distances and the input matrix should
 consequently be some inverse of the connectivity matrix.</p>
-<blockquote>
-<div>The number of edges in shortest weighted paths may in general</div></blockquote>
-<p>exceed the number of edges in shortest binary paths (i.e. shortest
+<p>The number of edges in shortest weighted paths may in general
+exceed the number of edges in shortest binary paths (i.e. shortest
 paths computed on the binarized connectivity matrix), because shortest
 weighted paths have the minimal weighted distance, but not necessarily
 the minimal number of edges.</p>
@@ -374,7 +373,7 @@ Lengths on the main diagonal are set to 0.</div></blockquote>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, tw.
+        &copy; Copyright 2016, Takanori Watanabe.
 
     </p>
   </div>

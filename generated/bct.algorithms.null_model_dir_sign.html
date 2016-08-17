@@ -229,20 +229,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cs-git.html">7. git-snippet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-configs.html">8. misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sphinx.html">9. sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">10. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">11. awk-oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">12. perl one-liners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">13. python-jupyter-notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">14. regular expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst.html">15. rst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">16. rst cheatsheet (old)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed-oneliners.html">17. sed oneliners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">18. sed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">19. sql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">20. Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">21. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configs/configs.html">8. configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">9. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">10. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">11. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">12. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">13. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">14. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">15. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">16. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">17. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">18. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sed-tutorial/index.html">19. Sed things</a></li>
 </ul>
 
             
@@ -352,20 +350,18 @@ output connection matrices, rpos_in, rpos_out, rneg_in, rneg_out</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<dl class="docutils">
-<dt>The value of bin_swaps is ignored when binary topology is fully</dt>
-<dd>connected (e.g. when the network has no negative weights).</dd>
-<dt>Randomization may be better (and execution time will be slower) for</dt>
-<dd>higher values of bin_swaps and wei_freq. Higher values of bin_swaps may
+<p>The value of bin_swaps is ignored when binary topology is fully
+connected (e.g. when the network has no negative weights).</p>
+<p>Randomization may be better (and execution time will be slower) for
+higher values of bin_swaps and wei_freq. Higher values of bin_swaps may
 enable a more random binary organization, and higher values of wei_freq
-may enable a more accurate conservation of strength sequences.</dd>
-<dt>R are the correlation coefficients between positive and negative</dt>
-<dd>in-strength and out-strength sequences of input and output connection
+may enable a more accurate conservation of strength sequences.</p>
+<p>R are the correlation coefficients between positive and negative
+in-strength and out-strength sequences of input and output connection
 matrices and are used to evaluate the accuracy with which strengths
 were preserved. Note that correlation coefficients may be a rough
 measure of strength-sequence accuracy and one could implement more
-formal tests (such as the Kolmogorov-Smirnov test) if desired.</dd>
-</dl>
+formal tests (such as the Kolmogorov-Smirnov test) if desired.</p>
 </dd></dl>
 
 </div>
@@ -389,7 +385,7 @@ formal tests (such as the Kolmogorov-Smirnov test) if desired.</dd>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, tw.
+        &copy; Copyright 2016, Takanori Watanabe.
 
     </p>
   </div>

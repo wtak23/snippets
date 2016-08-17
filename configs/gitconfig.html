@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8.1. My current gitconfig file &mdash; Snippets 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-penn.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Snippets 1 documentation" href="../index.html"/>
+        <link rel="up" title="8. configs" href="configs.html"/>
+        <link rel="next" title="8.2. My current .bashrc file in my office" href="bashrc.html"/>
+        <link rel="prev" title="8. configs" href="configs.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Snippets
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-commands.html">1. bash-commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-bash-scripts.html">2. bash-scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-qsubber.html">3. qsubber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-python.html">4. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-pyspark.html">5. pyspark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bct.html">6. Brain Connectivity Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-git.html">7. git-snippet</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="configs.html">8. configs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.1. My current gitconfig file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bashrc.html">8.2. My current .bashrc file in my office</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-R.html">9. R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-awk-oneliners.html">10. awk-oneliners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-perl-oneliners.html">11. perl one-liners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-py-jupyter-notebook.html">12. python-jupyter-notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-regexp.html">13. regular expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-rst-old.html">14. rst cheatsheet (old)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sed.html">15. sed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-sql.html">16. sql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs-scala.html">17. Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">18. awk-tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sed-tutorial/index.html">19. Sed things</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Snippets</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="configs.html">8. configs</a> &raquo;</li>
+        
+      <li>8.1. My current gitconfig file</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/configs/gitconfig.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="my-current-gitconfig-file">
+<h1>8.1. My current gitconfig file<a class="headerlink" href="#my-current-gitconfig-file" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Below I have a symlink to my <code class="docutils literal"><span class="pre">gitconfig</span></code> file for the take of having Sphinx understand its path location</p>
+</div>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#| http://stackoverflow.com/questions/2183900/how-do-i-prevent-git-diff-from-using-a-pager</span>
+<span class="c1">#| last update: 2/26/2013</span>
+<span class="o">[</span>user<span class="o">]</span>
+	<span class="nv">name</span> <span class="o">=</span> Takanori Watanabe <span class="o">(</span>sbia-pc125<span class="o">)</span>
+	<span class="nv">email</span> <span class="o">=</span> Takanori.Watanabe@uphs.upenn.edu
+<span class="o">[</span>core<span class="o">]</span>
+	<span class="c1">#editor = &quot;emacs -nw&quot;</span>
+	<span class="nv">editor</span> <span class="o">=</span> subl -n -w <span class="c1"># http://stackoverflow.com/questions/22631863/setting-up-sublimetext-3-as-git-commit-text-editor</span>
+	<span class="nv">pager</span> <span class="o">=</span> cat
+	<span class="nv">symlinks</span> <span class="o">=</span> <span class="nb">false</span>
+	<span class="nv">autocrlf</span> <span class="o">=</span> <span class="nb">false</span> <span class="c1"># see Progit pdf-pg.152</span>
+	<span class="nv">filemode</span> <span class="o">=</span> <span class="nb">false</span> <span class="c1"># to suppress unix file permission change in windows </span>
+<span class="o">[</span>color<span class="o">]</span>
+     <span class="nv">branch</span> <span class="o">=</span> <span class="nb">true</span>
+     <span class="nv">diff</span> <span class="o">=</span> <span class="nb">true</span>
+     <span class="nv">status</span> <span class="o">=</span> <span class="nb">true</span>
+     <span class="nv">pager</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="o">[</span>alias<span class="o">]</span>
+	<span class="c1">##############################################################################</span>
+	<span class="c1"># Things i added post july2015</span>
+	<span class="c1">##############################################################################</span>
+	<span class="c1"># http://stackoverflow.com/questions/3801321/git-list-only-untracked-files-also-custom-commands</span>
+	<span class="nv">lsi</span> <span class="o">=</span> <span class="s2">&quot;!git ls-files -o --exclude-standard </span><span class="nv">$1</span><span class="s2">&quot;</span>
+	<span class="c1"># aaaaa = !git add $(git ls-files -o --exclude-standard)</span>
+
+	<span class="c1">#=========================================================================#</span>
+	<span class="c1"># Useful references</span>
+	<span class="c1"># - https://git.wiki.kernel.org/index.php/Aliases</span>
+	<span class="c1">#=========================================================================#</span>
+	<span class="nv">sortdiff</span> <span class="o">=</span> !sh -c <span class="s1">&#39;git diff &quot;$@&quot; | grep &quot;^[+-]&quot; | sort --key=1.2 | uniq -u -s1&#39;</span>
+	<span class="nv">unstage</span> <span class="o">=</span> <span class="s2">&quot;!git reset HEAD </span>$<span class="s2">&quot;</span>
+
+	<span class="nv">pu</span> <span class="o">=</span> push -u
+	<span class="nv">s</span> <span class="o">=</span> status
+
+	<span class="c1">###########################################################################</span>
+	<span class="c1"># ls-files are handy for showing only: (08/20/2014)</span>
+	<span class="c1"># 	-d: deleted files</span>
+	<span class="c1">#	-m: modified files</span>
+	<span class="c1">#	-o: untracked files</span>
+	<span class="c1">#-------------------------------------------------------------------------#</span>
+	<span class="c1"># - use less as default, lsc to output on terminal (c for cat)</span>
+	<span class="c1">#-------------------------------------------------------------------------#</span>
+	<span class="nv">ls</span> <span class="o">=</span> <span class="s2">&quot;!git ls-files </span><span class="nv">$1</span><span class="s2"> | less -rN&quot;</span>
+	<span class="nv">lsc</span> <span class="o">=</span> <span class="s2">&quot;!git ls-files </span><span class="nv">$1</span><span class="s2">&quot;</span>
+	<span class="c1">###########################################################################</span>
+
+	<span class="nv">sl</span> <span class="o">=</span> <span class="s2">&quot;!git status | less -rN&quot;</span>
+	<span class="c1">########## add ##########	</span>
+	<span class="nv">ai</span> <span class="o">=</span> add -i
+	<span class="nv">aa</span> <span class="o">=</span> add -A
+	<span class="c1"># au = add -u</span>
+	
+	<span class="c1">#| add all and comment (use with care)</span>
+	<span class="nv">aac</span> <span class="o">=</span> <span class="s2">&quot;!git add -A &amp;&amp; git commit -m&quot;</span>
+	
+	<span class="c1">#| add, then display status</span>
+	<span class="nv">a</span> <span class="o">=</span> <span class="s2">&quot;!git add </span><span class="nv">$1</span><span class="s2"> &amp;&amp; git status&quot;</span>
+	
+	<span class="c1">########## branches ##########	</span>
+	<span class="nv">b</span> <span class="o">=</span> branch
+	<span class="nv">ba</span> <span class="o">=</span> branch -a
+	<span class="nv">bav</span> <span class="o">=</span> branch -av
+
+	<span class="c1">#| show commit history of branches (http://www.kernel.org/pub//software/scm/git/docs/git-show-branch.html)</span>
+	<span class="nv">sb</span> <span class="o">=</span> <span class="s2">&quot;!git show-branch --color=always | less -rN&quot;</span>
+
+	<span class="c1">#| same as above, but for remote branches</span>
+	<span class="nv">sbr</span> <span class="o">=</span> <span class="s2">&quot;!git show-branch -r --color=always | less -rN&quot;</span>
+
+	<span class="c1">#| same as above, but for all branches</span>
+	<span class="nv">sbr</span> <span class="o">=</span> <span class="s2">&quot;!git show-branch -a --color=always | less -rN&quot;</span>
+	
+	<span class="c1">#| display only the names of the files that went through changes between two branches (remote branches are allowed)</span>
+	<span class="c1">#| Example: $ git dfname branch1 branch2</span>
+	<span class="c1">#|		  =&gt; this will show the file changed FROM branch1 to branch2</span>
+	<span class="c1">#| 		  =&gt; (eg: D file1.txt --- file1 that was in branch1 is deleted in branch2)</span>
+	<span class="nv">dfname</span> <span class="o">=</span> <span class="s2">&quot;!git diff --name-status </span><span class="nv">$1</span><span class="s2">..</span><span class="nv">$2</span><span class="s2">&quot;</span>
+	<span class="c1"># A: addition of a file</span>
+	<span class="c1"># C: copy of a file into a new one</span>
+	<span class="c1"># D: deletion of a file</span>
+	<span class="c1"># M: modification of the contents or mode of a file</span>
+	<span class="c1"># R: renaming of a file</span>
+	<span class="c1"># T: change in the type of the file</span>
+	<span class="c1"># U: file is unmerged (you must complete the merge before it can be committed)</span>
+	<span class="c1"># X: &quot;unknown&quot; change type (most probably a bug, please report it)</span>
+	
+	<span class="c1">########## commits ##########	(9/23/2013 - added --reset-author so that amended commits will receive new timestamps)</span>
+	<span class="nv">c</span> <span class="o">=</span> commit
+	<span class="nv">ca</span> <span class="o">=</span> commit --amend --reset-author
+	<span class="nv">can</span> <span class="o">=</span> commit --amend --no-edit --reset-author <span class="c1"># (09/19/2013) http://stackoverflow.com/questions/10237071/git-commit-amend-use-existing-message-no-editor-interaction</span>
+	<span class="nv">call</span> <span class="o">=</span> <span class="s2">&quot;!git add -A &amp;&amp; git commit --amend --no-edit --reset-author&quot;</span> <span class="c1"># (09/22/2013) add all and commit ammend with no edit</span>
+	<span class="c1"># cm = &quot;!git commit -m $1&quot; #| don&#39;t know how to allow argument with quotations...ask Dan in the future 2/23/2013</span>
+	<span class="nv">cm</span> <span class="o">=</span> commit -m
+	<span class="nv">cam</span> <span class="o">=</span> commit --amend -m
+	
+	<span class="nv">r</span> <span class="o">=</span> remote
+	<span class="nv">rv</span> <span class="o">=</span> remote -v
+	
+	<span class="c1">########## diffs ##########</span>
+	<span class="nv">d</span> <span class="o">=</span> diff --color<span class="o">=</span>always
+	<span class="nv">dc</span> <span class="o">=</span> diff --cached --color<span class="o">=</span>always
+	
+	<span class="c1">#| suffix &quot;l&quot; for &quot;less&quot;</span>
+	<span class="nv">dl</span> <span class="o">=</span> <span class="s2">&quot;!git diff --color=always | less -rN&quot;</span>	
+	<span class="nv">dcl</span> <span class="o">=</span> <span class="s2">&quot;!git diff --cached --color=always | less -rN&quot;</span>
+	
+	<span class="c1">########## logs ########## (see progit-pdf-pg25)</span>
+	<span class="c1">#| suffix &quot;n&quot; for &quot;number&quot;</span>
+	<span class="nv">ln</span> <span class="o">=</span> <span class="s2">&quot;!git log </span><span class="nv">$1</span><span class="s2"> --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset&#39; --abbrev-commit --date=relative --color=always&quot;</span>
+	<span class="nv">ll</span> <span class="o">=</span> <span class="s2">&quot;!git log --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset&#39; --abbrev-commit --date=relative --color=always | less -rN&quot;</span>
+	<span class="nv">l</span> <span class="o">=</span> <span class="s2">&quot;!git log -5 --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset&#39; --abbrev-commit --date=relative --color=always &amp;&amp; echo &#39;&#39; &quot;</span>	
+	
+	<span class="c1">########## other useful commands ##########	</span>
+	<span class="c1">#| checkout a file from a different branch, and give it a new file name </span>
+	<span class="c1">#| ($1 = branch-names, $2 = filename $3 = output filename)</span>
+	<span class="c1">#| Example: $ git cho takanori-pc/develop tinit.m tinit_tmp.m</span>
+	
+	<span class="c1">#| ERROR: output ends messed up...</span>
+	<span class="c1">#|   Apparently it&#39;s not recognizing colon character &quot;:&quot; ...</span>
+	<span class="c1">#| manually do this...easy enough =)</span>
+	<span class="c1">#| Example: </span>
+	<span class="c1">#|  $ git show takanori-pc/master:tinit.m &gt; tinit_pc.m</span>
+	<span class="c1">#cho = &quot;!git show $1:$2 &gt; $3&quot;</span>
+	<span class="c1">#sfile = &quot;!git show $1:$2 --color=always&quot; #| manually do pipe to output</span>
+	
+	<span class="c1">#| display the latest commits fo all branches (with their commit time)</span>
+	<span class="nv">ball</span> <span class="o">=</span> <span class="s2">&quot;!bash git_bra.sh&quot;</span> 
+
+	<span class="nv">fall</span> <span class="o">=</span> fetch --all
+<span class="o">[</span>push<span class="o">]</span>
+	<span class="nv">default</span> <span class="o">=</span> matching
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bashrc.html" class="btn btn-neutral float-right" title="8.2. My current .bashrc file in my office" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configs.html" class="btn btn-neutral" title="8. configs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Takanori Watanabe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
