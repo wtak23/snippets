@@ -1,0 +1,6 @@
+{
+    "cmd": ["/usr/bin/R", "-f", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "word_wrap": false,
+    "selector": "source.r"
+}

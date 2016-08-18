@@ -1,0 +1,10 @@
+{
+    "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}],
+    "tab_size": 4,
+    "wrap_width": 80,
+    "rulers":
+    [
+      79,
+      120
+    ]
+}

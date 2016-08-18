@@ -14,6 +14,7 @@ Grossly incomplete. Took notes (copy and paste) from parts that I find useful.
 .. toctree::
     :maxdepth: 2
     :caption: Table of Contents
+    :name: awktutorial
 
     awk-basic-structure.rst
     awk-essential-syntax.rst
