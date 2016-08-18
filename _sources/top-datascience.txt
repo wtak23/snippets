@@ -13,4 +13,6 @@ Data Science
 
     cs-R.rst
     cs-sql.rst
+    cs-perl-oneliners.rst    
+    cs-regexp.rst
     cs-scala.rst

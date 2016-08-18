@@ -1,18 +1,28 @@
 rst
 """
 
+.. todo:: clean this up!
+
 .. contents:: **Table of Contents**
     :depth: 2
 
-RST references
-^^^^^^^^^^^^^^
+
+########
+csv-demo
+########
+From the url
+
+.. http://docutils.sourceforge.net/docs/ref/rst/directives.html#id4        
+.. csv-table::
+    :header-rows: 1
+    :url: https://raw.githubusercontent.com/mwaskom/seaborn-data/master/car_crashes.csv
 
 
 #######
 Lookups
 #######
 - **directives** http://docutils.sourceforge.net/docs/ref/rst/directives.html
-- **roles** (eg, ``:math:`` syntax
+- **roles** (eg, ``:math:`` syntax)
   
   - http://docutils.sourceforge.net/docs/ref/rst/roles.html
 

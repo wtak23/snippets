@@ -21,7 +21,7 @@ Those were dark days with no tangible signs of hope.
     top-python.rst
     top-datascience.rst
     top-bash.rst
-    top-scripting.rst
+    top-unix.rst
     top-misc.rst
     configs/configs.rst
     

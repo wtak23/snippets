@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Module Index &mdash; Snippets 1 documentation</title>
+  <title>4. awk &mdash; Snippets 1 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="Snippets 1 documentation" href="index.html"/>
- 
-
-
+        <link rel="up" title="Unit utilities" href="top-unix.html"/>
+        <link rel="next" title="5. awk-oneliners" href="cs-awk-oneliners.html"/>
+        <link rel="prev" title="3. Sed tutorials" href="sed-tutorial/index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,7 +86,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="top-python.html">Python-type</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-python.html">1. Python</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-python.html#random-stack-overflow-questions">1.1. Random Stack-overflow questions</a><ul>
@@ -368,7 +368,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-unix.html">Unit utilities</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-unix.html">Unit utilities</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cs-sed.html">1. sed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-sed.html#random-snippets">1.1. Random snippets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cs-sed.html#sed-help">1.2. sed &#8211;help</a></li>
@@ -393,15 +393,15 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sed-tutorial/index.html">3. Sed tutorials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cs-awk.html">4. awk</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#note-do-i-really-need-awk">4.1. note: do I really need awk?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#my-use-case-for-awk-for-files-containing-columns-fields">4.2. My use-case for awk (for files containing columns/fields)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#random-snippets">4.3. Random snippets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#awk-one-liners">4.4. awk (one-liners)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-awk.html#great-examples-here">4.4.1. Great examples here!</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. awk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#note-do-i-really-need-awk">4.1. note: do I really need awk?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#my-use-case-for-awk-for-files-containing-columns-fields">4.2. My use-case for awk (for files containing columns/fields)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#random-snippets">4.3. Random snippets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awk-one-liners">4.4. awk (one-liners)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#great-examples-here">4.4.1. Great examples here!</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#awk-help">4.5. awk &#8211;help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awk-help">4.5. awk &#8211;help</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cs-awk-oneliners.html">5. awk-oneliners</a><ul>
@@ -539,12 +539,16 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li></li>
+          <li><a href="top-unix.html">Unit utilities</a> &raquo;</li>
+        
+      <li>4. awk</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/cs-awk.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -554,44 +558,157 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
+  <div class="section" id="awk">
+<h1><a class="toc-backref" href="#id1">4. awk</a><a class="headerlink" href="#awk" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents-current-page">
+<p class="topic-title first"><strong>Contents (current page)</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#awk" id="id1">awk</a><ul>
+<li><a class="reference internal" href="#note-do-i-really-need-awk" id="id2">note: do I really need awk?</a></li>
+<li><a class="reference internal" href="#my-use-case-for-awk-for-files-containing-columns-fields" id="id3">My use-case for awk (for files containing columns/fields)</a></li>
+<li><a class="reference internal" href="#random-snippets" id="id4">Random snippets</a></li>
+<li><a class="reference internal" href="#awk-one-liners" id="id5">awk (one-liners)</a></li>
+<li><a class="reference internal" href="#awk-help" id="id6">awk &#8211;help</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="note-do-i-really-need-awk">
+<h2><a class="toc-backref" href="#id2">4.1. note: do I really need awk?</a><a class="headerlink" href="#note-do-i-really-need-awk" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">tl;dr &#8212; I probably don&#8217;t need its programming functionality, but just know some of the handy <strong>one-liners</strong> i can use in the commandline</p>
+</div>
+<ul class="simple">
+<li>when things get complicated, I use <code class="docutils literal"><span class="pre">perl</span></code> or <code class="docutils literal"><span class="pre">python</span></code>, which I use on a more regular basis (hence it sticks with me...awk i don&#8217;t use it often enough)</li>
+<li>basically, I rarely find the rare niche right between not needing it at all and needing to whip out Perl/Python (ie, spectrum between tr/cut/sed to python/perl)</li>
+<li>see the answers I hilited in this SO thread: <a class="reference external" href="http://stackoverflow.com/questions/107603/is-there-still-any-reason-to-learn-awk">http://stackoverflow.com/questions/107603/is-there-still-any-reason-to-learn-awk</a></li>
+</ul>
+<p>I tend to agree with this comment:</p>
+<blockquote>
+<div>I wouldn&#8217;t advise you spend a whole lot of time on it, but it might come in handy to know the basics of the syntax &#8211; at least enough that you can consult the manual quickly should you ever want to use it.</div></blockquote>
+<p><strong>Conclusion</strong>: I&#8217;d like to learn more about it, but I have ton of other things I need to learn.</p>
+</div>
+<div class="section" id="my-use-case-for-awk-for-files-containing-columns-fields">
+<h2><a class="toc-backref" href="#id3">4.2. My use-case for awk (for files containing columns/fields)</a><a class="headerlink" href="#my-use-case-for-awk-for-files-containing-columns-fields" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/107603/is-there-still-any-reason-to-learn-awk">http://stackoverflow.com/questions/107603/is-there-still-any-reason-to-learn-awk</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#=========================================================================#</span>
+<span class="c1"># For dealing with multicolumn files</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># I think awk is great if your file contains columns/fields.</span>
+<span class="c1"># Example: below will print only if the 2nd column value in a tab seperated</span>
+<span class="c1"># file is greater than the 3rd column value.</span>
+awk -F <span class="se">\t</span> <span class="s1">&#39;{ if ($2 &gt; $3) print; }&#39;</span> &lt;filename&gt;
 
-   <h1>Python Module Index</h1>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># For auto-splitting</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># The only reason I use awk is the auto-splitting.</span>
+<span class="c1"># This prints the third whitespace-delimited field in file.in</span>
+awk <span class="s1">&#39;{print $3}&#39;</span> &lt; file.in
 
-   <div class="modindex-jumpbox">
-   <a href="#cap-b"><strong>b</strong></a>
-   </div>
+<span class="c1"># above is arguably easier than</span>
+tr -s <span class="s1">&#39; &#39;</span> &lt; file.in <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f3
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-snippets">
+<h2><a class="toc-backref" href="#id4">4.3. Random snippets</a><a class="headerlink" href="#random-snippets" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ls -l
+total 68K
+drwxr-xr-x  <span class="m">4</span> takanori takanori 4.0K Aug <span class="m">17</span> 23:41 build
+drwxr-xr-x <span class="m">13</span> takanori takanori 4.0K Aug <span class="m">17</span> 22:18 build_published
+drwxr-xr-x  <span class="m">8</span> takanori takanori 4.0K Aug <span class="m">17</span> 23:31 <span class="nb">source</span>
+-rw-r--r--  <span class="m">1</span> takanori takanori 7.5K Aug  <span class="m">5</span> 13:45 Makefile
+-rw-r--r--  <span class="m">1</span> takanori takanori  <span class="m">666</span> Aug <span class="m">17</span> 22:05 mymake.sh
+-rw-rw-rw-  <span class="m">1</span> takanori takanori  <span class="m">343</span> Aug <span class="m">12</span> 12:38 publish.sh
+-rw-r--r--  <span class="m">1</span> takanori takanori  <span class="m">651</span> Aug  <span class="m">5</span> 14:37 readme.rst
+-rw-r--r--  <span class="m">1</span> takanori takanori  <span class="m">487</span> Jun <span class="m">14</span> 19:24 sed-text.txt
 
-   <table class="indextable modindextable" cellspacing="0" cellpadding="2">
-     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
-     <tr class="cap" id="cap-b"><td></td><td>
-       <strong>b</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <code class="xref">bct</code></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="generated/bct.algorithms.html#module-bct.algorithms"><code class="xref">bct.algorithms</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="generated/bct.nbs.html#module-bct.nbs"><code class="xref">bct.nbs</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="generated/bct.utils.html#module-bct.utils"><code class="xref">bct.utils</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+<span class="c1"># pull out the 5th and 9th field (file-size and file-name)</span>
+$ ls -l <span class="p">|</span> awk <span class="s1">&#39;{printf $5 &quot;\t&quot; $9&quot;\n&quot;}&#39;</span>
+
+4.0K    build
+4.0K    build_published
+4.0K    <span class="nb">source</span>
+7.5K    Makefile
+<span class="m">666</span> mymake.sh
+<span class="m">343</span> publish.sh
+<span class="m">651</span> readme.rst
+<span class="m">487</span> sed-text.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="awk-one-liners">
+<h2><a class="toc-backref" href="#id5">4.4. awk (one-liners)</a><a class="headerlink" href="#awk-one-liners" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/2021982/awk-without-printing-newline">http://stackoverflow.com/questions/2021982/awk-without-printing-newline</a></li>
+<li><a class="reference external" href="http://askubuntu.com/questions/231995/how-to-separate-fields-with-space-or-tab-in-awk">http://askubuntu.com/questions/231995/how-to-separate-fields-with-space-or-tab-in-awk</a></li>
+<li><a class="reference external" href="http://www.catonmat.net/blog/awk-one-liners-explained-part-one/">http://www.catonmat.net/blog/awk-one-liners-explained-part-one/</a></li>
+<li><a class="reference external" href="http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html">http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html</a></li>
+</ul>
+<div class="section" id="great-examples-here">
+<h3>4.4.1. Great examples here!<a class="headerlink" href="#great-examples-here" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://tuxgraphics.org/~guido/scripts/awk-one-liner.html">http://tuxgraphics.org/~guido/scripts/awk-one-liner.html</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="awk-help">
+<h2><a class="toc-backref" href="#id6">4.5. awk &#8211;help</a><a class="headerlink" href="#awk-help" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Usage: awk [POSIX or GNU style options] -f progfile [--] file ...
+Usage: awk [POSIX or GNU style options] [--] &#39;program&#39; file ...
+POSIX options:      GNU long options: (standard)
+    -f progfile     --file=progfile
+    -F fs           --field-separator=fs
+    -v var=val      --assign=var=val
+Short options:      GNU long options: (extensions)
+    -b          --characters-as-bytes
+    -c          --traditional
+    -C          --copyright
+    -d[file]        --dump-variables[=file]
+    -e &#39;program-text&#39;   --source=&#39;program-text&#39;
+    -E file         --exec=file
+    -g          --gen-pot
+    -h          --help
+    -L [fatal]      --lint[=fatal]
+    -n          --non-decimal-data
+    -N          --use-lc-numeric
+    -O          --optimize
+    -p[file]        --profile[=file]
+    -P          --posix
+    -r          --re-interval
+    -S          --sandbox
+    -t          --lint-old
+    -V          --version
+
+To report bugs, see node `Bugs&#39; in `gawk.info&#39;, which is
+section `Reporting Problems and Bugs&#39; in the printed version.
+
+gawk is a pattern scanning and processing language.
+By default it reads standard input and writes standard output.
+
+Examples:
+    gawk &#39;{ sum += $1 }; END { print sum }&#39; file
+    gawk -F: &#39;{ print $1 }&#39; /etc/passwd
+</pre></div>
+</div>
+</div>
+</div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cs-awk-oneliners.html" class="btn btn-neutral float-right" title="5. awk-oneliners" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sed-tutorial/index.html" class="btn btn-neutral" title="3. Sed tutorials" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

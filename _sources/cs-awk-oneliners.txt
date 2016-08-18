@@ -11,10 +11,6 @@ awk-oneliners
 
 
 
-
-.. code-block:: bash
-    :linenos:
-
 ############
 File spacing
 ############

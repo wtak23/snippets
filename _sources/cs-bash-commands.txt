@@ -549,24 +549,6 @@ http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
 
     history | cut -c 8-
 
-################
-awk (one-liners)
-################
-- http://stackoverflow.com/questions/2021982/awk-without-printing-newline
-- http://askubuntu.com/questions/231995/how-to-separate-fields-with-space-or-tab-in-awk
-- http://www.catonmat.net/blog/awk-one-liners-explained-part-one/
-- http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawk_41.html
-
-
-.. code-block:: bash
-    :linenos:
-
-    ls -l | awk '{printf $5 "\t" $9"\n"}'
-
-**oneliner examples**
-
-- http://tuxgraphics.org/~guido/scripts/awk-one-liner.html
-
 ####################
 When xargs is needed
 ####################
@@ -746,23 +728,6 @@ http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-comman
 
     # single line
     for run in {1..30}; do ipython t_0809c_enet_tobpnc_age.py; done
-
-#########
-sed demos
-#########
-.. code-block:: bash
-    :linenos:
-
-    echo $PYTHONPATH 
-    /home/takanori/Dropbox/work/external-pymodules:/home/takanori/Dropbox/work/sbia_work/python/modules:/home/takanori/work-local/external-python-modules/deepnet:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
-
-    # recall, g for global replacement
-    echo $PYTHONPATH | sed 's/:/\n/g'
-    /home/takanori/Dropbox/work/external-pymodules
-    /home/takanori/Dropbox/work/sbia_work/python/modules
-    /home/takanori/work-local/external-python-modules/deepnet
-    /home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
-
 
 ###
 git
