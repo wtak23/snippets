@@ -94,11 +94,15 @@ language = None
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
-'cs-rst.rst',
+'cs-rst-ignore.rst', # decided to just include links to good references
 'cs-sphinx.rst',
-# 'bct.rst',
+# 'bct.rst', #<- exclude when prototyping
 ]
 
+html_theme_options = {
+    'collapse_navigation': False, #<- set to false when publishing
+    'navigation_depth': 4,
+}
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -138,15 +142,6 @@ todo_include_todos = True
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-#
-html_theme_options = {
-    'collapse_navigation': True,
-    'navigation_depth': 4,
-}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []

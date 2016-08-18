@@ -1,3 +1,6 @@
+.. THIS WILL BE IGNORED...I THOUGHT USING ``.. code-block`` will suppress
+   the rst commands from running, but I turned out to be wrong (as usual)
+   
 sphinx
 """"""
 .. contents:: **Table of Contents**
