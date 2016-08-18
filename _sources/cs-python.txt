@@ -5,10 +5,6 @@ Python
 .. contents:: **Table of Contents**
     :depth: 2
 
-
-
-
-
 ###############################
 Random Stack-overflow questions
 ###############################

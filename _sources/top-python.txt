@@ -7,6 +7,7 @@ Python-type
 
 .. toctree::
     :maxdepth: 1
+    :numbered:
     :caption: Table of Contents
     :name: python-type
 
