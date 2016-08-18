@@ -1,0 +1,11 @@
+<!-- http://www.sphinx-doc.org/en/stable/markup/inline.html#role-ref -->
+<snippet>
+    <content><![CDATA[
+:ref:`${1:Linke title} <${2:label name}>`
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>ref</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

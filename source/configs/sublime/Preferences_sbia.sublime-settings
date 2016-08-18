@@ -1,0 +1,100 @@
+{
+	"always_show_minimap_viewport": true,
+	"animation_enabled": true,
+	"auto_close_tags": true,
+	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_delay": 50,
+	"auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin",
+	"auto_complete_size_limit": 4194304,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html"
+		}
+	],
+	"auto_complete_with_fields": true,
+	"auto_indent": true,
+	"auto_match_enabled": false,
+	"bold_folder_labels": true,
+	"caret_extra_bottom": 1,
+	"caret_extra_top": 1,
+	"caret_extra_width": 0,
+	"caret_style": "smooth",
+	"color_scheme": "Packages/Color Scheme - Default/Eiffel.tmTheme",
+	"detect_indentation": true,
+	"draw_minimap_border": true,
+	"ensure_newline_at_eof_on_save": false,
+	"fade_fold_buttons": false,
+	"file_exclude_patterns":
+	[
+		".DS_Store",
+		"*.pid",
+		"*.pyc",
+		"*.blg",
+		"*.mat",
+		"*.xlsx",
+		"*.pdf"
+	],
+	"find_selected_text": true,
+	"fold_buttons": true,
+	"folder_exclude_patterns":
+	[
+		".git",
+		"__pycache__",
+		"env",
+		"env3"
+	],
+	"font_size": 8,
+	"gutter": true,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"AdvancedNewFile",
+		"Gist",
+		"Local History",
+		"Pylinter",
+		"SyncedSideBar",
+		"Vintage"
+	],
+	"indent_subsequent_lines": true,
+	"indent_to_bracket": false,
+	"line_numbers": true,
+	"line_padding_bottom": -0.5,
+	"line_padding_top": -0.5,
+	"margin": 0,
+	"match_brackets": true,
+	"match_brackets_angle": true,
+	"match_brackets_braces": true,
+	"match_brackets_content": true,
+	"match_brackets_square": true,
+	"match_selection": true,
+	"match_tags": true,
+	"overlay_scroll_bars": "system",
+	"rulers":
+	[
+		79,
+		120
+	],
+	"scroll_past_end": true,
+	"scroll_speed": 1.0,
+	"shift_tab_unindent": false,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"show_tab_close_buttons": true,
+	"smart_indent": true,
+	"soda_folder_icons": false,
+	"tab_completion": true,
+	"tab_size": 4,
+	"theme": "Soda Light 3.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"tree_animation_enabled": true,
+	"trim_automatic_white_space": true,
+	"update_check": false,
+	"use_tab_stops": true,
+	"wide_caret": true,
+	"word_wrap": "true",
+	"wrap_width": 81
+}

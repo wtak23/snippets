@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+.. code-block:: ${1:LANGUAGE}
+    :linenos:
+    :linenothreshold: 5 <- produce line numbers for code longer than 5 lines
+    :emphasize-lines: 3,5
+
+    $2
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <!-- http://www.sphinx-doc.org/en/stable/markup/code.html -->
+    <tabTrigger>code</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!-- http://docutils.sourceforge.net/docs/ref/rst/directives.html#csv-table -->
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

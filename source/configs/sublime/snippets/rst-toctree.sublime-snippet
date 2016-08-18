@@ -1,0 +1,27 @@
+<snippet>
+    <content><![CDATA[
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Table of Contents
+    :name: mastertoc
+    :titlesonly:
+    :glob:
+    :hidden:
+    :includehidden:
+
+    ${1:rst_file1.rst}
+    ${2:rst_file2.rst}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>toctree</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!-- http://www.sphinx-doc.org/en/stable/markup/toctree.html
+Note: the space before the < bracket above is important
+`${1:InlineText} <${2:LINK}>`_$3
+
+${1:HEADER-NAME}
+ -->
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

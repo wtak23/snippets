@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[([link]($1))]]></content>
+    <tabTrigger>link</tabTrigger>
+    <scope>text.html.markdown</scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

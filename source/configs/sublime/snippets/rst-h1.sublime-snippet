@@ -1,0 +1,13 @@
+<snippet>
+    <content><![CDATA[
+###############################################################################$2
+${1:HEADER-NAME}
+###############################################################################
+$3
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>h1</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

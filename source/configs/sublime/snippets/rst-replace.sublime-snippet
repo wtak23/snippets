@@ -1,0 +1,33 @@
+<!-- http://docutils.sourceforge.net/docs/ref/rst/directives.html#replacement-text -->
+<snippet>
+    <content><![CDATA[
+I recommend you try |Python|_.
+
+.. |Python| replace:: Python, *the* best language around
+.. _Python: http://www.python.org/
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>replace</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--
+Note: the space before the < bracket above is important
+`${1:InlineText} <${2:LINK}>`_$3
+
+${1:HEADER-NAME}
+ -->
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->
+
+<!--  Example
+I recommend you try |Python|_.
+
+.. |Python| replace:: Python, *the* best language around
+.. _Python: http://www.python.org/ 
+-->
+
+<!-- Example2:
+The |biohazard| symbol must be used on containers used to dispose of medical waste.
+
+.. |biohazard| image:: biohazard.png 
+-->

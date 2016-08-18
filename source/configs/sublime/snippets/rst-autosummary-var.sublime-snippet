@@ -1,0 +1,34 @@
+<snippet>
+    <content><![CDATA[
+name
+    Name of the documented object, excluding the module and class parts.
+objname
+    Name of the documented object, excluding the module parts.
+fullname
+    Full name of the documented object, including module and class parts.
+module
+    Name of the module the documented object belongs to.
+class
+    Name of the class the documented object belongs to. Only available for methods and attributes.
+underline
+    A string containing len(full_name) * '='.
+members
+    List containing names of all members of the module or class. Only available for modules and classes.
+functions
+    List containing names of “public” functions in the module. Here, “public” here means that the name does not start with an underscore. Only available for modules.
+classes
+    List containing names of “public” classes in the module. Only available for modules.
+exceptions
+    List containing names of “public” exceptions in the module. Only available for modules.
+methods
+    List containing names of “public” methods in the class. Only available for classes.
+attributes
+    List containing names of “public” attributes in the class. Only available for classes.
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>autovar</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope></scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->
+<!-- http://docutils.sourceforge.net/docs/ref/rst/directives.html#automatic-section-numbering -->

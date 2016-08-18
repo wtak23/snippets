@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+timestamp_path=${1:PATH_TO_OUTPUT_TXT}
+echo \$(date +"%Y-%m-%d_%H:%M:%S") > "\${timestamp_path}/tw_copy_timestamp.txt"
+echo "output from \"\$0\"" >> "\${timestamp_path}/tw_copy_timestamp.txt"
+]]></content>
+    <!-- http://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang -->
+    <tabTrigger>tttt</tabTrigger>
+    <scope>source.shell</scope>
+</snippet>
+<!-- https://gist.github.com/iambibhas/4705378 -->

@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+#!/usr/bin/env bash
+$1
+]]></content>
+    <!-- http://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang -->
+    <tabTrigger>she</tabTrigger>
+    <scope>source.shell</scope>
+</snippet>
+<!-- https://gist.github.com/iambibhas/4705378 -->

@@ -1,0 +1,13 @@
+<snippet>
+    <content><![CDATA[
+_snip_${1:NAME}(){
+    echo '
+    ${2:ECHOSTRING}
+    ' | pygmentize -l sh
+}
+]]></content>
+    <!-- http://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang -->
+    <tabTrigger>_snip</tabTrigger>
+    <scope>source.shell</scope>
+</snippet>
+<!-- https://gist.github.com/iambibhas/4705378 -->

@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+#!/usr/bin/python
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>she</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.python</scope> 
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

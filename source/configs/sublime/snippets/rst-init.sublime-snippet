@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+`[Parent Directory] <./>`_
+
+.. contents:: **Table of Contents**
+    :depth: 2
+
+.. sectnum::    
+    :start: 1    
+
+$1
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>init</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->
+<!-- http://docutils.sourceforge.net/docs/ref/rst/directives.html#automatic-section-numbering -->

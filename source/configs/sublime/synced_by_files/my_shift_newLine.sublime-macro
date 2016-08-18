@@ -1,0 +1,7 @@
+[ // place this in C:\Users\takanori\AppData\Roaming\Sublime Text 3\Packages\User...also associate with keybind
+    // place in /home/takanori/.config/sublime-text-3/Packages/User for linux
+    // {"command": "move_to", "args": {"to": "hardeol"}},
+    {"command": "insert", "args": {"characters": "\n"}},
+    // {"command": "move", "args": {"by": "lines", "forward": true}},
+    {"command": "move_to", "args": {"to": "hardbol"}}
+]

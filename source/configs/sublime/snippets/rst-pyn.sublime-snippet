@@ -1,0 +1,13 @@
+<snippet>
+    <content><![CDATA[
+.. code-block:: python
+    :number-lines:
+
+    $1
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>pyn</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

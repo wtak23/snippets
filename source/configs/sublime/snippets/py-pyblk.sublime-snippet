@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+def dashed_message(message):
+    dash = "#" + '=' *78 + '#'
+    print '\n\n'+dash +'\n'+ message + '\n' + dash
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>pyblk</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.python</scope> 
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

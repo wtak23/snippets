@@ -1,0 +1,21 @@
+<!-- external linking here http://docutils.sourceforge.net/docs/user/rst/quickref.html#external-hyperlink-targets-->
+<snippet>
+    <content><![CDATA[
+`This text appears`__
+
+.. _bs3: http://www.espn.com
+
+__ bs3_
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>link2</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--
+Note: the space before the < bracket above is important
+`${1:InlineText} <${2:LINK}>`_$3
+
+${1:HEADER-NAME}
+ -->
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

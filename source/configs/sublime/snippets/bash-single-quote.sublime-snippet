@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+'"'"'
+]]></content>
+    <!-- inserting single quote
+http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
+     -->
+    <tabTrigger>single-quote</tabTrigger>
+    <scope>source.shell</scope>
+</snippet>
+<!-- https://gist.github.com/iambibhas/4705378 -->

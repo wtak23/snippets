@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+.. code-block:: bash
+    :number-lines:
+
+    $1
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>bashn</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!-- 
+
+http://docutils.sourceforge.net/docs/ref/rst/directives.html#automatic-section-numbering
+
+ -->

@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+[core]
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+[user]
+    name = name
+    email = email@email.com
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>gitconfig</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!--<scope>source.python</scope> -->
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[
+`${1:InlineText} <${2:LINK}>`_$3
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>link</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--
+Note: the space before the < bracket above is important
+`${1:InlineText} <${2:LINK}>`_$3
+
+${1:HEADER-NAME}
+ -->
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

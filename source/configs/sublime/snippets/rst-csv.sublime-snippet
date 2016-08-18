@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[
+.. http://docutils.sourceforge.net/docs/ref/rst/directives.html#id4        
+.. csv-table:: ${1:OPTIONAL-TITLE}
+    :header: ${2:OPTIONAL-COL-HEADER}
+    :widths: 20,70
+    :delim: |
+
+    $3
+]]></content>
+    <tabTrigger>csv</tabTrigger>
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->
