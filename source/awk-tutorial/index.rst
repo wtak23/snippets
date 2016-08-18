@@ -13,7 +13,6 @@ Grossly incomplete. Took notes (copy and paste) from parts that I find useful.
 
 .. toctree::
     :maxdepth: 2
-    :numbered:
     :caption: Table of Contents
 
     awk-basic-structure.rst
