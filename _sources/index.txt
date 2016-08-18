@@ -16,7 +16,6 @@ Those were dark days with no tangible signs of hope.
 
 .. toctree::
     :maxdepth: 2
-    :numbered:
     :caption: Table of Contents
 
     top-python.rst
