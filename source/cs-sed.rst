@@ -1,14 +1,35 @@
 sed
 """
-.. rubric:: Other references
-
-- http://www.tutorialspoint.com/sed/index.htm
-- http://ss64.com/bash/sed.html
-- http://www.grymoire.com/Unix/Sed.html
-- https://www.gnu.org/software/sed/manual/sed.html (gnu manual)
 
 .. contents:: **Contents (current page)**
     :depth: 2
+
+.. note:: mantra for ``sed``: "When in doubt, experiment."
+
+##########
+References
+##########
+
+This one is awesome! http://www.grymoire.com/Unix/SedChart.pdf
+
+***********************************
+Go to GNU manual for an overkill :)
+***********************************
+- https://www.gnu.org/software/sed/manual/html_node/index.html (gnu manual)
+- https://www.gnu.org/software/sed/manual/sed.html (above as single printable html file)
+
+**The only two pages I need from above**
+
+- `ch3 sed Programs <https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs>`_
+- `Examples <https://www.gnu.org/software/sed/manual/html_node/Examples.html#Examples>`_
+
+******
+Others
+******
+- http://ss64.com/bash/sed.html
+- http://www.tutorialspoint.com/sed/index.htm
+- http://www.grymoire.com/Unix/Sed.html
+
 
 
 ###############
@@ -27,58 +48,72 @@ Random snippets
     /home/takanori/work-local/external-python-modules/deepnet
     /home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
 
-##########
-sed --help
-##########
-Output from ``sed --help``
+**********
+fixname.sh
+**********
+.. code-block:: bash
 
-.. code-block:: none
+    #=========================================================================#
+    # Repalce string "_static" with "static"
+    # Repalce string "_sources" with "sources"
+    # Repalce string "_images" with "images"
+    #=========================================================================#
+    #http://stackoverflow.com/questions/14505047/bash-loop-through-all-the-files-with-a-specific-extension
+    build_dir='./_build/html'
+    for file in "${build_dir}/*.html"; do
+        #echo $file
+        sed -i 's/_static\//static\//' $file
+        sed -i 's/_sources\//sources\//' $file
+        sed -i 's/_modules\//sources\//' $file
+        #sed -i 's/_images\//images\//' $file
+    done
+
+    # rename directories with underscore
+    #mv ${build_dir}/_images ${build_dir}/images
+    mv ${build_dir}/_modules ${build_dir}/modules
+    mv ${build_dir}/_sources ${build_dir}/sources
+    mv ${build_dir}/_static ${build_dir}/static
+
+
+############
+Ultra-basics
+############
+
+***************************************
+Basics: print, delete, and substitution
+***************************************
+.. code-block:: bash
+
+    # basic syntax: 
+    /regexp/action
+
+    p = prints the line
+    d = deletes the line
+    s/REGEXP/REPLACEMENT/FLAGS #<= substitues regexp with pattern
+
+*****************
+deletion commands
+*****************
+
+.. code-block:: bash
     :linenos:
 
-    Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+    # deletes all lines
+    sed 'd' sed-text.txt
 
-      -n, --quiet, --silent
-                     suppress automatic printing of pattern space
-      -e script, --expression=script
-                     add the script to the commands to be executed
-      -f script-file, --file=script-file
-                     add the contents of script-file to the commands to be executed
-      --follow-symlinks
-                     follow symlinks when processing in place
-      -i[SUFFIX], --in-place[=SUFFIX]
-                     edit files in place (makes backup if SUFFIX supplied)
-      -l N, --line-length=N
-                     specify the desired line-wrap length for the `l' command
-      --posix
-                     disable all GNU extensions.
-      -r, --regexp-extended
-                     use extended regular expressions in the script.
-      -s, --separate
-                     consider files as separate rather than as a single continuous
-                     long stream.
-      -u, --unbuffered
-                     load minimal amounts of data from the input files and flush
-                     the output buffers more often
-      -z, --null-data
-                     separate lines by NUL characters
-          --help     display this help and exit
-          --version  output version information and exit
+    # delete first line
+    sed '1d' sed-text.txt
 
-    If no -e, --expression, -f, or --file option is given, then the first
-    non-option argument is taken as the sed script to interpret.  All
-    remaining arguments are names of input files; if no input files are
-    specified, then the standard input is read.
+    # delete 2nd line
+    sed '1d' sed-text.txt
 
-    GNU sed home page: <http://www.gnu.org/software/sed/>.
-    General help using GNU software: <http://www.gnu.org/gethelp/>.
-    E-mail bug reports to: <bug-sed@gnu.org>.
-    Be sure to include the word ``sed'' somewhere in the ``Subject:'' field.
+    # delete lines 2-3
+    sed '2,3d' sed-text.txt
 
-
-###################
+*******************
 Substitution basics
-###################
-syntax for ``s/STRING_TO_CATPURE/REPLACEMENT/FLAGS``
+*******************
+syntax for ``s/STRING_TO_CATPURE/REPLACEMENT/SUBS_FLAGS``
 
 .. code-block:: bash
 
@@ -88,7 +123,7 @@ syntax for ``s/STRING_TO_CATPURE/REPLACEMENT/FLAGS``
     # replace *the* with THE in line3-6
     sed '3,6s/[Tt]he/THE/g' sed-text.txt 
 
-**Substitution Flags**
+**Substitution Flags** (from http://ss64.com/bash/sed.html)
 
 .. csv-table:: 
     :header: Flag, Description
@@ -102,6 +137,23 @@ syntax for ``s/STRING_TO_CATPURE/REPLACEMENT/FLAGS``
     I or i | Match in a case-insensitive manner.
     M  or m | In addition to the normal behavior of the special regular expression characters ^ and \\$, this flag causes ^ to match the empty string after a newline and \\$ to match the empty string before a newline.
 
+**Range flags**
+
+.. csv-table:: Range options
+    :header: Range, Description
+    :widths: 10,70
+    :delim: |
+
+   
+    '4,10d' | Lines starting from 4th till 10th are deleted
+    '10,4d' | Only 10th line is deleted, because sed does not work in reverse direction.
+    '4,+5d' | This will match line 4 in the file, delete that line, continue to delete the next five lines, and then cease its deletion and print the rest
+    '2,5!d' | This will deleted everything except starting from 2nd till 5th line.
+    '1~3d'  |  deletes the first line, steps over the next three lines, and then deletes the fourth line. Sed continues applying this pattern until the end of the file.
+    '2~2d'  |  tells sed to delete the second line, step over the next line, delete the next line, and repeat until the end of the file is reached.
+    '4,10p' | Lines starting from 4th till 10th are printed
+    '4,d'   |  would generate syntax error.
+    ',10d'  |  would also generate syntax error.
 
 .. code-block:: bash
 
@@ -164,9 +216,9 @@ Here I'm piping the output from my alias definitions
     >>> alias sync_SUBLIME='cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.SUBLIME-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/SUBLIME-text/SUBLIME-snippets-sbia/'
 
 
-##################
+******************
 the -e, -f options
-##################
+******************
 from help:
 
     If no -e, --expression, -f, or --file option is given, **then the first
@@ -174,83 +226,52 @@ from help:
     remaining arguments are names of input files; if no input files are
     specified, then the standard input is read.
 
+##########
+sed --help
+##########
+Output from ``sed --help``
 
-#################
-deletion commands
-#################
-.. code-block:: bash
-
-    # basic syntax: 
-    /regexp/action
-
-    p = prints the line
-    d = deletes the line
-    s/regexp/pattern/ #<= substitues regexp with pattern
-
-.. code-block:: bash
+.. code-block:: none
     :linenos:
 
-    # deletes all lines
-    sed 'd' sed-text.txt
+    Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 
-    # delete first line
-    sed '1d' sed-text.txt
+      -n, --quiet, --silent
+                     suppress automatic printing of pattern space
+      -e script, --expression=script
+                     add the script to the commands to be executed
+      -f script-file, --file=script-file
+                     add the contents of script-file to the commands to be executed
+      --follow-symlinks
+                     follow symlinks when processing in place
+      -i[SUFFIX], --in-place[=SUFFIX]
+                     edit files in place (makes backup if SUFFIX supplied)
+      -l N, --line-length=N
+                     specify the desired line-wrap length for the `l' command
+      --posix
+                     disable all GNU extensions.
+      -r, --regexp-extended
+                     use extended regular expressions in the script.
+      -s, --separate
+                     consider files as separate rather than as a single continuous
+                     long stream.
+      -u, --unbuffered
+                     load minimal amounts of data from the input files and flush
+                     the output buffers more often
+      -z, --null-data
+                     separate lines by NUL characters
+          --help     display this help and exit
+          --version  output version information and exit
 
-    # delete 2nd line
-    sed '1d' sed-text.txt
+    If no -e, --expression, -f, or --file option is given, then the first
+    non-option argument is taken as the sed script to interpret.  All
+    remaining arguments are names of input files; if no input files are
+    specified, then the standard input is read.
 
-    # delete lines 2-3
-    sed '2,3d' sed-text.txt
-
-
-
-
-#############
-Range options
-#############
-.. csv-table:: Range options
-    :header: Range, Description
-    :widths: 10,70
-    :delim: |
-
-   
-    '4,10d' | Lines starting from 4th till 10th are deleted
-    '10,4d' | Only 10th line is deleted, because sed does not work in reverse direction.
-    '4,+5d' | This will match line 4 in the file, delete that line, continue to delete the next five lines, and then cease its deletion and print the rest
-    '2,5!d' | This will deleted everything except starting from 2nd till 5th line.
-    '1~3d'  |  deletes the first line, steps over the next three lines, and then deletes the fourth line. Sed continues applying this pattern until the end of the file.
-    '2~2d'  |  tells sed to delete the second line, step over the next line, delete the next line, and repeat until the end of the file is reached.
-    '4,10p' | Lines starting from 4th till 10th are printed
-    '4,d'   |  would generate syntax error.
-    ',10d'  |  would also generate syntax error.
-
-
-##########
-fixname.sh
-##########
-.. code-block:: bash
-
-    #=========================================================================#
-    # Repalce string "_static" with "static"
-    # Repalce string "_sources" with "sources"
-    # Repalce string "_images" with "images"
-    #=========================================================================#
-    #http://stackoverflow.com/questions/14505047/bash-loop-through-all-the-files-with-a-specific-extension
-    build_dir='./_build/html'
-    for file in "${build_dir}/*.html"; do
-        #echo $file
-        sed -i 's/_static\//static\//' $file
-        sed -i 's/_sources\//sources\//' $file
-        sed -i 's/_modules\//sources\//' $file
-        #sed -i 's/_images\//images\//' $file
-    done
-
-    # rename directories with underscore
-    #mv ${build_dir}/_images ${build_dir}/images
-    mv ${build_dir}/_modules ${build_dir}/modules
-    mv ${build_dir}/_sources ${build_dir}/sources
-    mv ${build_dir}/_static ${build_dir}/static
-
+    GNU sed home page: <http://www.gnu.org/software/sed/>.
+    General help using GNU software: <http://www.gnu.org/gethelp/>.
+    E-mail bug reports to: <bug-sed@gnu.org>.
+    Be sure to include the word ``sed'' somewhere in the ``Subject:'' field.
 
 ####################
 output from man page

@@ -2,6 +2,9 @@ awk
 """
 .. contents:: **Contents (current page)**
     :depth: 2
+
+
+For a quick **table** type reference: http://www.grymoire.com/Unix/AwkRef.html    
     
 ###########################
 note: do I really need awk?
