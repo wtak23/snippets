@@ -15,7 +15,7 @@
     {"keys": ["ctrl+shift+."], "command": "add_time" },
     
     //========================================================================//
-    // for some fucking reason code folding stopped working....so copied and pasted shit
+    // for some reason code folding stopped working....so copied and pasted this
     // from default file (10/5/2015)
     //========================================================================//
     { "keys": ["ctrl+k", "ctrl+1"], "command": "fold_by_level", "args": {"level": 1} },
@@ -99,7 +99,7 @@
 
     //=========================================================================//
     // (08/24/2014) For down all comments (using "Fold comments" package) and top level folds
-    // (09/15/2015) disabled it since this fucks up default code folding
+    // (09/15/2015) disabled it since this messes up default code folding
     //=========================================================================//
     // { "keys": ["ctrl+k"], "command": "fold_by_level", "args": {"level": 1}  },
     { "keys": ["alt+shift+c"],  "command": "toggle_fold_comments" }    ,
