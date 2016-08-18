@@ -1,5 +1,5 @@
 ##############
-Unit utilities
+Unix utilities
 ##############
 I typically use these as **one-liners** from the shell.
 

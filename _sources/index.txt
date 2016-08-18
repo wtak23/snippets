@@ -23,7 +23,7 @@ Those were dark days with no tangible signs of hope.
     top-bash.rst
     top-unix.rst
     top-misc.rst
-    configs/configs.rst
+    configs/top-configs.rst
     
     
 
