@@ -3,34 +3,31 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Tak's personal coding snippet repos
-===================================
-One of my biggest regret in life -- trying to maintain my code snippets in Evernote. Those were some dark dark days with no tangible signs of hope.
+Tak's repos for coding snippets
+===============================
+One of my biggest regret in life -- trying to maintain my code snippets in Evernote. 
+
+Those were dark days with no tangible signs of hope.
+
+.. note::
+
+    - The categorization in the top-level of the TOC tree below is very loose.
+    - It is based on an arbitrary mnemonic that I developed out of nowhere.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :numbered:
     :caption: Table of Contents
 
-    cs-bash-commands.rst
-    cs-bash-scripts.rst
-    cs-qsubber.rst
-    cs-python.rst
-    cs-pyspark.rst
-    bct.rst
-    cs-git.rst
+    top-python.rst
+    top-datascience.rst
+    top-bash.rst
+    top-scripting.rst
+    top-misc.rst
     configs/configs.rst
-    cs-R.rst
-    cs-awk-oneliners.rst
-    cs-perl-oneliners.rst
-    cs-py-jupyter-notebook.rst
-    cs-regexp.rst
-    cs-rst-old.rst
-    cs-sed.rst
-    cs-sql.rst
-    cs-scala.rst
-    awk-tutorial/index.rst
-    sed-tutorial/index.rst
+    
+    
+
 
 All modules for which code is available (`link <./_modules/index.html>`_)
 

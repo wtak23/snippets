@@ -7,6 +7,8 @@ My personal config files (most expanded in sphinx using ``literalinclude`` on sy
 
 https://github.com/wtak23/configs_master/tree/master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia
 
+**Date**: |today|
+
 .. toctree::
     :maxdepth: 1
 
