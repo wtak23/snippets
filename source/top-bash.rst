@@ -8,6 +8,7 @@ Bash-type
 .. toctree::
     :maxdepth: 1
     :caption: Contents
+    :numbered:    
     :name: bash-type
 
     cs-bash-commands.rst

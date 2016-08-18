@@ -8,6 +8,7 @@ Data Science
 .. toctree::
     :maxdepth: 1
     :caption: Table of Contents
+    :numbered:
     :name: datasci-type
 
     cs-R.rst

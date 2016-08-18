@@ -11,6 +11,7 @@ from the shell.
 .. toctree::
     :maxdepth: 1
     :caption: Table of Contents
+    :numbered:    
     :name: shell-type
 
     cs-perl-oneliners.rst
