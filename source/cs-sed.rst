@@ -8,11 +8,28 @@ sed
 - https://www.gnu.org/software/sed/manual/sed.html (gnu manual)
 
 .. contents:: **Contents (current page)**
-    :depth: 3   
+    :depth: 2
 
-######################
-Output from sed --help
-######################
+
+###############
+Random snippets
+###############
+.. code-block:: bash
+    :linenos:
+
+    echo $PYTHONPATH 
+    /home/takanori/Dropbox/work/external-pymodules:/home/takanori/Dropbox/work/sbia_work/python/modules:/home/takanori/work-local/external-python-modules/deepnet:/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
+
+    # recall, g for global replacement
+    echo $PYTHONPATH | sed 's/:/\n/g'
+    /home/takanori/Dropbox/work/external-pymodules
+    /home/takanori/Dropbox/work/sbia_work/python/modules
+    /home/takanori/work-local/external-python-modules/deepnet
+    /home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
+
+##########
+sed --help
+##########
 Output from ``sed --help``
 
 .. code-block:: none
@@ -58,55 +75,98 @@ Output from ``sed --help``
     Be sure to include the word ``sed'' somewhere in the ``Subject:'' field.
 
 
-############
-ultra-basics
-############
+###################
+Substitution basics
+###################
+syntax for ``s/STRING_TO_CATPURE/REPLACEMENT/FLAGS``
 
 .. code-block:: bash
-    :linenos:
 
-    echo sed | sed 's/sed/awk/'
-    echo sed | sed 's/sEd/awk/'
+    # replace *the* with THE in line 3
+    sed '3s/[Tt]he/THE/g' sed-text.txt  
+
+    # replace *the* with THE in line3-6
+    sed '3,6s/[Tt]he/THE/g' sed-text.txt 
+
+**Substitution Flags**
+
+.. csv-table:: 
+    :header: Flag, Description
+    :widths: 22,70
+    :delim: | 
+
+    g |   Replace all matches, not just the first match.
+    NUMBER |  Replace only NUMBERth match.
+    p |   If substitution was made, print pattern space.
+    w FILENAME  | If substitution was made, write result to FILENAME.
+    I or i | Match in a case-insensitive manner.
+    M  or m | In addition to the normal behavior of the special regular expression characters ^ and \\$, this flag causes ^ to match the empty string after a newline and \\$ to match the empty string before a newline.
+
+
+.. code-block:: bash
+
+    $ echo sed | sed 's/sed/awk/'
+    >>> awk # subsition took place
+
+    $ echo sed | sed 's/sEd/awk/'
+    >>> sed  # no substitution (case sensitivity)
+
     echo sed | sed 's/sEd/awk/I'
+    >>> awk # subsition took place (case insensitive flag)
+
     echo sed | sed 's/s/awk/I'
+    >>> awked
+
     echo sed | sed '$s/s/awk/I'
+    >>> awked
+    
     echo sed | sed 's/$s/awk/I'
+    >>> sed
+    
     echo sed | sed 's/^s/awk/I'
+    >>> awked
+
     echo sed | sed 's/\bs/awk/I'
-    echo sed | sed 's/\bs\b/awk/I'
+    >>> awked
+
     echo "s ed" | sed 's/\bS\b/awk/I' # case insensitive
-        > awk ed
-    echo "s ed" | sed 's/\bs/awk/I'  # case insensitive
-    echo "s ed s ed" | sed 's/\bs/awk/I1' # case insensitive + only replace first *s*
-        > awk ed s ed
+    >>> awk ed
+
+    echo "s ed" | sed 's/\bs/awk/I'  # case insensitive (\b for word bounary...i think...)
+    >>> awk ed
+
+    # === flags can be combined ===
+
+    echo "s ed s ed" | sed 's/\bs/awk/I1' # case insensitive + only replace first *s* (combo of flags)
+    >>> awk ed s ed
+
     echo "s ed s ed" | sed 's/\bs/awk/I1' # case insensitive + only replace second *s*
-        > s ed awk ed
+    >>> s ed awk ed
+
+
+Here I'm piping the output from my alias definitions
 
 .. code-block:: bash
-    :linenos:
 
-    alias sync_sublime
-        > alias sync_sublime='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
+    $ alias sync_sublime # print the output of this shell....below i'll start replacing parts using ``sed``
+    >>> alias sync_sublime='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
 
     # replaces only the first occurence
-    alias sync_sublime | sed 's/sublime/SUBLIME/'
-        > alias sync_SUBLIME='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
+    $ alias sync_sublime | sed 's/sublime/SUBLIME/'
+    >>> alias sync_SUBLIME='cp -f /home/takanori/.config/sublime-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
 
     # replaces the 2nd occurence
     alias sync_sublime | sed 's/sublime/SUBLIME/2'
-        > alias sync_sublime='cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
+    >>> alias sync_sublime='cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.sublime-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/sublime-text/sublime-snippets-sbia/'
 
     # replacesa all occurences
     alias sync_sublime | sed 's/sublime/SUBLIME/g'
-        > alias sync_SUBLIME='cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.SUBLIME-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/SUBLIME-text/SUBLIME-snippets-sbia/'
+    >>> alias sync_SUBLIME='cp -f /home/takanori/.config/SUBLIME-text-3/Packages/User/*.SUBLIME-snippet /home/takanori/Dropbox/git/configs_master/sbia-pc125-cinn/SUBLIME-text/SUBLIME-snippets-sbia/'
 
-###########
-More Basics
-###########
 
-******************
+##################
 the -e, -f options
-******************
+##################
 from help:
 
     If no -e, --expression, -f, or --file option is given, **then the first
@@ -115,9 +175,9 @@ from help:
     specified, then the standard input is read.
 
 
-*****************
+#################
 deletion commands
-*****************
+#################
 .. code-block:: bash
 
     # basic syntax: 
@@ -143,6 +203,11 @@ deletion commands
     sed '2,3d' sed-text.txt
 
 
+
+
+#############
+Range options
+#############
 .. csv-table:: Range options
     :header: Range, Description
     :widths: 10,70
@@ -159,29 +224,6 @@ deletion commands
     '4,d'   |  would generate syntax error.
     ',10d'  |  would also generate syntax error.
 
-******************
-substitution flags
-******************
-.. code-block:: bash
-    :linenos:
-
-    # replace *the* with THE in line 3
-    sed '3s/[Tt]he/THE/g' sed-text.txt  
-
-    # replace *the* with THE in line3-6
-    sed '3,6s/[Tt]he/THE/g' sed-text.txt 
-
-.. csv-table:: 
-    :header: Flag, Description
-    :widths: 22,70
-    :delim: | 
-
-    g |   Replace all matches, not just the first match.
-    NUMBER |  Replace only NUMBERth match.
-    p |   If substitution was made, print pattern space.
-    w FILENAME  | If substitution was made, write result to FILENAME.
-    I or i | Match in a case-insensitive manner.
-    M  or m | In addition to the normal behavior of the special regular expression characters ^ and $, this flag causes ^ to match the empty string after a newline and $ to match the empty string before a newline.
 
 ##########
 fixname.sh
