@@ -12,8 +12,6 @@ The two most important files:
 *********
 File-tree
 *********
-`Github link <./>`_
-
 08-18-2016 (12:48)
 
 .. code-block:: bash
@@ -31,22 +29,22 @@ File-tree
     3 directories, 4 files
 
 
-- ``./synced_by_folder`` 
+- `synced_by_folders <https://github.com/wtak23/snippets_doc/tree/master/source/configs/sublime/synced_by_folder>`_
 
   - contains files that must directly reside under ``~/.config/sublime-text-3/Packages/User`` (subfolders not allowed)
   - examples: ``*.sublime-settings``, ``*.sublime-macros``
-- ``./snippets`` 
+- `snippets <https://github.com/wtak23/snippets_doc/tree/master/source/configs/sublime/snippets>`_
 
   - contains my sublime **snippets** (gawd I love this functionality)
-- ``./synced_by_files`` 
+- `synced_by_files <https://github.com/wtak23/snippets_doc/tree/master/source/configs/sublime/synced_by_files>`_
 
   - contains files that can be synced as subfolders in ``User`` directory in Sublime
 
-/home/takanori/Dropbox/git/snippet/source/configs/sublime/keyboard_shortcut_sbia.sublime-keymap
+**********************
+Symbolic links created
+**********************
+.. rubric:: global setup
 
-************
-global setup
-************
 .. code-block:: bash
 
     # global setups (settings & keyboard)
@@ -61,9 +59,8 @@ global setup
     ln -s ~/Dropbox/git/snippet/source/configs/sublime/synced_by_folder \
         ~/.config/sublime-text-3/Packages/User/synced_by_folder
 
-***************
-file-wise setup
-***************
+.. rubric:: file-wise setup
+
 - macros and sublime-setting files must be copied directly under the ``User`` 
   directory
 
@@ -86,5 +83,16 @@ Last update: 08-18-2016 (02:28)
     ln -s ~/Dropbox/git/snippet/source/configs/sublime/synced_by_files/Python.sublime-settings \
         ~/.config/sublime-text-3/Packages/User/Python.sublime-settings
 
+************************************
+Preferences.sublime-settings Content
+************************************
+.. literalinclude:: Preferences_sbia.sublime-settings
+    :language: json
+    :linenos:
 
-
+**************************************
+Default (Linux).sublime-keymap Content
+**************************************
+.. literalinclude:: keyboard_shortcut_sbia.sublime-keymap
+    :language: javascript
+    :linenos:
