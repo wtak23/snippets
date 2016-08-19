@@ -3,7 +3,7 @@ sed-tutorial-tutorials-points
 http://www.tutorialspoint.com/sed/sed_workflow.htm
 
 .. contents:: **Contents**
-    :depth: 2
+    :depth: 3
 
 ##############
 Sed - workflow
@@ -140,9 +140,9 @@ Loops uses **label**
 
 Branches use ``t`` command to jump to labels if previous substitutie command is successful.
 
-##############
-Pattern buffer
-##############
+##############################################
+Address range (search by specifying line-nums)
+##############################################
 **********
 'p' syntax
 **********
@@ -238,3 +238,108 @@ Pattern buffer
     2) The Two Towers, J. R. R. Tolkien, 352 
     4) The Fellowship of the Ring, J. R. R. Tolkien, 432 
     6) A Game of Thrones, George R. R. Martin, 864
+
+#####################################################################
+Pattern range - search for simple-text or regexp using /regex/ syntax
+#####################################################################
+- In the previous chapter, we learnt how SED handles an **address range**. 
+- This chapter covers how SED takes care of a **pattern range**. 
+
+  - A pattern range can be a **simple text** or a **complex regular expression**.
+
+.. code-block:: bash
+
+    $ sed -n 'p' books.txt
+    1) A Storm of Swords, George R. R. Martin, 1216
+    2) The Two Towers, J. R. R. Tolkien, 352
+    3) The Alchemist, Paulo Coelho, 197
+    4) The Fellowship of the Ring, J. R. R. Tolkien, 432
+    5) The Pilgrimage, Paulo Coelho, 288
+    6) A Game of Thrones, George R. R. Martin, 864
+
+    # find lines containing simple text-string "Paulo"
+    $ sed -n '/Paulo/ p' books.txt
+    3) The Alchemist, Paulo Coelho, 197 
+    5) The Pilgrimage, Paulo Coelho, 288 
+
+    #=========================================================================#
+    # combine *pattern range* with *address range*
+    #=========================================================================#
+    # search for line with "Alchemist", and print until line 5
+    $ sed -n '/Alchemist/, 5 p' books.txt
+    3) The Alchemist, Paulo Coelho, 197 
+    4) The Fellowship of the Ring, J. R. R. Tolkien, 432 
+    5) The Pilgrimage, Paulo Coelho, 288 
+
+    # search for line with "Alchemist", and print until final line ($)
+    $ sed -n '/Alchemist/, $ p' books.txt
+    3) The Alchemist, Paulo Coelho, 197 
+    4) The Fellowship of the Ring, J. R. R. Tolkien, 432 
+    5) The Pilgrimage, Paulo Coelho, 288 
+    6) A Game of Thrones, George R. R. Martin, 864
+
+    #=========================================================================#
+    # specify more than one pattern range using command(,) operator
+    #=========================================================================#
+    # print all lines that exist between the patterns "Two" and "Pilgrimage"
+    $ sed -n '/Two/, /Pilgrimage/ p' books.txt
+    2) The Two Towers, J. R. R. Tolkien, 352 
+    3) The Alchemist, Paulo Coelho, 197 
+    4) The Fellowship of the Ring, J. R. R. Tolkien, 432 
+    5) The Pilgrimage, Paulo Coelho, 288 
+
+    # after finding the match, print 4 more lines
+    $ sed -n '/Two/, +4 p' books.txt
+    2) The Two Towers, J. R. R. Tolkien, 352 
+    3) The Alchemist, Paulo Coelho, 197 
+    4) The Fellowship of the Ring, J. R. R. Tolkien, 432 
+    5) The Pilgrimage, Paulo Coelho, 288 
+    6) A Game of Thrones, George R. R. Martin, 864
+
+############################################
+Basic commands (delete, read, write, append)
+############################################
+
+*************************************
+Delete command [address1[,address2]]d
+*************************************
+
+*****************************************
+Write command [address1[,address2]]w file
+*****************************************
+
+**************************
+Append command [address]a\
+**************************
+
+**************************************
+Change command [address1[,address2]]c\
+**************************************
+
+**************************
+Insert Command [address]i\
+**************************
+
+*******************************************************
+Translate command [address1[,address2]]y/list-1/list-2/
+*******************************************************
+    
+*********
+I command
+*********
+
+***********************
+Quit Command [address]q
+***********************
+
+****************************
+Read Command [address]r file
+****************************
+
+*************************************************
+Exectuve Command [address1[,address2]]e [command]
+*************************************************
+
+**********************
+Miscellaneous Commands
+**********************
