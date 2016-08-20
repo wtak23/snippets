@@ -8,13 +8,27 @@ Here snippets and explanations for writing bash scripts
 - http://ss64.com/bash
 - http://www.tldp.org/LDP/abs/html/ (**Advanced Bash-Scripting Guide**)
 - http://mywiki.wooledge.org/
+- http://www.tutorialspoint.com/unix/ <- pretty darn awesome!)
 
+.. note:: Greatest one!
+
+    http://www.tutorialspoint.com/unix/index.htm
+    
 .. contents:: **Table of Contents**
     :depth: 2
 
 ###############
 Overflow topics
 ###############
+
+
+
+********************************
+source vs . in bash (synonymous)
+********************************
+- http://askubuntu.com/questions/25488/what-is-the-difference-between-source-and-in-bash
+- http://stackoverflow.com/questions/192292/bash-how-best-to-include-other-scripts
+
 
 ********************
 Check file existance

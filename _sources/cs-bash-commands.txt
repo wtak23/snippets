@@ -5,6 +5,11 @@ bash-commands
 - http://ss64.com/bash
 - http://www.tldp.org/LDP/abs/html/ (**Advanced Bash-Scripting Guide**)
 - http://mywiki.wooledge.org/
+- http://wiki.bash-hackers.org/start
+
+.. note:: Greatest one!
+
+    http://www.tutorialspoint.com/unix/index.htm
 
 
 
@@ -12,122 +17,26 @@ bash-commands
 - ``ctrl+f => ongonig`` for **ongoing** cheat-sheets
 
 
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 
-##############
-IO Redirection
-##############
 
-
-************************************************
-Output stdout and stderr to terminal and logfile
-************************************************
-- http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
-- http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console
-
-.. code-block:: bash
-
-    # save stdout and stderr to a file
-    bash mymake.sh >> log.txt 2>&1
-
-    # save logfile like above, but also print on terminal screen http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
-    bash mymake.sh 2>&1 | tee log.txt
-
-****************
-syntax reference
-****************
-- http://www.tldp.org/LDP/abs/html/io-redirection.html
-
-
-.. code-block:: bash
-
-    # Single-line redirection commands (affect only the line they are on):
-    # --------------------------------------------------------------------
-    1>filename
-       # Redirect stdout to file "filename."
-    1>>filename
-       # Redirect and append stdout to file "filename."
-    2>filename
-       # Redirect stderr to file "filename."
-    2>>filename
-       # Redirect and append stderr to file "filename."
-    &>filename
-       # Redirect both stdout and stderr to file "filename."
-       # This operator is now functional, as of Bash 4, final release.
-    2>&1
-       # Redirects stderr to stdout.
-       # Error messages get sent to same place as standard output.
-    i>&j
-       # Redirects file descriptor i to j.
-       # All output of file pointed to by i gets sent to file pointed to by j.
-    >&j
-       # Redirects, by default, file descriptor 1 (stdout) to j.
-       # All stdout gets sent to file pointed to by j.
-    |
-       # Pipe.
-       # General purpose process and command chaining tool.
-       # Similar to ">", but more general in effect.
-       # Useful for chaining commands, scripts, files, and programs together.
-       cat *.txt | sort | uniq > result-file
-       # Sorts the output of all the .txt files and deletes duplicate lines,
-       # finally saves results to "result-file".
-
-
-.. code-block:: bash
-
-    COMMAND_OUTPUT >
-       # Redirect stdout to a file.
-       # Creates the file if not present, otherwise overwrites it.
-
-    : > filename
-       # The > truncates file "filename" to zero length.
-       # If file not present, creates zero-length file (same effect as 'touch').
-       # The : serves as a dummy placeholder, producing no output.
-
-    > filename    
-       # The > truncates file "filename" to zero length.
-       # If file not present, creates zero-length file (same effect as 'touch').
-       # (Same result as ": >", above, but this does not work with some shells.)
-
-    COMMAND_OUTPUT >>
-       # Redirect stdout to a file.
-       # Creates the file if not present, otherwise appends to it.
-
-    M>N
-      # "M" is a file descriptor, which defaults to 1, if not explicitly set.
-      # "N" is a filename.
-      # File descriptor "M" is redirect to file "N."
-    M>&N
-      # "M" is a file descriptor, which defaults to 1, if not set.
-      # "N" is another file descriptor.
-      0< FILENAME
-       < FILENAME
-         # Accept input from a file.
-         # Companion command to ">", and often used in combination with it.
-         #
-         # grep search-word <filename
-
-      [j]<>filename
-         #  Open file "filename" for reading and writing,
-         #+ and assign file descriptor "j" to it.
-         #  If "filename" does not exist, create it.
-         #  If file descriptor "j" is not specified, default to fd 0, stdin.
-         #
-         #  An application of this is writing at a specified place in a file. 
-         echo 1234567890 > File    # Write string to "File".
-         exec 3<> File             # Open "File" and assign fd 3 to it.
-         read -n 4 <&3             # Read only 4 characters.
-         echo -n . >&3             # Write a decimal point there.
-         exec 3>&-                 # Close fd 3.
-         cat File                  # ==> 1234.67890
-         #  Random access, by golly.
 
 
 #########
 Overflows
 #########
+
+*********************************
+Quoting with command substitution
+*********************************
+http://unix.stackexchange.com/questions/118433/quoting-within-command-substitution-in-bash
+
+.. code-block:: bash
+
+    DIRNAME="$(dirname "$FILE")" # the recommended way
 
 **********************
 Display function names
@@ -797,3 +706,431 @@ http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-comman
     alias v="xclip -o -selection clipboard"
 
     sphinx-quickstart --help | c
+
+##############
+IO Redirection
+##############
+http://www.tutorialspoint.com/unix/unix-io-redirections.htm
+
+******************************
+Piping vs command substitution
+******************************
+- http://unix.stackexchange.com/questions/17107/process-substitution-and-pipe
+
+One example: with ``<``, program doesn't know the filename (only interprets as an input stream)
+
+
+.. code-block:: bash
+
+    # (from http://www.tutorialspoint.com/unix/unix-io-redirections.htm)
+    # here filename outputted too
+    $ wc -l users
+    2 users
+
+    # here filename not recognized
+    $ wc -l < users
+    2
+    
+*********************
+redirecting vs piping
+*********************
+- http://askubuntu.com/questions/172982/what-is-the-difference-between-redirection-and-pipe
+- http://stackoverflow.com/questions/9553628/piping-and-redirection
+
+
+- Redirect passes output to file/stream
+- Pipe passes output to another program/utility
+
+************************************************
+Output stdout and stderr to terminal and logfile
+************************************************
+- http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
+- http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console
+
+.. code-block:: bash
+
+    # save stdout and stderr to a file
+    bash mymake.sh >> log.txt 2>&1
+
+    # save logfile like above, but also print on terminal screen http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
+    bash mymake.sh 2>&1 | tee log.txt
+
+****************
+syntax reference
+****************
+- http://www.tldp.org/LDP/abs/html/io-redirection.html
+
+
+.. code-block:: bash
+
+    # Single-line redirection commands (affect only the line they are on):
+    # --------------------------------------------------------------------
+    1>filename
+       # Redirect stdout to file "filename."
+    1>>filename
+       # Redirect and append stdout to file "filename."
+    2>filename
+       # Redirect stderr to file "filename."
+    2>>filename
+       # Redirect and append stderr to file "filename."
+    &>filename
+       # Redirect both stdout and stderr to file "filename."
+       # This operator is now functional, as of Bash 4, final release.
+    2>&1
+       # Redirects stderr to stdout.
+       # Error messages get sent to same place as standard output.
+    i>&j
+       # Redirects file descriptor i to j.
+       # All output of file pointed to by i gets sent to file pointed to by j.
+    >&j
+       # Redirects, by default, file descriptor 1 (stdout) to j.
+       # All stdout gets sent to file pointed to by j.
+    |
+       # Pipe.
+       # General purpose process and command chaining tool.
+       # Similar to ">", but more general in effect.
+       # Useful for chaining commands, scripts, files, and programs together.
+       cat *.txt | sort | uniq > result-file
+       # Sorts the output of all the .txt files and deletes duplicate lines,
+       # finally saves results to "result-file".
+
+
+.. code-block:: bash
+
+    COMMAND_OUTPUT >
+       # Redirect stdout to a file.
+       # Creates the file if not present, otherwise overwrites it.
+
+    : > filename
+       # The > truncates file "filename" to zero length.
+       # If file not present, creates zero-length file (same effect as 'touch').
+       # The : serves as a dummy placeholder, producing no output.
+
+    > filename    
+       # The > truncates file "filename" to zero length.
+       # If file not present, creates zero-length file (same effect as 'touch').
+       # (Same result as ": >", above, but this does not work with some shells.)
+
+    COMMAND_OUTPUT >>
+       # Redirect stdout to a file.
+       # Creates the file if not present, otherwise appends to it.
+
+    M>N
+      # "M" is a file descriptor, which defaults to 1, if not explicitly set.
+      # "N" is a filename.
+      # File descriptor "M" is redirect to file "N."
+    M>&N
+      # "M" is a file descriptor, which defaults to 1, if not set.
+      # "N" is another file descriptor.
+      0< FILENAME
+       < FILENAME
+         # Accept input from a file.
+         # Companion command to ">", and often used in combination with it.
+         #
+         # grep search-word <filename
+
+      [j]<>filename
+         #  Open file "filename" for reading and writing,
+         #+ and assign file descriptor "j" to it.
+         #  If "filename" does not exist, create it.
+         #  If file descriptor "j" is not specified, default to fd 0, stdin.
+         #
+         #  An application of this is writing at a specified place in a file. 
+         echo 1234567890 > File    # Write string to "File".
+         exec 3<> File             # Open "File" and assign fd 3 to it.
+         read -n 4 <&3             # Read only 4 characters.
+         echo -n . >&3             # Write a decimal point there.
+         exec 3>&-                 # Close fd 3.
+         cat File                  # ==> 1234.67890
+         #  Random access, by golly.
+
+
+
+#############
+Bit on printf
+#############
+- http://ss64.com/bash/printf.html
+- http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo
+  
+  - "Basically, it's a portability (and reliability) issue."
+
+.. code-block:: bash
+
+    $ var1="hello   world\n"
+
+    # no quotes
+    $ printf %s $var1
+    helloworld\n$ 
+
+    # double quotes
+    $ printf "%s" $var1
+    helloworld\n
+
+    # single quotes get substituted too
+    $ printf '%s' $var1
+    helloworld\n
+
+    $ printf [%s] $var1
+    [hello][world\n]
+
+    $ printf "[%s]" $var1
+    [hello][world\n]
+
+    $ printf '[%s]' $var1
+    [hello][world\n]
+
+    # here the white-spaces are respected (double-quoted var1)
+    $ printf "[%s]" "$var1"
+    [hello   world\n]
+
+
+******************
+Examples from ss64
+******************
+.. code-block:: bash
+
+    $ for ((num=1;num<=5;num+=1)); do echo $(printf "%03d" $num); done
+    001
+    002
+    003
+    004
+    005
+
+    $ distance=15
+    $ printf "Distance is %5d Miles\n" $distance   
+    Distance is    15 Miles
+
+    # default precision for float: 6 decimal places
+    $ printf "%f\n" 5
+    5.000000
+    $ printf "%.2f\n" 5
+    5.00
+    $ printf "%5.2f\n" 5
+     5.00
+
+
+    $ printf "Hello, $USER.\n\n"
+    Hello, takanori.
+
+    $ printf "There are %d orders of cheese burgers. cost at \$%.2f.\n" 5 15.32
+    There are 5 orders of cheese burgers. cost at $15.32.
+
+    # with command substitution
+    $ printf "This is $(uname -s) running on a $(uname -m) processor.\n"
+    This is Linux running on a x86_64 processor.
+
+
+
+
+########
+for loop
+########
+
+******
+basics
+******
+- http://tldp.org/LDP/abs/html/loops1.html
+- http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html
+- http://stackoverflow.com/questions/49110/how-do-i-write-a-for-loop-in-bash
+
+.. code-block:: bash
+
+
+    # Classic for loop
+    for word in ...; do ...; done
+
+    # C-style for loop
+    for ((x=1; x<=10; x++)); do ...; done
+
+    # classic for loop - multiline
+    for w in word1 word2 word3
+    do
+      doSomething($w)
+    done
+
+    # to iterate over all directories in some path, for example:
+    for d in $(find $somepath -type d)
+    do
+      doSomething($d)
+    done
+
+    # recall arithmetic expansion in bash needs double parantheis 
+    # http://tldp.org/LDP/abs/html/arithexp.html
+    # http://wiki.bash-hackers.org/syntax/ccmd/c_for
+    # (C-style for loop)
+    for ((i = 0 ; i < 5 ; i++ )); do echo "$i"; done
+
+    # C-style for loop with step size
+    $ for ((x = 0 ; x <= 100 ; x += 10)); do
+    >   echo "Counter: $x"
+    > done
+    Counter: 0
+    Counter: 10
+    Counter: 20
+    Counter: 30
+    Counter: 40
+    Counter: 50
+    Counter: 60
+    Counter: 70
+    Counter: 80
+    Counter: 90
+    Counter: 100
+
+    # $((EXPRESSION)) is arithmetic expansion.  
+    #  Not to be confused with command substitusion
+
+    # avoids spawning external program `seq`
+    $ for i in {1..5} ; do printf "%d " "$i" ; done
+    1 2 3 4 5
+
+    # command substitute on `seq`
+    $ for i in $(seq 1 5) ; do printf "%d " "$i" ; done
+    1 2 3 4 5
+
+    for i in $(seq 1 5);
+    do
+            echo $i
+    done
+    > 1
+    > 2
+    > 3
+    > 4
+    > 5
+
+    # while loop
+    COUNTER=0
+    while [  $COUNTER -lt 10 ]; do
+        echo The counter is $COUNTER
+        let COUNTER=COUNTER+1 
+    done
+
+*********************
+multiline in terminal
+*********************
+.. code-block:: bash
+
+    # i can literally type like this w/o using backslash \ to linewrap
+    $ for x in 1 2 3; 
+    > do
+    > echo $x
+    > done
+
+***************************
+Looping over array elements
+***************************
+keep in mind the distinction between ``"${arrayname[*]}"`` (i rarely use this...) vs ``"${arrayname[@]}`` (i use this a lot via for loops)
+
+- http://mywiki.wooledge.org/BashGuide/Arrays
+- http://mywiki.wooledge.org/BashGuide/Parameters
+- http://www.tutorialspoint.com/unix/unix-special-variables.htm
+
+- ``"$*"`` = takes the entire list as one argument with spaces between
+
+  - this form is **ONLY** useful for converting arrays into a single string (`link <http://mywiki.wooledge.org/BashGuide/Arrays>`_)
+- ``"$@"`` = takes the entire list and separates it into **separate arguments** (Double quoted, it expands to a list of them all as individual words)
+
+.. code-block:: bash
+
+    # "$*" syntax: converts array to single thing
+    $ names=("Bob" "Peter" "$USER" "Big Bad John")
+    $ echo "${names[*]}"
+    Bob Peter takanori Big Bad John
+    $ b="${names[*]}"
+    $ echo $b
+    Bob Peter takanori Big Bad John
+
+    # with $@, each item is treated as *separate arguments*
+    # (think of [@] as a special kind of positional argument)
+    $ for name in "${names[@]}"; do echo "${name}"; done
+    Bob
+    Peter
+    takanori
+    Big Bad John
+
+    # so yeah, "$*" doesn't give what i want
+    $ for name in "${names[*]}"; do echo "${name}"; done
+    Bob Peter takanori Big Bad John
+
+*****************************************************
+number of elements in an array using ``${#array[@]}``
+*****************************************************
+.. code-block:: bash
+
+    $ array=(a b c)
+    $ echo ${#array[@]}
+    3
+
+
+**********************************
+avoid $(ls)...use globbing or find
+**********************************
+see http://mywiki.wooledge.org/BashGuide/Arrays
+
+.. code-block:: bash
+
+    #=========================================================================#
+    # don't use $(ls) to get items (woolmore)
+    #=========================================================================#
+    $ ls
+    books.txt  commands  quote.txt  sed-tutorial.gnu.rst  sed-tutorial.tutorialspoints.rst
+
+    for i in *; do
+        echo item: $i
+    done
+
+    $ for i in *; do echo item: $i; done
+    item: books.txt
+    item: commands
+    item: quote.txt
+    item: sed-tutorial.gnu.rst
+    item: sed-tutorial.tutorialspoints.rst
+
+    # globs only looks at current dir-level
+    $ for i in *; do echo item: $i; done
+    item: awk-tutorial
+    item: sed
+
+    # to recurse over directories, use ``find``
+    $ for i in $(find .); do echo item: $i; done
+    item: .
+    item: ./awk-tutorial
+    item: ./awk-tutorial/awk-basic-structure.rst
+    item: ./awk-tutorial/awk-builtin-vars.rst
+    item: ./awk-tutorial/awk-summary-commands.rst
+    item: ./awk-tutorial/awk-essential-syntax.rst
+    item: ./awk-tutorial/index.rst
+    item: ./sed
+    item: ./sed/quote.txt
+    item: ./sed/books.txt
+    item: ./sed/commands
+    item: ./sed/sed-tutorial.tutorialspoints.rst
+    item: ./sed/sed-tutorial.gnu.rst
+
+###########################
+arithmetic expansion ((..))
+###########################
+- http://wiki.bash-hackers.org/syntax/arith_expr
+
+
+************
+let vs (())?
+************
+- http://stackoverflow.com/questions/18704857/bash-let-statement-vs-assignment
+
+::
+    
+    http://wiki.bash-hackers.org/commands/builtin/let#examples
+    There is almost no difference between let and (( )).
+
+
+.. code-block:: bash
+
+    # let version
+    $ let 'b = a' "(a += 3) + $((a = 1)), b++"
+    $ echo "$a - $b - $?"
+    4 - 2 - 0
+
+    # equivalent (()) version 
+    $ (( b = a, (a += 3) + $((a = 1)), b++ ))
+    $ echo "$a - $b - $?"
+    4 - 2 - 0

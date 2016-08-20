@@ -170,24 +170,6 @@
 <li class="toctree-l3"><a class="reference internal" href="cs-py-jupyter-notebook.html#current-config">3.3. Current config</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="bct.html">4. Brain Connectivity Toolbox</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/bct.algorithms.html">4.1. bct.algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/bct.algorithms.html#functions">4.1.1. Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/bct.algorithms.html#exceptions">4.1.2. Exceptions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="generated/bct.utils.html">4.2. bct.utils</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/bct.utils.html#functions">4.2.1. Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/bct.utils.html#exceptions">4.2.2. Exceptions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="generated/bct.nbs.html">4.3. bct.nbs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="generated/bct.nbs.html#functions">4.3.1. Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="generated/bct.nbs.html#exceptions">4.3.2. Exceptions</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="top-datascience.html">Data Science</a><ul>
@@ -254,73 +236,93 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="top-bash.html">Bash-type</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. bash-commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#io-redirection">1.1. IO Redirection</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#output-stdout-and-stderr-to-terminal-and-logfile">1.1.1. Output stdout and stderr to terminal and logfile</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#syntax-reference">1.1.2. syntax reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overflows">1.1. Overflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quoting-with-command-substitution">1.1.1. Quoting with command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-function-names">1.1.2. Display function names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-n-th-line-of-output-used-sed">1.1.3. get n-th line of output (used sed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quotes-with-grep">1.1.4. Quotes with grep</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#overflows">1.2. Overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#display-function-names">1.2.1. Display function names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-n-th-line-of-output-used-sed">1.2.2. get n-th line of output (used sed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#quotes-with-grep">1.2.3. Quotes with grep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-rename-command">1.3. Using rename command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rename-files-with-suffix-or-prefix">1.3.1. Rename files with suffix or prefix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#regexp-syntax-with-rename">1.3.2. regexp syntax with rename</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#escaping-single-quotes-a-mess">1.3. Escaping single quotes (a mess...)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-rename-command">1.4. Using rename command</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rename-files-with-suffix-or-prefix">1.4.1. Rename files with suffix or prefix</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#regexp-syntax-with-rename">1.4.2. regexp syntax with rename</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#random-handy-snippets">1.4. Random handy snippets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replace-whitespace-with-newline-in-sed">1.5. replace whitespace with newline in sed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-if-multiple-line-is-spanned">1.5.1. What if multiple line is spanned?</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#random-handy-snippets">1.5. Random handy snippets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#replace-whitespace-with-newline-in-sed">1.6. replace whitespace with newline in sed</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#what-if-multiple-line-is-spanned">1.6.1. What if multiple line is spanned?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-running-processes">1.6. check running processes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nohup-vs-disown-vs">1.7. nohup vs disown vs &amp;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-and-copying">1.8. Moving and copying</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scp-user">1.8.1. scp user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsync">1.8.2. rsync</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#check-running-processes">1.7. check running processes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nohup-vs-disown-vs">1.8. nohup vs disown vs &amp;</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#moving-and-copying">1.9. Moving and copying</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#scp-user">1.9.1. scp user</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rsync">1.9.2. rsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#find">1.9. find</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#note-find-vs-locate">1.9.1. Note: <strong>find</strong> vs <strong>locate</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#find">1.10. find</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#note-find-vs-locate">1.10.1. Note: <strong>find</strong> vs <strong>locate</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-vs-command-use-latter">1.10. ``command`` vs $(command) (use latter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ls-tricks">1.11. ls tricks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ls-recursively-use-find">1.11.1. ls recursively (use <em>find</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-only-symbolic-links-alias-ls-sym">1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#command-vs-command-use-latter">1.11. ``command`` vs $(command) (use latter)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ls-tricks">1.12. ls tricks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ls-recursively-use-find">1.12.1. ls recursively (use <em>find</em>)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#show-only-symbolic-links-alias-ls-sym">1.12.2. show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#print-timestamp">1.12. print timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-image-xdg-open-image-png">1.13. open image ($xdg-open image.png)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options-with-less-ongoing">1.14. Options with <strong>less</strong> (ongoing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#history-w-o-line-numbers">1.15. history w/o line-numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-xargs-is-needed">1.16. When xargs is needed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-computer-info">1.17. Get computer info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mogrify">1.18. mogrify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipe-dreams-xargs-exec-in-find">1.19. Pipe dreams (xargs, -exec in find)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grep">1.20. Grep</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#grep-recursively">1.20.1. grep recursively</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-grep-a-string-pipe-output-of-echo">1.20.2. To grep a string, pipe output of echo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-not-supported-in-linux-grep-as-default-seems-like">1.20.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#just-use-double-quotes-for-regex-query">1.20.4. just use double-quotes for regex query</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#print-timestamp">1.13. print timestamp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#open-image-xdg-open-image-png">1.14. open image ($xdg-open image.png)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#options-with-less-ongoing">1.15. Options with <strong>less</strong> (ongoing)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#history-w-o-line-numbers">1.16. history w/o line-numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#when-xargs-is-needed">1.17. When xargs is needed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get-computer-info">1.18. Get computer info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mogrify">1.19. mogrify</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pipe-dreams-xargs-exec-in-find">1.20. Pipe dreams (xargs, -exec in find)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#grep">1.21. Grep</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#grep-recursively">1.21.1. grep recursively</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#to-grep-a-string-pipe-output-of-echo">1.21.2. To grep a string, pipe output of echo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#d-not-supported-in-linux-grep-as-default-seems-like">1.21.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#just-use-double-quotes-for-regex-query">1.21.4. just use double-quotes for regex query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-n-th-line-or-word-using-sed-and-awk">1.21. Selecting n-th line or word using sed and awk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input">1.22. Use xargs to execute a command once per line of piped input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-same-command-multiple-times-for-loop">1.23. Run same command multiple times (for loop)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git">1.24. git</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#change-author-name">1.24.1. change author name</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#selecting-n-th-line-or-word-using-sed-and-awk">1.22. Selecting n-th line or word using sed and awk</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input">1.23. Use xargs to execute a command once per line of piped input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-same-command-multiple-times-for-loop">1.24. Run same command multiple times (for loop)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#git">1.25. git</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#change-author-name">1.25.1. change author name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clipboard-with-xclip">1.25. clipboard with xclip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#io-redirection">1.26. IO Redirection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#piping-vs-command-substitution">1.26.1. Piping vs command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#redirecting-vs-piping">1.26.2. redirecting vs piping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-stdout-and-stderr-to-terminal-and-logfile">1.26.3. Output stdout and stderr to terminal and logfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syntax-reference">1.26.4. syntax reference</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#clipboard-with-xclip">1.26. clipboard with xclip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bit-on-printf">1.27. Bit on printf</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples-from-ss64">1.27.1. Examples from ss64</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#for-loop">1.28. for loop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basics">1.28.1. basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiline-in-terminal">1.28.2. multiline in terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#looping-over-array-elements">1.28.3. Looping over array elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-of-elements-in-an-array-using-array">1.28.4. number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avoid-ls-use-globbing-or-find">1.28.5. avoid $(ls)...use globbing or find</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#arithmetic-expansion">1.29. arithmetic expansion ((..))</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#let-vs">1.29.1. let vs (())?</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#overflow-topics">2.1. Overflow topics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#check-file-existance">2.1.1. Check file existance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#source-vs-in-bash-synonymous">2.1.1. source vs . in bash (synonymous)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#check-file-existance">2.1.2. Check file existance</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#simple-loop-for-python">2.2. Simple loop for python</a></li>
@@ -370,14 +372,24 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="top-unix.html">Unix utilities</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-sed.html">1. sed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#random-snippets">1.1. Random snippets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#sed-help">1.2. sed &#8211;help</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#substitution-basics">1.3. Substitution basics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#the-e-f-options">1.4. the -e, -f options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#deletion-commands">1.5. deletion commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#range-options">1.6. Range options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#fixname-sh">1.7. fixname.sh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#output-from-man-page">1.8. output from man page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#references">1.1. References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#go-to-gnu-manual-for-an-overkill">1.1.1. Go to GNU manual for an overkill :)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#others">1.1.2. Others</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#random-snippets">1.2. Random snippets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#fixname-sh">1.2.1. fixname.sh</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#ultra-basics">1.3. Ultra-basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#basics-print-delete-and-substitution">1.3.1. Basics: print, delete, and substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#deletion-commands">1.3.2. deletion commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#substitution-basics">1.3.3. Substitution basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#the-e-f-options">1.3.4. the -e, -f options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#sed-help">1.4. sed &#8211;help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-sed.html#output-from-man-page">1.5. output from man page</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cs-sed-oneliners.html">2. sed oneliners</a><ul>
@@ -392,55 +404,37 @@
 <li class="toctree-l3"><a class="reference internal" href="cs-sed-oneliners.html#misc">2.9. Misc</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="sed-tutorial/index.html">3. Sed tutorials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cs-awk.html">4. awk</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#note-do-i-really-need-awk">4.1. note: do I really need awk?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#my-use-case-for-awk-for-files-containing-columns-fields">4.2. My use-case for awk (for files containing columns/fields)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#random-snippets">4.3. Random snippets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#awk-one-liners">4.4. awk (one-liners)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-awk.html#great-examples-here">4.4.1. Great examples here!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs-awk.html">3. awk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#note-do-i-really-need-awk">3.1. note: do I really need awk?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#my-use-case-for-awk-for-files-containing-columns-fields">3.2. My use-case for awk (for files containing columns/fields)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#random-snippets">3.3. Random snippets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#awk-one-liners">3.4. awk (one-liners)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-awk.html#great-examples-here">3.4.1. Great examples here!</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#awk-help">4.5. awk &#8211;help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk.html#awk-help">3.5. awk &#8211;help</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs-awk-oneliners.html">5. awk-oneliners</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#file-spacing">5.1. File spacing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#numbering-and-calculations">5.2. NUMBERING AND CALCULATIONS:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#string-creation">5.3. STRING CREATION:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#array-creation">5.4. ARRAY CREATION:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#text-conversion-and-substitution">5.5. TEXT CONVERSION AND SUBSTITUTION:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#selective-printing-of-certain-lines">5.6. SELECTIVE PRINTING OF CERTAIN LINES:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#selective-deletion-of-certain-lines">5.7. SELECTIVE DELETION OF CERTAIN LINES:</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/index.html">6. awk-tutorial</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-basic-structure.html">6.1. Basic structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html">6.2. The Essential Syntax of AWK</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#unary-arithmetic-operators">6.2.1. Unary arithmetic operators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">6.2.2. The Autoincrement and Autodecrement Operators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#assignment-operators">6.2.3. Assignment Operators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#conditional-expressions">6.2.4. Conditional expressions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#regular-expressions">6.2.5. Regular Expressions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#and-or-not">6.2.6. And/Or/Not</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-summary-commands.html">6.3. Summary of AWK Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html">6.4. AWK Built-in Variables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#fs-the-input-field-separator-variable">6.4.1. FS - The Input Field Separator Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#ofs-the-output-field-separator-variable">6.4.2. OFS - The Output Field Separator Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#nf-the-number-of-fields-variable">6.4.3. NF - The Number of Fields Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#nr-the-number-of-records-variable">6.4.4. NR - The Number of Records Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#rs-the-record-separator-variable">6.4.5. RS - The Record Separator Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#ors-the-output-record-separator-variable">6.4.6. ORS - The Output Record Separator Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#filename-the-current-filename-variable">6.4.7. FILENAME - The Current Filename Variable</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="cs-awk-oneliners.html">4. awk-oneliners</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#file-spacing">4.1. File spacing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#numbering-and-calculations">4.2. NUMBERING AND CALCULATIONS:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#string-creation">4.3. STRING CREATION:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#array-creation">4.4. ARRAY CREATION:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#text-conversion-and-substitution">4.5. TEXT CONVERSION AND SUBSTITUTION:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#selective-printing-of-certain-lines">4.6. SELECTIVE PRINTING OF CERTAIN LINES:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-awk-oneliners.html#selective-deletion-of-certain-lines">4.7. SELECTIVE DELETION OF CERTAIN LINES:</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="top-misc.html">Miscellaneous</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs-computer.html">Random notes relating to computer science</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-computer.unix.html">1. Unix-related</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-computer.unix.html#terminal-shell-tty-console-the-difference">1.1. terminal, shell, tty, console...the difference?</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="cs-rst.html">rst</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-rst.html#csv-demo">csv-demo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cs-rst.html#lookups">Lookups</a><ul>
@@ -588,52 +582,898 @@
            <div itemprop="articleBody">
             
   <div class="section" id="bash-commands">
-<h1><a class="toc-backref" href="#id1">1. bash-commands</a><a class="headerlink" href="#bash-commands" title="Permalink to this headline">¶</a></h1>
+<h1>1. bash-commands<a class="headerlink" href="#bash-commands" title="Permalink to this headline">¶</a></h1>
 <p class="rubric">Some References</p>
 <ul class="simple">
 <li><a class="reference external" href="http://ss64.com/bash">http://ss64.com/bash</a></li>
 <li><a class="reference external" href="http://www.tldp.org/LDP/abs/html/">http://www.tldp.org/LDP/abs/html/</a> (<strong>Advanced Bash-Scripting Guide</strong>)</li>
 <li><a class="reference external" href="http://mywiki.wooledge.org/">http://mywiki.wooledge.org/</a></li>
+<li><a class="reference external" href="http://wiki.bash-hackers.org/start">http://wiki.bash-hackers.org/start</a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Greatest one!</p>
+<p class="last"><a class="reference external" href="http://www.tutorialspoint.com/unix/index.htm">http://www.tutorialspoint.com/unix/index.htm</a></p>
+</div>
+<ul class="simple">
 <li><code class="docutils literal"><span class="pre">ctrl+f</span> <span class="pre">=&gt;</span> <span class="pre">ongonig</span></code> for <strong>ongoing</strong> cheat-sheets</li>
 </ul>
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first"><strong>Table of Contents</strong></p>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title first"><cite>Table of contents</cite></p>
 <ul class="simple">
-<li><a class="reference internal" href="#bash-commands" id="id1">bash-commands</a><ul>
-<li><a class="reference internal" href="#io-redirection" id="id2">IO Redirection</a></li>
-<li><a class="reference internal" href="#overflows" id="id3">Overflows</a></li>
-<li><a class="reference internal" href="#escaping-single-quotes-a-mess" id="id4">Escaping single quotes (a mess...)</a></li>
-<li><a class="reference internal" href="#using-rename-command" id="id5">Using rename command</a></li>
-<li><a class="reference internal" href="#random-handy-snippets" id="id6">Random handy snippets</a></li>
-<li><a class="reference internal" href="#replace-whitespace-with-newline-in-sed" id="id7">replace whitespace with newline in sed</a></li>
-<li><a class="reference internal" href="#check-running-processes" id="id8">check running processes</a></li>
-<li><a class="reference internal" href="#nohup-vs-disown-vs" id="id9">nohup vs disown vs &amp;</a></li>
-<li><a class="reference internal" href="#moving-and-copying" id="id10">Moving and copying</a></li>
-<li><a class="reference internal" href="#find" id="id11">find</a></li>
-<li><a class="reference internal" href="#command-vs-command-use-latter" id="id12">``command`` vs $(command) (use latter)</a></li>
-<li><a class="reference internal" href="#ls-tricks" id="id13">ls tricks</a></li>
-<li><a class="reference internal" href="#print-timestamp" id="id14">print timestamp</a></li>
-<li><a class="reference internal" href="#open-image-xdg-open-image-png" id="id15">open image ($xdg-open image.png)</a></li>
-<li><a class="reference internal" href="#options-with-less-ongoing" id="id16">Options with <strong>less</strong> (ongoing)</a></li>
-<li><a class="reference internal" href="#history-w-o-line-numbers" id="id17">history w/o line-numbers</a></li>
-<li><a class="reference internal" href="#when-xargs-is-needed" id="id18">When xargs is needed</a></li>
-<li><a class="reference internal" href="#get-computer-info" id="id19">Get computer info</a></li>
-<li><a class="reference internal" href="#mogrify" id="id20">mogrify</a></li>
-<li><a class="reference internal" href="#pipe-dreams-xargs-exec-in-find" id="id21">Pipe dreams (xargs, -exec in find)</a></li>
-<li><a class="reference internal" href="#grep" id="id22">Grep</a></li>
-<li><a class="reference internal" href="#selecting-n-th-line-or-word-using-sed-and-awk" id="id23">Selecting n-th line or word using sed and awk</a></li>
-<li><a class="reference internal" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" id="id24">Use xargs to execute a command once per line of piped input</a></li>
-<li><a class="reference internal" href="#run-same-command-multiple-times-for-loop" id="id25">Run same command multiple times (for loop)</a></li>
-<li><a class="reference internal" href="#git" id="id26">git</a></li>
-<li><a class="reference internal" href="#clipboard-with-xclip" id="id27">clipboard with xclip</a></li>
+<li><a class="reference internal" href="#overflows" id="id2">Overflows</a><ul>
+<li><a class="reference internal" href="#quoting-with-command-substitution" id="id3">Quoting with command substitution</a></li>
+<li><a class="reference internal" href="#display-function-names" id="id4">Display function names</a></li>
+<li><a class="reference internal" href="#get-n-th-line-of-output-used-sed" id="id5">get n-th line of output (used sed</a></li>
+<li><a class="reference internal" href="#quotes-with-grep" id="id6">Quotes with grep</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#escaping-single-quotes-a-mess" id="id7">Escaping single quotes (a mess...)</a></li>
+<li><a class="reference internal" href="#using-rename-command" id="id8">Using rename command</a><ul>
+<li><a class="reference internal" href="#rename-files-with-suffix-or-prefix" id="id9">Rename files with suffix or prefix</a></li>
+<li><a class="reference internal" href="#regexp-syntax-with-rename" id="id10">regexp syntax with rename</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#random-handy-snippets" id="id11">Random handy snippets</a></li>
+<li><a class="reference internal" href="#replace-whitespace-with-newline-in-sed" id="id12">replace whitespace with newline in sed</a><ul>
+<li><a class="reference internal" href="#what-if-multiple-line-is-spanned" id="id13">What if multiple line is spanned?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#check-running-processes" id="id14">check running processes</a></li>
+<li><a class="reference internal" href="#nohup-vs-disown-vs" id="id15">nohup vs disown vs &amp;</a></li>
+<li><a class="reference internal" href="#moving-and-copying" id="id16">Moving and copying</a><ul>
+<li><a class="reference internal" href="#scp-user" id="id17">scp user</a></li>
+<li><a class="reference internal" href="#rsync" id="id18">rsync</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#find" id="id19">find</a><ul>
+<li><a class="reference internal" href="#note-find-vs-locate" id="id20">Note: <strong>find</strong> vs <strong>locate</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-vs-command-use-latter" id="id21">``command`` vs $(command) (use latter)</a></li>
+<li><a class="reference internal" href="#ls-tricks" id="id22">ls tricks</a><ul>
+<li><a class="reference internal" href="#ls-recursively-use-find" id="id23">ls recursively (use <em>find</em>)</a></li>
+<li><a class="reference internal" href="#show-only-symbolic-links-alias-ls-sym" id="id24">show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#print-timestamp" id="id25">print timestamp</a></li>
+<li><a class="reference internal" href="#open-image-xdg-open-image-png" id="id26">open image ($xdg-open image.png)</a></li>
+<li><a class="reference internal" href="#options-with-less-ongoing" id="id27">Options with <strong>less</strong> (ongoing)</a></li>
+<li><a class="reference internal" href="#history-w-o-line-numbers" id="id28">history w/o line-numbers</a></li>
+<li><a class="reference internal" href="#when-xargs-is-needed" id="id29">When xargs is needed</a></li>
+<li><a class="reference internal" href="#get-computer-info" id="id30">Get computer info</a></li>
+<li><a class="reference internal" href="#mogrify" id="id31">mogrify</a></li>
+<li><a class="reference internal" href="#pipe-dreams-xargs-exec-in-find" id="id32">Pipe dreams (xargs, -exec in find)</a></li>
+<li><a class="reference internal" href="#grep" id="id33">Grep</a><ul>
+<li><a class="reference internal" href="#grep-recursively" id="id34">grep recursively</a></li>
+<li><a class="reference internal" href="#to-grep-a-string-pipe-output-of-echo" id="id35">To grep a string, pipe output of echo</a></li>
+<li><a class="reference internal" href="#d-not-supported-in-linux-grep-as-default-seems-like" id="id36"><code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
+<li><a class="reference internal" href="#just-use-double-quotes-for-regex-query" id="id37">just use double-quotes for regex query</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#selecting-n-th-line-or-word-using-sed-and-awk" id="id38">Selecting n-th line or word using sed and awk</a></li>
+<li><a class="reference internal" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" id="id39">Use xargs to execute a command once per line of piped input</a></li>
+<li><a class="reference internal" href="#run-same-command-multiple-times-for-loop" id="id40">Run same command multiple times (for loop)</a></li>
+<li><a class="reference internal" href="#git" id="id41">git</a><ul>
+<li><a class="reference internal" href="#change-author-name" id="id42">change author name</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clipboard-with-xclip" id="id43">clipboard with xclip</a></li>
+<li><a class="reference internal" href="#io-redirection" id="id44">IO Redirection</a><ul>
+<li><a class="reference internal" href="#piping-vs-command-substitution" id="id45">Piping vs command substitution</a></li>
+<li><a class="reference internal" href="#redirecting-vs-piping" id="id46">redirecting vs piping</a></li>
+<li><a class="reference internal" href="#output-stdout-and-stderr-to-terminal-and-logfile" id="id47">Output stdout and stderr to terminal and logfile</a></li>
+<li><a class="reference internal" href="#syntax-reference" id="id48">syntax reference</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bit-on-printf" id="id49">Bit on printf</a><ul>
+<li><a class="reference internal" href="#examples-from-ss64" id="id50">Examples from ss64</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#for-loop" id="id51">for loop</a><ul>
+<li><a class="reference internal" href="#basics" id="id52">basics</a></li>
+<li><a class="reference internal" href="#multiline-in-terminal" id="id53">multiline in terminal</a></li>
+<li><a class="reference internal" href="#looping-over-array-elements" id="id54">Looping over array elements</a></li>
+<li><a class="reference internal" href="#number-of-elements-in-an-array-using-array" id="id55">number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a></li>
+<li><a class="reference internal" href="#avoid-ls-use-globbing-or-find" id="id56">avoid $(ls)...use globbing or find</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#arithmetic-expansion" id="id57">arithmetic expansion ((..))</a><ul>
+<li><a class="reference internal" href="#let-vs" id="id58">let vs (())?</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="overflows">
+<h2><a class="toc-backref" href="#id2">1.1. Overflows</a><a class="headerlink" href="#overflows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="quoting-with-command-substitution">
+<h3><a class="toc-backref" href="#id3">1.1.1. Quoting with command substitution</a><a class="headerlink" href="#quoting-with-command-substitution" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://unix.stackexchange.com/questions/118433/quoting-within-command-substitution-in-bash">http://unix.stackexchange.com/questions/118433/quoting-within-command-substitution-in-bash</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">DIRNAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="c1"># the recommended way</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-function-names">
+<h3><a class="toc-backref" href="#id4">1.1.2. Display function names</a><a class="headerlink" href="#display-function-names" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell">http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell</a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">typeset</span></code> and <code class="docutils literal"><span class="pre">declare</span></code> is synonymous</p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># show all functions (with def)</span>
+<span class="nb">typeset</span> -f
+
+<span class="c1"># show just function names</span>
+<span class="nb">typeset</span> -F
+
+<span class="c1"># show just function names (but skip first two fields separated by space)</span>
+<span class="nb">typeset</span> -F <span class="p">|</span> cut -d <span class="s1">&#39; &#39;</span> -f 3
+
+<span class="c1"># show specific function</span>
+<span class="nb">typeset</span> function_name
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-n-th-line-of-output-used-sed">
+<h3><a class="toc-backref" href="#id5">1.1.3. get n-th line of output (used sed</a><a class="headerlink" href="#get-n-th-line-of-output-used-sed" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout">http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ls -l <span class="p">|</span> sed -n 2p
+</pre></div>
+</div>
+</div>
+<div class="section" id="quotes-with-grep">
+<h3><a class="toc-backref" href="#id6">1.1.4. Quotes with grep</a><a class="headerlink" href="#quotes-with-grep" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes">http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes</a></li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> grep -e show<span class="se">\(</span>  test.txt
+grep -e show<span class="o">(</span> test.txt
+
+$ <span class="nb">echo</span> grep -e <span class="s2">&quot;show\(&quot;</span>  test.txt
+grep -e show<span class="se">\(</span> test.txt
+
+$ <span class="nb">echo</span> grep -e <span class="s1">&#39;show\(&#39;</span>  test.txt
+grep -e show<span class="se">\(</span> test.txt
+</pre></div>
+</div>
+<p>Reminder on single vs double quotes</p>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/3008423/quotes-when-using-grep">http://stackoverflow.com/questions/3008423/quotes-when-using-grep</a></li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> and 2+2=</span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="s2">&quot;</span>
+Tue Aug  <span class="m">5</span> 18:52:39 PDT <span class="m">2014</span> and 2+2<span class="o">=</span>4
+$ <span class="nb">echo</span> <span class="s1">&#39;$(date) and 2+2=$((2+2))&#39;</span>
+<span class="k">$(</span>date<span class="k">)</span> and 2+2<span class="o">=</span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="escaping-single-quotes-a-mess">
+<h2><a class="toc-backref" href="#id7">1.2. Escaping single quotes (a mess...)</a><a class="headerlink" href="#escaping-single-quotes-a-mess" title="Permalink to this headline">¶</a></h2>
+<p>Use <code class="docutils literal"><span class="pre">'&quot;'&quot;'</span></code></p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings">http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings</a></p>
+</div>
+<div class="section" id="using-rename-command">
+<h2><a class="toc-backref" href="#id8">1.3. Using rename command</a><a class="headerlink" href="#using-rename-command" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://unix.stackexchange.com/questions/146743/processing-multiple-extensions">http://unix.stackexchange.com/questions/146743/processing-multiple-extensions</a></li>
+<li><a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html">https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html</a></li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># rename the filename part &quot;Array&quot; with &quot;_PCA&quot; for all files ending with extension .mat</span>
+rename Array _PCA *.mat
+
+<span class="c1"># rename png &quot;prefix&quot; with &quot;normalized&quot; in files with .png extensions</span>
+rename <span class="s1">&#39;s/prefix/normalized/&#39;</span> *.png
+
+<span class="c1"># rename files with either .png or .pkl extension (see link on brack expansion above)</span>
+<span class="c1"># (-n will do a dry run, letting me check the rename will do what i want it to do )</span>
+rename -n <span class="s1">&#39;s/normalized/test/&#39;</span> *.<span class="o">{</span>png,pkl<span class="o">}</span>
+
+<span class="c1"># creates 3 dir at once</span>
+mkdir <span class="o">{</span>a,b,c<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="rename-files-with-suffix-or-prefix">
+<h3><a class="toc-backref" href="#id9">1.3.1. Rename files with suffix or prefix</a><a class="headerlink" href="#rename-files-with-suffix-or-prefix" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>2nd answer in <a class="reference external" href="http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix">http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix</a></li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># rename files with extensions (to avoid directory...not robust, but does what i want most of the time)</span>
+<span class="k">for</span> filename in *<span class="se">\.</span>*<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$filename</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span>
+<span class="k">for</span> filename in *<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$filename</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> <span class="c1"># &lt;- this includes directory, which me not like</span>
+
+
+<span class="k">for</span> filename in *<span class="se">\.</span>*<span class="p">;</span> <span class="k">do</span> mv <span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;prefix_</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="regexp-syntax-with-rename">
+<h3><a class="toc-backref" href="#id10">1.3.2. regexp syntax with rename</a><a class="headerlink" href="#regexp-syntax-with-rename" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://answers.launchpad.net/ubuntu/+question/31247">https://answers.launchpad.net/ubuntu/+question/31247</a></li>
+<li><a class="reference external" href="http://askubuntu.com/questions/204864/rename-what-does-s-vs-y-mean">http://askubuntu.com/questions/204864/rename-what-does-s-vs-y-mean</a></li>
+<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/precise/en/man1/sed.1.html">http://manpages.ubuntu.com/manpages/precise/en/man1/sed.1.html</a></li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># &#39;-n&#39; option for dry run to verify it&#39;ll do what i want it to do</span>
+rename -n <span class="s1">&#39;s/graphnet/elasticnet/;&#39;</span> *.m
+&gt;&gt;&gt; graphnet_FA_v06_gender.m renamed as elasticnet_FA_v06_gender.m
+&gt;&gt;&gt; graphnet_FA_v06m_DX.m renamed as elasticnet_FA_v06m_DX.m
+&gt;&gt;&gt; graphnet_FA_v06m_HRp_HRm.m renamed as elasticnet_FA_v06m_HRp_HRm.m
+&gt;&gt;&gt; graphnet_FA_v06m_HRp_LRm.m renamed as elasticnet_FA_v06m_HRp_LRm.m
+&gt;&gt;&gt; graphnet_FA_v06m_risk.m renamed as elasticnet_FA_v06m_risk.m
+&gt;&gt;&gt; graphnet_FA_v12_gender.m renamed as elasticnet_FA_v12_gender.m
+
+<span class="c1"># above looks right, so now actually run it &#39;verbosely&#39;</span>
+rename -v <span class="s1">&#39;s/graphnet/elasticnet/;&#39;</span> *.m
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="random-handy-snippets">
+<h2><a class="toc-backref" href="#id11">1.4. Random handy snippets</a><a class="headerlink" href="#random-handy-snippets" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#=========================================================================#</span>
+<span class="c1"># find files with .rst extension at current directory (maxdepth=1)</span>
+<span class="c1"># (note: when piping to clipboard, turn grep color off; otherwise you get</span>
+<span class="c1">#  character encoding like &quot;ESC[01;31m&quot;</span>
+<span class="c1">#  see http://linuxcommando.blogspot.com/2007/10/grep-with-color-output.html</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># in bash script, don&#39;t use ls for globbing (here, it&#39;s fine)</span>
+ls <span class="p">|</span> grep <span class="se">\.</span>rst --color<span class="o">=</span>never <span class="p">|</span> c
+
+<span class="c1"># i like this, as things are sorted alphabetically (sed used to replace space with newline, as echo spits everything out in one line</span>
+<span class="nb">echo</span> * <span class="p">|</span> sed <span class="s1">&#39;s/ /\n/g&#39;</span> <span class="p">|</span> grep <span class="se">\.</span>rst --color<span class="o">=</span>never <span class="p">|</span> c
+
+<span class="c1"># equivalently...(need to sort here)</span>
+find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span class="p">|</span> grep <span class="se">\.</span>rst --color<span class="o">=</span>never <span class="p">|</span> c
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="replace-whitespace-with-newline-in-sed">
+<h2><a class="toc-backref" href="#id12">1.5. replace whitespace with newline in sed</a><a class="headerlink" href="#replace-whitespace-with-newline-in-sed" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list">http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list</a></p>
+<p><code class="docutils literal"><span class="pre">bash</span> <span class="pre">0622_2016_rename_tobvols.sh</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/</span> <span class="pre">/\n/g'</span></code></p>
+<div class="section" id="what-if-multiple-line-is-spanned">
+<h3><a class="toc-backref" href="#id13">1.5.1. What if multiple line is spanned?</a><a class="headerlink" href="#what-if-multiple-line-is-spanned" title="Permalink to this headline">¶</a></h3>
+<p>08-05-2016 (12:37)</p>
+<p>hmmm...better to leave sed in this case, and use perl?</p>
+<p><a class="reference external" href="http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string">http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string</a></p>
+<blockquote>
+<div>Summary: Use sed for simple things, and maybe a bit more, but in general, <strong>when it gets beyond working with a single line</strong>, most people prefer something else...</div></blockquote>
+</div>
+</div>
+<div class="section" id="check-running-processes">
+<h2><a class="toc-backref" href="#id14">1.6. check running processes</a><a class="headerlink" href="#check-running-processes" title="Permalink to this headline">¶</a></h2>
+<p>The one I use the most frequent</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># a &lt;- includes ``root`` in userprocess</span>
+<span class="c1"># u &lt;- include ``username`` column</span>
+<span class="c1"># x &lt;- list all processes owned by me</span>
+ps aux
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="nohup-vs-disown-vs">
+<h2><a class="toc-backref" href="#id15">1.7. nohup vs disown vs &amp;</a><a class="headerlink" href="#nohup-vs-disown-vs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Cuz i got annoyed on accidentally closing terminal running <code class="docutils literal"><span class="pre">spyder</span> <span class="pre">&amp;</span></code></li>
+<li><a class="reference external" href="http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it">http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it</a></li>
+<li><a class="reference external" href="http://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and">http://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and</a></li>
+</ul>
+</div>
+<div class="section" id="moving-and-copying">
+<h2><a class="toc-backref" href="#id16">1.8. Moving and copying</a><a class="headerlink" href="#moving-and-copying" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://ss64.com/bash/cp.html">http://ss64.com/bash/cp.html</a></li>
+<li><a class="reference external" href="http://ss64.com/bash/mv.html">http://ss64.com/bash/mv.html</a></li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># rename a directory (note &#39;/&#39; after directory name has NO impact here,  there are cases I should be careful of the backslash)</span>
+mv /home/user/oldname /home/user/newname
+
+<span class="c1">#=== cp helper ===#</span>
+<span class="c1"># copy files *inside* the folder &quot;test/&quot; inside folder &quot;target&quot;</span>
+gosnippets<span class="p">;</span> <span class="nb">cd</span> tests<span class="p">;</span> mkdir <span class="nb">source</span> target<span class="p">;</span> <span class="nb">cd</span> source<span class="p">;</span> touch a b c<span class="p">;</span> <span class="nb">cd</span> ..
+
+<span class="c1"># copy files *inside* the folder &quot;test/&quot; inside folder &quot;target&quot; (note: -R and -r are the same here)</span>
+cp -r source/* target
+
+<span class="c1"># copy entire folder *source* into *target* (without ``-r``, the subdirectories won&#39;t get copied)</span>
+cp -r source* target
+
+<span class="c1">#--- cleanup test files from above---#</span>
+<span class="nb">cd</span> ..<span class="p">;</span> rm -r tests/*
+
+
+<span class="c1">#--- remove entire directory including files inside recursively ---#</span>
+rm -rf test/
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="scp-user">
+<h3><a class="toc-backref" href="#id17">1.8.1. scp user</a><a class="headerlink" href="#scp-user" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://ss64.com/bash/scp.html">http://ss64.com/bash/scp.html</a></li>
+</ul>
+<p>Warning: scp apparently overwrites existing file w/o warning. Hence <code class="docutils literal"><span class="pre">rsync</span></code> is a safer option.</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#========================================================================#</span>
+<span class="c1"># relevant options</span>
+<span class="c1">#========================================================================#</span>
+<span class="c1">#| -r : recursive</span>
+<span class="c1">#| -v : verbose (i probably won&#39;t need)</span>
+<span class="c1">#| -q : quiet</span>
+
+<span class="c1">#========================================================================#</span>
+<span class="c1"># demos</span>
+<span class="c1">#========================================================================#</span>
+<span class="c1"># Copy dummy.txt to home directory in remote host:</span>
+touch ~/dummy.txt
+scp ~/dummy.txt watanabt@cbica-cluster.uphs.upenn.edu:~/
+
+<span class="c1"># copy dummy.txt on server as dummy_cp.txt to local home folder</span>
+scp watanabt@cbica-cluster.uphs.upenn.edu:~/dummy.txt ~/dummy_cp.txt
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="rsync">
+<h3><a class="toc-backref" href="#id18">1.8.2. rsync</a><a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://ss64.com/bash/rsync.html">http://ss64.com/bash/rsync.html</a></p>
+<div class="section" id="what-a-does">
+<h4>1.8.2.1. What <code class="docutils literal"><span class="pre">-a</span></code> does<a class="headerlink" href="#what-a-does" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync">http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#========================================================================#</span>
+<span class="c1"># it exludes these</span>
+<span class="c1">#========================================================================#</span>
+<span class="o">-</span><span class="n">H</span><span class="p">,</span> <span class="o">--</span><span class="n">hard</span><span class="o">-</span><span class="n">links</span> <span class="n">preserve</span> <span class="n">hard</span> <span class="n">links</span>
+<span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="o">--</span><span class="n">acls</span> <span class="n">preserve</span> <span class="n">ACLs</span> <span class="p">(</span><span class="n">implies</span> <span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="o">-</span><span class="n">X</span><span class="p">,</span> <span class="o">--</span><span class="n">xattrs</span> <span class="n">preserve</span> <span class="n">extended</span> <span class="n">attributes</span>
+
+<span class="c1">#========================================================================#</span>
+<span class="c1"># does all of these</span>
+<span class="c1">#========================================================================#</span>
+<span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">recurse</span> <span class="n">into</span> <span class="n">directories</span>
+<span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="o">--</span><span class="n">links</span> <span class="n">copy</span> <span class="n">symlinks</span> <span class="k">as</span> <span class="n">symlinks</span>
+<span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="o">--</span><span class="n">perms</span> <span class="n">preserve</span> <span class="n">permissions</span>
+<span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="o">--</span><span class="n">times</span> <span class="n">preserve</span> <span class="n">modification</span> <span class="n">times</span>
+<span class="o">-</span><span class="n">g</span><span class="p">,</span> <span class="o">--</span><span class="n">group</span> <span class="n">preserve</span> <span class="n">group</span>
+<span class="o">-</span><span class="n">o</span><span class="p">,</span> <span class="o">--</span><span class="n">owner</span> <span class="n">preserve</span> <span class="n">owner</span> <span class="p">(</span><span class="nb">super</span><span class="o">-</span><span class="n">user</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">-</span><span class="n">D</span> <span class="n">same</span> <span class="k">as</span> <span class="o">--</span><span class="n">devices</span> <span class="o">--</span><span class="n">specials</span>
+
+<span class="o">--</span><span class="n">devices</span> <span class="n">preserve</span> <span class="n">device</span> <span class="n">files</span> <span class="p">(</span><span class="nb">super</span><span class="o">-</span><span class="n">user</span> <span class="n">only</span><span class="p">)</span>
+<span class="o">--</span><span class="n">specials</span> <span class="n">preserve</span> <span class="n">special</span> <span class="n">files</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># equilvaent to this</span>
+rsync -r -l -p -t -g -o -D
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="section" id="find">
+<h2><a class="toc-backref" href="#id19">1.9. find</a><a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://ss64.com/bash/find.html">http://ss64.com/bash/find.html</a></p>
+<p><strong>My Examples</strong></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span>find <span class="nv">$DIR</span> <span class="c1"># recursively print out file directories</span>
+find <span class="nv">$PWD</span> <span class="p">|</span> grep helper.md
+find <span class="nv">$PWD</span> <span class="p">|</span> grep helper.html <span class="p">|</span> xclip
+find <span class="nv">$PWD</span> -maxdpeth 1
+find . -iname <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># case insensitive</span>
+find . -name <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># case sensitive</span>
+find . -iname <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># print filenames, followed by a NULL character instead of the &quot;newline&quot; chracter that -print uses</span>
+
+<span class="c1"># ignore any file containing &quot;est&quot; (even in the directory name) and print out rest</span>
+<span class="c1"># (note: -o is the OR operator...see &quot;operator&quot; list below)</span>
+find . -wholename <span class="s1">&#39;*est*&#39;</span> -prune -o -print
+
+<span class="c1"># stuffs with -type option</span>
+find . d <span class="c1"># list directories</span>
+find . f <span class="c1"># list regular files</span>
+find . l <span class="c1"># list symlinks</span>
+
+<span class="c1">#=====================================================================#</span>
+<span class="c1"># name vs. whilename</span>
+<span class="c1"># - suppose i have file /Data_Science/test.txt</span>
+<span class="c1">#=====================================================================#</span>
+find . -iwholename <span class="s2">&quot;*Sci*.txt&quot;</span>
+    <span class="c1"># this will find the above file</span>
+find . -iname <span class="s2">&quot;*Sci*.txt&quot;</span>
+    <span class="c1"># this will NOT find the above file</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>Selected examples from ss64</strong></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>List filenames ending in .mp3, searching in the music folder and subfolders:
+$ find ./music -name <span class="s2">&quot;*.mp3&quot;</span>
+
+Find .doc files that also start with <span class="s1">&#39;questionnaire&#39;</span> <span class="o">(</span>AND<span class="o">)</span>
+$ find . -name <span class="s1">&#39;*.doc&#39;</span> -name questionnaire*
+
+Find .doc files that <span class="k">do</span> NOT start with <span class="s1">&#39;Accounts&#39;</span> <span class="o">(</span>NOT<span class="o">)</span>
+$ find . -name <span class="s1">&#39;*.doc&#39;</span> ! -name Accounts*
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="note-find-vs-locate">
+<h3><a class="toc-backref" href="#id20">1.9.1. Note: <strong>find</strong> vs <strong>locate</strong></a><a class="headerlink" href="#note-find-vs-locate" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/">http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/</a></p>
+<blockquote>
+<div><ul class="simple">
+<li>Locate searches a pre-written database, making it faster at the sacrifice of accuracy.</li>
+<li>Find is more accurate and flexible, but searches in real time, making it slower.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="command-vs-command-use-latter">
+<h2><a class="toc-backref" href="#id21">1.10. ``command`` vs $(command) (use latter)</a><a class="headerlink" href="#command-vs-command-use-latter" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>$(commands) does the same thing as backticks, but you can nest them.</li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks">source</a></li>
+</ul>
+<p>Why is $(...) preferred over <cite>...</cite> (backticks)? (<a class="reference external" href="http://mywiki.wooledge.org/BashFAQ/082">link</a>)</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="ls-tricks">
+<h2><a class="toc-backref" href="#id22">1.11. ls tricks</a><a class="headerlink" href="#ls-tricks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ls-recursively-use-find">
+<h3><a class="toc-backref" href="#id23">1.11.1. ls recursively (use <em>find</em>)</a><a class="headerlink" href="#ls-recursively-use-find" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file">http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># recursively lists out all files + subdirectories</span>
+find ./test
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="show-only-symbolic-links-alias-ls-sym">
+<h3><a class="toc-backref" href="#id24">1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)</a><a class="headerlink" href="#show-only-symbolic-links-alias-ls-sym" title="Permalink to this headline">¶</a></h3>
+<p>Display only files and folders that are symbolic links in tcsh or bash</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ls -l <span class="k">$(</span>find ./ -maxdepth <span class="m">1</span> -type l -print<span class="k">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="print-timestamp">
+<h2><a class="toc-backref" href="#id25">1.12. print timestamp</a><a class="headerlink" href="#print-timestamp" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script">http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="open-image-xdg-open-image-png">
+<h2><a class="toc-backref" href="#id26">1.13. open image ($xdg-open image.png)</a><a class="headerlink" href="#open-image-xdg-open-image-png" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">xdg-open</span> <span class="pre">image.png</span></code></p>
+</div>
+<div class="section" id="options-with-less-ongoing">
+<h2><a class="toc-backref" href="#id27">1.14. Options with <strong>less</strong> (ongoing)</a><a class="headerlink" href="#options-with-less-ongoing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -n : enable line numbers</span>
+<span class="c1"># -N : disable line numbers</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="history-w-o-line-numbers">
+<h2><a class="toc-backref" href="#id28">1.15. history w/o line-numbers</a><a class="headerlink" href="#history-w-o-line-numbers" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers">http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">history</span> <span class="p">|</span> cut -c 8-
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="when-xargs-is-needed">
+<h2><a class="toc-backref" href="#id29">1.16. When xargs is needed</a><a class="headerlink" href="#when-xargs-is-needed" title="Permalink to this headline">¶</a></h2>
+<p>Some bash program can&#8217;t be piped since piping requires the program to accept STDIN commands
+(example, <code class="docutils literal"><span class="pre">touch</span></code>)</p>
+<p><a class="reference external" href="http://unix.stackexchange.com/questions/24954/when-is-xargs-needed">http://unix.stackexchange.com/questions/24954/when-is-xargs-needed</a></p>
+<blockquote>
+<div><p>The difference is in what data the target program is accepting.</p>
+<p>If you just use a pipe, it receives data on STDIN (the standard input stream) as a raw pile of data that it can sort through one line at a time. However some programs don&#8217;t accept their commands on standard in, they expect it to be spelled out in the arguments to the command. For example touch takes a file name as a parameter on the command line like so: touch file1.txt.</p>
+<p>If you have a program that outputs filenames on standard out and want to use them as arguments to touch, you have to use xargs which reads the STDIN stream data and converts each line into space separated arguments to the command.</p>
+</div></blockquote>
+</div>
+<div class="section" id="get-computer-info">
+<h2><a class="toc-backref" href="#id30">1.17. Get computer info</a><a class="headerlink" href="#get-computer-info" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># get cpu information</span>
+cat /proc/cpuinfo
+
+<span class="c1">#-- see gnome version ---</span>
+gnome-shell --version
+lsb_release -a
+
+<span class="c1"># to figure out which linux distribution you are using</span>
+<span class="c1"># (ref: http://www.cyberciti.biz/faq/find-linux-distribution-name-version-number/)</span>
+cat /etc/*-release
+
+locate libfortran.so
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="mogrify">
+<h2><a class="toc-backref" href="#id31">1.18. mogrify</a><a class="headerlink" href="#mogrify" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>mogrify -resize 50% *.png
+mogrify -resize 500! *.png     <span class="o">=</span>&gt; changes only x-axis
+mogrify -resize <span class="m">500</span> *.png      <span class="o">=</span>&gt; changes <span class="o">(</span>x,y<span class="o">)</span> axis in proportion
+mogrify -trim *.png
+
+<span class="c1">#| http://arcoleo.org/dsawiki/Wiki.jsp?page=Recursively%20run%20Mogrify%20on%20a%20Directory</span>
+<span class="c1">#| Mogrify is an image tool that comes with ImageMagick. It is useful for resizing, compressing, etc. If you have a set of subdirectories to run it on, run</span>
+$ find ./ -name <span class="s2">&quot;*.png&quot;</span> -exec mogrify -some_option <span class="o">{}</span> <span class="se">\;</span>
+$ find ./ -name <span class="s2">&quot;*.png&quot;</span> -exec mogrify -resize 40% <span class="o">{}</span> <span class="se">\;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="pipe-dreams-xargs-exec-in-find">
+<h2><a class="toc-backref" href="#id32">1.19. Pipe dreams (xargs, -exec in find)</a><a class="headerlink" href="#pipe-dreams-xargs-exec-in-find" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose">http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose</a></p>
+<ul class="simple">
+<li>the <code class="docutils literal"><span class="pre">-exec</span> <span class="pre">&quot;{}&quot;</span> <span class="pre">\;</span></code> approach seems to be specific to <code class="docutils literal"><span class="pre">find</span></code>
+(i prefer unity with <code class="docutils literal"><span class="pre">xargs</span></code>)</li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list</span>
+<span class="c1"># http://ss64.com/bash/find.html</span>
+find . -maxdepth <span class="m">1</span> -type d -exec ls -ld <span class="s2">&quot;{}&quot;</span> <span class="s2">&quot;;&quot;</span>
+find . -maxdepth <span class="m">1</span> -type d -exec ls -ld <span class="se">\{\}</span> <span class="se">\;</span>  <span class="c1"># same as above</span>
+find . -maxdepth <span class="m">1</span> -type d <span class="p">|</span> xargs ls -ld <span class="c1"># same as above (i find this the most intuitive)</span>
+ls -ld <span class="k">$(</span>find . -maxdepth <span class="m">1</span> -type d<span class="k">)</span> <span class="c1"># same as above</span>
+
+<span class="c1"># this doesn&#39;t give the same result as &quot;xargs&quot; approach...figure out why later</span>
+find . -maxdepth <span class="m">1</span> -type d <span class="p">|</span> ls -ld
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="grep">
+<h2><a class="toc-backref" href="#id33">1.20. Grep</a><a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="grep-recursively">
+<h3><a class="toc-backref" href="#id34">1.20.1. grep recursively</a><a class="headerlink" href="#grep-recursively" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively">http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>grep -r <span class="s2">&quot;texthere&quot;</span> .
+
+<span class="c1"># You can also mention files to exclude with --exclude.</span>
+grep -r --include <span class="s2">&quot;*.txt&quot;</span> texthere .
+
+<span class="c1"># use brace expansion to allow multiple extension</span>
+grep -r --include<span class="o">=</span>*.<span class="o">{</span>py,m<span class="o">}</span> <span class="nb">test</span> .
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="to-grep-a-string-pipe-output-of-echo">
+<h3><a class="toc-backref" href="#id35">1.20.2. To grep a string, pipe output of echo</a><a class="headerlink" href="#to-grep-a-string-pipe-output-of-echo" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name">http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name</a></p>
+</div>
+<div class="section" id="d-not-supported-in-linux-grep-as-default-seems-like">
+<h3><a class="toc-backref" href="#id36">1.20.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a><a class="headerlink" href="#d-not-supported-in-linux-grep-as-default-seems-like" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions">http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># these will do</span>
+grep <span class="s1">&#39;[0-9]&#39;</span>
+grep <span class="s1">&#39;[[:digit:]]&#39;</span>
+grep -P <span class="s1">&#39;\d&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="just-use-double-quotes-for-regex-query">
+<h3><a class="toc-backref" href="#id37">1.20.4. just use double-quotes for regex query</a><a class="headerlink" href="#just-use-double-quotes-for-regex-query" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote">http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># to find &#39;type&#39; =&gt; &#39;select&#39;</span>
+grep  <span class="s2">&quot;&#39;type&#39; =&gt; &#39;select&#39;&quot;</span> file
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="selecting-n-th-line-or-word-using-sed-and-awk">
+<h2><a class="toc-backref" href="#id38">1.21. Selecting n-th line or word using sed and awk</a><a class="headerlink" href="#selecting-n-th-line-or-word-using-sed-and-awk" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash">http://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash</a></li>
+<li></li>
+</ul>
+<p>Remarks</p>
+<ul class="simple">
+<li>remember, don&#8217;t pipe using ls<ul>
+<li><a class="reference external" href="http://mywiki.wooledge.org/ParsingLs">http://mywiki.wooledge.org/ParsingLs</a> &lt;= don&#8217;t use <code class="docutils literal"><span class="pre">ls</span></code> when a glob would do</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://ss64.com/bash/awk.html">http://ss64.com/bash/awk.html</a></li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># select 2nd item (find will spit out line-by-line output)</span>
+itksnap -g <span class="k">$(</span>find ./ <span class="p">|</span> sed -n 2p<span class="k">)</span> <span class="p">&amp;</span>
+
+
+<span class="c1"># probably the preferred method (according to above link, ``$ find . `` is just as bad. use glob</span>
+<span class="c1"># (here, select the 3rd item separated by white space)</span>
+<span class="nb">echo</span> * <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span>
+itksnap -g <span class="k">$(</span><span class="nb">echo</span> * <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span> <span class="p">&amp;</span>
+<span class="nb">echo</span> * <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span> <span class="p">|</span> xargs itksnap -g <span class="p">&amp;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="use-xargs-to-execute-a-command-once-per-line-of-piped-input">
+<h2><a class="toc-backref" href="#id39">1.22. Use xargs to execute a command once per line of piped input</a><a class="headerlink" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input">http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># below is not practical, but gives a good idea of how xargs work</span>
+find -maxdepth <span class="m">1</span> <span class="p">|</span> egrep <span class="s1">&#39;0627&#39;</span> <span class="p">|</span> xargs -n1 <span class="nb">echo</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="run-same-command-multiple-times-for-loop">
+<h2><a class="toc-backref" href="#id40">1.23. Run same command multiple times (for loop)</a><a class="headerlink" href="#run-same-command-multiple-times-for-loop" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash">http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> run in <span class="o">{</span>1..10<span class="o">}</span>
+<span class="k">do</span>
+  <span class="nb">command</span>
+<span class="k">done</span>
+
+<span class="c1"># single line</span>
+<span class="k">for</span> run in <span class="o">{</span>1..30<span class="o">}</span><span class="p">;</span> <span class="k">do</span> ipython t_0809c_enet_tobpnc_age.py<span class="p">;</span> <span class="k">done</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="git">
+<h2><a class="toc-backref" href="#id41">1.24. git</a><a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
+<p>tak</p>
+<div class="section" id="change-author-name">
+<h3><a class="toc-backref" href="#id42">1.24.1. change author name</a><a class="headerlink" href="#change-author-name" title="Permalink to this headline">¶</a></h3>
+<p>For a single commit</p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/750172/change-the-author-of-a-commit-in-git">http://stackoverflow.com/questions/750172/change-the-author-of-a-commit-in-git</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git commit --amend --author <span class="s2">&quot;Author Name &lt;email@address.com&gt;&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>For entire git repos:</p>
+<p><a class="reference external" href="https://help.github.com/articles/changing-author-info/">https://help.github.com/articles/changing-author-info/</a></p>
+<p><a class="reference external" href="https://gist.githubusercontent.com/octocat/0831f3fbd83ac4d46451/raw/c197afe3e9ea2e4218f9fccbc0f36d2b8fd3c1e3/git-author-rewrite.sh">git-author-rewrite.sh</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+git filter-branch -f --env-filter <span class="s1">&#39;</span>
+
+<span class="s1">CORRECT_NAME=&quot;your name&quot;</span>
+<span class="s1">CORRECT_EMAIL=&quot;your_email@example.com&quot;</span>
+
+<span class="s1">export GIT_COMMITTER_NAME=&quot;$CORRECT_NAME&quot;</span>
+<span class="s1">export GIT_COMMITTER_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
+
+<span class="s1">export GIT_AUTHOR_NAME=&quot;$CORRECT_NAME&quot;</span>
+<span class="s1">export GIT_AUTHOR_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
+<span class="s1">&#39;</span> --tag-name-filter cat -- --branches --tags
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="clipboard-with-xclip">
+<h2><a class="toc-backref" href="#id43">1.25. clipboard with xclip</a><a class="headerlink" href="#clipboard-with-xclip" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard">http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard</a></p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Only copy the content to the X clipboard</span>
+sphinx-quickstart --help <span class="p">|</span> xclip
+
+xclip -o <span class="c1"># output prints</span>
+
+<span class="c1"># to paste somewhere other than xapplication,</span>
+sphinx-quickstart --help <span class="p">|</span> xclip -selection clipboard
+
+<span class="c1"># Above is cumbersome to type....so i created function cb() in .bashrc</span>
+<span class="c1"># http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</span>
+sphinx-quickstart --help <span class="p">|</span> cb
+
+<span class="c1"># i also created these</span>
+<span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s2">&quot;xclip -selection clipboard&quot;</span>
+<span class="nb">alias</span> <span class="nv">v</span><span class="o">=</span><span class="s2">&quot;xclip -o -selection clipboard&quot;</span>
+
+sphinx-quickstart --help <span class="p">|</span> c
+</pre></div>
+</td></tr></table></div>
+</div>
 <div class="section" id="io-redirection">
-<h2><a class="toc-backref" href="#id2">1.1. IO Redirection</a><a class="headerlink" href="#io-redirection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">1.26. IO Redirection</a><a class="headerlink" href="#io-redirection" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/unix/unix-io-redirections.htm">http://www.tutorialspoint.com/unix/unix-io-redirections.htm</a></p>
+<div class="section" id="piping-vs-command-substitution">
+<h3><a class="toc-backref" href="#id45">1.26.1. Piping vs command substitution</a><a class="headerlink" href="#piping-vs-command-substitution" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://unix.stackexchange.com/questions/17107/process-substitution-and-pipe">http://unix.stackexchange.com/questions/17107/process-substitution-and-pipe</a></li>
+</ul>
+<p>One example: with <code class="docutils literal"><span class="pre">&lt;</span></code>, program doesn&#8217;t know the filename (only interprets as an input stream)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># (from http://www.tutorialspoint.com/unix/unix-io-redirections.htm)</span>
+<span class="c1"># here filename outputted too</span>
+$ wc -l users
+<span class="m">2</span> users
+
+<span class="c1"># here filename not recognized</span>
+$ wc -l &lt; users
+2
+</pre></div>
+</div>
+</div>
+<div class="section" id="redirecting-vs-piping">
+<h3><a class="toc-backref" href="#id46">1.26.2. redirecting vs piping</a><a class="headerlink" href="#redirecting-vs-piping" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://askubuntu.com/questions/172982/what-is-the-difference-between-redirection-and-pipe">http://askubuntu.com/questions/172982/what-is-the-difference-between-redirection-and-pipe</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/9553628/piping-and-redirection">http://stackoverflow.com/questions/9553628/piping-and-redirection</a></li>
+<li>Redirect passes output to file/stream</li>
+<li>Pipe passes output to another program/utility</li>
+</ul>
+</div>
 <div class="section" id="output-stdout-and-stderr-to-terminal-and-logfile">
-<h3>1.1.1. Output stdout and stderr to terminal and logfile<a class="headerlink" href="#output-stdout-and-stderr-to-terminal-and-logfile" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id47">1.26.3. Output stdout and stderr to terminal and logfile</a><a class="headerlink" href="#output-stdout-and-stderr-to-terminal-and-logfile" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout">http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console">http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console</a></li>
@@ -647,7 +1487,7 @@ bash mymake.sh 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span c
 </div>
 </div>
 <div class="section" id="syntax-reference">
-<h3>1.1.2. syntax reference<a class="headerlink" href="#syntax-reference" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id48">1.26.4. syntax reference</a><a class="headerlink" href="#syntax-reference" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://www.tldp.org/LDP/abs/html/io-redirection.html">http://www.tldp.org/LDP/abs/html/io-redirection.html</a></li>
 </ul>
@@ -733,757 +1573,280 @@ M&gt;<span class="p">&amp;</span>N
 </div>
 </div>
 </div>
-<div class="section" id="overflows">
-<h2><a class="toc-backref" href="#id3">1.2. Overflows</a><a class="headerlink" href="#overflows" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="display-function-names">
-<h3>1.2.1. Display function names<a class="headerlink" href="#display-function-names" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bit-on-printf">
+<h2><a class="toc-backref" href="#id49">1.27. Bit on printf</a><a class="headerlink" href="#bit-on-printf" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell">http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell</a></li>
-</ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><code class="docutils literal"><span class="pre">typeset</span></code> and <code class="docutils literal"><span class="pre">declare</span></code> is synonymous</p>
-</div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># show all functions (with def)</span>
-<span class="nb">typeset</span> -f
-
-<span class="c1"># show just function names</span>
-<span class="nb">typeset</span> -F
-
-<span class="c1"># show just function names (but skip first two fields separated by space)</span>
-<span class="nb">typeset</span> -F <span class="p">|</span> cut -d <span class="s1">&#39; &#39;</span> -f 3
-
-<span class="c1"># show specific function</span>
-<span class="nb">typeset</span> function_name
-</pre></div>
-</div>
-</div>
-<div class="section" id="get-n-th-line-of-output-used-sed">
-<h3>1.2.2. get n-th line of output (used sed<a class="headerlink" href="#get-n-th-line-of-output-used-sed" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout">http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout</a></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>ls -l <span class="p">|</span> sed -n 2p
-</pre></div>
-</div>
-</div>
-<div class="section" id="quotes-with-grep">
-<h3>1.2.3. Quotes with grep<a class="headerlink" href="#quotes-with-grep" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes">http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes</a></li>
-</ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> grep -e show<span class="se">\(</span>  test.txt
-grep -e show<span class="o">(</span> test.txt
-
-$ <span class="nb">echo</span> grep -e <span class="s2">&quot;show\(&quot;</span>  test.txt
-grep -e show<span class="se">\(</span> test.txt
-
-$ <span class="nb">echo</span> grep -e <span class="s1">&#39;show\(&#39;</span>  test.txt
-grep -e show<span class="se">\(</span> test.txt
-</pre></div>
-</div>
-<p>Reminder on single vs double quotes</p>
-<ul class="simple">
-<li><a class="reference external" href="http://stackoverflow.com/questions/3008423/quotes-when-using-grep">http://stackoverflow.com/questions/3008423/quotes-when-using-grep</a></li>
-</ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> and 2+2=</span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="s2">&quot;</span>
-Tue Aug  <span class="m">5</span> 18:52:39 PDT <span class="m">2014</span> and 2+2<span class="o">=</span>4
-$ <span class="nb">echo</span> <span class="s1">&#39;$(date) and 2+2=$((2+2))&#39;</span>
-<span class="k">$(</span>date<span class="k">)</span> and 2+2<span class="o">=</span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="escaping-single-quotes-a-mess">
-<h2><a class="toc-backref" href="#id4">1.3. Escaping single quotes (a mess...)</a><a class="headerlink" href="#escaping-single-quotes-a-mess" title="Permalink to this headline">¶</a></h2>
-<p>Use <code class="docutils literal"><span class="pre">'&quot;'&quot;'</span></code></p>
-<p><a class="reference external" href="http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings">http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings</a></p>
-</div>
-<div class="section" id="using-rename-command">
-<h2><a class="toc-backref" href="#id5">1.4. Using rename command</a><a class="headerlink" href="#using-rename-command" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://unix.stackexchange.com/questions/146743/processing-multiple-extensions">http://unix.stackexchange.com/questions/146743/processing-multiple-extensions</a></li>
-<li><a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html">https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html</a></li>
-</ul>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># rename the filename part &quot;Array&quot; with &quot;_PCA&quot; for all files ending with extension .mat</span>
-rename Array _PCA *.mat
-
-<span class="c1"># rename png &quot;prefix&quot; with &quot;normalized&quot; in files with .png extensions</span>
-rename <span class="s1">&#39;s/prefix/normalized/&#39;</span> *.png
-
-<span class="c1"># rename files with either .png or .pkl extension (see link on brack expansion above)</span>
-<span class="c1"># (-n will do a dry run, letting me check the rename will do what i want it to do )</span>
-rename -n <span class="s1">&#39;s/normalized/test/&#39;</span> *.<span class="o">{</span>png,pkl<span class="o">}</span>
-
-<span class="c1"># creates 3 dir at once</span>
-mkdir <span class="o">{</span>a,b,c<span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<div class="section" id="rename-files-with-suffix-or-prefix">
-<h3>1.4.1. Rename files with suffix or prefix<a class="headerlink" href="#rename-files-with-suffix-or-prefix" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>2nd answer in <a class="reference external" href="http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix">http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix</a></li>
-</ul>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># rename files with extensions (to avoid directory...not robust, but does what i want most of the time)</span>
-<span class="k">for</span> filename in *<span class="se">\.</span>*<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$filename</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span>
-<span class="k">for</span> filename in *<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$filename</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> <span class="c1"># &lt;- this includes directory, which me not like</span>
-
-
-<span class="k">for</span> filename in *<span class="se">\.</span>*<span class="p">;</span> <span class="k">do</span> mv <span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;prefix_</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="regexp-syntax-with-rename">
-<h3>1.4.2. regexp syntax with rename<a class="headerlink" href="#regexp-syntax-with-rename" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://answers.launchpad.net/ubuntu/+question/31247">https://answers.launchpad.net/ubuntu/+question/31247</a></li>
-<li><a class="reference external" href="http://askubuntu.com/questions/204864/rename-what-does-s-vs-y-mean">http://askubuntu.com/questions/204864/rename-what-does-s-vs-y-mean</a></li>
-<li><a class="reference external" href="http://manpages.ubuntu.com/manpages/precise/en/man1/sed.1.html">http://manpages.ubuntu.com/manpages/precise/en/man1/sed.1.html</a></li>
-</ul>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># &#39;-n&#39; option for dry run to verify it&#39;ll do what i want it to do</span>
-rename -n <span class="s1">&#39;s/graphnet/elasticnet/;&#39;</span> *.m
-&gt;&gt;&gt; graphnet_FA_v06_gender.m renamed as elasticnet_FA_v06_gender.m
-&gt;&gt;&gt; graphnet_FA_v06m_DX.m renamed as elasticnet_FA_v06m_DX.m
-&gt;&gt;&gt; graphnet_FA_v06m_HRp_HRm.m renamed as elasticnet_FA_v06m_HRp_HRm.m
-&gt;&gt;&gt; graphnet_FA_v06m_HRp_LRm.m renamed as elasticnet_FA_v06m_HRp_LRm.m
-&gt;&gt;&gt; graphnet_FA_v06m_risk.m renamed as elasticnet_FA_v06m_risk.m
-&gt;&gt;&gt; graphnet_FA_v12_gender.m renamed as elasticnet_FA_v12_gender.m
-
-<span class="c1"># above looks right, so now actually run it &#39;verbosely&#39;</span>
-rename -v <span class="s1">&#39;s/graphnet/elasticnet/;&#39;</span> *.m
-</pre></div>
-</td></tr></table></div>
-</div>
-</div>
-<div class="section" id="random-handy-snippets">
-<h2><a class="toc-backref" href="#id6">1.5. Random handy snippets</a><a class="headerlink" href="#random-handy-snippets" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#=========================================================================#</span>
-<span class="c1"># find files with .rst extension at current directory (maxdepth=1)</span>
-<span class="c1"># (note: when piping to clipboard, turn grep color off; otherwise you get</span>
-<span class="c1">#  character encoding like &quot;ESC[01;31m&quot;</span>
-<span class="c1">#  see http://linuxcommando.blogspot.com/2007/10/grep-with-color-output.html</span>
-<span class="c1">#=========================================================================#</span>
-<span class="c1"># in bash script, don&#39;t use ls for globbing (here, it&#39;s fine)</span>
-ls <span class="p">|</span> grep <span class="se">\.</span>rst --color<span class="o">=</span>never <span class="p">|</span> c
-
-<span class="c1"># i like this, as things are sorted alphabetically (sed used to replace space with newline, as echo spits everything out in one line</span>
-<span class="nb">echo</span> * <span class="p">|</span> sed <span class="s1">&#39;s/ /\n/g&#39;</span> <span class="p">|</span> grep <span class="se">\.</span>rst --color<span class="o">=</span>never <span class="p">|</span> c
-
-<span class="c1"># equivalently...(need to sort here)</span>
-find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span class="p">|</span> grep <span class="se">\.</span>rst --color<span class="o">=</span>never <span class="p">|</span> c
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="replace-whitespace-with-newline-in-sed">
-<h2><a class="toc-backref" href="#id7">1.6. replace whitespace with newline in sed</a><a class="headerlink" href="#replace-whitespace-with-newline-in-sed" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list">http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list</a></p>
-<p><code class="docutils literal"><span class="pre">bash</span> <span class="pre">0622_2016_rename_tobvols.sh</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/</span> <span class="pre">/\n/g'</span></code></p>
-<div class="section" id="what-if-multiple-line-is-spanned">
-<h3>1.6.1. What if multiple line is spanned?<a class="headerlink" href="#what-if-multiple-line-is-spanned" title="Permalink to this headline">¶</a></h3>
-<p>08-05-2016 (12:37)</p>
-<p>hmmm...better to leave sed in this case, and use perl?</p>
-<p><a class="reference external" href="http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string">http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string</a></p>
-<blockquote>
-<div>Summary: Use sed for simple things, and maybe a bit more, but in general, <strong>when it gets beyond working with a single line</strong>, most people prefer something else...</div></blockquote>
-</div>
-</div>
-<div class="section" id="check-running-processes">
-<h2><a class="toc-backref" href="#id8">1.7. check running processes</a><a class="headerlink" href="#check-running-processes" title="Permalink to this headline">¶</a></h2>
-<p>The one I use the most frequent</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># a &lt;- includes ``root`` in userprocess</span>
-<span class="c1"># u &lt;- include ``username`` column</span>
-<span class="c1"># x &lt;- list all processes owned by me</span>
-ps aux
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="nohup-vs-disown-vs">
-<h2><a class="toc-backref" href="#id9">1.8. nohup vs disown vs &amp;</a><a class="headerlink" href="#nohup-vs-disown-vs" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Cuz i got annoyed on accidentally closing terminal running <code class="docutils literal"><span class="pre">spyder</span> <span class="pre">&amp;</span></code></li>
-<li><a class="reference external" href="http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it">http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it</a></li>
-<li><a class="reference external" href="http://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and">http://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and</a></li>
-</ul>
-</div>
-<div class="section" id="moving-and-copying">
-<h2><a class="toc-backref" href="#id10">1.9. Moving and copying</a><a class="headerlink" href="#moving-and-copying" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://ss64.com/bash/cp.html">http://ss64.com/bash/cp.html</a></li>
-<li><a class="reference external" href="http://ss64.com/bash/mv.html">http://ss64.com/bash/mv.html</a></li>
-</ul>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># rename a directory (note &#39;/&#39; after directory name has NO impact here,  there are cases I should be careful of the backslash)</span>
-mv /home/user/oldname /home/user/newname
-
-<span class="c1">#=== cp helper ===#</span>
-<span class="c1"># copy files *inside* the folder &quot;test/&quot; inside folder &quot;target&quot;</span>
-gosnippets<span class="p">;</span> <span class="nb">cd</span> tests<span class="p">;</span> mkdir <span class="nb">source</span> target<span class="p">;</span> <span class="nb">cd</span> source<span class="p">;</span> touch a b c<span class="p">;</span> <span class="nb">cd</span> ..
-
-<span class="c1"># copy files *inside* the folder &quot;test/&quot; inside folder &quot;target&quot; (note: -R and -r are the same here)</span>
-cp -r source/* target
-
-<span class="c1"># copy entire folder *source* into *target* (without ``-r``, the subdirectories won&#39;t get copied)</span>
-cp -r source* target
-
-<span class="c1">#--- cleanup test files from above---#</span>
-<span class="nb">cd</span> ..<span class="p">;</span> rm -r tests/*
-
-
-<span class="c1">#--- remove entire directory including files inside recursively ---#</span>
-rm -rf test/
-</pre></div>
-</td></tr></table></div>
-<div class="section" id="scp-user">
-<h3>1.9.1. scp user<a class="headerlink" href="#scp-user" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://ss64.com/bash/scp.html">http://ss64.com/bash/scp.html</a></li>
-</ul>
-<p>Warning: scp apparently overwrites existing file w/o warning. Hence <code class="docutils literal"><span class="pre">rsync</span></code> is a safer option.</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#========================================================================#</span>
-<span class="c1"># relevant options</span>
-<span class="c1">#========================================================================#</span>
-<span class="c1">#| -r : recursive</span>
-<span class="c1">#| -v : verbose (i probably won&#39;t need)</span>
-<span class="c1">#| -q : quiet</span>
-
-<span class="c1">#========================================================================#</span>
-<span class="c1"># demos</span>
-<span class="c1">#========================================================================#</span>
-<span class="c1"># Copy dummy.txt to home directory in remote host:</span>
-touch ~/dummy.txt
-scp ~/dummy.txt watanabt@cbica-cluster.uphs.upenn.edu:~/
-
-<span class="c1"># copy dummy.txt on server as dummy_cp.txt to local home folder</span>
-scp watanabt@cbica-cluster.uphs.upenn.edu:~/dummy.txt ~/dummy_cp.txt
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="rsync">
-<h3>1.9.2. rsync<a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://ss64.com/bash/rsync.html">http://ss64.com/bash/rsync.html</a></p>
-<div class="section" id="what-a-does">
-<h4>1.9.2.1. What <code class="docutils literal"><span class="pre">-a</span></code> does<a class="headerlink" href="#what-a-does" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync">http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync</a></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#========================================================================#</span>
-<span class="c1"># it exludes these</span>
-<span class="c1">#========================================================================#</span>
-<span class="o">-</span><span class="n">H</span><span class="p">,</span> <span class="o">--</span><span class="n">hard</span><span class="o">-</span><span class="n">links</span> <span class="n">preserve</span> <span class="n">hard</span> <span class="n">links</span>
-<span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="o">--</span><span class="n">acls</span> <span class="n">preserve</span> <span class="n">ACLs</span> <span class="p">(</span><span class="n">implies</span> <span class="o">-</span><span class="n">p</span><span class="p">)</span>
-<span class="o">-</span><span class="n">X</span><span class="p">,</span> <span class="o">--</span><span class="n">xattrs</span> <span class="n">preserve</span> <span class="n">extended</span> <span class="n">attributes</span>
-
-<span class="c1">#========================================================================#</span>
-<span class="c1"># does all of these</span>
-<span class="c1">#========================================================================#</span>
-<span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">recurse</span> <span class="n">into</span> <span class="n">directories</span>
-<span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="o">--</span><span class="n">links</span> <span class="n">copy</span> <span class="n">symlinks</span> <span class="k">as</span> <span class="n">symlinks</span>
-<span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="o">--</span><span class="n">perms</span> <span class="n">preserve</span> <span class="n">permissions</span>
-<span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="o">--</span><span class="n">times</span> <span class="n">preserve</span> <span class="n">modification</span> <span class="n">times</span>
-<span class="o">-</span><span class="n">g</span><span class="p">,</span> <span class="o">--</span><span class="n">group</span> <span class="n">preserve</span> <span class="n">group</span>
-<span class="o">-</span><span class="n">o</span><span class="p">,</span> <span class="o">--</span><span class="n">owner</span> <span class="n">preserve</span> <span class="n">owner</span> <span class="p">(</span><span class="nb">super</span><span class="o">-</span><span class="n">user</span> <span class="n">only</span><span class="p">)</span>
-<span class="o">-</span><span class="n">D</span> <span class="n">same</span> <span class="k">as</span> <span class="o">--</span><span class="n">devices</span> <span class="o">--</span><span class="n">specials</span>
-
-<span class="o">--</span><span class="n">devices</span> <span class="n">preserve</span> <span class="n">device</span> <span class="n">files</span> <span class="p">(</span><span class="nb">super</span><span class="o">-</span><span class="n">user</span> <span class="n">only</span><span class="p">)</span>
-<span class="o">--</span><span class="n">specials</span> <span class="n">preserve</span> <span class="n">special</span> <span class="n">files</span>
-</pre></div>
-</div>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># equilvaent to this</span>
-rsync -r -l -p -t -g -o -D
-</pre></div>
-</td></tr></table></div>
-</div>
-</div>
-</div>
-<div class="section" id="find">
-<h2><a class="toc-backref" href="#id11">1.10. find</a><a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://ss64.com/bash/find.html">http://ss64.com/bash/find.html</a></p>
-<p><strong>My Examples</strong></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span>find <span class="nv">$DIR</span> <span class="c1"># recursively print out file directories</span>
-find <span class="nv">$PWD</span> <span class="p">|</span> grep helper.md
-find <span class="nv">$PWD</span> <span class="p">|</span> grep helper.html <span class="p">|</span> xclip
-find <span class="nv">$PWD</span> -maxdpeth 1
-find . -iname <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># case insensitive</span>
-find . -name <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># case sensitive</span>
-find . -iname <span class="s2">&quot;*chrome*&quot;</span> <span class="c1"># print filenames, followed by a NULL character instead of the &quot;newline&quot; chracter that -print uses</span>
-
-<span class="c1"># ignore any file containing &quot;est&quot; (even in the directory name) and print out rest</span>
-<span class="c1"># (note: -o is the OR operator...see &quot;operator&quot; list below)</span>
-find . -wholename <span class="s1">&#39;*est*&#39;</span> -prune -o -print
-
-<span class="c1"># stuffs with -type option</span>
-find . d <span class="c1"># list directories</span>
-find . f <span class="c1"># list regular files</span>
-find . l <span class="c1"># list symlinks</span>
-
-<span class="c1">#=====================================================================#</span>
-<span class="c1"># name vs. whilename</span>
-<span class="c1"># - suppose i have file /Data_Science/test.txt</span>
-<span class="c1">#=====================================================================#</span>
-find . -iwholename <span class="s2">&quot;*Sci*.txt&quot;</span>
-    <span class="c1"># this will find the above file</span>
-find . -iname <span class="s2">&quot;*Sci*.txt&quot;</span>
-    <span class="c1"># this will NOT find the above file</span>
-</pre></div>
-</td></tr></table></div>
-<p><strong>Selected examples from ss64</strong></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>List filenames ending in .mp3, searching in the music folder and subfolders:
-$ find ./music -name <span class="s2">&quot;*.mp3&quot;</span>
-
-Find .doc files that also start with <span class="s1">&#39;questionnaire&#39;</span> <span class="o">(</span>AND<span class="o">)</span>
-$ find . -name <span class="s1">&#39;*.doc&#39;</span> -name questionnaire*
-
-Find .doc files that <span class="k">do</span> NOT start with <span class="s1">&#39;Accounts&#39;</span> <span class="o">(</span>NOT<span class="o">)</span>
-$ find . -name <span class="s1">&#39;*.doc&#39;</span> ! -name Accounts*
-</pre></div>
-</td></tr></table></div>
-<div class="section" id="note-find-vs-locate">
-<h3>1.10.1. Note: <strong>find</strong> vs <strong>locate</strong><a class="headerlink" href="#note-find-vs-locate" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/">http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/</a></p>
-<blockquote>
-<div><ul class="simple">
-<li>Locate searches a pre-written database, making it faster at the sacrifice of accuracy.</li>
-<li>Find is more accurate and flexible, but searches in real time, making it slower.</li>
-</ul>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="command-vs-command-use-latter">
-<h2><a class="toc-backref" href="#id12">1.11. ``command`` vs $(command) (use latter)</a><a class="headerlink" href="#command-vs-command-use-latter" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>$(commands) does the same thing as backticks, but you can nest them.</li>
-<li><a class="reference external" href="http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks">source</a></li>
-</ul>
-<p>Why is $(...) preferred over <cite>...</cite> (backticks)? (<a class="reference external" href="http://mywiki.wooledge.org/BashFAQ/082">link</a>)</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="ls-tricks">
-<h2><a class="toc-backref" href="#id13">1.12. ls tricks</a><a class="headerlink" href="#ls-tricks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ls-recursively-use-find">
-<h3>1.12.1. ls recursively (use <em>find</em>)<a class="headerlink" href="#ls-recursively-use-find" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file">http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># recursively lists out all files + subdirectories</span>
-find ./test
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="show-only-symbolic-links-alias-ls-sym">
-<h3>1.12.2. show only symbolic links (<strong>alias ls_sym</strong>)<a class="headerlink" href="#show-only-symbolic-links-alias-ls-sym" title="Permalink to this headline">¶</a></h3>
-<p>Display only files and folders that are symbolic links in tcsh or bash</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ls -l <span class="k">$(</span>find ./ -maxdepth <span class="m">1</span> -type l -print<span class="k">)</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-</div>
-<div class="section" id="print-timestamp">
-<h2><a class="toc-backref" href="#id14">1.13. print timestamp</a><a class="headerlink" href="#print-timestamp" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script">http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="open-image-xdg-open-image-png">
-<h2><a class="toc-backref" href="#id15">1.14. open image ($xdg-open image.png)</a><a class="headerlink" href="#open-image-xdg-open-image-png" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">xdg-open</span> <span class="pre">image.png</span></code></p>
-</div>
-<div class="section" id="options-with-less-ongoing">
-<h2><a class="toc-backref" href="#id16">1.15. Options with <strong>less</strong> (ongoing)</a><a class="headerlink" href="#options-with-less-ongoing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -n : enable line numbers</span>
-<span class="c1"># -N : disable line numbers</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="history-w-o-line-numbers">
-<h2><a class="toc-backref" href="#id17">1.16. history w/o line-numbers</a><a class="headerlink" href="#history-w-o-line-numbers" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers">http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">history</span> <span class="p">|</span> cut -c 8-
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="when-xargs-is-needed">
-<h2><a class="toc-backref" href="#id18">1.17. When xargs is needed</a><a class="headerlink" href="#when-xargs-is-needed" title="Permalink to this headline">¶</a></h2>
-<p>Some bash program can&#8217;t be piped since piping requires the program to accept STDIN commands
-(example, <code class="docutils literal"><span class="pre">touch</span></code>)</p>
-<p><a class="reference external" href="http://unix.stackexchange.com/questions/24954/when-is-xargs-needed">http://unix.stackexchange.com/questions/24954/when-is-xargs-needed</a></p>
-<blockquote>
-<div><p>The difference is in what data the target program is accepting.</p>
-<p>If you just use a pipe, it receives data on STDIN (the standard input stream) as a raw pile of data that it can sort through one line at a time. However some programs don&#8217;t accept their commands on standard in, they expect it to be spelled out in the arguments to the command. For example touch takes a file name as a parameter on the command line like so: touch file1.txt.</p>
-<p>If you have a program that outputs filenames on standard out and want to use them as arguments to touch, you have to use xargs which reads the STDIN stream data and converts each line into space separated arguments to the command.</p>
-</div></blockquote>
-</div>
-<div class="section" id="get-computer-info">
-<h2><a class="toc-backref" href="#id19">1.18. Get computer info</a><a class="headerlink" href="#get-computer-info" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># get cpu information</span>
-cat /proc/cpuinfo
-
-<span class="c1">#-- see gnome version ---</span>
-gnome-shell --version
-lsb_release -a
-
-<span class="c1"># to figure out which linux distribution you are using</span>
-<span class="c1"># (ref: http://www.cyberciti.biz/faq/find-linux-distribution-name-version-number/)</span>
-cat /etc/*-release
-
-locate libfortran.so
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="mogrify">
-<h2><a class="toc-backref" href="#id20">1.19. mogrify</a><a class="headerlink" href="#mogrify" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>mogrify -resize 50% *.png
-mogrify -resize 500! *.png     <span class="o">=</span>&gt; changes only x-axis
-mogrify -resize <span class="m">500</span> *.png      <span class="o">=</span>&gt; changes <span class="o">(</span>x,y<span class="o">)</span> axis in proportion
-mogrify -trim *.png
-
-<span class="c1">#| http://arcoleo.org/dsawiki/Wiki.jsp?page=Recursively%20run%20Mogrify%20on%20a%20Directory</span>
-<span class="c1">#| Mogrify is an image tool that comes with ImageMagick. It is useful for resizing, compressing, etc. If you have a set of subdirectories to run it on, run</span>
-$ find ./ -name <span class="s2">&quot;*.png&quot;</span> -exec mogrify -some_option <span class="o">{}</span> <span class="se">\;</span>
-$ find ./ -name <span class="s2">&quot;*.png&quot;</span> -exec mogrify -resize 40% <span class="o">{}</span> <span class="se">\;</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="pipe-dreams-xargs-exec-in-find">
-<h2><a class="toc-backref" href="#id21">1.20. Pipe dreams (xargs, -exec in find)</a><a class="headerlink" href="#pipe-dreams-xargs-exec-in-find" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose">http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose</a></p>
-<ul class="simple">
-<li>the <code class="docutils literal"><span class="pre">-exec</span> <span class="pre">&quot;{}&quot;</span> <span class="pre">\;</span></code> approach seems to be specific to <code class="docutils literal"><span class="pre">find</span></code>
-(i prefer unity with <code class="docutils literal"><span class="pre">xargs</span></code>)</li>
-</ul>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#http://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list</span>
-<span class="c1"># http://ss64.com/bash/find.html</span>
-find . -maxdepth <span class="m">1</span> -type d -exec ls -ld <span class="s2">&quot;{}&quot;</span> <span class="s2">&quot;;&quot;</span>
-find . -maxdepth <span class="m">1</span> -type d -exec ls -ld <span class="se">\{\}</span> <span class="se">\;</span>  <span class="c1"># same as above</span>
-find . -maxdepth <span class="m">1</span> -type d <span class="p">|</span> xargs ls -ld <span class="c1"># same as above (i find this the most intuitive)</span>
-ls -ld <span class="k">$(</span>find . -maxdepth <span class="m">1</span> -type d<span class="k">)</span> <span class="c1"># same as above</span>
-
-<span class="c1"># this doesn&#39;t give the same result as &quot;xargs&quot; approach...figure out why later</span>
-find . -maxdepth <span class="m">1</span> -type d <span class="p">|</span> ls -ld
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="grep">
-<h2><a class="toc-backref" href="#id22">1.21. Grep</a><a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="grep-recursively">
-<h3>1.21.1. grep recursively<a class="headerlink" href="#grep-recursively" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively">http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>grep -r <span class="s2">&quot;texthere&quot;</span> .
-
-<span class="c1"># You can also mention files to exclude with --exclude.</span>
-grep -r --include <span class="s2">&quot;*.txt&quot;</span> texthere .
-
-<span class="c1"># use brace expansion to allow multiple extension</span>
-grep -r --include<span class="o">=</span>*.<span class="o">{</span>py,m<span class="o">}</span> <span class="nb">test</span> .
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="to-grep-a-string-pipe-output-of-echo">
-<h3>1.21.2. To grep a string, pipe output of echo<a class="headerlink" href="#to-grep-a-string-pipe-output-of-echo" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name">http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name</a></p>
-</div>
-<div class="section" id="d-not-supported-in-linux-grep-as-default-seems-like">
-<h3>1.21.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like<a class="headerlink" href="#d-not-supported-in-linux-grep-as-default-seems-like" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions">http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># these will do</span>
-grep <span class="s1">&#39;[0-9]&#39;</span>
-grep <span class="s1">&#39;[[:digit:]]&#39;</span>
-grep -P <span class="s1">&#39;\d&#39;</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="just-use-double-quotes-for-regex-query">
-<h3>1.21.4. just use double-quotes for regex query<a class="headerlink" href="#just-use-double-quotes-for-regex-query" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote">http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># to find &#39;type&#39; =&gt; &#39;select&#39;</span>
-grep  <span class="s2">&quot;&#39;type&#39; =&gt; &#39;select&#39;&quot;</span> file
-</pre></div>
-</td></tr></table></div>
-</div>
-</div>
-<div class="section" id="selecting-n-th-line-or-word-using-sed-and-awk">
-<h2><a class="toc-backref" href="#id23">1.22. Selecting n-th line or word using sed and awk</a><a class="headerlink" href="#selecting-n-th-line-or-word-using-sed-and-awk" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash">http://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash</a></li>
-<li></li>
-</ul>
-<p>Remarks</p>
-<ul class="simple">
-<li>remember, don&#8217;t pipe using ls<ul>
-<li><a class="reference external" href="http://mywiki.wooledge.org/ParsingLs">http://mywiki.wooledge.org/ParsingLs</a> &lt;= don&#8217;t use <code class="docutils literal"><span class="pre">ls</span></code> when a glob would do</li>
+<li><a class="reference external" href="http://ss64.com/bash/printf.html">http://ss64.com/bash/printf.html</a></li>
+<li><a class="reference external" href="http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo">http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo</a><ul>
+<li>&#8220;Basically, it&#8217;s a portability (and reliability) issue.&#8221;</li>
 </ul>
 </li>
-<li><a class="reference external" href="http://ss64.com/bash/awk.html">http://ss64.com/bash/awk.html</a></li>
 </ul>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># select 2nd item (find will spit out line-by-line output)</span>
-itksnap -g <span class="k">$(</span>find ./ <span class="p">|</span> sed -n 2p<span class="k">)</span> <span class="p">&amp;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">var1</span><span class="o">=</span><span class="s2">&quot;hello   world\n&quot;</span>
+
+<span class="c1"># no quotes</span>
+$ <span class="nb">printf</span> %s <span class="nv">$var1</span>
+helloworld<span class="se">\n</span>$
+
+<span class="c1"># double quotes</span>
+$ <span class="nb">printf</span> <span class="s2">&quot;%s&quot;</span> <span class="nv">$var1</span>
+helloworld<span class="se">\n</span>
+
+<span class="c1"># single quotes get substituted too</span>
+$ <span class="nb">printf</span> <span class="s1">&#39;%s&#39;</span> <span class="nv">$var1</span>
+helloworld<span class="se">\n</span>
+
+$ <span class="nb">printf</span> <span class="o">[</span>%s<span class="o">]</span> <span class="nv">$var1</span>
+<span class="o">[</span>hello<span class="o">][</span>world<span class="se">\n</span><span class="o">]</span>
+
+$ <span class="nb">printf</span> <span class="s2">&quot;[%s]&quot;</span> <span class="nv">$var1</span>
+<span class="o">[</span>hello<span class="o">][</span>world<span class="se">\n</span><span class="o">]</span>
+
+$ <span class="nb">printf</span> <span class="s1">&#39;[%s]&#39;</span> <span class="nv">$var1</span>
+<span class="o">[</span>hello<span class="o">][</span>world<span class="se">\n</span><span class="o">]</span>
+
+<span class="c1"># here the white-spaces are respected (double-quoted var1)</span>
+$ <span class="nb">printf</span> <span class="s2">&quot;[%s]&quot;</span> <span class="s2">&quot;</span><span class="nv">$var1</span><span class="s2">&quot;</span>
+<span class="o">[</span>hello   world<span class="se">\n</span><span class="o">]</span>
+</pre></div>
+</div>
+<div class="section" id="examples-from-ss64">
+<h3><a class="toc-backref" href="#id50">1.27.1. Examples from ss64</a><a class="headerlink" href="#examples-from-ss64" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="k">for</span> <span class="o">((</span><span class="nv">num</span><span class="o">=</span>1<span class="p">;</span>num&lt;<span class="o">=</span>5<span class="p">;</span>num+<span class="o">=</span>1<span class="o">))</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%03d&quot;</span> <span class="nv">$num</span><span class="k">)</span><span class="p">;</span> <span class="k">done</span>
+001
+002
+003
+004
+005
+
+$ <span class="nv">distance</span><span class="o">=</span>15
+$ <span class="nb">printf</span> <span class="s2">&quot;Distance is %5d Miles\n&quot;</span> <span class="nv">$distance</span>
+Distance is    <span class="m">15</span> Miles
+
+<span class="c1"># default precision for float: 6 decimal places</span>
+$ <span class="nb">printf</span> <span class="s2">&quot;%f\n&quot;</span> 5
+5.000000
+$ <span class="nb">printf</span> <span class="s2">&quot;%.2f\n&quot;</span> 5
+5.00
+$ <span class="nb">printf</span> <span class="s2">&quot;%5.2f\n&quot;</span> 5
+ 5.00
 
 
-<span class="c1"># probably the preferred method (according to above link, ``$ find . `` is just as bad. use glob</span>
-<span class="c1"># (here, select the 3rd item separated by white space)</span>
-<span class="nb">echo</span> * <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span>
-itksnap -g <span class="k">$(</span><span class="nb">echo</span> * <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span><span class="k">)</span> <span class="p">&amp;</span>
-<span class="nb">echo</span> * <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span> <span class="p">|</span> xargs itksnap -g <span class="p">&amp;</span>
+$ <span class="nb">printf</span> <span class="s2">&quot;Hello, </span><span class="nv">$USER</span><span class="s2">.\n\n&quot;</span>
+Hello, takanori.
+
+$ <span class="nb">printf</span> <span class="s2">&quot;There are %d orders of cheese burgers. cost at \$%.2f.\n&quot;</span> <span class="m">5</span> 15.32
+There are <span class="m">5</span> orders of cheese burgers. cost at <span class="nv">$15</span>.32.
+
+<span class="c1"># with command substitution</span>
+$ <span class="nb">printf</span> <span class="s2">&quot;This is </span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2"> running on a </span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2"> processor.\n&quot;</span>
+This is Linux running on a x86_64 processor.
 </pre></div>
-</td></tr></table></div>
 </div>
-<div class="section" id="use-xargs-to-execute-a-command-once-per-line-of-piped-input">
-<h2><a class="toc-backref" href="#id24">1.23. Use xargs to execute a command once per line of piped input</a><a class="headerlink" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input">http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># below is not practical, but gives a good idea of how xargs work</span>
-find -maxdepth <span class="m">1</span> <span class="p">|</span> egrep <span class="s1">&#39;0627&#39;</span> <span class="p">|</span> xargs -n1 <span class="nb">echo</span>
-</pre></div>
-</td></tr></table></div>
 </div>
-<div class="section" id="run-same-command-multiple-times-for-loop">
-<h2><a class="toc-backref" href="#id25">1.24. Run same command multiple times (for loop)</a><a class="headerlink" href="#run-same-command-multiple-times-for-loop" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash">http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> run in <span class="o">{</span>1..10<span class="o">}</span>
+</div>
+<div class="section" id="for-loop">
+<h2><a class="toc-backref" href="#id51">1.28. for loop</a><a class="headerlink" href="#for-loop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basics">
+<h3><a class="toc-backref" href="#id52">1.28.1. basics</a><a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://tldp.org/LDP/abs/html/loops1.html">http://tldp.org/LDP/abs/html/loops1.html</a></li>
+<li><a class="reference external" href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/49110/how-do-i-write-a-for-loop-in-bash">http://stackoverflow.com/questions/49110/how-do-i-write-a-for-loop-in-bash</a></li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Classic for loop</span>
+<span class="k">for</span> word in ...<span class="p">;</span> <span class="k">do</span> ...<span class="p">;</span> <span class="k">done</span>
+
+<span class="c1"># C-style for loop</span>
+<span class="k">for</span> <span class="o">((</span><span class="nv">x</span><span class="o">=</span>1<span class="p">;</span> x&lt;<span class="o">=</span>10<span class="p">;</span> x++<span class="o">))</span><span class="p">;</span> <span class="k">do</span> ...<span class="p">;</span> <span class="k">done</span>
+
+<span class="c1"># classic for loop - multiline</span>
+<span class="k">for</span> w in word1 word2 word3
 <span class="k">do</span>
-  <span class="nb">command</span>
+  doSomething<span class="o">(</span><span class="nv">$w</span><span class="o">)</span>
 <span class="k">done</span>
 
-<span class="c1"># single line</span>
-<span class="k">for</span> run in <span class="o">{</span>1..30<span class="o">}</span><span class="p">;</span> <span class="k">do</span> ipython t_0809c_enet_tobpnc_age.py<span class="p">;</span> <span class="k">done</span>
+<span class="c1"># to iterate over all directories in some path, for example:</span>
+<span class="k">for</span> d in <span class="k">$(</span>find <span class="nv">$somepath</span> -type d<span class="k">)</span>
+<span class="k">do</span>
+  doSomething<span class="o">(</span><span class="nv">$d</span><span class="o">)</span>
+<span class="k">done</span>
+
+<span class="c1"># recall arithmetic expansion in bash needs double parantheis</span>
+<span class="c1"># http://tldp.org/LDP/abs/html/arithexp.html</span>
+<span class="c1"># http://wiki.bash-hackers.org/syntax/ccmd/c_for</span>
+<span class="c1"># (C-style for loop)</span>
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span> i &lt; <span class="m">5</span> <span class="p">;</span> i++ <span class="o">))</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span>
+
+<span class="c1"># C-style for loop with step size</span>
+$ <span class="k">for</span> <span class="o">((</span><span class="nv">x</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span> x &lt;<span class="o">=</span> <span class="m">100</span> <span class="p">;</span> x +<span class="o">=</span> 10<span class="o">))</span><span class="p">;</span> <span class="k">do</span>
+&gt;   <span class="nb">echo</span> <span class="s2">&quot;Counter: </span><span class="nv">$x</span><span class="s2">&quot;</span>
+&gt; <span class="k">done</span>
+Counter: 0
+Counter: 10
+Counter: 20
+Counter: 30
+Counter: 40
+Counter: 50
+Counter: 60
+Counter: 70
+Counter: 80
+Counter: 90
+Counter: 100
+
+<span class="c1"># $((EXPRESSION)) is arithmetic expansion.</span>
+<span class="c1">#  Not to be confused with command substitusion</span>
+
+<span class="c1"># avoids spawning external program `seq`</span>
+$ <span class="k">for</span> i in <span class="o">{</span>1..5<span class="o">}</span> <span class="p">;</span> <span class="k">do</span> <span class="nb">printf</span> <span class="s2">&quot;%d &quot;</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">done</span>
+<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> 5
+
+<span class="c1"># command substitute on `seq`</span>
+$ <span class="k">for</span> i in <span class="k">$(</span>seq <span class="m">1</span> 5<span class="k">)</span> <span class="p">;</span> <span class="k">do</span> <span class="nb">printf</span> <span class="s2">&quot;%d &quot;</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">done</span>
+<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> 5
+
+<span class="k">for</span> i in <span class="k">$(</span>seq <span class="m">1</span> 5<span class="k">)</span><span class="p">;</span>
+<span class="k">do</span>
+        <span class="nb">echo</span> <span class="nv">$i</span>
+<span class="k">done</span>
+&gt; 1
+&gt; 2
+&gt; 3
+&gt; 4
+&gt; 5
+
+<span class="c1"># while loop</span>
+<span class="nv">COUNTER</span><span class="o">=</span>0
+<span class="k">while</span> <span class="o">[</span>  <span class="nv">$COUNTER</span> -lt <span class="m">10</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> The counter is <span class="nv">$COUNTER</span>
+    <span class="nb">let</span> <span class="nv">COUNTER</span><span class="o">=</span>COUNTER+1
+<span class="k">done</span>
 </pre></div>
-</td></tr></table></div>
 </div>
-<div class="section" id="git">
-<h2><a class="toc-backref" href="#id26">1.25. git</a><a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
-<p>tak</p>
-<div class="section" id="change-author-name">
-<h3>1.25.1. change author name<a class="headerlink" href="#change-author-name" title="Permalink to this headline">¶</a></h3>
-<p>For a single commit</p>
-<p><a class="reference external" href="http://stackoverflow.com/questions/750172/change-the-author-of-a-commit-in-git">http://stackoverflow.com/questions/750172/change-the-author-of-a-commit-in-git</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git commit --amend --author <span class="s2">&quot;Author Name &lt;email@address.com&gt;&quot;</span>
+</div>
+<div class="section" id="multiline-in-terminal">
+<h3><a class="toc-backref" href="#id53">1.28.2. multiline in terminal</a><a class="headerlink" href="#multiline-in-terminal" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># i can literally type like this w/o using backslash \ to linewrap</span>
+$ <span class="k">for</span> x in <span class="m">1</span> <span class="m">2</span> 3<span class="p">;</span>
+&gt; <span class="k">do</span>
+&gt; <span class="nb">echo</span> <span class="nv">$x</span>
+&gt; <span class="k">done</span>
 </pre></div>
-</td></tr></table></div>
-<p>For entire git repos:</p>
-<p><a class="reference external" href="https://help.github.com/articles/changing-author-info/">https://help.github.com/articles/changing-author-info/</a></p>
-<p><a class="reference external" href="https://gist.githubusercontent.com/octocat/0831f3fbd83ac4d46451/raw/c197afe3e9ea2e4218f9fccbc0f36d2b8fd3c1e3/git-author-rewrite.sh">git-author-rewrite.sh</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-
-git filter-branch -f --env-filter <span class="s1">&#39;</span>
-
-<span class="s1">CORRECT_NAME=&quot;your name&quot;</span>
-<span class="s1">CORRECT_EMAIL=&quot;your_email@example.com&quot;</span>
-
-<span class="s1">export GIT_COMMITTER_NAME=&quot;$CORRECT_NAME&quot;</span>
-<span class="s1">export GIT_COMMITTER_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
-
-<span class="s1">export GIT_AUTHOR_NAME=&quot;$CORRECT_NAME&quot;</span>
-<span class="s1">export GIT_AUTHOR_EMAIL=&quot;$CORRECT_EMAIL&quot;</span>
-<span class="s1">&#39;</span> --tag-name-filter cat -- --branches --tags
-</pre></div>
-</td></tr></table></div>
 </div>
 </div>
-<div class="section" id="clipboard-with-xclip">
-<h2><a class="toc-backref" href="#id27">1.26. clipboard with xclip</a><a class="headerlink" href="#clipboard-with-xclip" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard">http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard</a></p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Only copy the content to the X clipboard</span>
-sphinx-quickstart --help <span class="p">|</span> xclip
+<div class="section" id="looping-over-array-elements">
+<h3><a class="toc-backref" href="#id54">1.28.3. Looping over array elements</a><a class="headerlink" href="#looping-over-array-elements" title="Permalink to this headline">¶</a></h3>
+<p>keep in mind the distinction between <code class="docutils literal"><span class="pre">&quot;${arrayname[*]}&quot;</span></code> (i rarely use this...) vs <code class="docutils literal"><span class="pre">&quot;${arrayname[&#64;]}</span></code> (i use this a lot via for loops)</p>
+<ul class="simple">
+<li><a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">http://mywiki.wooledge.org/BashGuide/Arrays</a></li>
+<li><a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Parameters">http://mywiki.wooledge.org/BashGuide/Parameters</a></li>
+<li><a class="reference external" href="http://www.tutorialspoint.com/unix/unix-special-variables.htm">http://www.tutorialspoint.com/unix/unix-special-variables.htm</a></li>
+<li><code class="docutils literal"><span class="pre">&quot;$*&quot;</span></code> = takes the entire list as one argument with spaces between<ul>
+<li>this form is <strong>ONLY</strong> useful for converting arrays into a single string (<a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">link</a>)</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">&quot;$&#64;&quot;</span></code> = takes the entire list and separates it into <strong>separate arguments</strong> (Double quoted, it expands to a list of them all as individual words)</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># &quot;$*&quot; syntax: converts array to single thing</span>
+$ <span class="nv">names</span><span class="o">=(</span><span class="s2">&quot;Bob&quot;</span> <span class="s2">&quot;Peter&quot;</span> <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> <span class="s2">&quot;Big Bad John&quot;</span><span class="o">)</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">names</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span>
+Bob Peter takanori Big Bad John
+$ <span class="nv">b</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">names</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span>
+$ <span class="nb">echo</span> <span class="nv">$b</span>
+Bob Peter takanori Big Bad John
 
-xclip -o <span class="c1"># output prints</span>
+<span class="c1"># with $@, each item is treated as *separate arguments*</span>
+<span class="c1"># (think of [@] as a special kind of positional argument)</span>
+$ <span class="k">for</span> name in <span class="s2">&quot;</span><span class="si">${</span><span class="nv">names</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span>
+Bob
+Peter
+takanori
+Big Bad John
 
-<span class="c1"># to paste somewhere other than xapplication,</span>
-sphinx-quickstart --help <span class="p">|</span> xclip -selection clipboard
-
-<span class="c1"># Above is cumbersome to type....so i created function cb() in .bashrc</span>
-<span class="c1"># http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/</span>
-sphinx-quickstart --help <span class="p">|</span> cb
-
-<span class="c1"># i also created these</span>
-<span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s2">&quot;xclip -selection clipboard&quot;</span>
-<span class="nb">alias</span> <span class="nv">v</span><span class="o">=</span><span class="s2">&quot;xclip -o -selection clipboard&quot;</span>
-
-sphinx-quickstart --help <span class="p">|</span> c
+<span class="c1"># so yeah, &quot;$*&quot; doesn&#39;t give what i want</span>
+$ <span class="k">for</span> name in <span class="s2">&quot;</span><span class="si">${</span><span class="nv">names</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span>
+Bob Peter takanori Big Bad John
 </pre></div>
-</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="number-of-elements-in-an-array-using-array">
+<h3><a class="toc-backref" href="#id55">1.28.4. number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a><a class="headerlink" href="#number-of-elements-in-an-array-using-array" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">array</span><span class="o">=(</span>a b c<span class="o">)</span>
+$ <span class="nb">echo</span> <span class="si">${#</span><span class="nv">array</span><span class="p">[@]</span><span class="si">}</span>
+3
+</pre></div>
+</div>
+</div>
+<div class="section" id="avoid-ls-use-globbing-or-find">
+<h3><a class="toc-backref" href="#id56">1.28.5. avoid $(ls)...use globbing or find</a><a class="headerlink" href="#avoid-ls-use-globbing-or-find" title="Permalink to this headline">¶</a></h3>
+<p>see <a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">http://mywiki.wooledge.org/BashGuide/Arrays</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#=========================================================================#</span>
+<span class="c1"># don&#39;t use $(ls) to get items (woolmore)</span>
+<span class="c1">#=========================================================================#</span>
+$ ls
+books.txt  commands  quote.txt  sed-tutorial.gnu.rst  sed-tutorial.tutorialspoints.rst
+
+<span class="k">for</span> i in *<span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> item: <span class="nv">$i</span>
+<span class="k">done</span>
+
+$ <span class="k">for</span> i in *<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> item: <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+item: books.txt
+item: commands
+item: quote.txt
+item: sed-tutorial.gnu.rst
+item: sed-tutorial.tutorialspoints.rst
+
+<span class="c1"># globs only looks at current dir-level</span>
+$ <span class="k">for</span> i in *<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> item: <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+item: awk-tutorial
+item: sed
+
+<span class="c1"># to recurse over directories, use ``find``</span>
+$ <span class="k">for</span> i in <span class="k">$(</span>find .<span class="k">)</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> item: <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+item: .
+item: ./awk-tutorial
+item: ./awk-tutorial/awk-basic-structure.rst
+item: ./awk-tutorial/awk-builtin-vars.rst
+item: ./awk-tutorial/awk-summary-commands.rst
+item: ./awk-tutorial/awk-essential-syntax.rst
+item: ./awk-tutorial/index.rst
+item: ./sed
+item: ./sed/quote.txt
+item: ./sed/books.txt
+item: ./sed/commands
+item: ./sed/sed-tutorial.tutorialspoints.rst
+item: ./sed/sed-tutorial.gnu.rst
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="arithmetic-expansion">
+<h2><a class="toc-backref" href="#id57">1.29. arithmetic expansion ((..))</a><a class="headerlink" href="#arithmetic-expansion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://wiki.bash-hackers.org/syntax/arith_expr">http://wiki.bash-hackers.org/syntax/arith_expr</a></li>
+</ul>
+<div class="section" id="let-vs">
+<h3><a class="toc-backref" href="#id58">1.29.1. let vs (())?</a><a class="headerlink" href="#let-vs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/18704857/bash-let-statement-vs-assignment">http://stackoverflow.com/questions/18704857/bash-let-statement-vs-assignment</a></li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">wiki</span><span class="o">.</span><span class="n">bash</span><span class="o">-</span><span class="n">hackers</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">commands</span><span class="o">/</span><span class="n">builtin</span><span class="o">/</span><span class="n">let</span><span class="c1">#examples</span>
+<span class="n">There</span> <span class="ow">is</span> <span class="n">almost</span> <span class="n">no</span> <span class="n">difference</span> <span class="n">between</span> <span class="n">let</span> <span class="ow">and</span> <span class="p">((</span> <span class="p">))</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># let version</span>
+$ <span class="nb">let</span> <span class="s1">&#39;b = a&#39;</span> <span class="s2">&quot;(a += 3) + </span><span class="k">$((</span><span class="nv">a</span> <span class="o">=</span> <span class="m">1</span><span class="k">))</span><span class="s2">, b++&quot;</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2"> - </span><span class="nv">$b</span><span class="s2"> - </span><span class="nv">$?</span><span class="s2">&quot;</span>
+<span class="m">4</span> - <span class="m">2</span> - 0
+
+<span class="c1"># equivalent (()) version</span>
+$ <span class="o">((</span> <span class="nv">b</span> <span class="o">=</span> a, <span class="o">(</span>a +<span class="o">=</span> 3<span class="o">)</span> + <span class="k">$((</span><span class="nv">a</span> <span class="o">=</span> <span class="m">1</span><span class="k">))</span>, b++ <span class="o">))</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2"> - </span><span class="nv">$b</span><span class="s2"> - </span><span class="nv">$?</span><span class="s2">&quot;</span>
+<span class="m">4</span> - <span class="m">2</span> - 0
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

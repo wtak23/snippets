@@ -5,6 +5,8 @@ Scala
 .. contents:: **Table of Contents**
     :depth: 2
 
+.. todo:: http://www.tutorialspoint.com/scala/
+
 #######################
 Random overflow threads
 #######################

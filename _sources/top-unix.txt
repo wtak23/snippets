@@ -25,7 +25,5 @@ I typically use these as **one-liners** from the shell.
 
     cs-sed.rst
     cs-sed-oneliners.rst
-    sed-tutorial/index.rst
     cs-awk.rst
     cs-awk-oneliners.rst
-    awk-tutorial/index.rst
