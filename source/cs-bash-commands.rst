@@ -17,8 +17,10 @@ bash-commands
 - ``ctrl+f => ongonig`` for **ongoing** cheat-sheets
 
 
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+
 
 
 

@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+.. contents:: `Table of contents`
+   :depth: ${1:number}
+   :local:
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>contents</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!-- http://www.sphinx-doc.org/en/stable/markup/toctree.html
+Note: the space before the < bracket above is important
+`${1:InlineText} <${2:LINK}>`_$3
+
+${1:HEADER-NAME}
+ -->
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

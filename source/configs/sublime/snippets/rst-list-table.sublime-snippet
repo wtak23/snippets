@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[     
+.. list-table:: 
+    :header-rows: 1
+    :widths: 20,70
+
+    * - ${1:HEADER1}
+      - ${2:HEADER2}
+
+    * - $3
+      - $4
+]]></content>
+    <tabTrigger>list-table</tabTrigger>
+    <scope>text.restructuredtext</scope>
+</snippet>
+<!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

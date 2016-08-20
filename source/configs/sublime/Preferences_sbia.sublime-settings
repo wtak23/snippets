@@ -44,7 +44,9 @@
 		".git",
 		"__pycache__",
 		"env",
-		"env3"
+		"env3",
+		"build",
+		"build_published"
 	],
 	"font_size": 8,
 	"gutter": true,
