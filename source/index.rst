@@ -22,7 +22,6 @@ Those were dark days with no tangible signs of hope.
     top-datascience.rst
     top-bash.rst
     top-unix.rst
-    top-tutorials.rst
     top-misc.rst
     configs/top-configs.rst
     
