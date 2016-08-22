@@ -2,8 +2,9 @@
 
 qsubber
 """""""
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 Test ref link to :ref:`regexp`
 

@@ -6,8 +6,9 @@ awk-oneliners
   - originally from http://www.pement.org/awk/awk1line.txt
 - http://www.grymoire.com/Unix/Awk.html
 
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 
 

@@ -13,8 +13,9 @@ sed oneliners
 - http://www.grymoire.com/Unix/Sed.html
 - https://www.gnu.org/software/sed/manual/sed.html (gnu manual)
 
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
     
 ##########
 sed --help

@@ -2,8 +2,11 @@
 
 Python
 """"""
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+
+Every once in a while, I'll try to organize below by **category**
 
 ###############################
 Random Stack-overflow questions
@@ -53,6 +56,149 @@ Check all items in list or dict is equal
     # incase of dict
     len(set(dict_var.values()))==1
 
+##########
+Exceptions
+##########
+- http://stackoverflow.com/questions/3702675/how-to-print-the-full-traceback-without-halting-the-program
+- http://stackoverflow.com/questions/1483429/how-to-print-an-error-in-python
+- http://stackoverflow.com/questions/4560288/python-try-except-showing-the-cause-of-the-error-after-displaying-my-variables
+
+
+.. code-block:: python
+
+    try:
+        do_stuff()
+    except Exception, err:
+        print Exception, err
+
+    #=========================================================================#
+    # Use traceback and sys.exc_info to get more info
+    #=========================================================================#
+    import traceback
+    import sys
+
+    try:
+        do_stuff()
+    except Exception:
+        # this appears to yiled the most info
+        print(traceback.format_exc())
+        # or
+        print(sys.exc_info()[0])
+
+
+*******************************
+My most frequent *lazy* usecase
+*******************************
+.. code-block:: python
+
+    try:
+        fig_set_geom(pos)
+    except Exception, err:
+        print err
+    > name 'fig_set_geom' is not defined
+
+
+    # more info using traceback.format_exc
+    import traceback
+    try:
+        fig_set_geom(pos)
+    except:
+        print traceback.format_exc()
+    > Traceback (most recent call last):
+    >   File "<ipython-input-43-33c80ffe55e1>", line 3, in <module>
+    >     fig_set_geom(pos)
+    > NameError: name 'fig_set_geom' is not defined
+
+
+##################
+mpl related stuffs
+##################
+
+***************************************
+Change figure size of *existing* figure
+***************************************
+I have ``plt.figure(figsize=(10,8))`` option when creating figure, but how to 
+change size of figure that already exists?  see below :)
+
+- http://stackoverflow.com/questions/332289/how-do-you-change-the-size-of-figures-drawn-with-matplotlib
+
+.. code-block:: python
+
+    # ah, did not know the ``forward`` option below!    
+    plt.gcf().set_size_inches(18.5, 10.5, forward=True)
+
+####################################################################
+Plotting and saving figure on remotely on server (on sge submission)
+####################################################################
+**References**
+
+- http://stackoverflow.com/questions/4706451/how-to-save-a-figure-remotely-with-pylab
+- http://stackoverflow.com/questions/21321292/using-matplotlib-when-display-is-undefined
+- http://stackoverflow.com/questions/4930524/how-can-i-set-the-backend-in-matplotlib-in-python
+- http://stackoverflow.com/questions/15455029/python-matplotlib-agg-vs-interactive-plotting-and-tight-layout
+- http://stackoverflow.com/questions/3285193/how-to-switch-backends-in-matplotlib-python
+
+.. code-block:: python
+
+    # use **Agg** backend for non-interactive plotting w/o using X-server
+    # (default on my workstation and interactive server is Qt4Agg)
+    import matplotlib as mpl
+    mpl.use('Agg') #<- needs to be called before modules from mpl is loaded
+
+    # i like this better since i can set it anywhere in my code
+    # (although it is am **experimental** feature) 
+    # http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.switch_backend
+    plt.switch_backend('Agg')    
+
+One issue with the ``Agg`` backend: doesn't have the ``.window`` attribute
+in the fig-manager (``plt.get_current_fig_manager().window`` doesn't exist, 
+so can't set window position)
+
+***********************************
+Change i made to my figure function
+***********************************
+Just use ``try/exception`` in my ``fig_set_geom`` function.
+
+- this way, i don't have to modify the calling script in any way when 
+  running my script on sge-server 
+- (this way, my script can be used in interactive-mode
+  or server-mode without any changes)
+
+
+.. code-block:: python
+
+    # added below to my ``fig_set_geom`` function in my tak module
+    try:
+        mngr = plt.get_current_fig_manager()
+        mngr.window.setGeometry(*pos)
+    except Exception, err:
+        str_warning = '\n'+str(err)+"\nAssign figure-size using pyplot"
+        warnings.warn(str_warning)
+        fig = plt.gcf()
+        x_len = pos[2]/fig.dpi # <- convert from pixel to inches
+        y_len = pos[3]/fig.dpi
+        plt.gcf().set_size_inches(x_len,y_len,forward=True)
+
+
+Going from pixel counts to inch size:
+
+- http://stackoverflow.com/questions/13714454/specifying-and-saving-a-figure-with-exact-size-in-pixels
+
+
+****************************************
+Check if X11 is enabled in python script
+****************************************
+- http://stackoverflow.com/questions/8257385/automatic-detection-of-display-availability-with-matplotlib
+
+.. code-block:: python
+
+    # i do this
+    if 'DISPLAY' not in os.environ.keys():
+        plt.switch_backend('Agg')  # <- X11 display not available, so use non-interactive backend
+
+    # in interactive mode, this key exists
+    os.environ['DISPLAY']
+    > Out[118]: ':0'
 
 #######
 Disk IO

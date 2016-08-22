@@ -1,9 +1,10 @@
 sed
 """
 
-.. contents:: **Contents (current page)**
-    :depth: 2
-
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+   
 .. note:: mantra for ``sed``: "When in doubt, experiment."
 
 ##########

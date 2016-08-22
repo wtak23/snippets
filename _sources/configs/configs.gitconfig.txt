@@ -2,6 +2,10 @@ configs.gitconfig
 """""""""""""""""
 **Date**: |today|
 
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+   
 ####################
 SBIA office computer
 ####################

@@ -13,8 +13,9 @@ Good tuorials
 - `Spark 2016 summit <https://spark-summit.org/2016/>`_
 
 
-.. contents:: **Table of Contents**
-    :depth: 3
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 
 ###############

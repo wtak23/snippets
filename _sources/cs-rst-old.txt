@@ -5,8 +5,9 @@ rst cheatsheet (old)
 I won't be updating this abomination....i wrote this when i first found out 
 about rst files.
 
-.. contents:: **Table of Contents**
-    :depth: 3
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 - A **trial-and-error** result of which rst-*directives* from `docutil <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ worked on github (or bitbucket)
 - **Warning** - I wrote this as a note for myself as I am new to using restructuredtext, so I generally do not guarantee the correctness of the content presented.  However, you can verify with your own eyes what renders by skimming through this page.
