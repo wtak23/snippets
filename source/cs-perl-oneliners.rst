@@ -8,8 +8,9 @@ From https://github.com/pkrumins/perl1line.txt/blob/master/perl1line.txt
 
 .. todo:: Read http://www.rexegg.com/regex-perl-one-liners.html
 
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 
 

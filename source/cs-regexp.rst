@@ -3,8 +3,9 @@
 regular expressions
 """""""""""""""""""
 
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 **Regular expression references**
 

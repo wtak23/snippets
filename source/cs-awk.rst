@@ -1,7 +1,9 @@
 awk
 """
-.. contents:: **Contents (current page)**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+
 
 
 For a quick **table** type reference: http://www.grymoire.com/Unix/AwkRef.html    

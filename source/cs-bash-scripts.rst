@@ -14,8 +14,9 @@ Here snippets and explanations for writing bash scripts
 
     http://www.tutorialspoint.com/unix/index.htm
     
-.. contents:: **Table of Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 ###############
 Overflow topics

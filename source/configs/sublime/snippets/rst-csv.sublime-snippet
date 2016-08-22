@@ -1,6 +1,5 @@
 <snippet>
     <content><![CDATA[
-.. http://docutils.sourceforge.net/docs/ref/rst/directives.html#id4        
 .. csv-table:: ${1:OPTIONAL-TITLE}
     :header: ${2:OPTIONAL-COL-HEADER}
     :widths: 20,70

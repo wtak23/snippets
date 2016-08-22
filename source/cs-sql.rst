@@ -1,8 +1,9 @@
 sql
 """
 
-.. contents:: **Table of Contents**
-    :depth: 3
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
 
 #############################
 Style guidelines, conventions

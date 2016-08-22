@@ -1,0 +1,23 @@
+<snippet>
+    <content><![CDATA[
+#!/usr/bin/env bash
+
+var1_list=('0.1' '0.15' '0.2' '1.0')
+var2_list=('age' 'sex')
+var3_list=(1 0)
+
+for var1 in "\${var1_list[@]}"; do
+    for var2 in "\${var2_list[@]}"; do
+        for var3 in "\${var3_list[@]}"; do
+            echo "ipython script_name.py \${var1} \${var2} \${var3}"
+            #ipython script_name.py \${var1} \${var2} \${var3}
+        done
+    done
+done
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>pyloop</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.shell</scope> 
+</snippet>
+ <!--  https://gist.github.com/iambibhas/4705378 <- snippet scope -->

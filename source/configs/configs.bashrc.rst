@@ -2,6 +2,10 @@ configs.bashrc
 """"""""""""""
 **Date**: |today|
 
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+
 ####################################
 My current .bashrc file in my office
 ####################################
