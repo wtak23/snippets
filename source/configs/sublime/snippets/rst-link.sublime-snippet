@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-`${1:InlineText} <${2:LINK}>`_$3
+`${1:InlineText} <${2:LINK}>`__$3
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>link</tabTrigger>

@@ -19,7 +19,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
-
+sys.path.insert(0, os.path.abspath('./sphinxext/numpydoc')) # <- somehow needed when executing ``mymake.sh`` from sublime
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -96,7 +96,7 @@ language = None
 exclude_patterns = [
 'cs-rst-ignore.rst', # decided to just include links to good references
 'cs-sphinx.rst',
-'bct.rst', #<- exclude when prototyping
+# 'bct.rst', #<- exclude when prototyping
 ]
 
 html_theme_options = {

@@ -7,6 +7,106 @@ rst
    :depth: 2
    :local:
 
+############
+Best lookups
+############
+- http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
+  
+  - a bit difficult to navigate, but the most comprehensive
+- http://docutils.sourceforge.net/docs/ref/rst/directives.html  
+- http://docutils.sourceforge.net/docs/ref/rst/roles.html
+- http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
+- http://rest-sphinx-memo.readthedocs.io/en/latest/index.html
+- From Sphinx
+
+  - http://www.sphinx-doc.org/en/stable/contents.html
+  - `reStructuredText Primer <http://www.sphinx-doc.org/en/stable/rest.html>`__
+
+################
+Random overflows
+################
+
+************************
+Add links without labels
+************************
+- http://stackoverflow.com/questions/5464627/how-to-have-same-text-in-two-links-with-restructured-text
+- https://www.google.com/search?q=Named+hyperlink+references#q=rst+Named+hyperlink+references
+- http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#hyperlink-references
+- http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#anonymous-hyperlinks
+
+Use double underscores
+
+.. code-block:: rst
+
+    .. To circumvent it, use anonymous hyperlink references with double underscores:
+
+    `Foo <http://example.org>`__
+    `Foo <http://example.com>`__
+
+
+##########################
+Link is kinda confusing...
+##########################
+- http://rest-sphinx-memo.readthedocs.io/en/latest/ReST.html#cross-references
+- http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#internal-and-external-links
+
+.. code-block:: rst
+
+    - A link to `Sphinx Home`_ in **citation style**.
+    - **In-line versions** are `Sphinx Home <http://sphinx.pocoo.org>`_
+
+    .. _Sphinx Home: http://sphinx.pocoo.org
+
+- A link to `Sphinx Home`_ in citation style.
+- In-line versions are `Sphinx Home <http://sphinx.pocoo.org>`_
+
+.. _Sphinx Home: http://sphinx.pocoo.org
+
+****
+hmmm
+****
+.. code-block:: rst
+
+    - SQLite - `core functions <https://www.sqlite.org/>`_
+    - SQLite - `date/time functions <https://www.sqlite.org/lang_datefunc.html>`_
+
+    `core functions`_
+
+- SQLite - `core functions <https://www.sqlite.org/>`_
+- SQLite - `date/time functions <https://www.sqlite.org/lang_datefunc.html>`_
+
+-  `core functions`_
+
+Hmm...sadly this is restrictive in the sense that I cannot change the
+text that appears...(ah, see below to get what i wanted :)
+
+*************************
+Ah, finally what i wanted
+*************************
+From http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#hyperlink-references
+
+- Turned out i need to add another underscore inside ``<>`` bracket (see line 3,7 below)
+- so you'll get ``_>_`` syntax at the end
+
+.. code-block:: rst
+    :linenos:
+    :emphasize-lines: 3,7
+
+    See the `Python home page <http://www.python.org>`_ for info.
+
+    This `link <Python home page_>`_ is an alias to the link above.
+
+    `Another test <http://www.sphinx-doc.org/en/stable/markup/inline.html>`_
+
+    `This text appears differently but same link :) <Another test_>`_
+
+See the `Python home page <http://www.python.org>`_ for info.
+
+This `link <Python home page_>`_ is an alias to the link above.
+
+`Another test <http://www.sphinx-doc.org/en/stable/markup/inline.html>`_
+
+`This text appears differently but same link :) <Another test_>`_
 
 ########
 csv-demo

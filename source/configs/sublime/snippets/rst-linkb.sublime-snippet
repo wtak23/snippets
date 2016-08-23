@@ -1,7 +1,7 @@
 <!-- Square bracket -->
 <snippet>
     <content><![CDATA[
-[`link <${1:LINK}>`_$2]
+[`link <${1:LINK}>`__$2]
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>linkb</tabTrigger>
