@@ -183,6 +183,24 @@
 <li class="toctree-l3"><a class="reference internal" href="cs-py-jupyter-notebook.html#current-config">3.3. Current config</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="bct.html">4. Brain Connectivity Toolbox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/bct.algorithms.html">4.1. bct.algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/bct.algorithms.html#functions">4.1.1. Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/bct.algorithms.html#exceptions">4.1.2. Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="generated/bct.utils.html">4.2. bct.utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/bct.utils.html#functions">4.2.1. Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/bct.utils.html#exceptions">4.2.2. Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="generated/bct.nbs.html">4.3. bct.nbs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/bct.nbs.html#functions">4.3.1. Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/bct.nbs.html#exceptions">4.3.2. Exceptions</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="top-datascience.html">Data Science</a><ul>
@@ -449,6 +467,16 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">rst</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#best-lookups">Best lookups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#random-overflows">Random overflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-links-without-labels">Add links without labels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#link-is-kinda-confusing">Link is kinda confusing...</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hmmm">hmmm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ah-finally-what-i-wanted">Ah, finally what i wanted</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#csv-demo">csv-demo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lookups">Lookups</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tutorials">Tutorials</a></li>
@@ -459,7 +487,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#autodoc">autodoc</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Lookups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Lookups</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#references-for-rst-in-general-non-sphinx">References for rst in general (non-sphinx)</a></li>
 </ul>
 </li>
@@ -603,25 +631,132 @@
 <div class="contents local topic" id="table-of-contents">
 <p class="topic-title first"><cite>Table of contents</cite></p>
 <ul class="simple">
-<li><a class="reference internal" href="#csv-demo" id="id2">csv-demo</a></li>
-<li><a class="reference internal" href="#lookups" id="id3">Lookups</a><ul>
-<li><a class="reference internal" href="#tutorials" id="id4">Tutorials</a></li>
-<li><a class="reference internal" href="#header-convention-me" id="id5">header convention (me)</a></li>
+<li><a class="reference internal" href="#best-lookups" id="id3">Best lookups</a></li>
+<li><a class="reference internal" href="#random-overflows" id="id4">Random overflows</a><ul>
+<li><a class="reference internal" href="#add-links-without-labels" id="id5">Add links without labels</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sphinx-based" id="id6">Sphinx-based</a><ul>
-<li><a class="reference internal" href="#autodoc" id="id7">autodoc</a></li>
+<li><a class="reference internal" href="#link-is-kinda-confusing" id="id6">Link is kinda confusing...</a><ul>
+<li><a class="reference internal" href="#hmmm" id="id7">hmmm</a></li>
+<li><a class="reference internal" href="#ah-finally-what-i-wanted" id="id8">Ah, finally what i wanted</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id1" id="id8">Lookups</a><ul>
-<li><a class="reference internal" href="#references-for-rst-in-general-non-sphinx" id="id9">References for rst in general (non-sphinx)</a></li>
+<li><a class="reference internal" href="#csv-demo" id="id9">csv-demo</a></li>
+<li><a class="reference internal" href="#lookups" id="id10">Lookups</a><ul>
+<li><a class="reference internal" href="#tutorials" id="id11">Tutorials</a></li>
+<li><a class="reference internal" href="#header-convention-me" id="id12">header convention (me)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#autodoc-related" id="id10">Autodoc related</a></li>
+<li><a class="reference internal" href="#sphinx-based" id="id13">Sphinx-based</a><ul>
+<li><a class="reference internal" href="#autodoc" id="id14">autodoc</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2" id="id15">Lookups</a><ul>
+<li><a class="reference internal" href="#references-for-rst-in-general-non-sphinx" id="id16">References for rst in general (non-sphinx)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#autodoc-related" id="id17">Autodoc related</a></li>
 </ul>
 </div>
+<div class="section" id="best-lookups">
+<h2><a class="toc-backref" href="#id3">Best lookups</a><a class="headerlink" href="#best-lookups" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html</a><ul>
+<li>a bit difficult to navigate, but the most comprehensive</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">http://docutils.sourceforge.net/docs/ref/rst/directives.html</a></li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html">http://docutils.sourceforge.net/docs/ref/rst/roles.html</a></li>
+<li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html">http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html</a></li>
+<li><a class="reference external" href="http://rest-sphinx-memo.readthedocs.io/en/latest/index.html">http://rest-sphinx-memo.readthedocs.io/en/latest/index.html</a></li>
+<li>From Sphinx<ul>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/contents.html">http://www.sphinx-doc.org/en/stable/contents.html</a></li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">reStructuredText Primer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="random-overflows">
+<h2><a class="toc-backref" href="#id4">Random overflows</a><a class="headerlink" href="#random-overflows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-links-without-labels">
+<h3><a class="toc-backref" href="#id5">Add links without labels</a><a class="headerlink" href="#add-links-without-labels" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/5464627/how-to-have-same-text-in-two-links-with-restructured-text">http://stackoverflow.com/questions/5464627/how-to-have-same-text-in-two-links-with-restructured-text</a></li>
+<li><a class="reference external" href="https://www.google.com/search?q=Named+hyperlink+references#q=rst+Named+hyperlink+references">https://www.google.com/search?q=Named+hyperlink+references#q=rst+Named+hyperlink+references</a></li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#hyperlink-references">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#hyperlink-references</a></li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#anonymous-hyperlinks">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#anonymous-hyperlinks</a></li>
+</ul>
+<p>Use double underscores</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="cp">.. To circumvent it, use anonymous hyperlink references with double underscores:</span>
+
+<span class="s">`Foo </span><span class="si">&lt;http://example.org&gt;</span><span class="s">`__</span>
+<span class="s">`Foo </span><span class="si">&lt;http://example.com&gt;</span><span class="s">`__</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="link-is-kinda-confusing">
+<h2><a class="toc-backref" href="#id6">Link is kinda confusing...</a><a class="headerlink" href="#link-is-kinda-confusing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://rest-sphinx-memo.readthedocs.io/en/latest/ReST.html#cross-references">http://rest-sphinx-memo.readthedocs.io/en/latest/ReST.html#cross-references</a></li>
+<li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#internal-and-external-links">http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#internal-and-external-links</a></li>
+</ul>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="m">-</span> A link to <span class="s">`Sphinx Home`_</span> in <span class="gs">**citation style**</span>.
+<span class="m">-</span> <span class="gs">**In-line versions**</span> are <span class="s">`Sphinx Home </span><span class="si">&lt;http://sphinx.pocoo.org&gt;</span><span class="s">`_</span>
+
+<span class="p">..</span> <span class="nt">_Sphinx Home:</span> http://sphinx.pocoo.org
+</pre></div>
+</div>
+<ul class="simple">
+<li>A link to <a class="reference external" href="http://sphinx.pocoo.org">Sphinx Home</a> in citation style.</li>
+<li>In-line versions are <a class="reference external" href="http://sphinx.pocoo.org">Sphinx Home</a></li>
+</ul>
+<div class="section" id="hmmm">
+<h3><a class="toc-backref" href="#id7">hmmm</a><a class="headerlink" href="#hmmm" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="m">-</span> SQLite - <span class="s">`core functions </span><span class="si">&lt;https://www.sqlite.org/&gt;</span><span class="s">`_</span>
+<span class="m">-</span> SQLite - <span class="s">`date/time functions </span><span class="si">&lt;https://www.sqlite.org/lang_datefunc.html&gt;</span><span class="s">`_</span>
+
+<span class="s">`core functions`_</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>SQLite - <a class="reference external" href="https://www.sqlite.org/">core functions</a></li>
+<li>SQLite - <a class="reference external" href="https://www.sqlite.org/lang_datefunc.html">date/time functions</a></li>
+<li><a class="reference external" href="https://www.sqlite.org/">core functions</a></li>
+</ul>
+<p>Hmm...sadly this is restrictive in the sense that I cannot change the
+text that appears...(ah, see below to get what i wanted :)</p>
+</div>
+<div class="section" id="ah-finally-what-i-wanted">
+<h3><a class="toc-backref" href="#id8">Ah, finally what i wanted</a><a class="headerlink" href="#ah-finally-what-i-wanted" title="Permalink to this headline">¶</a></h3>
+<p>From <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#hyperlink-references">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#hyperlink-references</a></p>
+<ul class="simple">
+<li>Turned out i need to add another underscore inside <code class="docutils literal"><span class="pre">&lt;&gt;</span></code> bracket (see line 3,7 below)</li>
+<li>so you&#8217;ll get <code class="docutils literal"><span class="pre">_&gt;_</span></code> syntax at the end</li>
+</ul>
+<div class="highlight-rst"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>See the <span class="s">`Python home page </span><span class="si">&lt;http://www.python.org&gt;</span><span class="s">`_</span> for info.
+
+<span class="hll">This <span class="s">`link </span><span class="si">&lt;Python home page_&gt;</span><span class="s">`_</span> is an alias to the link above.
+</span>
+<span class="s">`Another test </span><span class="si">&lt;http://www.sphinx-doc.org/en/stable/markup/inline.html&gt;</span><span class="s">`_</span>
+
+<span class="hll"><span class="s">`This text appears differently but same link :) </span><span class="si">&lt;Another test_&gt;</span><span class="s">`_</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>See the <a class="reference external" href="http://www.python.org">Python home page</a> for info.</p>
+<p>This <a class="reference external" href="http://www.python.org">link</a> is an alias to the link above.</p>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/inline.html">Another test</a></p>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/inline.html">This text appears differently but same link :)</a></p>
+</div>
+</div>
 <div class="section" id="csv-demo">
-<h2><a class="toc-backref" href="#id2">csv-demo</a><a class="headerlink" href="#csv-demo" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">csv-demo</a><a class="headerlink" href="#csv-demo" title="Permalink to this headline">¶</a></h2>
 <p>From the url</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1109,7 +1244,7 @@
 </table>
 </div>
 <div class="section" id="lookups">
-<h2><a class="toc-backref" href="#id3">Lookups</a><a class="headerlink" href="#lookups" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Lookups</a><a class="headerlink" href="#lookups" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><strong>directives</strong> <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">http://docutils.sourceforge.net/docs/ref/rst/directives.html</a></li>
 <li><strong>roles</strong> (eg, <code class="docutils literal"><span class="pre">:math:</span></code> syntax)<ul>
@@ -1118,7 +1253,7 @@
 </li>
 </ul>
 <div class="section" id="tutorials">
-<h3><a class="toc-backref" href="#id4">Tutorials</a><a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Tutorials</a><a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://pythonhosted.org/an_example_pypi_project/sphinx.html">https://pythonhosted.org/an_example_pypi_project/sphinx.html</a></li>
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a></li>
@@ -1126,7 +1261,7 @@
 </ul>
 </div>
 <div class="section" id="header-convention-me">
-<h3><a class="toc-backref" href="#id5">header convention (me)</a><a class="headerlink" href="#header-convention-me" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">header convention (me)</a><a class="headerlink" href="#header-convention-me" title="Permalink to this headline">¶</a></h3>
 <p>However, it is better to stick to the same convention throughout a project. For instance (<a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#headings">ref</a>):</p>
 <ul class="simple">
 <li># with overline, for parts</li>
@@ -1139,7 +1274,7 @@
 </div>
 </div>
 <div class="section" id="sphinx-based">
-<h2><a class="toc-backref" href="#id6">Sphinx-based</a><a class="headerlink" href="#sphinx-based" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Sphinx-based</a><a class="headerlink" href="#sphinx-based" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Tutorial: <a class="reference external" href="https://pythonhosted.org/an_example_pypi_project/sphinx.html">https://pythonhosted.org/an_example_pypi_project/sphinx.html</a></li>
 <li>RST tutorial for sphinx <a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html">http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html</a></li>
@@ -1149,7 +1284,7 @@
 </li>
 </ul>
 <div class="section" id="autodoc">
-<h3><a class="toc-backref" href="#id7">autodoc</a><a class="headerlink" href="#autodoc" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">autodoc</a><a class="headerlink" href="#autodoc" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html</a></li>
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autodoc.html?highlight=automodule#directive-automodule">http://www.sphinx-doc.org/en/stable/ext/autodoc.html?highlight=automodule#directive-automodule</a></li>
@@ -1159,8 +1294,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2><a class="toc-backref" href="#id8">Lookups</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id15">Lookups</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html</a></p>
 <p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/contents.html">http://www.sphinx-doc.org/en/stable/contents.html</a> - Main TOC in the Sphinx-DOC</p>
 <p>Ones I lookup frequently</p>
@@ -1175,7 +1310,7 @@
 <li><strong>reStructuredText Primer</strong> <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a> (helpful refresher on rst syntax)</li>
 </ul>
 <div class="section" id="references-for-rst-in-general-non-sphinx">
-<h3><a class="toc-backref" href="#id9">References for rst in general (non-sphinx)</a><a class="headerlink" href="#references-for-rst-in-general-non-sphinx" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">References for rst in general (non-sphinx)</a><a class="headerlink" href="#references-for-rst-in-general-non-sphinx" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></li>
 <li>Roles: <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html">http://docutils.sourceforge.net/docs/ref/rst/roles.html</a></li>
@@ -1188,7 +1323,7 @@
 </div>
 </div>
 <div class="section" id="autodoc-related">
-<h2><a class="toc-backref" href="#id10">Autodoc related</a><a class="headerlink" href="#autodoc-related" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Autodoc related</a><a class="headerlink" href="#autodoc-related" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autodoc.html">http://www.sphinx-doc.org/en/stable/ext/autodoc.html</a></li>
 <li><a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html</a></li>
