@@ -28,6 +28,30 @@ bash-commands
 #########
 Overflows
 #########
+**********************
+Insightful sed example
+**********************
+http://stackoverflow.com/questions/7209629/extract-string-from-brackets
+
+.. code-block:: bash
+
+    echo "string1 [string2] string3 string4" | sed 's/.*\[\([^]]*\)\].*/\1/g'
+
+Here's a breakdown of the sed command::
+
+    s/          <-- this means it should perform a substitution
+    .*          <-- this means match zero or more characters
+    \[          <-- this means match a literal [ character
+    \(          <-- this starts saving the pattern for later use
+    [^]]*       <-- this means match any character that is not a [ character
+                    the outer [ and ] signify that this is a character class
+                    having the ^ character as the first character in the class means "not"
+    \)          <-- this closes the saving of the pattern match for later use
+    \]          <-- this means match a literal ] character
+    .*          <-- this means match zero or more characters
+    /\1         <-- this means replace everything matched with the first saved pattern
+                    (the match between "\(" and "\)" )
+    /g          <-- this means the substitution is global (all occurrences on the line)
 
 **************************************************
 Remove colors from stdout (harder than i expected)
@@ -670,48 +694,6 @@ http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-comman
 
     # single line
     for run in {1..30}; do ipython t_0809c_enet_tobpnc_age.py; done
-
-###
-git
-###
-tak
-
-******************
-change author name
-******************
-For a single commit
-
-http://stackoverflow.com/questions/750172/change-the-author-of-a-commit-in-git
-
-
-.. code-block:: bash
-    :linenos:
-
-    git commit --amend --author "Author Name <email@address.com>"     
-
-
-For entire git repos:
-
-https://help.github.com/articles/changing-author-info/
-
-`git-author-rewrite.sh <https://gist.githubusercontent.com/octocat/0831f3fbd83ac4d46451/raw/c197afe3e9ea2e4218f9fccbc0f36d2b8fd3c1e3/git-author-rewrite.sh>`_
-
-.. code-block:: bash
-    :linenos:
-
-    #!/bin/sh
-
-    git filter-branch -f --env-filter '
-
-    CORRECT_NAME="your name"
-    CORRECT_EMAIL="your_email@example.com"
-
-    export GIT_COMMITTER_NAME="$CORRECT_NAME"
-    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
-
-    export GIT_AUTHOR_NAME="$CORRECT_NAME"
-    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
-    ' --tag-name-filter cat -- --branches --tags
 
 ####################
 clipboard with xclip
