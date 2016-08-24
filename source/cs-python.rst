@@ -1,16 +1,29 @@
 
-
 Python
 """"""
-.. contents:: `Table of contents`
+
+.. note:: self-note when updating this rst note
+    
+    ``ctrl+f`` these key-words:
+
+    - "Top-mpl" to get header for matplotlib related notes
+    - "Top-pandas" to get header for pandas related notes
+
+
+.. contents:: `Contents`
    :depth: 2
    :local:
 
 Every once in a while, I'll try to organize below by **category**
 
+(maybe categorized via modules? eg, pandas, np, ....think about it)
+
+
 ###############################
 Random Stack-overflow questions
 ###############################
+
+
 ******************************
 Find first occurence in a list
 ******************************
@@ -25,14 +38,7 @@ Find first occurence in a list
     # next also provides a default value in case object does not exist
     next((i for i in range(500) if i > 600), 600)
 
-**********************************************
-When plt.tight_layout doesn't work as expected
-**********************************************
-.. code-block:: python
 
-    #http://stackoverflow.com/questions/8248467/matplotlib-tight-layout-doesnt-take-into-account-figure-suptitle
-    plt.subplots_adjust(top=1.25)
-    #plt.tight_layout()
 
 **********************
 Swap 2 items in a list
@@ -109,10 +115,56 @@ My most frequent *lazy* usecase
     >     fig_set_geom(pos)
     > NameError: name 'fig_set_geom' is not defined
 
+##########
+Top-pandas
+##########
+Keep adding pandas related notes/snippets here
 
-##################
-mpl related stuffs
-##################
+******************************************************
+Pandas - check if all columns are equal in a DataFrame
+******************************************************
+- http://stackoverflow.com/questions/22701799/pandas-dataframe-find-rows-where-all-columns-equal
+
+.. code-block:: python
+
+    # approach: check all columns against the first column using eq
+    df.eq(df.iloc[:, 0], axis=0)
+          a     b      c      d
+    0  True  True   True   True
+    1  True  True   True   True
+    2  True  True   True   True
+
+    df.eq(df.iloc[:, 0], axis=0).all(1)
+    0     True
+    1     True
+    2     True
+    dtype: bool
+
+    # so to check if ALL columns match, apply np.all to above
+    np.all(df.eq(df.iloc[:, 0], axis=0).all(1))
+    True
+
+#######
+top-mpl
+#######
+Keep adding mpl related notes/snippets here
+
+**********************************************
+When plt.tight_layout doesn't work as expected
+**********************************************
+.. code-block:: python
+
+    #http://stackoverflow.com/questions/8248467/matplotlib-tight-layout-doesnt-take-into-account-figure-suptitle
+    plt.subplots_adjust(top=1.25)
+    #plt.tight_layout()
+    
+*****************************
+Append to existing axes title
+*****************************
+.. code-block:: python
+
+    ax = plt.gca()
+    ax.set_title(ax.get_title() + ' WHATEVER STRING') # <- append to title
 
 ***************************************
 Change figure size of *existing* figure
