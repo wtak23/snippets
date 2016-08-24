@@ -34,7 +34,7 @@
   
     <link rel="top" title="Snippets 1 documentation" href="index.html"/>
         <link rel="up" title="Data Science" href="top-datascience.html"/>
-        <link rel="next" title="Bash-type" href="top-bash.html"/>
+        <link rel="next" title="Unix utilities" href="top-unix.html"/>
         <link rel="prev" title="4. regular expressions" href="cs-regexp.html"/> 
 
   
@@ -208,6 +208,144 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="top-bash.html">Bash-type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#overflows">1.1. Overflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#insightful-sed-example">1.1.1. Insightful sed example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.2. Remove colors from stdout (harder than i expected)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quoting-with-command-substitution">1.1.3. Quoting with command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#display-function-names">1.1.4. Display function names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.5. get n-th line of output (used sed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quotes-with-grep">1.1.6. Quotes with grep</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#using-rename-command">1.3. Using rename command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#rename-files-with-suffix-or-prefix">1.3.1. Rename files with suffix or prefix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#regexp-syntax-with-rename">1.3.2. regexp syntax with rename</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#random-handy-snippets">1.4. Random handy snippets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#replace-whitespace-with-newline-in-sed">1.5. replace whitespace with newline in sed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#what-if-multiple-line-is-spanned">1.5.1. What if multiple line is spanned?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#check-running-processes">1.6. check running processes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#nohup-vs-disown-vs">1.7. nohup vs disown vs &amp;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#moving-and-copying">1.8. Moving and copying</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#scp-user">1.8.1. scp user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#rsync">1.8.2. rsync</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#find">1.9. find</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#note-find-vs-locate">1.9.1. Note: <strong>find</strong> vs <strong>locate</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#command-vs-command-use-latter">1.10. ``command`` vs $(command) (use latter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#ls-tricks">1.11. ls tricks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#ls-recursively-use-find">1.11.1. ls recursively (use <em>find</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#show-only-symbolic-links-alias-ls-sym">1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#print-timestamp">1.12. print timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#open-image-xdg-open-image-png">1.13. open image ($xdg-open image.png)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#options-with-less-ongoing">1.14. Options with <strong>less</strong> (ongoing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#history-w-o-line-numbers">1.15. history w/o line-numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#when-xargs-is-needed">1.16. When xargs is needed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#get-computer-info">1.17. Get computer info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#mogrify">1.18. mogrify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#pipe-dreams-xargs-exec-in-find">1.19. Pipe dreams (xargs, -exec in find)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#grep">1.20. Grep</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#grep-recursively">1.20.1. grep recursively</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#to-grep-a-string-pipe-output-of-echo">1.20.2. To grep a string, pipe output of echo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#d-not-supported-in-linux-grep-as-default-seems-like">1.20.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#just-use-double-quotes-for-regex-query">1.20.4. just use double-quotes for regex query</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#selecting-n-th-line-or-word-using-sed-and-awk">1.21. Selecting n-th line or word using sed and awk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#use-xargs-to-execute-a-command-once-per-line-of-piped-input">1.22. Use xargs to execute a command once per line of piped input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#run-same-command-multiple-times-for-loop">1.23. Run same command multiple times (for loop)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#clipboard-with-xclip">1.24. clipboard with xclip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#io-redirection">1.25. IO Redirection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#piping-vs-command-substitution">1.25.1. Piping vs command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#redirecting-vs-piping">1.25.2. redirecting vs piping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#output-stdout-and-stderr-to-terminal-and-logfile">1.25.3. Output stdout and stderr to terminal and logfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#syntax-reference">1.25.4. syntax reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#bit-on-printf">1.26. Bit on printf</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#examples-from-ss64">1.26.1. Examples from ss64</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#for-loop">1.27. for loop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#basics">1.27.1. basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#multiline-in-terminal">1.27.2. multiline in terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#looping-over-array-elements">1.27.3. Looping over array elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#number-of-elements-in-an-array-using-array">1.27.4. number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#avoid-ls-use-globbing-or-find">1.27.5. avoid $(ls)...use globbing or find</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#arithmetic-expansion">1.28. arithmetic expansion ((..))</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#let-vs">1.28.1. let vs (())?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#overflow-topics">2.1. Overflow topics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#source-vs-in-bash-synonymous">2.1.1. source vs . in bash (synonymous)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#check-file-existance">2.1.2. Check file existance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#simple-loop-for-python">2.2. Simple loop for python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#qsub">2.3. qsub</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#my-old-qsub-approach">2.3.1. my old qsub approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#qsub-run">2.3.2. qsub-run</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#place-exit-1-to-end-script">2.4. place exit 1 to end script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#style-guide-and-conventions">2.5. Style-guide and conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#arrays">2.6. arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#expanding-indices">2.6.1. Expanding indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#practical-example">2.6.2. practical example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#control-rsync-recursive-depth">2.7. control rsync recursive depth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#skip-scp-if-file-exist-tldr-use-rsync">2.8. skip scp if file exist (tldr - use rsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#rsync-symlinks">2.9. rsync symlinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#appending-concatenating-variables">2.10. Appending/concatenating variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#command-vs-command">2.11. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#variable-name-convention">2.12. variable name convention</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#how-to-expand-tilde">2.13. How to expand ~ (tilde)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#create-directory-if-it-doesn-t-exist-06-14-2016-00-17">2.14. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#vs-in-arrays">2.15. [&#64;] vs [*] in arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#id1">2.16. 1&gt;&amp;2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#if-statements-and-test-conditions">2.17. if statements and test conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#argh-can-t-comment-over-line-breaks">2.18. argh...can&#8217;t comment over line breaks....</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#get-directory-of-running-bash-script">2.19. get directory of running bash script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs-qsubber.html">3. qsubber</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-qsubber.html#qsub-helper">3.1. qsub helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-qsubber.html#qsub-helper-old-pre-april-2016">3.2. qsub helper (old, pre April 2016</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#a-3-step-receipe-for-matlab">3.2.1. A 3 step receipe for matlab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#memrec-to-evaluate-appropriate-h-vmem-value">3.2.2. <code class="docutils literal"><span class="pre">memrec</span></code> (to evaluate appropriate <code class="docutils literal"><span class="pre">h_vmem</span></code> value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#qstat">3.2.3. <code class="docutils literal"><span class="pre">qstat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#usr-bin-time-to-see-multithreaded-or-not">3.2.4. <code class="docutils literal"><span class="pre">/usr/bin/time</span></code> to see multithreaded or not</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs-git.html">4. git-snippet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-git.html#random-overflows">4.1. Random Overflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-git.html#delete-untracked-files">4.1.1. Delete untracked files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-git.html#change-author-name">4.1.2. change author name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="top-datascience.html">Data Science</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cs-R.html">1. R</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-R.html#snippets-in-rstudio">1.1. Snippets in RStudio</a><ul>
@@ -270,143 +408,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-bash.html">Bash-type</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#overflows">1.1. Overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.1. Remove colors from stdout (harder than i expected)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quoting-with-command-substitution">1.1.2. Quoting with command substitution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#display-function-names">1.1.3. Display function names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.4. get n-th line of output (used sed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quotes-with-grep">1.1.5. Quotes with grep</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#using-rename-command">1.3. Using rename command</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#rename-files-with-suffix-or-prefix">1.3.1. Rename files with suffix or prefix</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#regexp-syntax-with-rename">1.3.2. regexp syntax with rename</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#random-handy-snippets">1.4. Random handy snippets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#replace-whitespace-with-newline-in-sed">1.5. replace whitespace with newline in sed</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#what-if-multiple-line-is-spanned">1.5.1. What if multiple line is spanned?</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#check-running-processes">1.6. check running processes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#nohup-vs-disown-vs">1.7. nohup vs disown vs &amp;</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#moving-and-copying">1.8. Moving and copying</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#scp-user">1.8.1. scp user</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#rsync">1.8.2. rsync</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#find">1.9. find</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#note-find-vs-locate">1.9.1. Note: <strong>find</strong> vs <strong>locate</strong></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#command-vs-command-use-latter">1.10. ``command`` vs $(command) (use latter)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#ls-tricks">1.11. ls tricks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#ls-recursively-use-find">1.11.1. ls recursively (use <em>find</em>)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#show-only-symbolic-links-alias-ls-sym">1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#print-timestamp">1.12. print timestamp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#open-image-xdg-open-image-png">1.13. open image ($xdg-open image.png)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#options-with-less-ongoing">1.14. Options with <strong>less</strong> (ongoing)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#history-w-o-line-numbers">1.15. history w/o line-numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#when-xargs-is-needed">1.16. When xargs is needed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#get-computer-info">1.17. Get computer info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#mogrify">1.18. mogrify</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#pipe-dreams-xargs-exec-in-find">1.19. Pipe dreams (xargs, -exec in find)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#grep">1.20. Grep</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#grep-recursively">1.20.1. grep recursively</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#to-grep-a-string-pipe-output-of-echo">1.20.2. To grep a string, pipe output of echo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#d-not-supported-in-linux-grep-as-default-seems-like">1.20.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#just-use-double-quotes-for-regex-query">1.20.4. just use double-quotes for regex query</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#selecting-n-th-line-or-word-using-sed-and-awk">1.21. Selecting n-th line or word using sed and awk</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#use-xargs-to-execute-a-command-once-per-line-of-piped-input">1.22. Use xargs to execute a command once per line of piped input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#run-same-command-multiple-times-for-loop">1.23. Run same command multiple times (for loop)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#git">1.24. git</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#change-author-name">1.24.1. change author name</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#clipboard-with-xclip">1.25. clipboard with xclip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#io-redirection">1.26. IO Redirection</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#piping-vs-command-substitution">1.26.1. Piping vs command substitution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#redirecting-vs-piping">1.26.2. redirecting vs piping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#output-stdout-and-stderr-to-terminal-and-logfile">1.26.3. Output stdout and stderr to terminal and logfile</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#syntax-reference">1.26.4. syntax reference</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#bit-on-printf">1.27. Bit on printf</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#examples-from-ss64">1.27.1. Examples from ss64</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#for-loop">1.28. for loop</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#basics">1.28.1. basics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#multiline-in-terminal">1.28.2. multiline in terminal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#looping-over-array-elements">1.28.3. Looping over array elements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#number-of-elements-in-an-array-using-array">1.28.4. number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#avoid-ls-use-globbing-or-find">1.28.5. avoid $(ls)...use globbing or find</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#arithmetic-expansion">1.29. arithmetic expansion ((..))</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#let-vs">1.29.1. let vs (())?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cs-bash-scripts.html">2. bash-scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#overflow-topics">2.1. Overflow topics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#source-vs-in-bash-synonymous">2.1.1. source vs . in bash (synonymous)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#check-file-existance">2.1.2. Check file existance</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#simple-loop-for-python">2.2. Simple loop for python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#qsub">2.3. qsub</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#my-old-qsub-approach">2.3.1. my old qsub approach</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#qsub-run">2.3.2. qsub-run</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#place-exit-1-to-end-script">2.4. place exit 1 to end script</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#style-guide-and-conventions">2.5. Style-guide and conventions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#arrays">2.6. arrays</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#expanding-indices">2.6.1. Expanding indices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-scripts.html#practical-example">2.6.2. practical example</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#control-rsync-recursive-depth">2.7. control rsync recursive depth</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#skip-scp-if-file-exist-tldr-use-rsync">2.8. skip scp if file exist (tldr - use rsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#rsync-symlinks">2.9. rsync symlinks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#appending-concatenating-variables">2.10. Appending/concatenating variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#command-vs-command">2.11. <code class="docutils literal"><span class="pre">command</span></code> vs $(command)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#variable-name-convention">2.12. variable name convention</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#how-to-expand-tilde">2.13. How to expand ~ (tilde)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#create-directory-if-it-doesn-t-exist-06-14-2016-00-17">2.14. Create directory if it doesn&#8217;t exist 06-14-2016 (00:17)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#vs-in-arrays">2.15. [&#64;] vs [*] in arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#id1">2.16. 1&gt;&amp;2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#if-statements-and-test-conditions">2.17. if statements and test conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#argh-can-t-comment-over-line-breaks">2.18. argh...can&#8217;t comment over line breaks....</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-bash-scripts.html#get-directory-of-running-bash-script">2.19. get directory of running bash script</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cs-qsubber.html">3. qsubber</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-qsubber.html#qsub-helper">3.1. qsub helper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-qsubber.html#qsub-helper-old-pre-april-2016">3.2. qsub helper (old, pre April 2016</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#a-3-step-receipe-for-matlab">3.2.1. A 3 step receipe for matlab</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#memrec-to-evaluate-appropriate-h-vmem-value">3.2.2. <code class="docutils literal"><span class="pre">memrec</span></code> (to evaluate appropriate <code class="docutils literal"><span class="pre">h_vmem</span></code> value</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#qstat">3.2.3. <code class="docutils literal"><span class="pre">qstat</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-qsubber.html#usr-bin-time-to-see-multithreaded-or-not">3.2.4. <code class="docutils literal"><span class="pre">/usr/bin/time</span></code> to see multithreaded or not</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cs-git.html">4. git-snippet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-git.html#stackoverflows">4.1. Stackoverflows</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="top-unix.html">Unix utilities</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-sed.html">1. sed</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-sed.html#references">1.1. References</a><ul>
@@ -415,7 +416,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cs-sed.html#random-snippets">1.2. Random snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#fixname-sh">1.2.1. fixname.sh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#insightful-example">1.2.1. Insightful example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-sed.html#fixname-sh">1.2.2. fixname.sh</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cs-sed.html#ultra-basics">1.3. Ultra-basics</a><ul>
@@ -673,7 +675,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="top-bash.html" class="btn btn-neutral float-right" title="Bash-type" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="top-unix.html" class="btn btn-neutral float-right" title="Unix utilities" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cs-regexp.html" class="btn btn-neutral" title="4. regular expressions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

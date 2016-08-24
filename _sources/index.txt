@@ -19,8 +19,8 @@ Those were dark days with no tangible signs of hope.
     :caption: Table of Contents
 
     top-python.rst
-    top-datascience.rst
     top-bash.rst
+    top-datascience.rst
     top-unix.rst
     top-misc.rst
     configs/top-configs.rst

@@ -49,6 +49,31 @@ Random snippets
     /home/takanori/work-local/external-python-modules/deepnet
     /home/takanori/mybin/spark-2.0.0-bin-hadoop2.7/python/pyspark
 
+******************
+Insightful example
+******************
+http://stackoverflow.com/questions/7209629/extract-string-from-brackets
+
+.. code-block:: bash
+
+    echo "string1 [string2] string3 string4" | sed 's/.*\[\([^]]*\)\].*/\1/g'
+
+Here's a breakdown of the sed command::
+
+    s/          <-- this means it should perform a substitution
+    .*          <-- this means match zero or more characters
+    \[          <-- this means match a literal [ character
+    \(          <-- this starts saving the pattern for later use
+    [^]]*       <-- this means match any character that is not a [ character
+                    the outer [ and ] signify that this is a character class
+                    having the ^ character as the first character in the class means "not"
+    \)          <-- this closes the saving of the pattern match for later use
+    \]          <-- this means match a literal ] character
+    .*          <-- this means match zero or more characters
+    /\1         <-- this means replace everything matched with the first saved pattern
+                    (the match between "\(" and "\)" )
+    /g          <-- this means the substitution is global (all occurrences on the line)
+
 **********
 fixname.sh
 **********
