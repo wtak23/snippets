@@ -29,6 +29,39 @@ bash-commands
 Overflows
 #########
 
+**************************************************
+Remove colors from stdout (harder than i expected)
+**************************************************
+- http://stackoverflow.com/questions/17998978/removing-colors-from-output
+- http://unix.stackexchange.com/questions/111899/how-to-strip-color-codes-out-of-stdout-and-pipe-to-file-and-stdout
+
+I expected there to be a unix utility function for this, but i guess not.
+
+Create an alias as below in ``.bashrc``
+
+.. code-block:: bash
+
+    alias stripcolors='sed "s/\x1B\[\([0-9]\{1,2\}\(;[0-9]\{1,2\}\)\?\)\?[mGK]//g"'
+
+Use-case: when I pipe stdout to my clipboard, I don't want the darn color info
+
+.. code-block:: bash
+
+    $ find . -maxdepth 1 | grep .git | xclip -selection clipboard
+
+    # below is what i get when i paste my clipboard on a text-editor
+    #>./[01;31m[K.git[m[K
+    #>./[01;31m[K.git[m[Kignore
+
+    # so remove the color info prior to clip
+    $ find . -maxdepth 1 | grep .git | stripcolors | xclip -selection clipboard
+    # awww...much better output from ctrl+v
+    ./.git
+    ./.gitignore
+
+
+
+
 *********************************
 Quoting with command substitution
 *********************************
