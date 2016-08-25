@@ -18,11 +18,35 @@ Every once in a while, I'll try to organize below by **category**
 
 (maybe categorized via modules? eg, pandas, np, ....think about it)
 
+``$ python -m SimpleHTTPServer 8000``
+
 
 ###############################
 Random Stack-overflow questions
 ###############################
 
+****************************************
+Things you can do with a **file** object
+****************************************
+I always forget the exact syntax for these...
+
+- https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
+- https://tedboy.github.io/python_stl/generated/generated/__builtin__.file.html
+
+
+
+**********
+simplejson
+**********
+hmmm, look into this module?
+
+- http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python
+
+
+>>> import simplejson
+>>> f = open('output.txt', 'w')
+>>> simplejson.dump([1,2,3,4], f)
+>>> f.close()
 
 ******************************
 Find first occurence in a list
@@ -95,25 +119,24 @@ Exceptions
 *******************************
 My most frequent *lazy* usecase
 *******************************
-.. code-block:: python
 
-    try:
-        fig_set_geom(pos)
-    except Exception, err:
-        print err
-    > name 'fig_set_geom' is not defined
+>>> try:
+>>>     fig_set_geom(pos)
+>>> except Exception, err:
+>>>     print err
+name 'fig_set_geom' is not defined
 
 
-    # more info using traceback.format_exc
-    import traceback
-    try:
-        fig_set_geom(pos)
-    except:
-        print traceback.format_exc()
-    > Traceback (most recent call last):
-    >   File "<ipython-input-43-33c80ffe55e1>", line 3, in <module>
-    >     fig_set_geom(pos)
-    > NameError: name 'fig_set_geom' is not defined
+>>> # more info using traceback.format_exc
+>>> import traceback
+>>> try:
+>>>     fig_set_geom(pos)
+>>> except:
+>>>     print traceback.format_exc()
+Traceback (most recent call last):
+  File "<ipython-input-43-33c80ffe55e1>", line 3, in <module>
+    fig_set_geom(pos)
+NameError: name 'fig_set_geom' is not defined
 
 ##########
 Top-pandas

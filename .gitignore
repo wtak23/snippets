@@ -8,3 +8,4 @@ build*
 source/DIRNAME
 source/generated
 published
+*.png

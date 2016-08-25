@@ -8,6 +8,13 @@ rst
 ############
 Best lookups
 ############
+.. note:: 
+
+  - Great summary of useful directives: http://www.sphinx-doc.org/en/stable/rest.html#directives
+  - Predefined **substitutions** in Sphinx (`link <http://www.sphinx-doc.org/en/stable/markup/inline.html#substitutions>`__) ``|release|, |version|,|today|``
+
+
+
 - http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
   
   - a bit difficult to navigate, but the most comprehensive
@@ -19,6 +26,12 @@ Best lookups
 
   - http://www.sphinx-doc.org/en/stable/contents.html
   - `reStructuredText Primer <http://www.sphinx-doc.org/en/stable/rest.html>`__
+
+#############################
+Important external directives
+#############################
+- http://matplotlib.org/sampledoc/ipython_directive.html
+- ..
 
 ################
 Random overflows

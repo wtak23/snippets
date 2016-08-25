@@ -28,6 +28,37 @@ bash-commands
 #########
 Overflows
 #########
+*******************
+More stuffs with ls
+*******************
+http://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash-an-examination
+
+Show only directories: 
+
+.. code-block:: bash
+
+    # using ls only
+    takanori@sbia-pc125 ~/anaconda2/lib/python2.7 $ ls -d */
+    bsddb/     config/  curses/     email/      hotshot/  importlib/  lib2to3/      lib-tk/   multiprocessing/  pydoc_data/     sqlite3/   wsgiref/
+    compiler/  ctypes/  distutils/  encodings/  idlelib/  json/       lib-dynload/  logging/  plat-linux2/      site-packages/  unittest/  xml/
+
+    takanori@sbia-pc125 ~/anaconda2/lib/python2.7 $ ls -ld */ | head -5
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 bsddb/
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 compiler/
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 config/
+    drwxr-xr-x   3 takanori takanori 4.0K Aug 22 11:13 ctypes/
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 curses/
+
+    # using grep
+    takanori@sbia-pc125 ~/anaconda2/lib/python2.7 $ ls -l | grep "^d" | head -5
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 bsddb
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 compiler
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 config
+    drwxr-xr-x   3 takanori takanori 4.0K Aug 22 11:13 ctypes
+    drwxr-xr-x   2 takanori takanori 4.0K Aug 22 11:13 curses
+
+
+
 **********************
 Insightful sed example
 **********************
@@ -83,8 +114,23 @@ Use-case: when I pipe stdout to my clipboard, I don't want the darn color info
     ./.git
     ./.gitignore
 
+    #=========================================================================#
+    # more usecase
+    #=========================================================================#
+    # i can pipe grep output to open files
+    $ git ls-files | grep copybutton.js | stripcolors | xargs subl
+
+    # open all rst files in new sublime window
+    $ subl -n
+    $ git ls-files | grep .rst | stripcolors | xargs subl
 
 
+*****************
+SIGINT and SIGSTP
+*****************
+http://askubuntu.com/questions/510811/what-is-the-difference-between-ctrl-z-and-ctrl-c-in-the-shell
+
+Ha, didn't know the technical term for these ``ctrl+c`` (interrupt) and ``ctrl+z`` (suspend)
 
 *********************************
 Quoting with command substitution
