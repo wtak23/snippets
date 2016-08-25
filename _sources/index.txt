@@ -22,7 +22,7 @@ Those were dark days with no tangible signs of hope.
     top-bash.rst
     top-datascience.rst
     top-unix.rst
-    top-misc.rst
+    top-rst.rst
     configs/top-configs.rst
     
     
