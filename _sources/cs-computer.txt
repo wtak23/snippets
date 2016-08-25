@@ -7,3 +7,4 @@ Random notes relating to computer science
     :name: cs-computer
 
     cs-computer.unix.rst
+    cs-computer.network.rst

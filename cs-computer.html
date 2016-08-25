@@ -90,9 +90,11 @@
 <li class="toctree-l1"><a class="reference internal" href="top-python.html">Python-type</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-python.html">1. Python</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-python.html#random-stack-overflow-questions">1.1. Random Stack-overflow questions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-python.html#find-first-occurence-in-a-list">1.1.1. Find first occurence in a list</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-python.html#swap-2-items-in-a-list">1.1.2. Swap 2 items in a list</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-python.html#check-all-items-in-list-or-dict-is-equal">1.1.3. Check all items in list or dict is equal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#things-you-can-do-with-a-file-object">1.1.1. Things you can do with a <strong>file</strong> object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#simplejson">1.1.2. simplejson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#find-first-occurence-in-a-list">1.1.3. Find first occurence in a list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#swap-2-items-in-a-list">1.1.4. Swap 2 items in a list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#check-all-items-in-list-or-dict-is-equal">1.1.5. Check all items in list or dict is equal</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cs-python.html#exceptions">1.2. Exceptions</a><ul>
@@ -211,12 +213,14 @@
 <li class="toctree-l1"><a class="reference internal" href="top-bash.html">Bash-type</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#overflows">1.1. Overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#insightful-sed-example">1.1.1. Insightful sed example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.2. Remove colors from stdout (harder than i expected)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quoting-with-command-substitution">1.1.3. Quoting with command substitution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#display-function-names">1.1.4. Display function names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.5. get n-th line of output (used sed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quotes-with-grep">1.1.6. Quotes with grep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#more-stuffs-with-ls">1.1.1. More stuffs with ls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#insightful-sed-example">1.1.2. Insightful sed example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.3. Remove colors from stdout (harder than i expected)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#sigint-and-sigstp">1.1.4. SIGINT and SIGSTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quoting-with-command-substitution">1.1.5. Quoting with command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#display-function-names">1.1.6. Display function names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.7. get n-th line of output (used sed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quotes-with-grep">1.1.8. Quotes with grep</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
@@ -406,9 +410,13 @@
 <li class="toctree-l3"><a class="reference internal" href="cs-scala.html#scala-lab">5.3. scala-lab?</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Random notes relating to computer science</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">6. Random notes relating to computer science</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-computer.unix.html">6.1. Unix-related</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs-computer.unix.html#terminal-shell-tty-console-the-difference">6.1.1. terminal, shell, tty, console...the difference?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-computer.network.html">6.2. Network notes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-computer.network.html#http-messages">6.2.1. HTTP messages</a></li>
 </ul>
 </li>
 </ul>
@@ -476,111 +484,118 @@
 <li class="toctree-l1"><a class="reference internal" href="top-rst.html">Sphinx/RST-notes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-rst.html">1. rst</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-rst.html#best-lookups">1.1. Best lookups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#random-overflows">1.2. Random overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#get-colors">1.2.1. Get colors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#add-links-without-labels">1.2.2. Add links without labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#important-external-directives">1.2. Important external directives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#random-overflows">1.3. Random overflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#get-colors">1.3.1. Get colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#add-links-without-labels">1.3.2. Add links without labels</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#link-is-kinda-confusing">1.3. Link is kinda confusing...</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#hmmm">1.3.1. hmmm</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#ah-finally-what-i-wanted">1.3.2. Ah, finally what i wanted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#link-is-kinda-confusing">1.4. Link is kinda confusing...</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#hmmm">1.4.1. hmmm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#ah-finally-what-i-wanted">1.4.2. Ah, finally what i wanted</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#csv-demo">1.4. csv-demo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#lookups-old-may-remove-this-section">1.5. Lookups (old, may remove this section)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#references-for-rst-in-general-non-sphinx">1.5.1. References for rst in general (non-sphinx)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#autodoc-related">1.5.2. Autodoc related</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="math_rst_part1.html">2. Latex mathematics on sphinx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#symbols">2.1. Symbols</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#greek-letters">2.2. Greek letters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#operators">2.3. Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#fractions-and-binomials">2.4. Fractions and Binomials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#square-roots">2.5. Square roots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#sum-and-integrals">2.6. Sum and integrals</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#big-commands">2.6.1. <strong>BIG</strong> commands</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#brackets-braces-and-delimiters">2.7. Brackets, braces and delimiters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#automatic-sizing">2.7.1. Automatic sizing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#manual-sizing">2.7.2. Manual sizing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#typesetting-intervals">2.7.3. Typesetting intervals</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#matrices-and-array">2.8. Matrices and array</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#more-fancy-ones">2.8.1. More fancy ones</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#adding-text-to-equations">2.9. Adding text to equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#formatting-mathematics-symbols">2.10. Formatting mathematics symbols</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#accents">2.10.1. Accents</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#color-works">2.11. Color (works!)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#plus-and-minus">2.12. Plus and minus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#controlling-horizontal-spacing">2.13. Controlling horizontal spacing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#dots">2.14. Dots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#list-of-mathematical-symbols">2.15. List of Mathematical Symbols</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#other-symbols">2.15.1. Other symbols</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#trigonemtrics">2.15.2. Trigonemtrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#csv-demo">1.5. csv-demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#lookups-old-may-remove-this-section">1.6. Lookups (old, may remove this section)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#references-for-rst-in-general-non-sphinx">1.6.1. References for rst in general (non-sphinx)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#autodoc-related">1.6.2. Autodoc related</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="math_rst_part2.html">3. Advanced Latex Mathematics on Sphinx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#some-self-notes-i-created">3.1. Some self-notes I created</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#bold-for-lower-case-greek">3.1.1. bold for lower-case greek</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#defining-own-function">3.1.2. Defining own function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst.directive-test.html">2. Test runs on RST directives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.directive-test.html#admonitions">2.1. Admonitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.directive-test.html#epigraph">2.2. Epigraph</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#equations">3.2. Equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#vertical-alignment">3.3. Vertical alignment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#more-aligns">3.4. More aligns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#braces-spanning-multiple-lines">3.5. Braces spanning multiple lines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#aligning-braces-for-piecewise-functions">3.6. Aligning braces for piecewise functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#the-cases-environment">3.7. The <strong>cases</strong> environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#more-exotic-examples">3.8. More exotic examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#boxed-equations">3.9. Boxed equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#custom-operator-ah-argmax">3.10. Custom operator (ah, argmax!)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#advanced-formatting">3.11. Advanced formatting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#limits">3.11.1. Limits</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#subscripts-and-supterscripts">3.11.2. Subscripts and supterscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst.math_part1.html">3. Latex mathematics on sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#symbols">3.1. Symbols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#greek-letters">3.2. Greek letters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#operators">3.3. Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#fractions-and-binomials">3.4. Fractions and Binomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#square-roots">3.5. Square roots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#sum-and-integrals">3.6. Sum and integrals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#big-commands">3.6.1. <strong>BIG</strong> commands</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#changing-font-size">3.12. Changing font size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#brackets-braces-and-delimiters">3.7. Brackets, braces and delimiters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#automatic-sizing">3.7.1. Automatic sizing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#manual-sizing">3.7.2. Manual sizing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#typesetting-intervals">3.7.3. Typesetting intervals</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs-rst-old.html">4. rst cheatsheet (old)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#directives-i-found-useful-or-runs-on-github">4.1. DIRECTIVES I FOUND USEFUL OR RUNS ON GITHUB</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#image">4.1.1. .. image::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#code-use-with-number-lines-option">4.1.2. .. code:: (use with <code class="docutils literal"><span class="pre">:number-lines:</span></code> option)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#table">4.1.3. .. table::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#csv-table">4.1.4. .. csv-table::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#contents">4.1.5. .. contents::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sectnum-works-but-warning-seem-to-screw-up-the-toc-link">4.1.6. .. sectnum:: ...works....but <strong>WARNING!</strong> - seem to screw up the TOC link</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#header-and-footer">4.1.7. .. header:: (and .. footer::)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sadly-math-doesn-t-render-on-github-works-on-bitbucket">4.1.8. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#replace">4.1.9. .. replace::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#unicode">4.1.10. .. unicode::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#date">4.1.11. ..date::</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#matrices-and-array">3.8. Matrices and array</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#more-fancy-ones">3.8.1. More fancy ones</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#list-of-gotcha-s-to-watch-out-for-at-least-the-ones-i-suffered-from">4.2. List of <strong>GOTCHA&#8217;s</strong> to watch out for (at least the ones I suffered from...)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-nested-list-items">4.2.1. Gotcha&#8217;s with nested list items</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#id1">4.2.2. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-contents">4.2.3. GOTCHA&#8217;s with <code class="docutils literal"><span class="pre">..</span> <span class="pre">contents::</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#h1-h2-problems">4.2.4. <code class="docutils literal"><span class="pre">h1</span></code> <code class="docutils literal"><span class="pre">h2</span></code> ... problems</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#including-styles-on-header-names-will-break-the-toc-link-on-github-unconfirmed">4.2.5. Including styles on HEADER-NAMES will break the TOC link on github (unconfirmed)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#directives-that-just-doesnt-work-on-github-or-sublime-text">4.2.6. Directives that just doesnt work on github or Sublime Text</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-special-characters-that-may-be-a-head-ache-to-print">4.2.7. Some special characters that may be a head-ache to print</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#adding-text-to-equations">3.9. Adding text to equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#formatting-mathematics-symbols">3.10. Formatting mathematics symbols</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#accents">3.10.1. Accents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#roles-in-rst">4.3. <code class="docutils literal"><span class="pre">roles</span></code> in RST</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#list-of-equivalent-roles-ultra-incomplete">4.3.1. List of equivalent <code class="docutils literal"><span class="pre">roles</span></code> (ultra-incomplete)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-interesting-looking-roles">4.3.2. Some interesting looking <code class="docutils literal"><span class="pre">roles</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#color-works">3.11. Color (works!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#plus-and-minus">3.12. Plus and minus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#controlling-horizontal-spacing">3.13. Controlling horizontal spacing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#dots">3.14. Dots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#list-of-mathematical-symbols">3.15. List of Mathematical Symbols</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#other-symbols">3.15.1. Other symbols</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#trigonemtrics">3.15.2. Trigonemtrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs_rst.math_part2.html">4. Advanced Latex Mathematics on Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#some-self-notes-i-created">4.1. Some self-notes I created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#bold-for-lower-case-greek">4.1.1. bold for lower-case greek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#defining-own-function">4.1.2. Defining own function</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#equations">4.2. Equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#vertical-alignment">4.3. Vertical alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#more-aligns">4.4. More aligns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#braces-spanning-multiple-lines">4.5. Braces spanning multiple lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#aligning-braces-for-piecewise-functions">4.6. Aligning braces for piecewise functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#the-cases-environment">4.7. The <strong>cases</strong> environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#more-exotic-examples">4.8. More exotic examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#boxed-equations">4.9. Boxed equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#custom-operator-ah-argmax">4.10. Custom operator (ah, argmax!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#advanced-formatting">4.11. Advanced formatting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#limits">4.11.1. Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#subscripts-and-supterscripts">4.11.2. Subscripts and supterscripts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#changing-font-size">4.12. Changing font size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst.ipython.html">5. Demo runs of ipython sphinx extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst-old.html">6. rst cheatsheet (old)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#directives-i-found-useful-or-runs-on-github">6.1. DIRECTIVES I FOUND USEFUL OR RUNS ON GITHUB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#image">6.1.1. .. image::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#code-use-with-number-lines-option">6.1.2. .. code:: (use with <code class="docutils literal"><span class="pre">:number-lines:</span></code> option)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#table">6.1.3. .. table::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#csv-table">6.1.4. .. csv-table::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#contents">6.1.5. .. contents::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sectnum-works-but-warning-seem-to-screw-up-the-toc-link">6.1.6. .. sectnum:: ...works....but <strong>WARNING!</strong> - seem to screw up the TOC link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#header-and-footer">6.1.7. .. header:: (and .. footer::)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sadly-math-doesn-t-render-on-github-works-on-bitbucket">6.1.8. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#replace">6.1.9. .. replace::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#unicode">6.1.10. .. unicode::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#date">6.1.11. ..date::</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#list-of-gotcha-s-to-watch-out-for-at-least-the-ones-i-suffered-from">6.2. List of <strong>GOTCHA&#8217;s</strong> to watch out for (at least the ones I suffered from...)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-nested-list-items">6.2.1. Gotcha&#8217;s with nested list items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#id1">6.2.2. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-contents">6.2.3. GOTCHA&#8217;s with <code class="docutils literal"><span class="pre">..</span> <span class="pre">contents::</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#h1-h2-problems">6.2.4. <code class="docutils literal"><span class="pre">h1</span></code> <code class="docutils literal"><span class="pre">h2</span></code> ... problems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#including-styles-on-header-names-will-break-the-toc-link-on-github-unconfirmed">6.2.5. Including styles on HEADER-NAMES will break the TOC link on github (unconfirmed)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#directives-that-just-doesnt-work-on-github-or-sublime-text">6.2.6. Directives that just doesnt work on github or Sublime Text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-special-characters-that-may-be-a-head-ache-to-print">6.2.7. Some special characters that may be a head-ache to print</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#roles-in-rst">6.3. <code class="docutils literal"><span class="pre">roles</span></code> in RST</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#list-of-equivalent-roles-ultra-incomplete">6.3.1. List of equivalent <code class="docutils literal"><span class="pre">roles</span></code> (ultra-incomplete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-interesting-looking-roles">6.3.2. Some interesting looking <code class="docutils literal"><span class="pre">roles</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -690,6 +705,10 @@
 <li class="toctree-l2"><a class="reference internal" href="cs-computer.unix.html#terminal-shell-tty-console-the-difference">6.1.1. terminal, shell, tty, console...the difference?</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cs-computer.network.html">6.2. Network notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs-computer.network.html#http-messages">6.2.1. HTTP messages</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -744,6 +763,7 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

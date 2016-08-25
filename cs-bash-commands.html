@@ -90,9 +90,11 @@
 <li class="toctree-l1"><a class="reference internal" href="top-python.html">Python-type</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-python.html">1. Python</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-python.html#random-stack-overflow-questions">1.1. Random Stack-overflow questions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-python.html#find-first-occurence-in-a-list">1.1.1. Find first occurence in a list</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-python.html#swap-2-items-in-a-list">1.1.2. Swap 2 items in a list</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-python.html#check-all-items-in-list-or-dict-is-equal">1.1.3. Check all items in list or dict is equal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#things-you-can-do-with-a-file-object">1.1.1. Things you can do with a <strong>file</strong> object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#simplejson">1.1.2. simplejson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#find-first-occurence-in-a-list">1.1.3. Find first occurence in a list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#swap-2-items-in-a-list">1.1.4. Swap 2 items in a list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-python.html#check-all-items-in-list-or-dict-is-equal">1.1.5. Check all items in list or dict is equal</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cs-python.html#exceptions">1.2. Exceptions</a><ul>
@@ -209,14 +211,16 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="top-bash.html">Bash-type</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1. bash-commands</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">1. bash-commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overflows">1.1. Overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#insightful-sed-example">1.1.1. Insightful sed example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#remove-colors-from-stdout-harder-than-i-expected">1.1.2. Remove colors from stdout (harder than i expected)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#quoting-with-command-substitution">1.1.3. Quoting with command substitution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#display-function-names">1.1.4. Display function names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-n-th-line-of-output-used-sed">1.1.5. get n-th line of output (used sed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#quotes-with-grep">1.1.6. Quotes with grep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#more-stuffs-with-ls">1.1.1. More stuffs with ls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insightful-sed-example">1.1.2. Insightful sed example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-colors-from-stdout-harder-than-i-expected">1.1.3. Remove colors from stdout (harder than i expected)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sigint-and-sigstp">1.1.4. SIGINT and SIGSTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quoting-with-command-substitution">1.1.5. Quoting with command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-function-names">1.1.6. Display function names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-n-th-line-of-output-used-sed">1.1.7. get n-th line of output (used sed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quotes-with-grep">1.1.8. Quotes with grep</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
@@ -411,6 +415,10 @@
 <li class="toctree-l4"><a class="reference internal" href="cs-computer.unix.html#terminal-shell-tty-console-the-difference">6.1.1. terminal, shell, tty, console...the difference?</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="cs-computer.network.html">6.2. Network notes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-computer.network.html#http-messages">6.2.1. HTTP messages</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -476,111 +484,118 @@
 <li class="toctree-l1"><a class="reference internal" href="top-rst.html">Sphinx/RST-notes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-rst.html">1. rst</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-rst.html#best-lookups">1.1. Best lookups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#random-overflows">1.2. Random overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#get-colors">1.2.1. Get colors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#add-links-without-labels">1.2.2. Add links without labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#important-external-directives">1.2. Important external directives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#random-overflows">1.3. Random overflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#get-colors">1.3.1. Get colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#add-links-without-labels">1.3.2. Add links without labels</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#link-is-kinda-confusing">1.3. Link is kinda confusing...</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#hmmm">1.3.1. hmmm</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#ah-finally-what-i-wanted">1.3.2. Ah, finally what i wanted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#link-is-kinda-confusing">1.4. Link is kinda confusing...</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#hmmm">1.4.1. hmmm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#ah-finally-what-i-wanted">1.4.2. Ah, finally what i wanted</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#csv-demo">1.4. csv-demo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#lookups-old-may-remove-this-section">1.5. Lookups (old, may remove this section)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#references-for-rst-in-general-non-sphinx">1.5.1. References for rst in general (non-sphinx)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#autodoc-related">1.5.2. Autodoc related</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="math_rst_part1.html">2. Latex mathematics on sphinx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#symbols">2.1. Symbols</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#greek-letters">2.2. Greek letters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#operators">2.3. Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#fractions-and-binomials">2.4. Fractions and Binomials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#square-roots">2.5. Square roots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#sum-and-integrals">2.6. Sum and integrals</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#big-commands">2.6.1. <strong>BIG</strong> commands</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#brackets-braces-and-delimiters">2.7. Brackets, braces and delimiters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#automatic-sizing">2.7.1. Automatic sizing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#manual-sizing">2.7.2. Manual sizing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#typesetting-intervals">2.7.3. Typesetting intervals</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#matrices-and-array">2.8. Matrices and array</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#more-fancy-ones">2.8.1. More fancy ones</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#adding-text-to-equations">2.9. Adding text to equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#formatting-mathematics-symbols">2.10. Formatting mathematics symbols</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#accents">2.10.1. Accents</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#color-works">2.11. Color (works!)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#plus-and-minus">2.12. Plus and minus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#controlling-horizontal-spacing">2.13. Controlling horizontal spacing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#dots">2.14. Dots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part1.html#list-of-mathematical-symbols">2.15. List of Mathematical Symbols</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#other-symbols">2.15.1. Other symbols</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part1.html#trigonemtrics">2.15.2. Trigonemtrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#csv-demo">1.5. csv-demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.html#lookups-old-may-remove-this-section">1.6. Lookups (old, may remove this section)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#references-for-rst-in-general-non-sphinx">1.6.1. References for rst in general (non-sphinx)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.html#autodoc-related">1.6.2. Autodoc related</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="math_rst_part2.html">3. Advanced Latex Mathematics on Sphinx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#some-self-notes-i-created">3.1. Some self-notes I created</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#bold-for-lower-case-greek">3.1.1. bold for lower-case greek</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#defining-own-function">3.1.2. Defining own function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst.directive-test.html">2. Test runs on RST directives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.directive-test.html#admonitions">2.1. Admonitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.directive-test.html#epigraph">2.2. Epigraph</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#equations">3.2. Equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#vertical-alignment">3.3. Vertical alignment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#more-aligns">3.4. More aligns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#braces-spanning-multiple-lines">3.5. Braces spanning multiple lines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#aligning-braces-for-piecewise-functions">3.6. Aligning braces for piecewise functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#the-cases-environment">3.7. The <strong>cases</strong> environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#more-exotic-examples">3.8. More exotic examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#boxed-equations">3.9. Boxed equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#custom-operator-ah-argmax">3.10. Custom operator (ah, argmax!)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#advanced-formatting">3.11. Advanced formatting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#limits">3.11.1. Limits</a></li>
-<li class="toctree-l4"><a class="reference internal" href="math_rst_part2.html#subscripts-and-supterscripts">3.11.2. Subscripts and supterscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst.math_part1.html">3. Latex mathematics on sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#symbols">3.1. Symbols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#greek-letters">3.2. Greek letters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#operators">3.3. Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#fractions-and-binomials">3.4. Fractions and Binomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#square-roots">3.5. Square roots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#sum-and-integrals">3.6. Sum and integrals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#big-commands">3.6.1. <strong>BIG</strong> commands</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="math_rst_part2.html#changing-font-size">3.12. Changing font size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#brackets-braces-and-delimiters">3.7. Brackets, braces and delimiters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#automatic-sizing">3.7.1. Automatic sizing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#manual-sizing">3.7.2. Manual sizing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#typesetting-intervals">3.7.3. Typesetting intervals</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs-rst-old.html">4. rst cheatsheet (old)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#directives-i-found-useful-or-runs-on-github">4.1. DIRECTIVES I FOUND USEFUL OR RUNS ON GITHUB</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#image">4.1.1. .. image::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#code-use-with-number-lines-option">4.1.2. .. code:: (use with <code class="docutils literal"><span class="pre">:number-lines:</span></code> option)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#table">4.1.3. .. table::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#csv-table">4.1.4. .. csv-table::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#contents">4.1.5. .. contents::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sectnum-works-but-warning-seem-to-screw-up-the-toc-link">4.1.6. .. sectnum:: ...works....but <strong>WARNING!</strong> - seem to screw up the TOC link</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#header-and-footer">4.1.7. .. header:: (and .. footer::)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sadly-math-doesn-t-render-on-github-works-on-bitbucket">4.1.8. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#replace">4.1.9. .. replace::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#unicode">4.1.10. .. unicode::</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#date">4.1.11. ..date::</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#matrices-and-array">3.8. Matrices and array</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#more-fancy-ones">3.8.1. More fancy ones</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#list-of-gotcha-s-to-watch-out-for-at-least-the-ones-i-suffered-from">4.2. List of <strong>GOTCHA&#8217;s</strong> to watch out for (at least the ones I suffered from...)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-nested-list-items">4.2.1. Gotcha&#8217;s with nested list items</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#id1">4.2.2. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-contents">4.2.3. GOTCHA&#8217;s with <code class="docutils literal"><span class="pre">..</span> <span class="pre">contents::</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#h1-h2-problems">4.2.4. <code class="docutils literal"><span class="pre">h1</span></code> <code class="docutils literal"><span class="pre">h2</span></code> ... problems</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#including-styles-on-header-names-will-break-the-toc-link-on-github-unconfirmed">4.2.5. Including styles on HEADER-NAMES will break the TOC link on github (unconfirmed)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#directives-that-just-doesnt-work-on-github-or-sublime-text">4.2.6. Directives that just doesnt work on github or Sublime Text</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-special-characters-that-may-be-a-head-ache-to-print">4.2.7. Some special characters that may be a head-ache to print</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#adding-text-to-equations">3.9. Adding text to equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#formatting-mathematics-symbols">3.10. Formatting mathematics symbols</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#accents">3.10.1. Accents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#roles-in-rst">4.3. <code class="docutils literal"><span class="pre">roles</span></code> in RST</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#list-of-equivalent-roles-ultra-incomplete">4.3.1. List of equivalent <code class="docutils literal"><span class="pre">roles</span></code> (ultra-incomplete)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-interesting-looking-roles">4.3.2. Some interesting looking <code class="docutils literal"><span class="pre">roles</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#color-works">3.11. Color (works!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#plus-and-minus">3.12. Plus and minus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#controlling-horizontal-spacing">3.13. Controlling horizontal spacing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#dots">3.14. Dots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst.math_part1.html#list-of-mathematical-symbols">3.15. List of Mathematical Symbols</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#other-symbols">3.15.1. Other symbols</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst.math_part1.html#trigonemtrics">3.15.2. Trigonemtrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs_rst.math_part2.html">4. Advanced Latex Mathematics on Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#some-self-notes-i-created">4.1. Some self-notes I created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#bold-for-lower-case-greek">4.1.1. bold for lower-case greek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#defining-own-function">4.1.2. Defining own function</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#equations">4.2. Equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#vertical-alignment">4.3. Vertical alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#more-aligns">4.4. More aligns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#braces-spanning-multiple-lines">4.5. Braces spanning multiple lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#aligning-braces-for-piecewise-functions">4.6. Aligning braces for piecewise functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#the-cases-environment">4.7. The <strong>cases</strong> environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#more-exotic-examples">4.8. More exotic examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#boxed-equations">4.9. Boxed equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#custom-operator-ah-argmax">4.10. Custom operator (ah, argmax!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#advanced-formatting">4.11. Advanced formatting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#limits">4.11.1. Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs_rst.math_part2.html#subscripts-and-supterscripts">4.11.2. Subscripts and supterscripts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs_rst.math_part2.html#changing-font-size">4.12. Changing font size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst.ipython.html">5. Demo runs of ipython sphinx extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs-rst-old.html">6. rst cheatsheet (old)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#directives-i-found-useful-or-runs-on-github">6.1. DIRECTIVES I FOUND USEFUL OR RUNS ON GITHUB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#image">6.1.1. .. image::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#code-use-with-number-lines-option">6.1.2. .. code:: (use with <code class="docutils literal"><span class="pre">:number-lines:</span></code> option)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#table">6.1.3. .. table::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#csv-table">6.1.4. .. csv-table::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#contents">6.1.5. .. contents::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sectnum-works-but-warning-seem-to-screw-up-the-toc-link">6.1.6. .. sectnum:: ...works....but <strong>WARNING!</strong> - seem to screw up the TOC link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#header-and-footer">6.1.7. .. header:: (and .. footer::)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#sadly-math-doesn-t-render-on-github-works-on-bitbucket">6.1.8. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#replace">6.1.9. .. replace::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#unicode">6.1.10. .. unicode::</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#date">6.1.11. ..date::</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#list-of-gotcha-s-to-watch-out-for-at-least-the-ones-i-suffered-from">6.2. List of <strong>GOTCHA&#8217;s</strong> to watch out for (at least the ones I suffered from...)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-nested-list-items">6.2.1. Gotcha&#8217;s with nested list items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#id1">6.2.2. Sadly <code class="docutils literal"><span class="pre">..</span> <span class="pre">math::</span></code> doesn&#8217;t render on github (works on bitbucket)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#gotcha-s-with-contents">6.2.3. GOTCHA&#8217;s with <code class="docutils literal"><span class="pre">..</span> <span class="pre">contents::</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#h1-h2-problems">6.2.4. <code class="docutils literal"><span class="pre">h1</span></code> <code class="docutils literal"><span class="pre">h2</span></code> ... problems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#including-styles-on-header-names-will-break-the-toc-link-on-github-unconfirmed">6.2.5. Including styles on HEADER-NAMES will break the TOC link on github (unconfirmed)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#directives-that-just-doesnt-work-on-github-or-sublime-text">6.2.6. Directives that just doesnt work on github or Sublime Text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-special-characters-that-may-be-a-head-ache-to-print">6.2.7. Some special characters that may be a head-ache to print</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-rst-old.html#roles-in-rst">6.3. <code class="docutils literal"><span class="pre">roles</span></code> in RST</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#list-of-equivalent-roles-ultra-incomplete">6.3.1. List of equivalent <code class="docutils literal"><span class="pre">roles</span></code> (ultra-incomplete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-rst-old.html#some-interesting-looking-roles">6.3.2. Some interesting looking <code class="docutils literal"><span class="pre">roles</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -702,113 +717,141 @@
 <p class="topic-title first"><cite>Table of contents</cite></p>
 <ul class="simple">
 <li><a class="reference internal" href="#overflows" id="id1">Overflows</a><ul>
-<li><a class="reference internal" href="#insightful-sed-example" id="id2">Insightful sed example</a></li>
-<li><a class="reference internal" href="#remove-colors-from-stdout-harder-than-i-expected" id="id3">Remove colors from stdout (harder than i expected)</a></li>
-<li><a class="reference internal" href="#quoting-with-command-substitution" id="id4">Quoting with command substitution</a></li>
-<li><a class="reference internal" href="#display-function-names" id="id5">Display function names</a></li>
-<li><a class="reference internal" href="#get-n-th-line-of-output-used-sed" id="id6">get n-th line of output (used sed</a></li>
-<li><a class="reference internal" href="#quotes-with-grep" id="id7">Quotes with grep</a></li>
+<li><a class="reference internal" href="#more-stuffs-with-ls" id="id2">More stuffs with ls</a></li>
+<li><a class="reference internal" href="#insightful-sed-example" id="id3">Insightful sed example</a></li>
+<li><a class="reference internal" href="#remove-colors-from-stdout-harder-than-i-expected" id="id4">Remove colors from stdout (harder than i expected)</a></li>
+<li><a class="reference internal" href="#sigint-and-sigstp" id="id5">SIGINT and SIGSTP</a></li>
+<li><a class="reference internal" href="#quoting-with-command-substitution" id="id6">Quoting with command substitution</a></li>
+<li><a class="reference internal" href="#display-function-names" id="id7">Display function names</a></li>
+<li><a class="reference internal" href="#get-n-th-line-of-output-used-sed" id="id8">get n-th line of output (used sed</a></li>
+<li><a class="reference internal" href="#quotes-with-grep" id="id9">Quotes with grep</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#escaping-single-quotes-a-mess" id="id8">Escaping single quotes (a mess...)</a></li>
-<li><a class="reference internal" href="#using-rename-command" id="id9">Using rename command</a><ul>
-<li><a class="reference internal" href="#rename-files-with-suffix-or-prefix" id="id10">Rename files with suffix or prefix</a></li>
-<li><a class="reference internal" href="#regexp-syntax-with-rename" id="id11">regexp syntax with rename</a></li>
+<li><a class="reference internal" href="#escaping-single-quotes-a-mess" id="id10">Escaping single quotes (a mess...)</a></li>
+<li><a class="reference internal" href="#using-rename-command" id="id11">Using rename command</a><ul>
+<li><a class="reference internal" href="#rename-files-with-suffix-or-prefix" id="id12">Rename files with suffix or prefix</a></li>
+<li><a class="reference internal" href="#regexp-syntax-with-rename" id="id13">regexp syntax with rename</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#random-handy-snippets" id="id12">Random handy snippets</a></li>
-<li><a class="reference internal" href="#replace-whitespace-with-newline-in-sed" id="id13">replace whitespace with newline in sed</a><ul>
-<li><a class="reference internal" href="#what-if-multiple-line-is-spanned" id="id14">What if multiple line is spanned?</a></li>
+<li><a class="reference internal" href="#random-handy-snippets" id="id14">Random handy snippets</a></li>
+<li><a class="reference internal" href="#replace-whitespace-with-newline-in-sed" id="id15">replace whitespace with newline in sed</a><ul>
+<li><a class="reference internal" href="#what-if-multiple-line-is-spanned" id="id16">What if multiple line is spanned?</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#check-running-processes" id="id15">check running processes</a></li>
-<li><a class="reference internal" href="#nohup-vs-disown-vs" id="id16">nohup vs disown vs &amp;</a></li>
-<li><a class="reference internal" href="#moving-and-copying" id="id17">Moving and copying</a><ul>
-<li><a class="reference internal" href="#scp-user" id="id18">scp user</a></li>
-<li><a class="reference internal" href="#rsync" id="id19">rsync</a></li>
+<li><a class="reference internal" href="#check-running-processes" id="id17">check running processes</a></li>
+<li><a class="reference internal" href="#nohup-vs-disown-vs" id="id18">nohup vs disown vs &amp;</a></li>
+<li><a class="reference internal" href="#moving-and-copying" id="id19">Moving and copying</a><ul>
+<li><a class="reference internal" href="#scp-user" id="id20">scp user</a></li>
+<li><a class="reference internal" href="#rsync" id="id21">rsync</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#find" id="id20">find</a><ul>
-<li><a class="reference internal" href="#note-find-vs-locate" id="id21">Note: <strong>find</strong> vs <strong>locate</strong></a></li>
+<li><a class="reference internal" href="#find" id="id22">find</a><ul>
+<li><a class="reference internal" href="#note-find-vs-locate" id="id23">Note: <strong>find</strong> vs <strong>locate</strong></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#command-vs-command-use-latter" id="id22">``command`` vs $(command) (use latter)</a></li>
-<li><a class="reference internal" href="#ls-tricks" id="id23">ls tricks</a><ul>
-<li><a class="reference internal" href="#ls-recursively-use-find" id="id24">ls recursively (use <em>find</em>)</a></li>
-<li><a class="reference internal" href="#show-only-symbolic-links-alias-ls-sym" id="id25">show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
+<li><a class="reference internal" href="#command-vs-command-use-latter" id="id24">``command`` vs $(command) (use latter)</a></li>
+<li><a class="reference internal" href="#ls-tricks" id="id25">ls tricks</a><ul>
+<li><a class="reference internal" href="#ls-recursively-use-find" id="id26">ls recursively (use <em>find</em>)</a></li>
+<li><a class="reference internal" href="#show-only-symbolic-links-alias-ls-sym" id="id27">show only symbolic links (<strong>alias ls_sym</strong>)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#print-timestamp" id="id26">print timestamp</a></li>
-<li><a class="reference internal" href="#open-image-xdg-open-image-png" id="id27">open image ($xdg-open image.png)</a></li>
-<li><a class="reference internal" href="#options-with-less-ongoing" id="id28">Options with <strong>less</strong> (ongoing)</a></li>
-<li><a class="reference internal" href="#history-w-o-line-numbers" id="id29">history w/o line-numbers</a></li>
-<li><a class="reference internal" href="#when-xargs-is-needed" id="id30">When xargs is needed</a></li>
-<li><a class="reference internal" href="#get-computer-info" id="id31">Get computer info</a></li>
-<li><a class="reference internal" href="#mogrify" id="id32">mogrify</a></li>
-<li><a class="reference internal" href="#pipe-dreams-xargs-exec-in-find" id="id33">Pipe dreams (xargs, -exec in find)</a></li>
-<li><a class="reference internal" href="#grep" id="id34">Grep</a><ul>
-<li><a class="reference internal" href="#grep-recursively" id="id35">grep recursively</a></li>
-<li><a class="reference internal" href="#to-grep-a-string-pipe-output-of-echo" id="id36">To grep a string, pipe output of echo</a></li>
-<li><a class="reference internal" href="#d-not-supported-in-linux-grep-as-default-seems-like" id="id37"><code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
-<li><a class="reference internal" href="#just-use-double-quotes-for-regex-query" id="id38">just use double-quotes for regex query</a></li>
+<li><a class="reference internal" href="#print-timestamp" id="id28">print timestamp</a></li>
+<li><a class="reference internal" href="#open-image-xdg-open-image-png" id="id29">open image ($xdg-open image.png)</a></li>
+<li><a class="reference internal" href="#options-with-less-ongoing" id="id30">Options with <strong>less</strong> (ongoing)</a></li>
+<li><a class="reference internal" href="#history-w-o-line-numbers" id="id31">history w/o line-numbers</a></li>
+<li><a class="reference internal" href="#when-xargs-is-needed" id="id32">When xargs is needed</a></li>
+<li><a class="reference internal" href="#get-computer-info" id="id33">Get computer info</a></li>
+<li><a class="reference internal" href="#mogrify" id="id34">mogrify</a></li>
+<li><a class="reference internal" href="#pipe-dreams-xargs-exec-in-find" id="id35">Pipe dreams (xargs, -exec in find)</a></li>
+<li><a class="reference internal" href="#grep" id="id36">Grep</a><ul>
+<li><a class="reference internal" href="#grep-recursively" id="id37">grep recursively</a></li>
+<li><a class="reference internal" href="#to-grep-a-string-pipe-output-of-echo" id="id38">To grep a string, pipe output of echo</a></li>
+<li><a class="reference internal" href="#d-not-supported-in-linux-grep-as-default-seems-like" id="id39"><code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a></li>
+<li><a class="reference internal" href="#just-use-double-quotes-for-regex-query" id="id40">just use double-quotes for regex query</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#selecting-n-th-line-or-word-using-sed-and-awk" id="id39">Selecting n-th line or word using sed and awk</a></li>
-<li><a class="reference internal" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" id="id40">Use xargs to execute a command once per line of piped input</a></li>
-<li><a class="reference internal" href="#run-same-command-multiple-times-for-loop" id="id41">Run same command multiple times (for loop)</a></li>
-<li><a class="reference internal" href="#clipboard-with-xclip" id="id42">clipboard with xclip</a></li>
-<li><a class="reference internal" href="#io-redirection" id="id43">IO Redirection</a><ul>
-<li><a class="reference internal" href="#piping-vs-command-substitution" id="id44">Piping vs command substitution</a></li>
-<li><a class="reference internal" href="#redirecting-vs-piping" id="id45">redirecting vs piping</a></li>
-<li><a class="reference internal" href="#output-stdout-and-stderr-to-terminal-and-logfile" id="id46">Output stdout and stderr to terminal and logfile</a></li>
-<li><a class="reference internal" href="#syntax-reference" id="id47">syntax reference</a></li>
+<li><a class="reference internal" href="#selecting-n-th-line-or-word-using-sed-and-awk" id="id41">Selecting n-th line or word using sed and awk</a></li>
+<li><a class="reference internal" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" id="id42">Use xargs to execute a command once per line of piped input</a></li>
+<li><a class="reference internal" href="#run-same-command-multiple-times-for-loop" id="id43">Run same command multiple times (for loop)</a></li>
+<li><a class="reference internal" href="#clipboard-with-xclip" id="id44">clipboard with xclip</a></li>
+<li><a class="reference internal" href="#io-redirection" id="id45">IO Redirection</a><ul>
+<li><a class="reference internal" href="#piping-vs-command-substitution" id="id46">Piping vs command substitution</a></li>
+<li><a class="reference internal" href="#redirecting-vs-piping" id="id47">redirecting vs piping</a></li>
+<li><a class="reference internal" href="#output-stdout-and-stderr-to-terminal-and-logfile" id="id48">Output stdout and stderr to terminal and logfile</a></li>
+<li><a class="reference internal" href="#syntax-reference" id="id49">syntax reference</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#bit-on-printf" id="id48">Bit on printf</a><ul>
-<li><a class="reference internal" href="#examples-from-ss64" id="id49">Examples from ss64</a></li>
+<li><a class="reference internal" href="#bit-on-printf" id="id50">Bit on printf</a><ul>
+<li><a class="reference internal" href="#examples-from-ss64" id="id51">Examples from ss64</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#for-loop" id="id50">for loop</a><ul>
-<li><a class="reference internal" href="#basics" id="id51">basics</a></li>
-<li><a class="reference internal" href="#multiline-in-terminal" id="id52">multiline in terminal</a></li>
-<li><a class="reference internal" href="#looping-over-array-elements" id="id53">Looping over array elements</a></li>
-<li><a class="reference internal" href="#number-of-elements-in-an-array-using-array" id="id54">number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a></li>
-<li><a class="reference internal" href="#avoid-ls-use-globbing-or-find" id="id55">avoid $(ls)...use globbing or find</a></li>
+<li><a class="reference internal" href="#for-loop" id="id52">for loop</a><ul>
+<li><a class="reference internal" href="#basics" id="id53">basics</a></li>
+<li><a class="reference internal" href="#multiline-in-terminal" id="id54">multiline in terminal</a></li>
+<li><a class="reference internal" href="#looping-over-array-elements" id="id55">Looping over array elements</a></li>
+<li><a class="reference internal" href="#number-of-elements-in-an-array-using-array" id="id56">number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a></li>
+<li><a class="reference internal" href="#avoid-ls-use-globbing-or-find" id="id57">avoid $(ls)...use globbing or find</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#arithmetic-expansion" id="id56">arithmetic expansion ((..))</a><ul>
-<li><a class="reference internal" href="#let-vs" id="id57">let vs (())?</a></li>
+<li><a class="reference internal" href="#arithmetic-expansion" id="id58">arithmetic expansion ((..))</a><ul>
+<li><a class="reference internal" href="#let-vs" id="id59">let vs (())?</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="overflows">
 <h2><a class="toc-backref" href="#id1">1.1. Overflows</a><a class="headerlink" href="#overflows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="more-stuffs-with-ls">
+<h3><a class="toc-backref" href="#id2">1.1.1. More stuffs with ls</a><a class="headerlink" href="#more-stuffs-with-ls" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash-an-examination">http://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash-an-examination</a></p>
+<p>Show only directories:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># using ls only</span>
+takanori@sbia-pc125 ~/anaconda2/lib/python2.7 $ ls -d */
+bsddb/     config/  curses/     email/      hotshot/  importlib/  lib2to3/      lib-tk/   multiprocessing/  pydoc_data/     sqlite3/   wsgiref/
+compiler/  ctypes/  distutils/  encodings/  idlelib/  json/       lib-dynload/  logging/  plat-linux2/      site-packages/  unittest/  xml/
+
+takanori@sbia-pc125 ~/anaconda2/lib/python2.7 $ ls -ld */ <span class="p">|</span> head -5
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 bsddb/
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 compiler/
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 config/
+drwxr-xr-x   <span class="m">3</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 ctypes/
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 curses/
+
+<span class="c1"># using grep</span>
+takanori@sbia-pc125 ~/anaconda2/lib/python2.7 $ ls -l <span class="p">|</span> grep <span class="s2">&quot;^d&quot;</span> <span class="p">|</span> head -5
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 bsddb
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 compiler
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 config
+drwxr-xr-x   <span class="m">3</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 ctypes
+drwxr-xr-x   <span class="m">2</span> takanori takanori 4.0K Aug <span class="m">22</span> 11:13 curses
+</pre></div>
+</div>
+</div>
 <div class="section" id="insightful-sed-example">
-<h3><a class="toc-backref" href="#id2">1.1.1. Insightful sed example</a><a class="headerlink" href="#insightful-sed-example" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">1.1.2. Insightful sed example</a><a class="headerlink" href="#insightful-sed-example" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/7209629/extract-string-from-brackets">http://stackoverflow.com/questions/7209629/extract-string-from-brackets</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;string1 [string2] string3 string4&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*\[\([^]]*\)\].*/\1/g&#39;</span>
 </pre></div>
 </div>
 <p>Here&#8217;s a breakdown of the sed command:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">/</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">it</span> <span class="n">should</span> <span class="n">perform</span> <span class="n">a</span> <span class="n">substitution</span>
-<span class="o">.*</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">match</span> <span class="n">zero</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">characters</span>
-\<span class="p">[</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">match</span> <span class="n">a</span> <span class="n">literal</span> <span class="p">[</span> <span class="n">character</span>
-\<span class="p">(</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">starts</span> <span class="n">saving</span> <span class="n">the</span> <span class="n">pattern</span> <span class="k">for</span> <span class="n">later</span> <span class="n">use</span>
-<span class="p">[</span><span class="o">^</span><span class="p">]]</span><span class="o">*</span>       <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">match</span> <span class="nb">any</span> <span class="n">character</span> <span class="n">that</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="p">[</span> <span class="n">character</span>
-                <span class="n">the</span> <span class="n">outer</span> <span class="p">[</span> <span class="ow">and</span> <span class="p">]</span> <span class="n">signify</span> <span class="n">that</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">character</span> <span class="k">class</span>
-                <span class="nc">having</span> <span class="n">the</span> <span class="o">^</span> <span class="n">character</span> <span class="k">as</span> <span class="n">the</span> <span class="n">first</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">means</span> <span class="s2">&quot;not&quot;</span>
-\<span class="p">)</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">closes</span> <span class="n">the</span> <span class="n">saving</span> <span class="n">of</span> <span class="n">the</span> <span class="n">pattern</span> <span class="n">match</span> <span class="k">for</span> <span class="n">later</span> <span class="n">use</span>
-\<span class="p">]</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">match</span> <span class="n">a</span> <span class="n">literal</span> <span class="p">]</span> <span class="n">character</span>
-<span class="o">.*</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">match</span> <span class="n">zero</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">characters</span>
-<span class="o">/</span>\<span class="mi">1</span>         <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">replace</span> <span class="n">everything</span> <span class="n">matched</span> <span class="k">with</span> <span class="n">the</span> <span class="n">first</span> <span class="n">saved</span> <span class="n">pattern</span>
-                <span class="p">(</span><span class="n">the</span> <span class="n">match</span> <span class="n">between</span> <span class="s2">&quot;\(&quot;</span> <span class="ow">and</span> <span class="s2">&quot;\)&quot;</span> <span class="p">)</span>
-<span class="o">/</span><span class="n">g</span>          <span class="o">&lt;--</span> <span class="n">this</span> <span class="n">means</span> <span class="n">the</span> <span class="n">substitution</span> <span class="ow">is</span> <span class="k">global</span> <span class="p">(</span><span class="nb">all</span> <span class="n">occurrences</span> <span class="n">on</span> <span class="n">the</span> <span class="n">line</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>s/          &lt;-- this means it should perform a substitution
+.*          &lt;-- this means match zero or more characters
+\[          &lt;-- this means match a literal [ character
+\(          &lt;-- this starts saving the pattern for later use
+[^]]*       &lt;-- this means match any character that is not a [ character
+                the outer [ and ] signify that this is a character class
+                having the ^ character as the first character in the class means &quot;not&quot;
+\)          &lt;-- this closes the saving of the pattern match for later use
+\]          &lt;-- this means match a literal ] character
+.*          &lt;-- this means match zero or more characters
+/\1         &lt;-- this means replace everything matched with the first saved pattern
+                (the match between &quot;\(&quot; and &quot;\)&quot; )
+/g          &lt;-- this means the substitution is global (all occurrences on the line)
 </pre></div>
 </div>
 </div>
 <div class="section" id="remove-colors-from-stdout-harder-than-i-expected">
-<h3><a class="toc-backref" href="#id3">1.1.2. Remove colors from stdout (harder than i expected)</a><a class="headerlink" href="#remove-colors-from-stdout-harder-than-i-expected" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">1.1.3. Remove colors from stdout (harder than i expected)</a><a class="headerlink" href="#remove-colors-from-stdout-harder-than-i-expected" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/17998978/removing-colors-from-output">http://stackoverflow.com/questions/17998978/removing-colors-from-output</a></li>
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/111899/how-to-strip-color-codes-out-of-stdout-and-pipe-to-file-and-stdout">http://unix.stackexchange.com/questions/111899/how-to-strip-color-codes-out-of-stdout-and-pipe-to-file-and-stdout</a></li>
@@ -830,18 +873,33 @@ $ find . -maxdepth <span class="m">1</span> <span class="p">|</span> grep .git <
 <span class="c1"># awww...much better output from ctrl+v</span>
 ./.git
 ./.gitignore
+
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># more usecase</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># i can pipe grep output to open files</span>
+$ git ls-files <span class="p">|</span> grep copybutton.js <span class="p">|</span> stripcolors <span class="p">|</span> xargs subl
+
+<span class="c1"># open all rst files in new sublime window</span>
+$ subl -n
+$ git ls-files <span class="p">|</span> grep .rst <span class="p">|</span> stripcolors <span class="p">|</span> xargs subl
 </pre></div>
 </div>
 </div>
+<div class="section" id="sigint-and-sigstp">
+<h3><a class="toc-backref" href="#id5">1.1.4. SIGINT and SIGSTP</a><a class="headerlink" href="#sigint-and-sigstp" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://askubuntu.com/questions/510811/what-is-the-difference-between-ctrl-z-and-ctrl-c-in-the-shell">http://askubuntu.com/questions/510811/what-is-the-difference-between-ctrl-z-and-ctrl-c-in-the-shell</a></p>
+<p>Ha, didn&#8217;t know the technical term for these <code class="docutils literal"><span class="pre">ctrl+c</span></code> (interrupt) and <code class="docutils literal"><span class="pre">ctrl+z</span></code> (suspend)</p>
+</div>
 <div class="section" id="quoting-with-command-substitution">
-<h3><a class="toc-backref" href="#id4">1.1.3. Quoting with command substitution</a><a class="headerlink" href="#quoting-with-command-substitution" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">1.1.5. Quoting with command substitution</a><a class="headerlink" href="#quoting-with-command-substitution" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/118433/quoting-within-command-substitution-in-bash">http://unix.stackexchange.com/questions/118433/quoting-within-command-substitution-in-bash</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">DIRNAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$FILE</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="c1"># the recommended way</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="display-function-names">
-<h3><a class="toc-backref" href="#id5">1.1.4. Display function names</a><a class="headerlink" href="#display-function-names" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">1.1.6. Display function names</a><a class="headerlink" href="#display-function-names" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell">http://stackoverflow.com/questions/4471364/how-do-i-list-the-functions-defined-in-my-shell</a></li>
 </ul>
@@ -864,14 +922,14 @@ $ find . -maxdepth <span class="m">1</span> <span class="p">|</span> grep .git <
 </div>
 </div>
 <div class="section" id="get-n-th-line-of-output-used-sed">
-<h3><a class="toc-backref" href="#id6">1.1.5. get n-th line of output (used sed</a><a class="headerlink" href="#get-n-th-line-of-output-used-sed" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">1.1.7. get n-th line of output (used sed</a><a class="headerlink" href="#get-n-th-line-of-output-used-sed" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout">http://stackoverflow.com/questions/1429556/shell-bash-command-to-get-nth-line-of-stdout</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>ls -l <span class="p">|</span> sed -n 2p
 </pre></div>
 </div>
 </div>
 <div class="section" id="quotes-with-grep">
-<h3><a class="toc-backref" href="#id7">1.1.6. Quotes with grep</a><a class="headerlink" href="#quotes-with-grep" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">1.1.8. Quotes with grep</a><a class="headerlink" href="#quotes-with-grep" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes">http://stackoverflow.com/questions/25151067/grep-double-quotes-vs-single-quotes</a></li>
 </ul>
@@ -898,12 +956,12 @@ $ <span class="nb">echo</span> <span class="s1">&#39;$(date) and 2+2=$((2+2))&#3
 </div>
 </div>
 <div class="section" id="escaping-single-quotes-a-mess">
-<h2><a class="toc-backref" href="#id8">1.2. Escaping single quotes (a mess...)</a><a class="headerlink" href="#escaping-single-quotes-a-mess" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">1.2. Escaping single quotes (a mess...)</a><a class="headerlink" href="#escaping-single-quotes-a-mess" title="Permalink to this headline">¶</a></h2>
 <p>Use <code class="docutils literal"><span class="pre">'&quot;'&quot;'</span></code></p>
 <p><a class="reference external" href="http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings">http://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings</a></p>
 </div>
 <div class="section" id="using-rename-command">
-<h2><a class="toc-backref" href="#id9">1.3. Using rename command</a><a class="headerlink" href="#using-rename-command" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">1.3. Using rename command</a><a class="headerlink" href="#using-rename-command" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/146743/processing-multiple-extensions">http://unix.stackexchange.com/questions/146743/processing-multiple-extensions</a></li>
 <li><a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html">https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html</a></li>
@@ -934,7 +992,7 @@ mkdir <span class="o">{</span>a,b,c<span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="rename-files-with-suffix-or-prefix">
-<h3><a class="toc-backref" href="#id10">1.3.1. Rename files with suffix or prefix</a><a class="headerlink" href="#rename-files-with-suffix-or-prefix" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">1.3.1. Rename files with suffix or prefix</a><a class="headerlink" href="#rename-files-with-suffix-or-prefix" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>2nd answer in <a class="reference external" href="http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix">http://stackoverflow.com/questions/208181/how-to-rename-with-prefix-suffix</a></li>
 </ul>
@@ -953,7 +1011,7 @@ mkdir <span class="o">{</span>a,b,c<span class="o">}</span>
 </td></tr></table></div>
 </div>
 <div class="section" id="regexp-syntax-with-rename">
-<h3><a class="toc-backref" href="#id11">1.3.2. regexp syntax with rename</a><a class="headerlink" href="#regexp-syntax-with-rename" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">1.3.2. regexp syntax with rename</a><a class="headerlink" href="#regexp-syntax-with-rename" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://answers.launchpad.net/ubuntu/+question/31247">https://answers.launchpad.net/ubuntu/+question/31247</a></li>
 <li><a class="reference external" href="http://askubuntu.com/questions/204864/rename-what-does-s-vs-y-mean">http://askubuntu.com/questions/204864/rename-what-does-s-vs-y-mean</a></li>
@@ -985,7 +1043,7 @@ rename -v <span class="s1">&#39;s/graphnet/elasticnet/;&#39;</span> *.m
 </div>
 </div>
 <div class="section" id="random-handy-snippets">
-<h2><a class="toc-backref" href="#id12">1.4. Random handy snippets</a><a class="headerlink" href="#random-handy-snippets" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">1.4. Random handy snippets</a><a class="headerlink" href="#random-handy-snippets" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1017,11 +1075,11 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span cl
 </td></tr></table></div>
 </div>
 <div class="section" id="replace-whitespace-with-newline-in-sed">
-<h2><a class="toc-backref" href="#id13">1.5. replace whitespace with newline in sed</a><a class="headerlink" href="#replace-whitespace-with-newline-in-sed" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">1.5. replace whitespace with newline in sed</a><a class="headerlink" href="#replace-whitespace-with-newline-in-sed" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list">http://stackoverflow.com/questions/1853009/replace-all-whitespace-with-a-line-break-paragraph-mark-to-make-a-word-list</a></p>
 <p><code class="docutils literal"><span class="pre">bash</span> <span class="pre">0622_2016_rename_tobvols.sh</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/</span> <span class="pre">/\n/g'</span></code></p>
 <div class="section" id="what-if-multiple-line-is-spanned">
-<h3><a class="toc-backref" href="#id14">1.5.1. What if multiple line is spanned?</a><a class="headerlink" href="#what-if-multiple-line-is-spanned" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">1.5.1. What if multiple line is spanned?</a><a class="headerlink" href="#what-if-multiple-line-is-spanned" title="Permalink to this headline">¶</a></h3>
 <p>08-05-2016 (12:37)</p>
 <p>hmmm...better to leave sed in this case, and use perl?</p>
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string">http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string</a></p>
@@ -1030,7 +1088,7 @@ find . -maxdepth <span class="m">1</span> <span class="p">|</span> sort <span cl
 </div>
 </div>
 <div class="section" id="check-running-processes">
-<h2><a class="toc-backref" href="#id15">1.6. check running processes</a><a class="headerlink" href="#check-running-processes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">1.6. check running processes</a><a class="headerlink" href="#check-running-processes" title="Permalink to this headline">¶</a></h2>
 <p>The one I use the most frequent</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1043,7 +1101,7 @@ ps aux
 </td></tr></table></div>
 </div>
 <div class="section" id="nohup-vs-disown-vs">
-<h2><a class="toc-backref" href="#id16">1.7. nohup vs disown vs &amp;</a><a class="headerlink" href="#nohup-vs-disown-vs" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">1.7. nohup vs disown vs &amp;</a><a class="headerlink" href="#nohup-vs-disown-vs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Cuz i got annoyed on accidentally closing terminal running <code class="docutils literal"><span class="pre">spyder</span> <span class="pre">&amp;</span></code></li>
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it">http://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it</a></li>
@@ -1051,7 +1109,7 @@ ps aux
 </ul>
 </div>
 <div class="section" id="moving-and-copying">
-<h2><a class="toc-backref" href="#id17">1.8. Moving and copying</a><a class="headerlink" href="#moving-and-copying" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">1.8. Moving and copying</a><a class="headerlink" href="#moving-and-copying" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://ss64.com/bash/cp.html">http://ss64.com/bash/cp.html</a></li>
 <li><a class="reference external" href="http://ss64.com/bash/mv.html">http://ss64.com/bash/mv.html</a></li>
@@ -1096,7 +1154,7 @@ rm -rf test/
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="scp-user">
-<h3><a class="toc-backref" href="#id18">1.8.1. scp user</a><a class="headerlink" href="#scp-user" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">1.8.1. scp user</a><a class="headerlink" href="#scp-user" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://ss64.com/bash/scp.html">http://ss64.com/bash/scp.html</a></li>
 </ul>
@@ -1136,31 +1194,31 @@ scp watanabt@cbica-cluster.uphs.upenn.edu:~/dummy.txt ~/dummy_cp.txt
 </td></tr></table></div>
 </div>
 <div class="section" id="rsync">
-<h3><a class="toc-backref" href="#id19">1.8.2. rsync</a><a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">1.8.2. rsync</a><a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://ss64.com/bash/rsync.html">http://ss64.com/bash/rsync.html</a></p>
 <div class="section" id="what-a-does">
 <h4>1.8.2.1. What <code class="docutils literal"><span class="pre">-a</span></code> does<a class="headerlink" href="#what-a-does" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync">http://serverfault.com/questions/141773/what-is-archive-mode-in-rsync</a></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#========================================================================#</span>
-<span class="c1"># it exludes these</span>
-<span class="c1">#========================================================================#</span>
-<span class="o">-</span><span class="n">H</span><span class="p">,</span> <span class="o">--</span><span class="n">hard</span><span class="o">-</span><span class="n">links</span> <span class="n">preserve</span> <span class="n">hard</span> <span class="n">links</span>
-<span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="o">--</span><span class="n">acls</span> <span class="n">preserve</span> <span class="n">ACLs</span> <span class="p">(</span><span class="n">implies</span> <span class="o">-</span><span class="n">p</span><span class="p">)</span>
-<span class="o">-</span><span class="n">X</span><span class="p">,</span> <span class="o">--</span><span class="n">xattrs</span> <span class="n">preserve</span> <span class="n">extended</span> <span class="n">attributes</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>#========================================================================#
+# it exludes these
+#========================================================================#
+-H, --hard-links preserve hard links
+-A, --acls preserve ACLs (implies -p)
+-X, --xattrs preserve extended attributes
 
-<span class="c1">#========================================================================#</span>
-<span class="c1"># does all of these</span>
-<span class="c1">#========================================================================#</span>
-<span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">recurse</span> <span class="n">into</span> <span class="n">directories</span>
-<span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="o">--</span><span class="n">links</span> <span class="n">copy</span> <span class="n">symlinks</span> <span class="k">as</span> <span class="n">symlinks</span>
-<span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="o">--</span><span class="n">perms</span> <span class="n">preserve</span> <span class="n">permissions</span>
-<span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="o">--</span><span class="n">times</span> <span class="n">preserve</span> <span class="n">modification</span> <span class="n">times</span>
-<span class="o">-</span><span class="n">g</span><span class="p">,</span> <span class="o">--</span><span class="n">group</span> <span class="n">preserve</span> <span class="n">group</span>
-<span class="o">-</span><span class="n">o</span><span class="p">,</span> <span class="o">--</span><span class="n">owner</span> <span class="n">preserve</span> <span class="n">owner</span> <span class="p">(</span><span class="nb">super</span><span class="o">-</span><span class="n">user</span> <span class="n">only</span><span class="p">)</span>
-<span class="o">-</span><span class="n">D</span> <span class="n">same</span> <span class="k">as</span> <span class="o">--</span><span class="n">devices</span> <span class="o">--</span><span class="n">specials</span>
+#========================================================================#
+# does all of these
+#========================================================================#
+-r, --recursive recurse into directories
+-l, --links copy symlinks as symlinks
+-p, --perms preserve permissions
+-t, --times preserve modification times
+-g, --group preserve group
+-o, --owner preserve owner (super-user only)
+-D same as --devices --specials
 
-<span class="o">--</span><span class="n">devices</span> <span class="n">preserve</span> <span class="n">device</span> <span class="n">files</span> <span class="p">(</span><span class="nb">super</span><span class="o">-</span><span class="n">user</span> <span class="n">only</span><span class="p">)</span>
-<span class="o">--</span><span class="n">specials</span> <span class="n">preserve</span> <span class="n">special</span> <span class="n">files</span>
+--devices preserve device files (super-user only)
+--specials preserve special files
 </pre></div>
 </div>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -1172,7 +1230,7 @@ rsync -r -l -p -t -g -o -D
 </div>
 </div>
 <div class="section" id="find">
-<h2><a class="toc-backref" href="#id20">1.9. find</a><a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">1.9. find</a><a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://ss64.com/bash/find.html">http://ss64.com/bash/find.html</a></p>
 <p><strong>My Examples</strong></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1245,7 +1303,7 @@ $ find . -name <span class="s1">&#39;*.doc&#39;</span> ! -name Accounts*
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="note-find-vs-locate">
-<h3><a class="toc-backref" href="#id21">1.9.1. Note: <strong>find</strong> vs <strong>locate</strong></a><a class="headerlink" href="#note-find-vs-locate" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">1.9.1. Note: <strong>find</strong> vs <strong>locate</strong></a><a class="headerlink" href="#note-find-vs-locate" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/">http://www.thehelloworldprogram.com/linux/locate-find-waldo-bash-shell/</a></p>
 <blockquote>
 <div><ul class="simple">
@@ -1256,7 +1314,7 @@ $ find . -name <span class="s1">&#39;*.doc&#39;</span> ! -name Accounts*
 </div>
 </div>
 <div class="section" id="command-vs-command-use-latter">
-<h2><a class="toc-backref" href="#id22">1.10. ``command`` vs $(command) (use latter)</a><a class="headerlink" href="#command-vs-command-use-latter" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">1.10. ``command`` vs $(command) (use latter)</a><a class="headerlink" href="#command-vs-command-use-latter" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>$(commands) does the same thing as backticks, but you can nest them.</li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/2657012/how-to-properly-nest-bash-backticks">source</a></li>
@@ -1267,9 +1325,9 @@ $ find . -name <span class="s1">&#39;*.doc&#39;</span> ! -name Accounts*
 </td></tr></table></div>
 </div>
 <div class="section" id="ls-tricks">
-<h2><a class="toc-backref" href="#id23">1.11. ls tricks</a><a class="headerlink" href="#ls-tricks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">1.11. ls tricks</a><a class="headerlink" href="#ls-tricks" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ls-recursively-use-find">
-<h3><a class="toc-backref" href="#id24">1.11.1. ls recursively (use <em>find</em>)</a><a class="headerlink" href="#ls-recursively-use-find" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">1.11.1. ls recursively (use <em>find</em>)</a><a class="headerlink" href="#ls-recursively-use-find" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file">http://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># recursively lists out all files + subdirectories</span>
@@ -1278,7 +1336,7 @@ find ./test
 </td></tr></table></div>
 </div>
 <div class="section" id="show-only-symbolic-links-alias-ls-sym">
-<h3><a class="toc-backref" href="#id25">1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)</a><a class="headerlink" href="#show-only-symbolic-links-alias-ls-sym" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">1.11.2. show only symbolic links (<strong>alias ls_sym</strong>)</a><a class="headerlink" href="#show-only-symbolic-links-alias-ls-sym" title="Permalink to this headline">¶</a></h3>
 <p>Display only files and folders that are symbolic links in tcsh or bash</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ls -l <span class="k">$(</span>find ./ -maxdepth <span class="m">1</span> -type l -print<span class="k">)</span>
 </pre></div>
@@ -1286,18 +1344,18 @@ find ./test
 </div>
 </div>
 <div class="section" id="print-timestamp">
-<h2><a class="toc-backref" href="#id26">1.12. print timestamp</a><a class="headerlink" href="#print-timestamp" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">1.12. print timestamp</a><a class="headerlink" href="#print-timestamp" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script">http://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H:%M:%S&quot;</span><span class="k">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="open-image-xdg-open-image-png">
-<h2><a class="toc-backref" href="#id27">1.13. open image ($xdg-open image.png)</a><a class="headerlink" href="#open-image-xdg-open-image-png" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">1.13. open image ($xdg-open image.png)</a><a class="headerlink" href="#open-image-xdg-open-image-png" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">xdg-open</span> <span class="pre">image.png</span></code></p>
 </div>
 <div class="section" id="options-with-less-ongoing">
-<h2><a class="toc-backref" href="#id28">1.14. Options with <strong>less</strong> (ongoing)</a><a class="headerlink" href="#options-with-less-ongoing" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">1.14. Options with <strong>less</strong> (ongoing)</a><a class="headerlink" href="#options-with-less-ongoing" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -n : enable line numbers</span>
 <span class="c1"># -N : disable line numbers</span>
@@ -1305,14 +1363,14 @@ find ./test
 </td></tr></table></div>
 </div>
 <div class="section" id="history-w-o-line-numbers">
-<h2><a class="toc-backref" href="#id29">1.15. history w/o line-numbers</a><a class="headerlink" href="#history-w-o-line-numbers" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">1.15. history w/o line-numbers</a><a class="headerlink" href="#history-w-o-line-numbers" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers">http://stackoverflow.com/questions/7110119/bash-history-without-line-numbers</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">history</span> <span class="p">|</span> cut -c 8-
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="when-xargs-is-needed">
-<h2><a class="toc-backref" href="#id30">1.16. When xargs is needed</a><a class="headerlink" href="#when-xargs-is-needed" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">1.16. When xargs is needed</a><a class="headerlink" href="#when-xargs-is-needed" title="Permalink to this headline">¶</a></h2>
 <p>Some bash program can&#8217;t be piped since piping requires the program to accept STDIN commands
 (example, <code class="docutils literal"><span class="pre">touch</span></code>)</p>
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/24954/when-is-xargs-needed">http://unix.stackexchange.com/questions/24954/when-is-xargs-needed</a></p>
@@ -1323,7 +1381,7 @@ find ./test
 </div></blockquote>
 </div>
 <div class="section" id="get-computer-info">
-<h2><a class="toc-backref" href="#id31">1.17. Get computer info</a><a class="headerlink" href="#get-computer-info" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">1.17. Get computer info</a><a class="headerlink" href="#get-computer-info" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1351,7 +1409,7 @@ locate libfortran.so
 </td></tr></table></div>
 </div>
 <div class="section" id="mogrify">
-<h2><a class="toc-backref" href="#id32">1.18. mogrify</a><a class="headerlink" href="#mogrify" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">1.18. mogrify</a><a class="headerlink" href="#mogrify" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1373,7 +1431,7 @@ $ find ./ -name <span class="s2">&quot;*.png&quot;</span> -exec mogrify -resize 
 </td></tr></table></div>
 </div>
 <div class="section" id="pipe-dreams-xargs-exec-in-find">
-<h2><a class="toc-backref" href="#id33">1.19. Pipe dreams (xargs, -exec in find)</a><a class="headerlink" href="#pipe-dreams-xargs-exec-in-find" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id35">1.19. Pipe dreams (xargs, -exec in find)</a><a class="headerlink" href="#pipe-dreams-xargs-exec-in-find" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose">http://unix.stackexchange.com/questions/41740/find-exec-vs-find-xargs-which-one-to-choose</a></p>
 <ul class="simple">
 <li>the <code class="docutils literal"><span class="pre">-exec</span> <span class="pre">&quot;{}&quot;</span> <span class="pre">\;</span></code> approach seems to be specific to <code class="docutils literal"><span class="pre">find</span></code>
@@ -1400,9 +1458,9 @@ find . -maxdepth <span class="m">1</span> -type d <span class="p">|</span> ls -l
 </td></tr></table></div>
 </div>
 <div class="section" id="grep">
-<h2><a class="toc-backref" href="#id34">1.20. Grep</a><a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">1.20. Grep</a><a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="grep-recursively">
-<h3><a class="toc-backref" href="#id35">1.20.1. grep recursively</a><a class="headerlink" href="#grep-recursively" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id37">1.20.1. grep recursively</a><a class="headerlink" href="#grep-recursively" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively">http://stackoverflow.com/questions/1987926/how-do-i-grep-recursively</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1421,11 +1479,11 @@ grep -r --include<span class="o">=</span>*.<span class="o">{</span>py,m<span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="to-grep-a-string-pipe-output-of-echo">
-<h3><a class="toc-backref" href="#id36">1.20.2. To grep a string, pipe output of echo</a><a class="headerlink" href="#to-grep-a-string-pipe-output-of-echo" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">1.20.2. To grep a string, pipe output of echo</a><a class="headerlink" href="#to-grep-a-string-pipe-output-of-echo" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name">http://superuser.com/questions/748724/pass-a-large-string-to-grep-instead-of-a-file-name</a></p>
 </div>
 <div class="section" id="d-not-supported-in-linux-grep-as-default-seems-like">
-<h3><a class="toc-backref" href="#id37">1.20.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a><a class="headerlink" href="#d-not-supported-in-linux-grep-as-default-seems-like" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">1.20.3. <code class="docutils literal"><span class="pre">\d</span></code> not supported in linux grep as default...seems like</a><a class="headerlink" href="#d-not-supported-in-linux-grep-as-default-seems-like" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions">http://stackoverflow.com/questions/6901171/is-d-not-supported-by-greps-basic-expressions</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1438,7 +1496,7 @@ grep -P <span class="s1">&#39;\d&#39;</span>
 </td></tr></table></div>
 </div>
 <div class="section" id="just-use-double-quotes-for-regex-query">
-<h3><a class="toc-backref" href="#id38">1.20.4. just use double-quotes for regex query</a><a class="headerlink" href="#just-use-double-quotes-for-regex-query" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id40">1.20.4. just use double-quotes for regex query</a><a class="headerlink" href="#just-use-double-quotes-for-regex-query" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote">http://askubuntu.com/questions/432064/using-grep-to-search-texts-with-single-quote</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># to find &#39;type&#39; =&gt; &#39;select&#39;</span>
@@ -1448,7 +1506,7 @@ grep  <span class="s2">&quot;&#39;type&#39; =&gt; &#39;select&#39;&quot;</span> 
 </div>
 </div>
 <div class="section" id="selecting-n-th-line-or-word-using-sed-and-awk">
-<h2><a class="toc-backref" href="#id39">1.21. Selecting n-th line or word using sed and awk</a><a class="headerlink" href="#selecting-n-th-line-or-word-using-sed-and-awk" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">1.21. Selecting n-th line or word using sed and awk</a><a class="headerlink" href="#selecting-n-th-line-or-word-using-sed-and-awk" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash">http://stackoverflow.com/questions/2440414/how-to-retrieve-the-first-word-of-the-output-of-a-command-in-bash</a></li>
 <li></li>
@@ -1482,7 +1540,7 @@ itksnap -g <span class="k">$(</span><span class="nb">echo</span> * <span class="
 </td></tr></table></div>
 </div>
 <div class="section" id="use-xargs-to-execute-a-command-once-per-line-of-piped-input">
-<h2><a class="toc-backref" href="#id40">1.22. Use xargs to execute a command once per line of piped input</a><a class="headerlink" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">1.22. Use xargs to execute a command once per line of piped input</a><a class="headerlink" href="#use-xargs-to-execute-a-command-once-per-line-of-piped-input" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input">http://unix.stackexchange.com/questions/7558/execute-a-command-once-per-line-of-piped-input</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># below is not practical, but gives a good idea of how xargs work</span>
@@ -1491,7 +1549,7 @@ find -maxdepth <span class="m">1</span> <span class="p">|</span> egrep <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="run-same-command-multiple-times-for-loop">
-<h2><a class="toc-backref" href="#id41">1.23. Run same command multiple times (for loop)</a><a class="headerlink" href="#run-same-command-multiple-times-for-loop" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">1.23. Run same command multiple times (for loop)</a><a class="headerlink" href="#run-same-command-multiple-times-for-loop" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash">http://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1510,7 +1568,7 @@ find -maxdepth <span class="m">1</span> <span class="p">|</span> egrep <span cla
 </td></tr></table></div>
 </div>
 <div class="section" id="clipboard-with-xclip">
-<h2><a class="toc-backref" href="#id42">1.24. clipboard with xclip</a><a class="headerlink" href="#clipboard-with-xclip" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">1.24. clipboard with xclip</a><a class="headerlink" href="#clipboard-with-xclip" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard">http://stackoverflow.com/questions/5130968/how-can-i-copy-the-output-of-a-command-directly-into-my-clipboard</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1549,10 +1607,10 @@ sphinx-quickstart --help <span class="p">|</span> c
 </td></tr></table></div>
 </div>
 <div class="section" id="io-redirection">
-<h2><a class="toc-backref" href="#id43">1.25. IO Redirection</a><a class="headerlink" href="#io-redirection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id45">1.25. IO Redirection</a><a class="headerlink" href="#io-redirection" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.tutorialspoint.com/unix/unix-io-redirections.htm">http://www.tutorialspoint.com/unix/unix-io-redirections.htm</a></p>
 <div class="section" id="piping-vs-command-substitution">
-<h3><a class="toc-backref" href="#id44">1.25.1. Piping vs command substitution</a><a class="headerlink" href="#piping-vs-command-substitution" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id46">1.25.1. Piping vs command substitution</a><a class="headerlink" href="#piping-vs-command-substitution" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/17107/process-substitution-and-pipe">http://unix.stackexchange.com/questions/17107/process-substitution-and-pipe</a></li>
 </ul>
@@ -1569,7 +1627,7 @@ $ wc -l &lt; users
 </div>
 </div>
 <div class="section" id="redirecting-vs-piping">
-<h3><a class="toc-backref" href="#id45">1.25.2. redirecting vs piping</a><a class="headerlink" href="#redirecting-vs-piping" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id47">1.25.2. redirecting vs piping</a><a class="headerlink" href="#redirecting-vs-piping" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://askubuntu.com/questions/172982/what-is-the-difference-between-redirection-and-pipe">http://askubuntu.com/questions/172982/what-is-the-difference-between-redirection-and-pipe</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/9553628/piping-and-redirection">http://stackoverflow.com/questions/9553628/piping-and-redirection</a></li>
@@ -1578,7 +1636,7 @@ $ wc -l &lt; users
 </ul>
 </div>
 <div class="section" id="output-stdout-and-stderr-to-terminal-and-logfile">
-<h3><a class="toc-backref" href="#id46">1.25.3. Output stdout and stderr to terminal and logfile</a><a class="headerlink" href="#output-stdout-and-stderr-to-terminal-and-logfile" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id48">1.25.3. Output stdout and stderr to terminal and logfile</a><a class="headerlink" href="#output-stdout-and-stderr-to-terminal-and-logfile" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout">http://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console">http://stackoverflow.com/questions/18460186/writing-outputs-to-log-file-and-console</a></li>
@@ -1592,7 +1650,7 @@ bash mymake.sh 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span c
 </div>
 </div>
 <div class="section" id="syntax-reference">
-<h3><a class="toc-backref" href="#id47">1.25.4. syntax reference</a><a class="headerlink" href="#syntax-reference" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id49">1.25.4. syntax reference</a><a class="headerlink" href="#syntax-reference" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://www.tldp.org/LDP/abs/html/io-redirection.html">http://www.tldp.org/LDP/abs/html/io-redirection.html</a></li>
 </ul>
@@ -1679,7 +1737,7 @@ M&gt;<span class="p">&amp;</span>N
 </div>
 </div>
 <div class="section" id="bit-on-printf">
-<h2><a class="toc-backref" href="#id48">1.26. Bit on printf</a><a class="headerlink" href="#bit-on-printf" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id50">1.26. Bit on printf</a><a class="headerlink" href="#bit-on-printf" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://ss64.com/bash/printf.html">http://ss64.com/bash/printf.html</a></li>
 <li><a class="reference external" href="http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo">http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo</a><ul>
@@ -1716,7 +1774,7 @@ $ <span class="nb">printf</span> <span class="s2">&quot;[%s]&quot;</span> <span 
 </pre></div>
 </div>
 <div class="section" id="examples-from-ss64">
-<h3><a class="toc-backref" href="#id49">1.26.1. Examples from ss64</a><a class="headerlink" href="#examples-from-ss64" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id51">1.26.1. Examples from ss64</a><a class="headerlink" href="#examples-from-ss64" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="k">for</span> <span class="o">((</span><span class="nv">num</span><span class="o">=</span>1<span class="p">;</span>num&lt;<span class="o">=</span>5<span class="p">;</span>num+<span class="o">=</span>1<span class="o">))</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%03d&quot;</span> <span class="nv">$num</span><span class="k">)</span><span class="p">;</span> <span class="k">done</span>
 001
 002
@@ -1751,9 +1809,9 @@ This is Linux running on a x86_64 processor.
 </div>
 </div>
 <div class="section" id="for-loop">
-<h2><a class="toc-backref" href="#id50">1.27. for loop</a><a class="headerlink" href="#for-loop" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id52">1.27. for loop</a><a class="headerlink" href="#for-loop" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="basics">
-<h3><a class="toc-backref" href="#id51">1.27.1. basics</a><a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id53">1.27.1. basics</a><a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://tldp.org/LDP/abs/html/loops1.html">http://tldp.org/LDP/abs/html/loops1.html</a></li>
 <li><a class="reference external" href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html</a></li>
@@ -1830,7 +1888,7 @@ $ <span class="k">for</span> i in <span class="k">$(</span>seq <span class="m">1
 </div>
 </div>
 <div class="section" id="multiline-in-terminal">
-<h3><a class="toc-backref" href="#id52">1.27.2. multiline in terminal</a><a class="headerlink" href="#multiline-in-terminal" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id54">1.27.2. multiline in terminal</a><a class="headerlink" href="#multiline-in-terminal" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># i can literally type like this w/o using backslash \ to linewrap</span>
 $ <span class="k">for</span> x in <span class="m">1</span> <span class="m">2</span> 3<span class="p">;</span>
 &gt; <span class="k">do</span>
@@ -1840,7 +1898,7 @@ $ <span class="k">for</span> x in <span class="m">1</span> <span class="m">2</sp
 </div>
 </div>
 <div class="section" id="looping-over-array-elements">
-<h3><a class="toc-backref" href="#id53">1.27.3. Looping over array elements</a><a class="headerlink" href="#looping-over-array-elements" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id55">1.27.3. Looping over array elements</a><a class="headerlink" href="#looping-over-array-elements" title="Permalink to this headline">¶</a></h3>
 <p>keep in mind the distinction between <code class="docutils literal"><span class="pre">&quot;${arrayname[*]}&quot;</span></code> (i rarely use this...) vs <code class="docutils literal"><span class="pre">&quot;${arrayname[&#64;]}</span></code> (i use this a lot via for loops)</p>
 <ul class="simple">
 <li><a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">http://mywiki.wooledge.org/BashGuide/Arrays</a></li>
@@ -1875,7 +1933,7 @@ Bob Peter takanori Big Bad John
 </div>
 </div>
 <div class="section" id="number-of-elements-in-an-array-using-array">
-<h3><a class="toc-backref" href="#id54">1.27.4. number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a><a class="headerlink" href="#number-of-elements-in-an-array-using-array" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id56">1.27.4. number of elements in an array using <code class="docutils literal"><span class="pre">${#array[&#64;]}</span></code></a><a class="headerlink" href="#number-of-elements-in-an-array-using-array" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">array</span><span class="o">=(</span>a b c<span class="o">)</span>
 $ <span class="nb">echo</span> <span class="si">${#</span><span class="nv">array</span><span class="p">[@]</span><span class="si">}</span>
 3
@@ -1883,7 +1941,7 @@ $ <span class="nb">echo</span> <span class="si">${#</span><span class="nv">array
 </div>
 </div>
 <div class="section" id="avoid-ls-use-globbing-or-find">
-<h3><a class="toc-backref" href="#id55">1.27.5. avoid $(ls)...use globbing or find</a><a class="headerlink" href="#avoid-ls-use-globbing-or-find" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id57">1.27.5. avoid $(ls)...use globbing or find</a><a class="headerlink" href="#avoid-ls-use-globbing-or-find" title="Permalink to this headline">¶</a></h3>
 <p>see <a class="reference external" href="http://mywiki.wooledge.org/BashGuide/Arrays">http://mywiki.wooledge.org/BashGuide/Arrays</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#=========================================================================#</span>
 <span class="c1"># don&#39;t use $(ls) to get items (woolmore)</span>
@@ -1927,17 +1985,17 @@ item: ./sed/sed-tutorial.gnu.rst
 </div>
 </div>
 <div class="section" id="arithmetic-expansion">
-<h2><a class="toc-backref" href="#id56">1.28. arithmetic expansion ((..))</a><a class="headerlink" href="#arithmetic-expansion" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id58">1.28. arithmetic expansion ((..))</a><a class="headerlink" href="#arithmetic-expansion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://wiki.bash-hackers.org/syntax/arith_expr">http://wiki.bash-hackers.org/syntax/arith_expr</a></li>
 </ul>
 <div class="section" id="let-vs">
-<h3><a class="toc-backref" href="#id57">1.28.1. let vs (())?</a><a class="headerlink" href="#let-vs" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id59">1.28.1. let vs (())?</a><a class="headerlink" href="#let-vs" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/18704857/bash-let-statement-vs-assignment">http://stackoverflow.com/questions/18704857/bash-let-statement-vs-assignment</a></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">wiki</span><span class="o">.</span><span class="n">bash</span><span class="o">-</span><span class="n">hackers</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">commands</span><span class="o">/</span><span class="n">builtin</span><span class="o">/</span><span class="n">let</span><span class="c1">#examples</span>
-<span class="n">There</span> <span class="ow">is</span> <span class="n">almost</span> <span class="n">no</span> <span class="n">difference</span> <span class="n">between</span> <span class="n">let</span> <span class="ow">and</span> <span class="p">((</span> <span class="p">))</span><span class="o">.</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>http://wiki.bash-hackers.org/commands/builtin/let#examples
+There is almost no difference between let and (( )).
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># let version</span>
@@ -2005,6 +2063,7 @@ $ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
