@@ -1,13 +1,15 @@
 <snippet>
     <content><![CDATA[
 .. code-block:: ${1:LANGUAGE}
-    $2:linenos:
+    :linenos:
+    :linenothreshold: 5 <- produce line numbers for code longer than 5 lines
+    :emphasize-lines: 3,5
 
-    $3
+    $2
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <!-- http://www.sphinx-doc.org/en/stable/markup/code.html -->
-    <tabTrigger>code</tabTrigger>
+    <tabTrigger>codeall</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>text.restructuredtext</scope>
 </snippet>

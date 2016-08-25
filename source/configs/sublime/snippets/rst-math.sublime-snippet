@@ -1,6 +1,8 @@
 <snippet>
     <content><![CDATA[
-:math:`${1:MATH}`$2
+.. math::
+
+    $1
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>math</tabTrigger>
