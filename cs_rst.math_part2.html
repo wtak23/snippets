@@ -766,15 +766,7 @@
         + \lambda \Psi(\mybeta)
     \\
     &amp;\bb{\mybeta}{\bx}
-\end{align}\end{split}\]\[If each ``\begin`` environment receives its own ``math`` directive, it works.\]\[::\]\[    .. math::\]\[        \begin{equation}
-         f(x)=(x+a)(x+b)
-        \end{equation}\]\[    .. math::\]\[        \begin{equation}
-         g(x)=(x)(b)
-        \end{equation}\]\[.. math::\]\[    \begin{equation}
-     f(x)=(x+a)(x+b)
-    \end{equation}\]\[.. math::\]\[    \begin{equation}
-     g(x)=(x)(b)
-    \end{equation}\]</div>
+\end{align}\end{split}\]</div>
 </div>
 </div>
 <div class="section" id="equations">
@@ -809,6 +801,9 @@
         E'&amp;=\nabla \times B - 4\pi j,
 \end{align}\end{split}\]</div>
 <p>The above two block, together, screwed up</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>This is an intentional screw-up for demonstration purpose. No worries.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span>.. math::
 
     \begin{equation}
@@ -821,13 +816,14 @@
     \end{align}
 </pre></div>
 </div>
-<div class="math">
+<div class="last math">
 \[\begin{equation}
  f(x)=(x+a)(x+b)
 \end{equation}\]\[\begin{split}begin{align}
     B'&amp;=-\nabla \times E,\\
     E'&amp;=\nabla \times B - 4\pi j,
 \end{align}\end{split}\]</div>
+</div>
 </div>
 <div class="section" id="vertical-alignment">
 <h2>4.3. Vertical alignment<a class="headerlink" href="#vertical-alignment" title="Permalink to this headline">¶</a></h2>

@@ -95,34 +95,6 @@ I got this on top or the rst file. Then i can use them anywhere in the current r
         &\bb{\mybeta}{\bx}
     \end{align}
 
-    If each ``\begin`` environment receives its own ``math`` directive, it works.
-
-    ::
-
-        .. math::
-
-            \begin{equation} 
-             f(x)=(x+a)(x+b)
-            \end{equation}
-
-        .. math::
-        
-            \begin{equation} 
-             g(x)=(x)(b)
-            \end{equation}  
-
-    .. math::
-
-        \begin{equation} 
-         f(x)=(x+a)(x+b)
-        \end{equation}
-
-    .. math::
-
-        \begin{equation} 
-         g(x)=(x)(b)
-        \end{equation}  
-
 #########
 Equations
 #########
@@ -161,7 +133,20 @@ Equations
 
 The above two block, together, screwed up
 
-:: 
+.. attention:: This is an intentional screw-up for demonstration purpose. No worries.
+
+    :: 
+
+        .. math::
+
+            \begin{equation} 
+             f(x)=(x+a)(x+b)
+            \end{equation}
+
+            begin{align}
+                        B'&=-\nabla \times E,\\
+                        E'&=\nabla \times B - 4\pi j,
+            \end{align}
 
     .. math::
 
@@ -170,20 +155,9 @@ The above two block, together, screwed up
         \end{equation}
 
         begin{align}
-                    B'&=-\nabla \times E,\\
-                    E'&=\nabla \times B - 4\pi j,
+            B'&=-\nabla \times E,\\
+            E'&=\nabla \times B - 4\pi j,
         \end{align}
-
-.. math::
-
-    \begin{equation} 
-     f(x)=(x+a)(x+b)
-    \end{equation}
-
-    begin{align}
-        B'&=-\nabla \times E,\\
-        E'&=\nabla \times B - 4\pi j,
-    \end{align}
 
 ##################
 Vertical alignment
