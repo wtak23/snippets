@@ -95,40 +95,6 @@ I got this on top or the rst file. Then i can use them anywhere in the current r
         &\bb{\mybeta}{\bx}
     \end{align}
 
-.. note::
-
-    I ignored all the ones pertaining to equation labeling and referencing.
-    Those are understandably limited in sphinx and mathjax.
-
-.. warning::
-
-    It appears that latex ``\begin{env}`` blocks needs to be in their own
-    ``.. math`` block to be rendered properly.
-
-    Example: below won't render
-
-    ::
-
-        .. math::
-
-            \begin{equation} 
-             f(x)=(x+a)(x+b)
-            \end{equation}
-
-            \begin{equation} 
-             g(x)=(x)(b)
-            \end{equation}  
-
-    .. math::
-
-        \begin{equation} 
-         f(x)=(x+a)(x+b)
-        \end{equation}
-
-        \begin{equation} 
-         g(x)=(x)(b)
-        \end{equation}
-
     If each ``\begin`` environment receives its own ``math`` directive, it works.
 
     ::
@@ -168,7 +134,7 @@ Equations
          f(x)=(x+a)(x+b)
         \end{equation}
 
-    **HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....**
+    .. important:: **HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....**
 
     .. math::
 
@@ -184,7 +150,7 @@ Equations
      f(x)=(x+a)(x+b)
     \end{equation}
 
-**HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....**
+.. important:: **HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....**
 
 .. math::
 
@@ -193,7 +159,7 @@ Equations
             E'&=\nabla \times B - 4\pi j,
     \end{align}
 
-The above two block, together, f'ed up
+The above two block, together, screwed up
 
 :: 
 
@@ -206,7 +172,7 @@ The above two block, together, f'ed up
         begin{align}
                     B'&=-\nabla \times E,\\
                     E'&=\nabla \times B - 4\pi j,
-            \end{align}
+        \end{align}
 
 .. math::
 
@@ -215,9 +181,9 @@ The above two block, together, f'ed up
     \end{equation}
 
     begin{align}
-                B'&=-\nabla \times E,\\
-                E'&=\nabla \times B - 4\pi j,
-        \end{align}
+        B'&=-\nabla \times E,\\
+        E'&=\nabla \times B - 4\pi j,
+    \end{align}
 
 ##################
 Vertical alignment

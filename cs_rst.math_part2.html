@@ -766,57 +766,15 @@
         + \lambda \Psi(\mybeta)
     \\
     &amp;\bb{\mybeta}{\bx}
-\end{align}\end{split}\]</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">I ignored all the ones pertaining to equation labeling and referencing.
-Those are understandably limited in sphinx and mathjax.</p>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p>It appears that latex <code class="docutils literal"><span class="pre">\begin{env}</span></code> blocks needs to be in their own
-<code class="docutils literal"><span class="pre">..</span> <span class="pre">math</span></code> block to be rendered properly.</p>
-<p>Example: below won&#8217;t render</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>.. math::
-
-    \begin{equation}
+\end{align}\end{split}\]\[If each ``\begin`` environment receives its own ``math`` directive, it works.\]\[::\]\[    .. math::\]\[        \begin{equation}
+         f(x)=(x+a)(x+b)
+        \end{equation}\]\[    .. math::\]\[        \begin{equation}
+         g(x)=(x)(b)
+        \end{equation}\]\[.. math::\]\[    \begin{equation}
      f(x)=(x+a)(x+b)
-    \end{equation}
-
-    \begin{equation}
+    \end{equation}\]\[.. math::\]\[    \begin{equation}
      g(x)=(x)(b)
-    \end{equation}
-</pre></div>
-</div>
-<div class="math">
-\[\begin{equation}
- f(x)=(x+a)(x+b)
-\end{equation}\]\[\begin{equation}
- g(x)=(x)(b)
-\end{equation}\]</div>
-<p>If each <code class="docutils literal"><span class="pre">\begin</span></code> environment receives its own <code class="docutils literal"><span class="pre">math</span></code> directive, it works.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>.. math::
-
-    \begin{equation}
-     f(x)=(x+a)(x+b)
-    \end{equation}
-
-.. math::
-
-    \begin{equation}
-     g(x)=(x)(b)
-    \end{equation}
-</pre></div>
-</div>
-<div class="math">
-\[\begin{equation}
- f(x)=(x+a)(x+b)
-\end{equation}\]</div>
-<div class="last math">
-\[\begin{equation}
- g(x)=(x)(b)
-\end{equation}\]</div>
-</div>
+    \end{equation}\]</div>
 </div>
 </div>
 <div class="section" id="equations">
@@ -827,7 +785,7 @@ Those are understandably limited in sphinx and mathjax.</p>
      f(x)=(x+a)(x+b)
     \end{equation}
 
-**HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....**
+.. important:: **HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....**
 
 .. math::
 
@@ -841,13 +799,16 @@ Those are understandably limited in sphinx and mathjax.</p>
 \[\begin{equation}
  f(x)=(x+a)(x+b)
 \end{equation}\]</div>
-<p><strong>HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....</strong></p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last"><strong>HMMM....NEEDED THESE BLOCK TO BE SEPARARTE....</strong></p>
+</div>
 <div class="math">
 \[\begin{split}\begin{align}
         B'&amp;=-\nabla \times E,\\
         E'&amp;=\nabla \times B - 4\pi j,
 \end{align}\end{split}\]</div>
-<p>The above two block, together, f&#8217;ed up</p>
+<p>The above two block, together, screwed up</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span>.. math::
 
     \begin{equation}
@@ -857,16 +818,16 @@ Those are understandably limited in sphinx and mathjax.</p>
     begin{align}
                 B&#39;&amp;=-\nabla \times E,\\
                 E&#39;&amp;=\nabla \times B - 4\pi j,
-        \end{align}
+    \end{align}
 </pre></div>
 </div>
 <div class="math">
 \[\begin{equation}
  f(x)=(x+a)(x+b)
 \end{equation}\]\[\begin{split}begin{align}
-            B'&amp;=-\nabla \times E,\\
-            E'&amp;=\nabla \times B - 4\pi j,
-    \end{align}\end{split}\]</div>
+    B'&amp;=-\nabla \times E,\\
+    E'&amp;=\nabla \times B - 4\pi j,
+\end{align}\end{split}\]</div>
 </div>
 <div class="section" id="vertical-alignment">
 <h2>4.3. Vertical alignment<a class="headerlink" href="#vertical-alignment" title="Permalink to this headline">¶</a></h2>
