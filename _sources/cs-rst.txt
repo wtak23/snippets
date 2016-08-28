@@ -31,11 +31,16 @@ Best lookups
 Important external directives
 #############################
 - http://matplotlib.org/sampledoc/ipython_directive.html
-- ..
+- https://ipython.org/ipython-doc/3/api/generated/IPython.sphinxext.ipython_directive.html
+- https://ipython.org/ipython-doc/3/api/index.html (``ctrl+f `` **sphinxext**)
 
 ################
 Random overflows
 ################
+
+**************************************
+Making minor changes to sphinx theme's
+**************************************
 
 **********
 Get colors
