@@ -1,4 +1,0 @@
-{   
-    // Fold getters and setter as one
-    "fold_getters_setters": false
-}

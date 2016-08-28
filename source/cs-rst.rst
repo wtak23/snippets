@@ -38,6 +38,10 @@ Important external directives
 Random overflows
 ################
 
+**************************************
+Making minor changes to sphinx theme's
+**************************************
+
 **********
 Get colors
 **********
