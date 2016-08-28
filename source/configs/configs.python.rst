@@ -1,12 +1,17 @@
 configs.python
 """"""""""""""
-.. contents:: `Table of contents`
-   :depth: 2
-   :local:
+**Last updated**: 08-27-2016 (22:35)
 
-#######
-ipython
-#######
+.. toctree::
+    :maxdepth: 2
+    :caption: Contents
+    :name: configs.python
+
+    ./python/python_sbia-pc125.rst
+
+
+.. rubric:: ipython
+
 - https://ipython.org/ipython-doc/1/config/overview.html
 
 Locating these files

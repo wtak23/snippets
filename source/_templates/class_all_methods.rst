@@ -1,4 +1,3 @@
-.. use this template to show hidden methods (ones beginning with underscores)
 {{ fullname }}
 {{ underline }}
 

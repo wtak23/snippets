@@ -1,10 +1,6 @@
 configs.sublime
 """""""""""""""
-**Date**: |today|
-
-.. contents:: `Table of contents`
-   :depth: 2
-   :local:
+**Last updated**: 08-27-2016 (22:35)
 
 .. toctree::
     :maxdepth: 2

@@ -9,8 +9,8 @@
 export PATH="$HOME/anaconda2/bin:$PATH" 
 # which python # <- verify python from anaconda is running
 
-make clean
-rm -r ./source/generated*
+# make clean
+# rm -r ./source/generated*
 make html
 
 #| not 100% happy with this approach in SO:
