@@ -25,6 +25,102 @@ Every once in a while, I'll try to organize below by **category**
 Random Stack-overflow questions
 ###############################
 
+***********************
+A bit on python unicode
+***********************
+- https://docs.python.org/2.7/howto/unicode.html
+- http://stackoverflow.com/questions/9942594/unicodeencodeerror-ascii-codec-cant-encode-character-u-xa0-in-position-20
+- google search query used: https://www.google.com/#q=Encoding+error%3A+%27ascii%27+codec+can%27t+encode+character+u%27\xe4%27+in+position+5
+- https://github.com/sphinx-doc/sphinx/issues/1739
+
+>>> # This is a classic python unicode pain point! Consider the following:
+>>> a = u'bats\u00E0'
+>>> # All good so far, but if we call str(a), let's see what happens:
+>>> print a
+batsà
+>>> str(a)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xe0' in position 4: ordinal not in range(128)
+>>> # To fix the error, encode the bytes explicitly with .encode and tell python what codec to use:
+>>> a.encode('utf-8')
+'bats\xc3\xa0'
+>>> print a.encode('utf-8')
+batsà
+
+  The issue is that when you call str(), python uses the default character encoding to try and encode the bytes you gave it, which in your case are sometimes representations of unicode characters. To fix the problem, you have to tell python how to deal with the string you give it by using .encode('whatever_unicode'). Most of the time, you should be fine using utf-8.
+
+************************************************************************
+Locale thing (since i'm getting errors in sphinx regarding unicode error
+************************************************************************
+- https://github.com/sphinx-doc/sphinx/issues/1739
+- https://www.google.com/#q=sphinx+encoding+error
+- http://masasuzu.hatenablog.jp/entry/20110313/1299997912
+
+.. code-block:: bash
+
+    $ locale
+    LANG=en_US.UTF-8
+    LANGUAGE=
+    LC_CTYPE="en_US.UTF-8"
+    LC_NUMERIC="en_US.UTF-8"
+    LC_TIME="en_US.UTF-8"
+    LC_COLLATE="en_US.UTF-8"
+    LC_MONETARY="en_US.UTF-8"
+    LC_MESSAGES="en_US.UTF-8"
+    LC_PAPER="en_US.UTF-8"
+    LC_NAME="en_US.UTF-8"
+    LC_ADDRESS="en_US.UTF-8"
+    LC_TELEPHONE="en_US.UTF-8"
+    LC_MEASUREMENT="en_US.UTF-8"
+    LC_IDENTIFICATION="en_US.UTF-8"
+    LC_ALL=
+
+In python:
+
+- http://stackoverflow.com/questions/2276200/changing-default-encoding-of-python
+
+.. code-block:: python
+    
+    # sys.setdefaultencoding() does not exist, here!
+    import sys
+    reload(sys)  # Reload does the trick!
+    sys.setdefaultencoding('UTF8')
+
+.. ipython::
+
+    In [1]: import sys 
+
+    In [2]: sys.getdefaultencoding()
+    Out[2]: 'ascii'     
+
+    In [3]: sys.getfilesystemencoding()
+    Out[3]: 'UTF-8'
+
+    In [4]: sys.setdefaultencoding('UTF8')
+    ---------------------------------------------------------------------------
+    AttributeError                            Traceback (most recent call last)
+    <ipython-input-4-daa3932f9332> in <module>()
+    ----> 1 sys.setdefaultencoding('UTF8')
+
+    AttributeError: 'module' object has no attribute 'setdefaultencoding'
+
+    In [5]: #  reload does the trick apparently
+
+    In [6]: reload(sys);
+
+    In [7]: sys.setdefaultencoding('UTF8')
+
+    In [8]: sys.getdefaultencoding()
+    'UTF8'
+
+******************************
+what does sitecustomize.py do?
+******************************
+- http://stackoverflow.com/questions/10693706/creating-a-secondary-site-packages-directory-and-loading-packages-from-pth-fil
+- http://masasuzu.hatenablog.jp/entry/20110313/1299997912
+- http://nedbatchelder.com/blog/201001/running_code_at_python_startup.html
+
 ****************************************
 Things you can do with a **file** object
 ****************************************

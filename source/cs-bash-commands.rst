@@ -28,6 +28,72 @@ bash-commands
 #########
 Overflows
 #########
+
+************************************************************************
+Locale thing (since i'm getting errors in sphinx regarding unicode error
+************************************************************************
+- https://github.com/sphinx-doc/sphinx/issues/1739
+- https://www.google.com/#q=sphinx+encoding+error
+- http://masasuzu.hatenablog.jp/entry/20110313/1299997912
+
+.. code-block:: bash
+
+    $ locale
+    LANG=en_US.UTF-8
+    LANGUAGE=
+    LC_CTYPE="en_US.UTF-8"
+    LC_NUMERIC="en_US.UTF-8"
+    LC_TIME="en_US.UTF-8"
+    LC_COLLATE="en_US.UTF-8"
+    LC_MONETARY="en_US.UTF-8"
+    LC_MESSAGES="en_US.UTF-8"
+    LC_PAPER="en_US.UTF-8"
+    LC_NAME="en_US.UTF-8"
+    LC_ADDRESS="en_US.UTF-8"
+    LC_TELEPHONE="en_US.UTF-8"
+    LC_MEASUREMENT="en_US.UTF-8"
+    LC_IDENTIFICATION="en_US.UTF-8"
+    LC_ALL=
+
+In python:
+
+- http://stackoverflow.com/questions/2276200/changing-default-encoding-of-python
+
+.. code-block:: python
+    
+    # sys.setdefaultencoding() does not exist, here!
+    import sys
+    reload(sys)  # Reload does the trick!
+    sys.setdefaultencoding('UTF8')
+
+.. ipython::
+
+    In [1]: import sys 
+
+    In [2]: sys.getdefaultencoding()
+    Out[2]: 'ascii'     
+
+    In [3]: sys.getfilesystemencoding()
+    Out[3]: 'UTF-8'
+
+    In [4]: sys.setdefaultencoding('UTF8')
+    ---------------------------------------------------------------------------
+    AttributeError                            Traceback (most recent call last)
+    <ipython-input-4-daa3932f9332> in <module>()
+    ----> 1 sys.setdefaultencoding('UTF8')
+
+    AttributeError: 'module' object has no attribute 'setdefaultencoding'
+
+    In [5]: #  reload does the trick apparently
+
+    In [6]: reload(sys);
+
+    In [7]: sys.setdefaultencoding('UTF8')
+
+    In [8]: sys.getdefaultencoding()
+    'UTF8'
+
+
 *******************
 More stuffs with ls
 *******************

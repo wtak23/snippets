@@ -4,12 +4,13 @@ One of my biggest regret in life -- trying to maintain my code snippets in Evern
 
 Those were dark days with no tangible signs of hope.
 
+**HTML last built:**  |today|
+
 .. note::
   
-    ``|today|`` = |today|
-    
     - The categorization in the top-level of the TOC tree below is very loose.
     - It is based on an arbitrary mnemonic that I developed out of nowhere.
+    - 08-25-2016 --- Decided to move all my `config` notes to a separate repository (`link <https://wtak23.github.io/configs/>`__)
 
 .. toctree::
     :maxdepth: 2
@@ -20,12 +21,10 @@ Those were dark days with no tangible signs of hope.
     top-datascience.rst
     top-unix.rst
     top-rst.rst
-    
-    
 
-
-All modules for which code is available (`link <./_modules/index.html>`_)
 
 .. code-block:: bash
 
     echo * | sed 's/ /\n/g' | grep \.rst --color=never | xclip -selection clipboard
+
+All modules for which code is available (`link <./_modules/index.html>`_)
