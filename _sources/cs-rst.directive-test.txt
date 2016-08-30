@@ -8,7 +8,7 @@ See `this <http://www.sphinx-doc.org/en/stable/rest.html#directives>`__ for a ni
   - Directives added by Sphinx are described in `Sphinx Markup Constructs <http://www.sphinx-doc.org/en/stable/markup/index.html#sphinxmarkup>`__.
 
 .. contents:: `Contents`
-   :depth: 2
+   :depth: 1
    :local:
 
 
@@ -643,12 +643,19 @@ substitutions
 
 .. code-block:: rst
 
-    .. |name| replace:: replacement *text*'
+    .. |name| replace:: **I AM A REPLACEMENT STRING** ``HIHI``
 
-    .. |caution| image:: warning.png
-                 :alt: Warning!
+    .. |caution| image:: ./_static/img/blockm.gif
+       :alt: Warning!
 
-.. |name| replace:: replacement *text*'
+    - |name| <- the content1
+    - |caution| <- the content2
 
-.. |caution| image:: warning.png
-             :alt: Warning!                 
+.. |name| replace:: **I AM A REPLACEMENT STRING** ``HIHI``
+
+.. |caution| image:: ./_static/img/blockm.gif
+   :alt: Warning!                 
+
+- |name| <- the content1
+- |caution| <- the content2
+
