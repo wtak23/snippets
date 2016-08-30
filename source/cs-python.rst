@@ -87,7 +87,7 @@ In python:
     reload(sys)  # Reload does the trick!
     sys.setdefaultencoding('UTF8')
 
-.. ipython::
+::
 
     In [1]: import sys 
 

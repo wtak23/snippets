@@ -6,11 +6,16 @@ Those were dark days with no tangible signs of hope.
 
 **HTML last built:**  |today|
 
+.. important::
+
+    08-25-2016 --- Decided to move all my `config` notes to a separate repository
+
+    https://wtak23.github.io/configs
+
 .. note::
   
     - The categorization in the top-level of the TOC tree below is very loose.
     - It is based on an arbitrary mnemonic that I developed out of nowhere.
-    - 08-25-2016 --- Decided to move all my `config` notes to a separate repository (`link <https://wtak23.github.io/configs/>`__)
 
 .. toctree::
     :maxdepth: 2
