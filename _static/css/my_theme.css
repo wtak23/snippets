@@ -1,0 +1,16 @@
+@import url("theme.css");
+.wy-side-nav-search {
+    width: 300px;
+    z-index: 200;
+    background-color: #990E7E;
+    /*background-color: #2980B9;*/
+    text-align: center;
+    padding: 0.809em
+        display: block;
+    color: #FCFCFC;
+    margin-bottom: 0.809em;
+}
+
+.wy-nav-side {
+    background-color: #04042B;
+}

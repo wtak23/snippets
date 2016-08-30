@@ -7,6 +7,7 @@ http://matplotlib.org/sampledoc/ipython_directive.html
   For the image to get copied under the appropriate ``build`` folder, it appears like I need to run ``make html`` twice after doing ``make clean``...
 
 .. ipython:: python
+    :okwarning:
 
     import statsmodels.api as sm
     from statsmodels.formula.api import ols
@@ -24,6 +25,7 @@ http://matplotlib.org/sampledoc/ipython_directive.html
 
 
 .. ipython:: python
+   :okwarning:
     
    import matplotlib.pyplot as plt
    np.random.seed(0)

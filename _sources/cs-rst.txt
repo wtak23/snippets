@@ -41,6 +41,19 @@ Random overflows
 **************************************
 Making minor changes to sphinx theme's
 **************************************
+- http://mbless.de/blog/2015/06/16/files/demo_docs/highlight.html
+- https://github.com/TYPO3-Documentation/t3SphinxThemeRtd
+
+- http://stackoverflow.com/questions/23211695/modifying-sphinx-theme-read-the-docs
+- https://blog.deimos.fr/2014/10/02/sphinxdoc-and-readthedocs-theme-tricks-2/
+- http://stackoverflow.com/questions/14622698/customize-sphinxdoc-theme
+- http://tinkerer.me/doc/theming.html 
+
+*****************
+rst to markdowns?
+*****************
+- see bottom of: https://www.sitepoint.com/using-sphinx-for-php-project-documentation/
+- (section called `Adding MD`)
 
 **********
 Get colors
