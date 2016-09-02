@@ -359,3 +359,4 @@ def setup(app):
     app.add_javascript('copybutton.js')
 
 html_style='css/my_theme.css' # <- to get my css recognized http://stackoverflow.com/questions/23211695/modifying-sphinx-theme-read-the-docs    
+# html_style='css/rtd_theme_unminified.css' # <- to identify style-names I'd like to tweak

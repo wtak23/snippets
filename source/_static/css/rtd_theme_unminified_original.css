@@ -5,8 +5,6 @@ https://github.com/snide/sphinx_rtd_theme/blob/master/sphinx_rtd_theme/static/cs
 http://unminify.com/
 
 Makes it easier for me to identify the style-names that I'd like to tweak.
-
-Ctrl+F "TW BOOKMARK" to see relevant styles of interest
 */
 * {
     -webkit-box-sizing: border-box;
@@ -3018,7 +3016,6 @@ a .icon {
     vertical-align: -15%
 }
 
-/* TW BOOKMARK */
 .wy-alert,
 .rst-content .note,
 .rst-content .attention,
@@ -3048,7 +3045,7 @@ a .icon {
     padding: 6px 12px;
     margin-bottom: 12px
 }
-/* TW BOOKMARK (Change in admonition body style) */
+
 .wy-alert.wy-alert-danger,
 .rst-content .wy-alert-danger.note,
 .rst-content .wy-alert-danger.attention,
@@ -3106,7 +3103,7 @@ a .icon {
 .rst-content .admonition-todo {
     background: #ffedcc
 }
-/* TW BOOKMARK (Change in admonition title-bar style) */
+
 .wy-alert.wy-alert-warning .wy-alert-title,
 .rst-content .wy-alert-warning.note .wy-alert-title,
 .rst-content .attention .wy-alert-title,
@@ -3279,7 +3276,7 @@ a .icon {
 .rst-content .wy-alert-neutral.admonition-todo a {
     color: #2980B9
 }
-/* TW BOOKMARK */
+
 .wy-alert p:last-child,
 .rst-content .note p:last-child,
 .rst-content .attention p:last-child,

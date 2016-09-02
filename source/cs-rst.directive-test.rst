@@ -15,6 +15,24 @@ See `this <http://www.sphinx-doc.org/en/stable/rest.html#directives>`__ for a ni
 ###########
 Admonitions
 ###########
+I tweaked bunch of stuffs in the ``my_theme.css`` file.
+
+.. admonition:: here i can have whateva text on the title part
+
+  Body text
+
+.. seealso:: seealso
+
+  Body text
+
+.. note:: note
+
+  Body text
+
+.. todo:: todo
+
+  Body text
+
 .. attention:: attention
 
   Body text
@@ -22,6 +40,11 @@ Admonitions
 .. caution:: caution
 
   Body text
+
+.. warning:: warning
+
+  Body text
+
 
 .. danger:: danger
 
@@ -39,31 +62,12 @@ Admonitions
 
   Body text
 
-.. note:: note
-
-  Body text
-
 .. tip:: tip
 
   Body text
 
-.. warning:: warning
-
-  Body text
 
 
-This one is special
-
-::
-
-  .. admonition:: here i can have whateva text
-
-    Body text
-
-
-.. admonition:: here i can have whateva text on the title part
-
-  Body text
 
 ######
 Images
