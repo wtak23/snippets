@@ -15,7 +15,7 @@ See `this <http://www.sphinx-doc.org/en/stable/rest.html#directives>`__ for a ni
 ###########
 Admonitions
 ###########
-I tweaked bunch of stuffs in the ``my_theme.css`` file.
+I tweaked bunch of stuffs in the ``my_theme.css`` file (`github <https://github.com/wtak23/snippets/blob/master/source/_static/css/my_theme.css>`__)
 
 .. admonition:: here i can have whateva text on the title part
 
