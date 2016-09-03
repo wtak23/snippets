@@ -1,5 +1,5 @@
-rst
-"""
+rst (``cs-rst.rst``)
+""""""""""""""""""""
 
 .. contents:: `Contents`
    :depth: 2

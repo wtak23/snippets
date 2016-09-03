@@ -1,5 +1,5 @@
-Latex mathematics on sphinx
-"""""""""""""""""""""""""""
+Latex mathematics on sphinx (``cs-rst.math_part1.rst``)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Bunch of stuffs to see what renders from: https://en.wikibooks.org/wiki/LaTeX/Mathematics
 
 #######

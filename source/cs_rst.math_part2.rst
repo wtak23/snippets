@@ -1,5 +1,5 @@
-Advanced Latex Mathematics on Sphinx
-""""""""""""""""""""""""""""""""""""
+Advanced Latex Mathematics on Sphinx (``cs_rst.math_part2.rst``)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Bunch of stuffs from https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
 
 i wanted to see what renders correctly.

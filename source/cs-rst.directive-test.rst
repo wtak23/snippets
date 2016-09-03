@@ -1,5 +1,5 @@
-Test runs on RST directives
-"""""""""""""""""""""""""""
+Test runs on RST directives (``cs-rst.directive-test.rst``)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 See `this <http://www.sphinx-doc.org/en/stable/rest.html#directives>`__ for a nice run-through on the available directives.
 
 .. important:: Not sure why, but the above link says:
