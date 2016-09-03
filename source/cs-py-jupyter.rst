@@ -1,5 +1,5 @@
-python-jupyter-notebook
-"""""""""""""""""""""""
+python-jupyter (``cs-py-jupyter``)
+""""""""""""""""""""""""""""""""""
 
 .. contents:: `Table of contents`
    :depth: 2

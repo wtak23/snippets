@@ -1,5 +1,5 @@
-bash-commands
-"""""""""""""
+bash-commands (``cs-bash-commands``)
+""""""""""""""""""""""""""""""""""""
 .. rubric :: Some References
 
 - http://ss64.com/bash

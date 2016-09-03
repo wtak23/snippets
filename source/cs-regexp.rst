@@ -1,7 +1,7 @@
 .. _regexp:
 
-regular expressions
-"""""""""""""""""""
+regular expressions (``cs-regexp``)
+"""""""""""""""""""""""""""""""""""
 
 .. contents:: `Table of contents`
    :depth: 2

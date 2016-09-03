@@ -12,7 +12,7 @@ export PATH="$HOME/anaconda2/bin:$PATH"
 make clean
 rm -r ./source/generated*
 make html
-
+make html # <- somehow need to run twice to get plots generated from plot directive to work
 #| not 100% happy with this approach in SO:
 #| http://stackoverflow.com/questions/14345922/how-to-do-a-link-to-a-file-in-rst-with-sphinx
 #| so i'm just gonna manually copy and paste pdf files to the build directory here

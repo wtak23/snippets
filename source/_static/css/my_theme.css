@@ -38,7 +38,8 @@
 }
 
 /*To remove unnecessary space in the bottom of the paragraph (from line 3282 in unminified css file)*/
-.rst-content .admonition p:last-child {
+.rst-content .admonition p:last-child,
+.rst-content .admonition ul {
     margin-bottom: 0
 }
 /*-----------------------------------------------------------------------------

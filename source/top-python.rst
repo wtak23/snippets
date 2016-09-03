@@ -1,6 +1,6 @@
-###########
-Python-type
-###########
+################################
+Python-type (``top-python.rst``)
+################################
 .. note:: 
     
     Stuffs related to python
@@ -13,5 +13,5 @@ Python-type
 
     cs-python.rst
     cs-pyspark.rst
-    cs-py-jupyter-notebook.rst
+    cs-py-jupyter.rst
     bct.rst

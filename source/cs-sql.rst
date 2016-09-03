@@ -1,5 +1,5 @@
-sql
-"""
+sql (``cs-sql.rst``)
+""""""""""""""""""""
 
 .. contents:: `Table of contents`
    :depth: 2
