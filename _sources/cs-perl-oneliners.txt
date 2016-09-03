@@ -1,5 +1,5 @@
-perl one-liners
-"""""""""""""""
+``cs-perl-oneliners.rst``
+"""""""""""""""""""""""""
 From https://github.com/pkrumins/perl1line.txt/blob/master/perl1line.txt
 
 .. note::

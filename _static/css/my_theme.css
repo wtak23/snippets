@@ -25,7 +25,7 @@
 /*=============================================================================
   Admonition changes (change it to the color of *important* (i like this color)
   ===========================================================================*/
-/* to get admonition style the same with other ones (see line 3022 in minified css file)*/
+/* to get admonition style the same with other ones (see line 3022 in unminified css file)*/
 .rst-content .admonition {
     padding: 12px;
     line-height: 24px;
@@ -37,8 +37,9 @@
     background: #1abc9c
 }
 
-/*To remove unnecessary space in the bottom of the paragraph (from line 3282 in minified css file)*/
-.rst-content .admonition p:last-child {
+/*To remove unnecessary space in the bottom of the paragraph (from line 3282 in unminified css file)*/
+.rst-content .admonition p:last-child,
+.rst-content .admonition ul {
     margin-bottom: 0
 }
 /*-----------------------------------------------------------------------------

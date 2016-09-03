@@ -1,5 +1,5 @@
-pyspark
-"""""""
+pyspark (``cs-pyspark.rst``)
+""""""""""""""""""""""""""""
 
 - http://spark.apache.org/docs/latest/programming-guide.html
 - http://spark.apache.org/docs/latest/submitting-applications.html

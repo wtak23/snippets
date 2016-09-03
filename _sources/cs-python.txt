@@ -1,6 +1,5 @@
-
-Python
-""""""
+Python (``cs-python.rst``)
+""""""""""""""""""""""""""
 
 .. note:: self-note when updating this rst note
     
@@ -555,6 +554,9 @@ http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a
     python setup.py install --user
     pip install py4j --user
     pip install --upgrade sphinx_rtd_theme --user
+
+    # remove pakcage http://stackoverflow.com/questions/33412974/how-to-uninstall-a-package-installed-with-pip-install-user
+    pip uninstall somepackage
 
 
 

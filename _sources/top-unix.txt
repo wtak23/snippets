@@ -1,6 +1,6 @@
-##############
-Unix utilities
-##############
+#################################
+Unix utilities (``top-unix.rst``)
+#################################
 I typically use these as **one-liners** from the shell.
 
 - https://en.wikipedia.org/wiki/List_of_Unix_commands

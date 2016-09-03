@@ -1,5 +1,5 @@
-sed oneliners
-"""""""""""""
+``cs-sed-oneliners.rst``
+""""""""""""""""""""""""
 - Created this to get nice syntax coloring. 
 
   - originally from http://sed.sourceforge.net/sed1line.txt

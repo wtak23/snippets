@@ -1,6 +1,6 @@
-############
-Data Science
-############
+##################################
+Data Science (``top-datascience``)
+##################################
 .. note:: 
     
     Stuffs related to Data Science.
@@ -16,4 +16,3 @@ Data Science
     cs-perl-oneliners.rst    
     cs-regexp.rst
     cs-scala.rst
-    cs-computer.rst

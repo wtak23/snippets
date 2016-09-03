@@ -1,5 +1,5 @@
-rst cheatsheet (old)
-""""""""""""""""""""
+rst old cheatsheet (``cs-rst-old``)
+"""""""""""""""""""""""""""""""""""
 **OLD VERSION 06-15-2016 (17:32)**
 
 I won't be updating this abomination....i wrote this when i first found out 

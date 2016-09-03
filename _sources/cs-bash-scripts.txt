@@ -1,5 +1,5 @@
-bash-scripts
-""""""""""""
+bash-scripts (``cs-bash-scripts``)
+""""""""""""""""""""""""""""""""""
 
 Here snippets and explanations for writing bash scripts
 

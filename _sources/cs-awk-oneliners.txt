@@ -1,5 +1,5 @@
-awk-oneliners
-"""""""""""""
+``cs-awk-oneliners.rst``
+""""""""""""""""""""""""
 
 - Created this to get nice syntax coloring. 
   

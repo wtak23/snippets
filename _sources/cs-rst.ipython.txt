@@ -1,5 +1,5 @@
-Demo runs of ipython sphinx extensions
-""""""""""""""""""""""""""""""""""""""
+Demo runs of ipython sphinx extensions (``cs-rst.ipython.rst``)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 http://matplotlib.org/sampledoc/ipython_directive.html
 
 .. warning:: 

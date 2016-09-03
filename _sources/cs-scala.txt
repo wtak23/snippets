@@ -1,7 +1,5 @@
-
-
-Scala
-"""""
+Scala (``cs-scala.rst``)
+""""""""""""""""""""""""
 .. contents:: `Table of contents`
    :depth: 2
    :local:

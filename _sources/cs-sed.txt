@@ -1,5 +1,5 @@
-sed
-"""
+sed (``cs-sed.rst``)
+""""""""""""""""""""
 
 .. contents:: `Table of contents`
    :depth: 2

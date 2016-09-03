@@ -1,5 +1,5 @@
-git-snippet
-"""""""""""
+git-snippet (``cs-git.rst``)
+""""""""""""""""""""""""""""
 
 .. contents:: `Table of contents`
    :depth: 2
@@ -8,6 +8,26 @@ git-snippet
 ################
 Random Overflows
 ################
+******************
+Clone specific tag
+******************
+http://stackoverflow.com/questions/791959/download-a-specific-tag-with-git
+
+Git the whole repos, and then checkout the branch.
+
+.. code-block:: bash
+
+    git clone REPOS
+
+    # list the tags
+    git tag -l
+
+    # checkout a specific tag
+    get checkout tags/<tag_name>
+
+    # checkout and create a branch
+    get checkout tags/<tag_name> -b <branch_name>
+
 **********************
 Delete untracked files
 **********************

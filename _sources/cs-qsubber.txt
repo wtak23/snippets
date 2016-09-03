@@ -1,7 +1,7 @@
 .. _qsubber:
 
-qsubber
-"""""""
+qsubber (``cs-qsubber.rst``)
+""""""""""""""""""""""""""""
 .. contents:: `Table of contents`
    :depth: 2
    :local:
