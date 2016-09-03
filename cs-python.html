@@ -105,9 +105,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#top-mpl">1.4. top-mpl</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#when-plt-tight-layout-doesn-t-work-as-expected">1.4.1. When plt.tight_layout doesn&#8217;t work as expected</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#append-to-existing-axes-title">1.4.2. Append to existing axes title</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change-figure-size-of-existing-figure">1.4.3. Change figure size of <em>existing</em> figure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-fontweight-and-size-in-pre-existing-legend">1.4.1. Change fontweight and size in pre-existing legend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-xlabel-and-ylabel-fontsize-for-axes-already-existing">1.4.2. Change xlabel and ylabel fontsize for axes already existing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#when-plt-tight-layout-doesn-t-work-as-expected">1.4.3. When plt.tight_layout doesn&#8217;t work as expected</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#append-to-existing-axes-title">1.4.4. Append to existing axes title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-figure-size-of-existing-figure">1.4.5. Change figure size of <em>existing</em> figure</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission">1.5. Plotting and saving figure on remotely on server (on sge submission)</a><ul>
@@ -212,15 +214,17 @@
 <li class="toctree-l1"><a class="reference internal" href="top-bash.html">Bash-type</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-bash-commands.html">1. bash-commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#overflows">1.1. Overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">1.1.1. Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#more-stuffs-with-ls">1.1.2. More stuffs with ls</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#insightful-sed-example">1.1.3. Insightful sed example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.4. Remove colors from stdout (harder than i expected)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#sigint-and-sigstp">1.1.5. SIGINT and SIGSTP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quoting-with-command-substitution">1.1.6. Quoting with command substitution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#display-function-names">1.1.7. Display function names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.8. get n-th line of output (used sed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quotes-with-grep">1.1.9. Quotes with grep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#should-i-put-my-aliases-in-bashrc-or-bash-aliases">1.1.1. Should I put my aliases in .bashrc or .bash_aliases?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#function-in-single-line-for-bashrc">1.1.2. Function in single line (for bashrc)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">1.1.3. Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#more-stuffs-with-ls">1.1.4. More stuffs with ls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#insightful-sed-example">1.1.5. Insightful sed example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.6. Remove colors from stdout (harder than i expected)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#sigint-and-sigstp">1.1.7. SIGINT and SIGSTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quoting-with-command-substitution">1.1.8. Quoting with command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#display-function-names">1.1.9. Display function names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.10. get n-th line of output (used sed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-bash-commands.html#quotes-with-grep">1.1.11. Quotes with grep</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cs-bash-commands.html#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
@@ -743,44 +747,46 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#top-mpl" id="id15">top-mpl</a><ul>
-<li><a class="reference internal" href="#when-plt-tight-layout-doesn-t-work-as-expected" id="id16">When plt.tight_layout doesn&#8217;t work as expected</a></li>
-<li><a class="reference internal" href="#append-to-existing-axes-title" id="id17">Append to existing axes title</a></li>
-<li><a class="reference internal" href="#change-figure-size-of-existing-figure" id="id18">Change figure size of <em>existing</em> figure</a></li>
+<li><a class="reference internal" href="#change-fontweight-and-size-in-pre-existing-legend" id="id16">Change fontweight and size in pre-existing legend</a></li>
+<li><a class="reference internal" href="#change-xlabel-and-ylabel-fontsize-for-axes-already-existing" id="id17">Change xlabel and ylabel fontsize for axes already existing</a></li>
+<li><a class="reference internal" href="#when-plt-tight-layout-doesn-t-work-as-expected" id="id18">When plt.tight_layout doesn&#8217;t work as expected</a></li>
+<li><a class="reference internal" href="#append-to-existing-axes-title" id="id19">Append to existing axes title</a></li>
+<li><a class="reference internal" href="#change-figure-size-of-existing-figure" id="id20">Change figure size of <em>existing</em> figure</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" id="id19">Plotting and saving figure on remotely on server (on sge submission)</a><ul>
-<li><a class="reference internal" href="#change-i-made-to-my-figure-function" id="id20">Change i made to my figure function</a></li>
-<li><a class="reference internal" href="#check-if-x11-is-enabled-in-python-script" id="id21">Check if X11 is enabled in python script</a></li>
+<li><a class="reference internal" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" id="id21">Plotting and saving figure on remotely on server (on sge submission)</a><ul>
+<li><a class="reference internal" href="#change-i-made-to-my-figure-function" id="id22">Change i made to my figure function</a></li>
+<li><a class="reference internal" href="#check-if-x11-is-enabled-in-python-script" id="id23">Check if X11 is enabled in python script</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#disk-io" id="id22">Disk IO</a><ul>
-<li><a class="reference internal" href="#write-list-items-to-text" id="id23">Write list items to text</a></li>
+<li><a class="reference internal" href="#disk-io" id="id24">Disk IO</a><ul>
+<li><a class="reference internal" href="#write-list-items-to-text" id="id25">Write list items to text</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#seaborn-and-pandas-plots" id="id24">Seaborn and Pandas plots</a><ul>
-<li><a class="reference internal" href="#mpl-and-sns" id="id25">mpl and sns?</a></li>
-<li><a class="reference internal" href="#color-palette" id="id26">Color palette</a></li>
+<li><a class="reference internal" href="#seaborn-and-pandas-plots" id="id26">Seaborn and Pandas plots</a><ul>
+<li><a class="reference internal" href="#mpl-and-sns" id="id27">mpl and sns?</a></li>
+<li><a class="reference internal" href="#color-palette" id="id28">Color palette</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#python-commands-from-shell" id="id27">Python commands from shell</a></li>
-<li><a class="reference internal" href="#matplotlib-styling" id="id28">Matplotlib styling</a><ul>
-<li><a class="reference internal" href="#default-color-cycle" id="id29">Default color cycle</a></li>
-<li><a class="reference internal" href="#colormap-helper" id="id30">Colormap helper</a></li>
+<li><a class="reference internal" href="#python-commands-from-shell" id="id29">Python commands from shell</a></li>
+<li><a class="reference internal" href="#matplotlib-styling" id="id30">Matplotlib styling</a><ul>
+<li><a class="reference internal" href="#default-color-cycle" id="id31">Default color cycle</a></li>
+<li><a class="reference internal" href="#colormap-helper" id="id32">Colormap helper</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-modules" id="id31">installing modules</a></li>
-<li><a class="reference internal" href="#gochtas" id="id32">gochtas</a><ul>
-<li><a class="reference internal" href="#careful-with-array-slicing-may-change-array-values" id="id33">careful with array slicing! may change array values</a></li>
+<li><a class="reference internal" href="#installing-modules" id="id33">installing modules</a></li>
+<li><a class="reference internal" href="#gochtas" id="id34">gochtas</a><ul>
+<li><a class="reference internal" href="#careful-with-array-slicing-may-change-array-values" id="id35">careful with array slicing! may change array values</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#decorator" id="id34">decorator</a></li>
-<li><a class="reference internal" href="#plotting-short-snippets" id="id35">Plotting - short snippets</a><ul>
-<li><a class="reference internal" href="#cool-tricks" id="id36">Cool tricks</a></li>
-<li><a class="reference internal" href="#plotting-snippets" id="id37">Plotting Snippets</a></li>
+<li><a class="reference internal" href="#decorator" id="id36">decorator</a></li>
+<li><a class="reference internal" href="#plotting-short-snippets" id="id37">Plotting - short snippets</a><ul>
+<li><a class="reference internal" href="#cool-tricks" id="id38">Cool tricks</a></li>
+<li><a class="reference internal" href="#plotting-snippets" id="id39">Plotting Snippets</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id1" id="id38">Exceptions</a></li>
-<li><a class="reference internal" href="#clever-tricks" id="id39">Clever tricks</a></li>
+<li><a class="reference internal" href="#id1" id="id40">Exceptions</a></li>
+<li><a class="reference internal" href="#clever-tricks" id="id41">Clever tricks</a></li>
 </ul>
 </div>
 <p>Every once in a while, I&#8217;ll try to organize below by <strong>category</strong></p>
@@ -1025,8 +1031,52 @@ In [8]: sys.getdefaultencoding()
 <div class="section" id="top-mpl">
 <h2><a class="toc-backref" href="#id15">1.4. top-mpl</a><a class="headerlink" href="#top-mpl" title="Permalink to this headline">¶</a></h2>
 <p>Keep adding mpl related notes/snippets here</p>
+<div class="section" id="change-fontweight-and-size-in-pre-existing-legend">
+<h3><a class="toc-backref" href="#id16">1.4.1. Change fontweight and size in pre-existing legend</a><a class="headerlink" href="#change-fontweight-and-size-in-pre-existing-legend" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>oddly, <code class="docutils literal"><span class="pre">plt.legend()</span></code> doesn&#8217;t have a <code class="docutils literal"><span class="pre">fontweight</span></code> parameter</li>
+<li>you have ot use the <code class="docutils literal"><span class="pre">prop</span></code> argument instead</li>
+<li>ref: <a class="reference external" href="http://stackoverflow.com/questions/35537895/matplotlib-legend-how-to-specify-font-weight">http://stackoverflow.com/questions/35537895/matplotlib-legend-how-to-specify-font-weight</a></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># to modify legend that already exists</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span><span class="s1">&#39;normal&#39;</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span><span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">32</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-xlabel-and-ylabel-fontsize-for-axes-already-existing">
+<h3><a class="toc-backref" href="#id17">1.4.2. Change xlabel and ylabel fontsize for axes already existing</a><a class="headerlink" href="#change-xlabel-and-ylabel-fontsize-for-axes-already-existing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/10404759/matplotlib-set-yaxis-label-size">http://stackoverflow.com/questions/10404759/matplotlib-set-yaxis-label-size</a></li>
+<li>Wonder if there&#8217;s a better way than this...</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># here&#39;s how</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># === below is an example use-case I needed this for ===</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.gofplots</span> <span class="kn">import</span> <span class="n">qqplot_2samples</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">setup</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="s1">&#39;45&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;pnc&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;tob&#39;</span><span class="p">)</span>
+
+<span class="n">tw</span><span class="o">.</span><span class="n">sns_figure</span><span class="p">()</span>
+<span class="n">qqplot_2samples</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="o">**</span><span class="n">setup</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="note-above-applies-to-other-stuffs-like-titles-too">
+<h4>1.4.2.1. Note: above applies to other stuffs like titles too<a class="headerlink" href="#note-above-applies-to-other-stuffs-like-titles-too" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># to modify style of a title that already exist in the palette</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="when-plt-tight-layout-doesn-t-work-as-expected">
-<h3><a class="toc-backref" href="#id16">1.4.1. When plt.tight_layout doesn&#8217;t work as expected</a><a class="headerlink" href="#when-plt-tight-layout-doesn-t-work-as-expected" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">1.4.3. When plt.tight_layout doesn&#8217;t work as expected</a><a class="headerlink" href="#when-plt-tight-layout-doesn-t-work-as-expected" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#http://stackoverflow.com/questions/8248467/matplotlib-tight-layout-doesnt-take-into-account-figure-suptitle</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">1.25</span><span class="p">)</span>
 <span class="c1">#plt.tight_layout()</span>
@@ -1034,14 +1084,14 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="append-to-existing-axes-title">
-<h3><a class="toc-backref" href="#id17">1.4.2. Append to existing axes title</a><a class="headerlink" href="#append-to-existing-axes-title" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">1.4.4. Append to existing axes title</a><a class="headerlink" href="#append-to-existing-axes-title" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_title</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; WHATEVER STRING&#39;</span><span class="p">)</span> <span class="c1"># &lt;- append to title</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="change-figure-size-of-existing-figure">
-<h3><a class="toc-backref" href="#id18">1.4.3. Change figure size of <em>existing</em> figure</a><a class="headerlink" href="#change-figure-size-of-existing-figure" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">1.4.5. Change figure size of <em>existing</em> figure</a><a class="headerlink" href="#change-figure-size-of-existing-figure" title="Permalink to this headline">¶</a></h3>
 <p>I have <code class="docutils literal"><span class="pre">plt.figure(figsize=(10,8))</span></code> option when creating figure, but how to
 change size of figure that already exists?  see below :)</p>
 <ul class="simple">
@@ -1054,7 +1104,7 @@ change size of figure that already exists?  see below :)</p>
 </div>
 </div>
 <div class="section" id="plotting-and-saving-figure-on-remotely-on-server-on-sge-submission">
-<h2><a class="toc-backref" href="#id19">1.5. Plotting and saving figure on remotely on server (on sge submission)</a><a class="headerlink" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">1.5. Plotting and saving figure on remotely on server (on sge submission)</a><a class="headerlink" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" title="Permalink to this headline">¶</a></h2>
 <p><strong>References</strong></p>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/4706451/how-to-save-a-figure-remotely-with-pylab">http://stackoverflow.com/questions/4706451/how-to-save-a-figure-remotely-with-pylab</a></li>
@@ -1078,7 +1128,7 @@ change size of figure that already exists?  see below :)</p>
 in the fig-manager (<code class="docutils literal"><span class="pre">plt.get_current_fig_manager().window</span></code> doesn&#8217;t exist,
 so can&#8217;t set window position)</p>
 <div class="section" id="change-i-made-to-my-figure-function">
-<h3><a class="toc-backref" href="#id20">1.5.1. Change i made to my figure function</a><a class="headerlink" href="#change-i-made-to-my-figure-function" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">1.5.1. Change i made to my figure function</a><a class="headerlink" href="#change-i-made-to-my-figure-function" title="Permalink to this headline">¶</a></h3>
 <p>Just use <code class="docutils literal"><span class="pre">try/exception</span></code> in my <code class="docutils literal"><span class="pre">fig_set_geom</span></code> function.</p>
 <ul class="simple">
 <li>this way, i don&#8217;t have to modify the calling script in any way when
@@ -1105,7 +1155,7 @@ or server-mode without any changes)</li>
 </ul>
 </div>
 <div class="section" id="check-if-x11-is-enabled-in-python-script">
-<h3><a class="toc-backref" href="#id21">1.5.2. Check if X11 is enabled in python script</a><a class="headerlink" href="#check-if-x11-is-enabled-in-python-script" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">1.5.2. Check if X11 is enabled in python script</a><a class="headerlink" href="#check-if-x11-is-enabled-in-python-script" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/8257385/automatic-detection-of-display-availability-with-matplotlib">http://stackoverflow.com/questions/8257385/automatic-detection-of-display-availability-with-matplotlib</a></li>
 </ul>
@@ -1121,9 +1171,9 @@ or server-mode without any changes)</li>
 </div>
 </div>
 <div class="section" id="disk-io">
-<h2><a class="toc-backref" href="#id22">1.6. Disk IO</a><a class="headerlink" href="#disk-io" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">1.6. Disk IO</a><a class="headerlink" href="#disk-io" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="write-list-items-to-text">
-<h3><a class="toc-backref" href="#id23">1.6.1. Write list items to text</a><a class="headerlink" href="#write-list-items-to-text" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">1.6.1. Write list items to text</a><a class="headerlink" href="#write-list-items-to-text" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python">http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python</a></li>
 </ul>
@@ -1144,18 +1194,18 @@ or server-mode without any changes)</li>
 </div>
 </div>
 <div class="section" id="seaborn-and-pandas-plots">
-<h2><a class="toc-backref" href="#id24">1.7. Seaborn and Pandas plots</a><a class="headerlink" href="#seaborn-and-pandas-plots" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">1.7. Seaborn and Pandas plots</a><a class="headerlink" href="#seaborn-and-pandas-plots" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/26413185/how-to-recover-matplotlib-defaults-after-setting-stylesheet">http://stackoverflow.com/questions/26413185/how-to-recover-matplotlib-defaults-after-setting-stylesheet</a></li>
 </ul>
 <div class="section" id="mpl-and-sns">
-<h3><a class="toc-backref" href="#id25">1.7.1. mpl and sns?</a><a class="headerlink" href="#mpl-and-sns" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">1.7.1. mpl and sns?</a><a class="headerlink" href="#mpl-and-sns" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/28430385/seaborn-cycle-through-colours-with-matplotlib-scatter">http://stackoverflow.com/questions/28430385/seaborn-cycle-through-colours-with-matplotlib-scatter</a></li>
 </ul>
 </div>
 <div class="section" id="color-palette">
-<h3><a class="toc-backref" href="#id26">1.7.2. Color palette</a><a class="headerlink" href="#color-palette" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">1.7.2. Color palette</a><a class="headerlink" href="#color-palette" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Great demo of <strong>built-in</strong> palettes: <a class="reference external" href="http://chrisalbon.com/python/seaborn_color_palettes.html">http://chrisalbon.com/python/seaborn_color_palettes.html</a></li>
 </ul>
@@ -1186,7 +1236,7 @@ the name or as dark palettes by appending “_d” to the name.</p>
 </div>
 </div>
 <div class="section" id="python-commands-from-shell">
-<h2><a class="toc-backref" href="#id27">1.8. Python commands from shell</a><a class="headerlink" href="#python-commands-from-shell" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">1.8. Python commands from shell</a><a class="headerlink" href="#python-commands-from-shell" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/2043453/executing-python-multi-line-statements-in-the-one-line-command-line">http://stackoverflow.com/questions/2043453/executing-python-multi-line-statements-in-the-one-line-command-line</a></li>
 </ul>
@@ -1211,7 +1261,7 @@ ipython -c <span class="s2">&quot;import matplotlib as mpl; print mpl.matplotlib
 </td></tr></table></div>
 </div>
 <div class="section" id="matplotlib-styling">
-<h2><a class="toc-backref" href="#id28">1.9. Matplotlib styling</a><a class="headerlink" href="#matplotlib-styling" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">1.9. Matplotlib styling</a><a class="headerlink" href="#matplotlib-styling" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://matplotlib.org/users/style_sheets.html">http://matplotlib.org/users/style_sheets.html</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1221,7 +1271,7 @@ subl <span class="k">$(</span>ipython -c <span class="s2">&quot;import matplotli
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="default-color-cycle">
-<h3><a class="toc-backref" href="#id29">1.9.1. Default color cycle</a><a class="headerlink" href="#default-color-cycle" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">1.9.1. Default color cycle</a><a class="headerlink" href="#default-color-cycle" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/9397944/default-color-cycle-with-matplotlib">http://stackoverflow.com/questions/9397944/default-color-cycle-with-matplotlib</a></li>
 <li><a class="reference external" href="http://matplotlib.org/examples/color/color_cycle_demo.html">http://matplotlib.org/examples/color/color_cycle_demo.html</a></li>
@@ -1239,7 +1289,7 @@ subl <span class="k">$(</span>ipython -c <span class="s2">&quot;import matplotli
 </div>
 </div>
 <div class="section" id="colormap-helper">
-<h3><a class="toc-backref" href="#id30">1.9.2. Colormap helper</a><a class="headerlink" href="#colormap-helper" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id32">1.9.2. Colormap helper</a><a class="headerlink" href="#colormap-helper" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://matplotlib.org/examples/color/colormaps_reference.html">http://matplotlib.org/examples/color/colormaps_reference.html</a></li>
 <li><a class="reference external" href="http://chrisalbon.com/python/seaborn_color_palettes.html">http://chrisalbon.com/python/seaborn_color_palettes.html</a></li>
@@ -1252,7 +1302,7 @@ subl <span class="k">$(</span>ipython -c <span class="s2">&quot;import matplotli
 </div>
 </div>
 <div class="section" id="installing-modules">
-<h2><a class="toc-backref" href="#id31">1.10. installing modules</a><a class="headerlink" href="#installing-modules" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">1.10. installing modules</a><a class="headerlink" href="#installing-modules" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package">http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1265,9 +1315,9 @@ pip install --upgrade sphinx_rtd_theme --user
 </td></tr></table></div>
 </div>
 <div class="section" id="gochtas">
-<h2><a class="toc-backref" href="#id32">1.11. gochtas</a><a class="headerlink" href="#gochtas" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">1.11. gochtas</a><a class="headerlink" href="#gochtas" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="careful-with-array-slicing-may-change-array-values">
-<h3><a class="toc-backref" href="#id33">1.11.1. careful with array slicing! may change array values</a><a class="headerlink" href="#careful-with-array-slicing-may-change-array-values" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">1.11.1. careful with array slicing! may change array values</a><a class="headerlink" href="#careful-with-array-slicing-may-change-array-values" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-slicing-view-vs-copy">http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-slicing-view-vs-copy</a></p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1353,7 +1403,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </div>
 </div>
 <div class="section" id="decorator">
-<h2><a class="toc-backref" href="#id34">1.12. decorator</a><a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">1.12. decorator</a><a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python?rq=1">http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python?rq=1</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators">http://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators</a></li>
@@ -1426,9 +1476,9 @@ pip install --upgrade sphinx_rtd_theme --user
 </td></tr></table></div>
 </div>
 <div class="section" id="plotting-short-snippets">
-<h2><a class="toc-backref" href="#id35">1.13. Plotting - short snippets</a><a class="headerlink" href="#plotting-short-snippets" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">1.13. Plotting - short snippets</a><a class="headerlink" href="#plotting-short-snippets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="cool-tricks">
-<h3><a class="toc-backref" href="#id36">1.13.1. Cool tricks</a><a class="headerlink" href="#cool-tricks" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">1.13.1. Cool tricks</a><a class="headerlink" href="#cool-tricks" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1590,7 +1640,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </td></tr></table></div>
 </div>
 <div class="section" id="plotting-snippets">
-<h3><a class="toc-backref" href="#id37">1.13.2. Plotting Snippets</a><a class="headerlink" href="#plotting-snippets" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">1.13.2. Plotting Snippets</a><a class="headerlink" href="#plotting-snippets" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1619,7 +1669,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </div>
 </div>
 <div class="section" id="id1">
-<h2><a class="toc-backref" href="#id38">1.14. Exceptions</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">1.14. Exceptions</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1771,7 +1821,7 @@ pip install --upgrade sphinx_rtd_theme --user
 </td></tr></table></div>
 </div>
 <div class="section" id="clever-tricks">
-<h2><a class="toc-backref" href="#id39">1.15. Clever tricks</a><a class="headerlink" href="#clever-tricks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">1.15. Clever tricks</a><a class="headerlink" href="#clever-tricks" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3

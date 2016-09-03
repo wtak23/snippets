@@ -14,3 +14,102 @@
 .wy-nav-side {
     background-color: #04042B;
 }
+
+
+/* I like the blockquote in gray and italic (default in rtd does not really distinguish it from other text)*/
+.rst-content blockquote {
+    color: #888888;
+    font-style: italic
+}
+
+/*=============================================================================
+  Admonition changes (change it to the color of *important* (i like this color)
+  ===========================================================================*/
+/* to get admonition style the same with other ones (see line 3022 in minified css file)*/
+.rst-content .admonition {
+    padding: 12px;
+    line-height: 24px;
+    margin-bottom: 24px;
+    background: #dbfaf4
+}
+
+.rst-content .admonition-title {
+    background: #1abc9c
+}
+
+/*To remove unnecessary space in the bottom of the paragraph (from line 3282 in minified css file)*/
+.rst-content .admonition p:last-child {
+    margin-bottom: 0
+}
+/*-----------------------------------------------------------------------------
+  Above change in background will affect all the inherited members.
+  Recover the shading colors 
+  ---------------------------------------------------------------------------*/
+/* TW BOOKMARK (Change in admonition styles) L3051-3296 */
+.rst-content .danger,
+.rst-content .error {
+    background: #fdf3f2
+}
+
+.rst-content .danger .admonition-title,
+.rst-content .error .admonition-title {
+    background: #f29f97
+}
+
+.rst-content .attention,
+.rst-content .caution,
+.rst-content .warning,
+.rst-content .admonition-todo {
+    background: #ffedcc
+}
+
+.rst-content .attention .admonition-title,
+.rst-content .caution .admonition-title,
+.rst-content .warning .admonition-title,
+.rst-content .admonition-todo .admonition-title {
+    background: #f0b37e
+}
+
+.rst-content .note,
+.rst-content .seealso {
+    background: #e7f2fa
+}
+
+.rst-content .note .admonition-title,
+.rst-content .seealso .admonition-title {
+    background: #6ab0de
+}
+
+
+.rst-content .hint,
+.rst-content .important,
+.rst-content .tip {
+    background: #dbfaf4
+}
+
+
+.rst-content .hint .admonition-title,
+.rst-content .important .admonition-title,
+.rst-content .tip .admonition-title {
+    background: #1abc9c
+}
+
+
+
+
+/*.rst-content .danger .admonition-title {
+    background: #000
+}*/
+
+/* to use with admonitino directive option :class: 
+
+Example:
+
+.. admonition:: Admon Title
+    :class: myadmon
+
+    Whateva text
+*/
+/*.myadmon {
+    background: #C2FFFA
+}    */

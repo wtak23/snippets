@@ -28,6 +28,43 @@ bash-commands
 #########
 Overflows
 #########
+****************************************************
+Should I put my aliases in .bashrc or .bash_aliases?
+****************************************************
+I wanted to know if there's any reason to define my aliases in ``.bashrc`` or ``.bash_aliases``
+
+.. admonition:: Best Answer
+
+    http://ss64.com/bash/syntax-bashrc.html
+
+        Adding aliases to a separate file called ``.bash_aliases`` has the same affect as putting the aliases in ``.bashrc`` the advantage of .bash_aliases is that having all your aliases in one file makes it easier to re-load them when you make changes.
+
+Below are bunch of links I found along the way.
+
+.. note:: 
+    
+    I liked the answer in this thread. http://askubuntu.com/questions/121413/understanding-bashrc-and-bash-profile
+
+Other references
+
+- http://unix.stackexchange.com/questions/30925/in-bash-when-to-alias-when-to-script-and-when-to-write-a-function
+- http://stackoverflow.com/questions/902946/about-bash-profile-bashrc-and-where-should-alias-be-written-in
+- http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+
+************************************
+Function in single line (for bashrc)
+************************************
+- http://askubuntu.com/questions/521937/write-function-in-one-line-into-bashrc
+
+Needed a space between the brackets
+
+.. code-block:: bash
+
+    # needed a space before and after the brackets { whateva; }
+    func_name(){ echo "Hello"; }
+
+    # this won't work
+    func_name(){echo "Hello";}
 
 ************************************************************************
 Locale thing (since i'm getting errors in sphinx regarding unicode error

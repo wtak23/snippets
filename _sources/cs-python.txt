@@ -268,6 +268,51 @@ top-mpl
 #######
 Keep adding mpl related notes/snippets here
 
+*************************************************
+Change fontweight and size in pre-existing legend
+*************************************************
+- oddly, ``plt.legend()`` doesn't have a ``fontweight`` parameter
+- you have ot use the ``prop`` argument instead
+- ref: http://stackoverflow.com/questions/35537895/matplotlib-legend-how-to-specify-font-weight
+
+.. code-block:: python
+
+    # to modify legend that already exists
+    plt.legend(prop={'weight':'normal'})
+    plt.legend(prop={'weight':'normal','size':32})
+
+***********************************************************
+Change xlabel and ylabel fontsize for axes already existing
+***********************************************************
+
+- http://stackoverflow.com/questions/10404759/matplotlib-set-yaxis-label-size
+- Wonder if there's a better way than this...
+
+.. code-block:: python
+
+    # here's how
+    ax.yaxis.label.set_size(20)
+    ax.xaxis.label.set_size(20)
+
+    # === below is an example use-case I needed this for === 
+    from statsmodels.graphics.gofplots import qqplot_2samples
+    x = np.random.randn(500)
+    y = np.random.randn(500)
+    setup=dict(line='45',xlabel='pnc',ylabel='tob')
+
+    tw.sns_figure()
+    qqplot_2samples(x,y,ax=plt.gca(), **setup)
+    ax = plt.gca()
+    ax.yaxis.label.set_size(20)
+    ax.xaxis.label.set_size(20)
+
+Note: above applies to other stuffs like titles too
+===================================================
+.. code-block:: python
+
+    # to modify style of a title that already exist in the palette
+    plt.gca().title.set_fontsize(22)
+
 **********************************************
 When plt.tight_layout doesn't work as expected
 **********************************************
