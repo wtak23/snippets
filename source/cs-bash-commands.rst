@@ -28,6 +28,47 @@ bash-commands (``cs-bash-commands``)
 #########
 Overflows
 #########
+************
+What OS am I
+************
+- http://unix.stackexchange.com/questions/88644/how-to-check-os-and-version-using-a-linux-command
+
+.. code-block:: bash
+
+    # --- on cygwin ---#
+    $ uname -a
+    CYGWIN_NT-10.0 DE
+
+    $ uname -o
+    Cygwin
+
+    # --- on sbia ---#
+    $ uname -o
+    GNU/Linux
+    $ uname -a
+    Linux sbia-pc125 3.13.0-37-generic #64-Ubuntu SMP Mon Sep 22 21:28:38 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+
+General help
+
+.. code-block:: bash
+
+    $ uname --help
+    Usage: uname [OPTION]...
+    Print certain system information.  With no OPTION, same as -s.
+
+      -a, --all                print all information, in the following order,
+                                 except omit -p and -i if unknown:
+      -s, --kernel-name        print the kernel name
+      -n, --nodename           print the network node hostname
+      -r, --kernel-release     print the kernel release
+      -v, --kernel-version     print the kernel version
+      -m, --machine            print the machine hardware name
+      -p, --processor          print the processor type (non-portable)
+      -i, --hardware-platform  print the hardware platform (non-portable)
+      -o, --operating-system   print the operating system
+          --help     display this help and exit
+          --version  output version information and exit
+
 ****************************************************
 Should I put my aliases in .bashrc or .bash_aliases?
 ****************************************************
