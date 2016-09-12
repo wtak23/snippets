@@ -96,13 +96,13 @@ language = None
 exclude_patterns = [
 'cs-rst-ignore.rst', # decided to just include links to good references
 'cs-sphinx.rst',
-'bct.rst', #<- exclude when prototyping
+# 'bct.rst', #<- exclude when prototyping
 ]
 
 html_theme_options = {
     'collapse_navigation': False, #<- set to false when publishing
-    'sticky_navigation': True,  # Set to False to disable the sticky nav while scrolling.
-    'navigation_depth': 4,
+    # 'sticky_navigation': True,  # Set to False to disable the sticky nav while scrolling.
+    # 'navigation_depth': 4,
 }
 
 # The reST default role (used for this markup: `text`) to use for all
@@ -151,10 +151,11 @@ html_theme = 'sphinx_rtd_theme'
 # "<project> v<release> documentation" by default.
 #
 # html_title = u'Snippets v1'
+html_title = ''
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-# html_short_title = None
+html_short_title = None
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.

@@ -108,8 +108,8 @@ https://docs.python.org/2/howto/regex.html#performing-matches
 .. code-block:: python
     :linenos:
 
-    p = re.compile('[a-z]+')
-    m = p.match('tempo')    
+    >>> p = re.compile('[a-z]+')
+    >>> m = p.match('tempo')    
 
     >>> m.group()
     'tempo'
@@ -136,13 +136,13 @@ https://docs.python.org/2/howto/regex.html#performing-matches
     (22, 24)
     (29, 31)
 
-    # if match is not found, ``None`` is returned, so can use ``if-else`` clause
-    p = re.compile( ... )
-    m = p.match( 'string goes here' )
-    if m:
-        print 'Match found: ', m.group()
-    else:
-        print 'No match'
+    >>> # if match is not found, ``None`` is returned, so can use ``if-else`` clause
+    >>> p = re.compile( ... )
+    >>> m = p.match( 'string goes here' )
+    >>> if m:
+    >>>     print 'Match found: ', m.group()
+    >>> else:
+    >>>     print 'No match'
 
 *****************
 Splitting strings
@@ -164,7 +164,8 @@ Splitting strings
     ['This', 'is', 'a', 'test', '']
 
 
-    #If capturing parentheses are used in the RE, then their values are also returned as part of the list
+    >>> #If capturing parentheses are used in the RE, 
+    >>> #then their values are also returned as part of the list
     >>> p2.split('This... is a test.')
     ['This', '... ', 'is', ' ', 'a', ' ', 'test', '.', '']
 
@@ -188,7 +189,7 @@ Search and replace with sub
     >>> p.sub('colour', 'blue socks and red shoes', count=1)
     'colour socks and red shoes'
 
-    # subn() method does the same work, but returns a 2-tuple
+    >>> # subn() method does the same work, but returns a 2-tuple
     >>> p = re.compile('(blue|white|red)')
     >>> p.subn('colour', 'blue socks and red shoes')
     ('colour socks and colour shoes', 2)
@@ -214,7 +215,8 @@ Search and replace with sub
 .. code-block:: python
     :linenos:
 
-    # This example matches the word section followed by a string enclosed in {, }, and changes section to subsection:
+    >>> # This example matches the word section followed by a 
+    >>> # string enclosed in {, }, and changes section to subsection:
     >>> p = re.compile('section{ ( [^}]* ) }', re.VERBOSE)
     >>> p.sub(r'subsection{\1}','section{First} section{second}')
     'subsection{First} subsection{second}'
@@ -227,7 +229,7 @@ Search and replace with sub
     >>> p.sub(r'subsection{\g<name>}','section{First}')
     'subsection{First}'
 
-    # replace decimal with hex
+    >>> # replace decimal with hex
     >>> def hexrepl(match):
     ...     "Return the hex string for a decimal number"
     ...     value = int(match.group())
@@ -372,19 +374,19 @@ Bunch of examples
 .. code-block:: python
     :linenos:
 
-    # (ab)* will match zero or more repetitions of ab.
-    p = re.compile('(ab)*')
-    print p.match('ababababab').span()
-    >>> (0, 10)
+    >>> # (ab)* will match zero or more repetitions of ab.
+    >>> p = re.compile('(ab)*')
+    >>> print p.match('ababababab').span()
+    (0, 10)
 
-    phone = "2004-959-559 # This is Phone Number"
+    >>> phone = "2004-959-559 # This is Phone Number"
     
-    # Delete Python-style comments (empty replace string for deletion)
-    num = re.sub(r'#.*$', "", phone)
-    print "Phone Num : ", num
-    >>> Phone Num :  2004-959-559
+    >>> # Delete Python-style comments (empty replace string for deletion)
+    >>> num = re.sub(r'#.*$', "", phone)
+    >>> print "Phone Num : ", num
+    Phone Num :  2004-959-559
 
-    # Remove anything other than digits
-    num = re.sub(r'\D', "", phone)    
-    print "Phone Num : ", num
-    >>> Phone Num :  2004959559
+    >>> # Remove anything other than digits
+    >>> num = re.sub(r'\D', "", phone)    
+    >>> print "Phone Num : ", num
+    Phone Num :  2004959559
