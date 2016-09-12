@@ -96,14 +96,11 @@ language = None
 exclude_patterns = [
 'cs-rst-ignore.rst', # decided to just include links to good references
 'cs-sphinx.rst',
-# 'bct.rst', #<- exclude when prototyping
+'bct.rst', #<- exclude when prototyping
 ]
 
-html_theme_options = {
-    'collapse_navigation': False, #<- set to false when publishing
-    # 'sticky_navigation': True,  # Set to False to disable the sticky nav while scrolling.
-    # 'navigation_depth': 4,
-}
+
+
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -137,12 +134,141 @@ pygments_style = 'sphinx'
 todo_include_todos = True
 
 
+_theme = 'rtd'
+# _theme = 'bootstrap'
 # -- Options for HTML output ----------------------------------------------
+#=============================================================================#
+# for rtd_theme
+#=============================================================================#
+if _theme == 'rtd':
+    html_theme = 'sphinx_rtd_theme'
+    html_theme_options = {
+        'collapse_navigation': False, #<- set to false when publishing
+        # 'sticky_navigation': True,  # Set to False to disable the sticky nav while scrolling.
+        # 'navigation_depth': 4,
+    }
+#=============================================================================#
+# Trying out the bootstrap theme
+#=============================================================================#
+elif _theme == 'bootstrap':
+    import sphinx_bootstrap_theme
+    html_theme = 'bootstrap'
+    html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-html_theme = 'sphinx_rtd_theme'
+    # Custom sidebar templates, maps document names to template names.
+    #http://stackoverflow.com/questions/20939598/enabling-sidebar-on-python-sphinx-documentation-based-on-a-sphinx-bootstrap-them
+    #http://www.sphinx-doc.org/en/stable/config.html#confval-html_sidebars
+    # html_sidebars = {'**': ['localtoc.html', 'sourcelink.html', 'searchbox.html']}
+    # html_sidebars = {'**': [
+    #     # 'globaltoc.html',
+    #     'localtoc.html',
+    #     # 'relations.html',
+    #     # 'sourcelink.html', # source link
+    #     'searchbox.html'
+    # ]}
+
+    # Theme options are theme-specific and customize the look and feel of a theme
+    # further.  For a list of options available for each theme, see the
+    # documentation.
+    #
+    html_theme_options = {
+        # Navigation bar title. (Default: ``project`` value)
+        #'navbar_title': "Demo",
+
+        # Tab name for entire site. (Default: "Site")
+        'navbar_site_name': "Table of Contents",
+
+        # A list of tuples containing pages or urls to link to.
+        # Valid tuples should be in the following forms:
+        #    (name, page)                 # a link to a page
+        #    (name, "/aa/bb", 1)          # a link to an arbitrary relative url
+        #    (name, "http://example.com", True) # arbitrary absolute url
+        # Note the "1" or "True" value above as the third argument to indicate
+        # an arbitrary url.
+        'navbar_links': [
+            ("Github", "https://github.com/wtak23", True),
+            # ("Link", "http://example.com", True),
+        ],
+
+        # Render the next and previous page links in navbar. (Default: true)
+        'navbar_sidebarrel': False,
+
+        #-------------------------------------------------------------------------#
+        # Render the current pages TOC in the navbar. (Default: true)
+        'navbar_pagenav': True,
+
+        # Tab name for the current pages TOC. (Default: "Page")
+        'navbar_pagenav_name': "Contents (current page)",
+        #-------------------------------------------------------------------------#
+
+        # Global TOC depth for "site" navbar tab. (Default: 1)
+        # Switching to -1 shows all levels.
+        'globaltoc_depth': -1,
+
+        # Include hidden TOCs in Site navbar?
+        #
+        # Note: If this is "false", you cannot have mixed ``:hidden:`` and
+        # non-hidden ``toctree`` directives in the same page, or else the build
+        # will break.
+        #
+        # Values: "true" (default) or "false"
+        'globaltoc_includehidden': "true",
+
+        # HTML navbar class (Default: "navbar") to attach to <div> element.
+        # For black navbar, do "navbar navbar-inverse"
+        # 'navbar_class': "navbar navbar-inverse",
+
+        # Fix navigation bar to top of page?
+        # Values: "true" (default) or "false"
+        'navbar_fixed_top': "true",
+
+        # Location of link to source.
+        # Options are "nav" (default), "footer" or anything else to exclude.
+        'source_link_position': "footer",
+
+        #-------------------------------------------------------------------------#
+        # bootstram theme (in conjunction with navbar class....combo matters for me here)
+        #-------------------------------------------------------------------------#
+        # Bootswatch (http://bootswatch.com/) theme.
+        #
+        # Options are nothing (default) or the name of a valid theme
+        # such as "amelia" or "cosmo".
+        # 'bootswatch_theme': "amelia",'navbar_class': "navbar", # <- ugh...not my taste!
+        # 'bootswatch_theme': "cyborg",'navbar_class': "navbar navbar-inverse", # <- ugh...not my taste!
+
+        # 'bootswatch_theme': "flatly",'navbar_class': "navbar navbar-inverse", # <- nice!
+        # 'bootswatch_theme': "flatly", # <- nice!
+
+        # 'bootswatch_theme': "journal",'navbar_class': "navbar navbar-inverse", # <- bit clunky... (huge navbar font, tiny body font...)
+
+        # 'bootswatch_theme': "readable",'navbar_class': "navbar navbar-inverse", # <- pretty good...
+
+        # 'bootswatch_theme': "simplex",'navbar_class': "navbar navbar-inverse", # <- red navbar ugly...
+        'bootswatch_theme': "simplex",'navbar_class': "navbar", # <- Great! I might go with this...
+
+        # 'bootswatch_theme': "slate",'navbar_class': "navbar navbar-inverse", # <- dark background...not a fan
+
+        # 'bootswatch_theme': "spacelab",'navbar_class': "navbar navbar-inverse", # <- admonition background color and hyperlink color overlaps...everything else looks nice....(might have to tinker with custom css for this to fix the hyperlink color issue)
+        
+        # 'bootswatch_theme': "spruce",'navbar_class': "navbar navbar-inverse", # <- nope, not a fan
+        # 'bootswatch_theme': "superhero",'navbar_class': "navbar navbar-inverse",# <- nope, not a fan
+
+        # 'bootswatch_theme': "united",'navbar_class': "navbar navbar-inverse", # pretty cool
+        # 'bootswatch_theme': "united",'navbar_class': "navbar", # pretty cool
+
+
+        # 'bootswatch_theme': "cerulean",'navbar_class': "navbar navbar-inverse", # <- pretty neat
+        
+        # 'bootswatch_theme': "cosmo",'navbar_class': "navbar", # <- admonition too much glare...hurts my eye
+
+
+        # Choose Bootstrap version.
+        # Values: "3" (default) or "2" (in quotes)
+        'bootstrap_version': "2", # 3 doesn't allow recursing over section depth at navbar TOC...use 2
+    }
+#=============================================================================#
+
+
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -160,7 +286,7 @@ html_short_title = None
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-# html_logo = None
+# html_logo = '_static/img/blockm.gif'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -184,7 +310,7 @@ html_static_path = ['_static']
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
 #
-# html_last_updated_fmt = None
+html_last_updated_fmt = ''
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -218,11 +344,11 @@ html_static_path = ['_static']
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #
-# html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #
-# html_show_copyright = True
+html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -355,6 +481,13 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #
 # texinfo_no_detailmenu = False
+
+#=============================================================================#
+# My (tak) customization
+#=============================================================================#
+# http://www.sphinx-doc.org/en/stable/config.html#options-for-html-output
+html_secnumber_suffix = ' '
+html_add_permalinks = None # http://www.sphinx-doc.org/en/stable/config.html#confval-html_add_permalinks
 def setup(app):
     # to hide/show the prompt in code examples:
     app.add_javascript('copybutton.js')

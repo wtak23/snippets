@@ -27,7 +27,6 @@ Those were dark days with no tangible signs of hope.
     top-unix.rst
     top-rst.rst
 
-
 .. code-block:: bash
 
     echo * | sed 's/ /\n/g' | grep \.rst --color=never | xclip -selection clipboard

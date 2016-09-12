@@ -20,7 +20,7 @@ make html
 #| so i'm just gonna manually copy and paste pdf files to the build directory here
 cp -r ./source/_static/pdf ./build/html/_static/
 
-# exit 0
+exit 0
 # --- browse result in chrome? --- #
 # BROWSE=false
 # if [[ ! BROWSE ]]; then exit 0; fi
