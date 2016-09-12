@@ -5,6 +5,47 @@ python-jupyter (``cs-py-jupyter``)
    :depth: 2
    :local:
 
+###################################
+TOC for hosting on jupyter notebook
+###################################
+Insert in a markdown cell (this :
+
+.. code-block:: html
+
+    **Table of Contents**
+
+    <div id="toc"></div>
+    <script type="text/javascript" 
+    src="https://raw.github.com/kmahelona/ipython_notebook_goodies/master/ipython_notebook_toc.js">
+    </script>
+
+
+######################
+Enable ``toggle`` code
+######################
+Insert the following in code cells:
+
+.. code-block:: python
+
+    from IPython.display import HTML
+
+    HTML('''<script>
+    code_show=true;
+    function code_toggle() {
+     if (code_show){
+     $('div.input').hide();
+     } else {
+     $('div.input').show();
+     }
+     code_show = !code_show
+    }
+    $( document ).ready(code_toggle);
+    </script>
+    <form action="javascript:code_toggle()"><input type="submit" value="Click here to toggle on/off the raw code."></form>''')
+
+
+
+
 #########################
 Ipython notebook defaults
 #########################

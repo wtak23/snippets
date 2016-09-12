@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.1.1.37. bct.algorithms.efficiency_bin &mdash; Snippets  documentation</title>
+  <title>4.1.1.37. bct.algorithms.efficiency_bin</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="Snippets  documentation" href="../index.html"/>
+    <link rel="top" title="" href="../index.html"/>
         <link rel="up" title="4.1. bct.algorithms" href="bct.algorithms.html"/>
         <link rel="next" title="4.1.1.38. bct.algorithms.efficiency_wei" href="bct.algorithms.efficiency_wei.html"/>
         <link rel="prev" title="4.1.1.36. bct.algorithms.edge_nei_overlap_bu" href="bct.algorithms.edge_nei_overlap_bu.html"/> 
@@ -83,8 +83,8 @@
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../top-python.html">Python-type</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../cs-python.html">1. Python</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../top-python.html">Python-type (<code class="docutils literal"><span class="pre">top-python.rst</span></code>)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cs-python.html">1. Python (<code class="docutils literal"><span class="pre">cs-python.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-python.html#random-stack-overflow-questions">1.1. Random Stack-overflow questions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-python.html#a-bit-on-python-unicode">1.1.1. A bit on python unicode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-python.html#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">1.1.2. Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
@@ -106,7 +106,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-python.html#top-mpl">1.4. top-mpl</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-python.html#change-fontweight-and-size-in-pre-existing-legend">1.4.1. Change fontweight and size in pre-existing legend</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-python.html#change-xlabel-and-ylabel-fontsize-for-axes-already-existing">1.4.2. Change xlabel and ylabel fontsize for axes already existing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-python.html#change-xlabel-and-ylabel-fontsize-for-axes-already-existing">1.4.2. Change xlabel and ylabel fontsize for axes already existing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-python.html#note-above-applies-to-other-stuffs-like-titles-too">1.4.2.1. Note: above applies to other stuffs like titles too</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-python.html#when-plt-tight-layout-doesn-t-work-as-expected">1.4.3. When plt.tight_layout doesn&#8217;t work as expected</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-python.html#append-to-existing-axes-title">1.4.4. Append to existing axes title</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-python.html#change-figure-size-of-existing-figure">1.4.5. Change figure size of <em>existing</em> figure</a></li>
@@ -147,16 +150,23 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-python.html#clever-tricks">1.15. Clever tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-pyspark.html">2. pyspark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-pyspark.html">2. pyspark (<code class="docutils literal"><span class="pre">cs-pyspark.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-pyspark.html#stack-overflows">2.1. Stack overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#numpy-array-to-spark-dataframe-trickier-than-i-thought">2.1.1. numpy array to spark dataframe...trickier than i thought...</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#adding-new-columns-to-spark-dataframes">2.1.2. Adding new columns to Spark DataFrames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#sort-related-functions-for-rdds">2.1.1. Sort related functions for RDDs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#use-rdd-flatmap-to-get-flattened-list">2.1.2. Use <code class="docutils literal"><span class="pre">RDD.flatMap</span></code> to get <em>flattened</em> list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#there-s-no-uniq-function-in-pyspark-use-distinct">2.1.3. There&#8217;s no uniq function in pyspark, use distinct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#how-to-concatenate-two-rdds-use-union-method">2.1.4. How to concatenate two RDDs (use union method)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#take-ordered">2.1.5. Take ordered...</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#numpy-array-to-spark-dataframe-trickier-than-i-thought">2.1.6. numpy array to spark dataframe...trickier than i thought...</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#adding-new-columns-to-spark-dataframes">2.1.7. Adding new columns to Spark DataFrames</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-pyspark.html#handy-snippets">2.2. Handy snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#todo-run-this-script">2.2.1. Todo: run this script</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#bunch-of-example-scripts">2.2.2. Bunch of example scripts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#use-of-persist-rdd-persistence">2.2.3. Use of persist (RDD persistence)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#word-count-demo-concise">2.2.1. word-count demo concise</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#classic-wordcount-demo">2.2.2. Classic wordcount demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#todo-run-this-script">2.2.3. Todo: run this script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#bunch-of-example-scripts">2.2.4. Bunch of example scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#use-of-persist-rdd-persistence">2.2.5. Use of persist (RDD persistence)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-pyspark.html#sql-in-pyspark">2.3. SQL in pyspark</a></li>
@@ -164,67 +174,248 @@
 <li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#dataframes">2.4.1. DataFrames</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#inter-operating-rdd-dataframes">2.4.2. Inter-operating RDD &amp; DataFrames</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#data-sources">2.4.3. Data Sources</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#saving-to-persistent-tables">2.4.4. Saving to Persistent Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#saving-to-persistent-tables">2.4.4. Saving to Persistent Tables</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#parquet-files">2.4.4.1. Parquet Files</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#schema-merging">2.4.4.2. Schema merging</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#json-datasets">2.4.4.3. JSON Datasets</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-pyspark.html#programming-guide-condensed-summary">2.5. Programming-guide: condensed summary</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#super-basics">2.5.1. Super basics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#shared-variables">2.5.2. Shared variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#rdd-operations">2.5.3. RDD operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#shared-variables">2.5.2. Shared variables</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#broadast-variables">2.5.2.1. Broadast variables</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#accumulators">2.5.2.2. Accumulators</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#rdd-operations">2.5.3. RDD operations</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#rdd-basics">2.5.3.1. RDD-basics</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#passing-functions-to-spark">2.5.3.2. Passing functions to Spark</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#rdd-transformations">2.5.3.3. RDD Transformations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#rdd-actions">2.5.3.4. RDD Actions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#closures">2.5.3.5. closures</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-pyspark.html#working-with-key-value-pairs">2.5.3.6. Working with key-value pairs</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-pyspark.html#random-handy-snippets">2.6. Random handy snippets</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#compute-average">2.6.1. compute average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-pyspark.html#cs105-hw2">2.6.2. cs105 hw2</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-py-jupyter-notebook.html">3. python-jupyter-notebook</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter-notebook.html#ipython-notebook-defaults">3.1. Ipython notebook defaults</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-py-jupyter-notebook.html#frequently-used-config">3.1.1. Frequently used config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cs-py-jupyter.html">3. python-jupyter (<code class="docutils literal"><span class="pre">cs-py-jupyter</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter.html#toc-for-hosting-on-jupyter-notebook">3.1. TOC for hosting on jupyter notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter.html#enable-toggle-code">3.2. Enable <code class="docutils literal"><span class="pre">toggle</span></code> code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter.html#ipython-notebook-defaults">3.3. Ipython notebook defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-py-jupyter.html#frequently-used-config">3.3.1. Frequently used config</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter-notebook.html#widgets">3.2. widgets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-py-jupyter-notebook.html#all-widget-types">3.2.1. All widget types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter.html#widgets">3.4. widgets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-py-jupyter.html#all-widget-types">3.4.1. All widget types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter-notebook.html#current-config">3.3. Current config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter.html#current-config">3.5. Current config</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../bct.html">4. Brain Connectivity Toolbox</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="bct.algorithms.html">4.1. bct.algorithms</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="bct.algorithms.html#functions">4.1.1. Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bct.algorithms.html#exceptions">4.1.2. Exceptions</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="bct.algorithms.html#functions">4.1.1. Functions</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.agreement.html">4.1.1.1. bct.algorithms.agreement</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.agreement_weighted.html">4.1.1.2. bct.algorithms.agreement_weighted</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.assortativity_bin.html">4.1.1.3. bct.algorithms.assortativity_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.assortativity_wei.html">4.1.1.4. bct.algorithms.assortativity_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.betweenness_bin.html">4.1.1.5. bct.algorithms.betweenness_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.betweenness_wei.html">4.1.1.6. bct.algorithms.betweenness_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.binarize.html">4.1.1.7. bct.algorithms.binarize</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.breadth.html">4.1.1.8. bct.algorithms.breadth</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.breadthdist.html">4.1.1.9. bct.algorithms.breadthdist</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.charpath.html">4.1.1.10. bct.algorithms.charpath</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.ci2ls.html">4.1.1.11. bct.algorithms.ci2ls</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.clustering_coef_bd.html">4.1.1.12. bct.algorithms.clustering_coef_bd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.clustering_coef_bu.html">4.1.1.13. bct.algorithms.clustering_coef_bu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.clustering_coef_wd.html">4.1.1.14. bct.algorithms.clustering_coef_wd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.clustering_coef_wu.html">4.1.1.15. bct.algorithms.clustering_coef_wu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.clustering_coef_wu_sign.html">4.1.1.16. bct.algorithms.clustering_coef_wu_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.community_louvain.html">4.1.1.17. bct.algorithms.community_louvain</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.consensus_und.html">4.1.1.18. bct.algorithms.consensus_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.core_periphery_dir.html">4.1.1.19. bct.algorithms.core_periphery_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.corr_flat_dir.html">4.1.1.20. bct.algorithms.corr_flat_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.corr_flat_und.html">4.1.1.21. bct.algorithms.corr_flat_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.cuberoot.html">4.1.1.22. bct.algorithms.cuberoot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.cycprob.html">4.1.1.23. bct.algorithms.cycprob</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.degrees_dir.html">4.1.1.24. bct.algorithms.degrees_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.degrees_und.html">4.1.1.25. bct.algorithms.degrees_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.density_dir.html">4.1.1.26. bct.algorithms.density_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.density_und.html">4.1.1.27. bct.algorithms.density_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.dice_pairwise_und.html">4.1.1.28. bct.algorithms.dice_pairwise_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.distance_bin.html">4.1.1.29. bct.algorithms.distance_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.distance_wei.html">4.1.1.30. bct.algorithms.distance_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.diversity_coef_sign.html">4.1.1.31. bct.algorithms.diversity_coef_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.dummyvar.html">4.1.1.32. bct.algorithms.dummyvar</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.edge_betweenness_bin.html">4.1.1.33. bct.algorithms.edge_betweenness_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.edge_betweenness_wei.html">4.1.1.34. bct.algorithms.edge_betweenness_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.edge_nei_overlap_bd.html">4.1.1.35. bct.algorithms.edge_nei_overlap_bd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.edge_nei_overlap_bu.html">4.1.1.36. bct.algorithms.edge_nei_overlap_bu</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="">4.1.1.37. bct.algorithms.efficiency_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.efficiency_wei.html">4.1.1.38. bct.algorithms.efficiency_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.eigenvector_centrality_und.html">4.1.1.39. bct.algorithms.eigenvector_centrality_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.erange.html">4.1.1.40. bct.algorithms.erange</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.evaluate_generative_model.html">4.1.1.41. bct.algorithms.evaluate_generative_model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.find_motif34.html">4.1.1.42. bct.algorithms.find_motif34</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.findpaths.html">4.1.1.43. bct.algorithms.findpaths</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.findwalks.html">4.1.1.44. bct.algorithms.findwalks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.flow_coef_bd.html">4.1.1.45. bct.algorithms.flow_coef_bd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.gateway_coef_sign.html">4.1.1.46. bct.algorithms.gateway_coef_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.generative_model.html">4.1.1.47. bct.algorithms.generative_model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.get_components.html">4.1.1.48. bct.algorithms.get_components</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.get_components_old.html">4.1.1.49. bct.algorithms.get_components_old</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.gtom.html">4.1.1.50. bct.algorithms.gtom</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.invert.html">4.1.1.51. bct.algorithms.invert</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.jdegree.html">4.1.1.52. bct.algorithms.jdegree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.kcore_bd.html">4.1.1.53. bct.algorithms.kcore_bd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.kcore_bu.html">4.1.1.54. bct.algorithms.kcore_bu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.kcoreness_centrality_bd.html">4.1.1.55. bct.algorithms.kcoreness_centrality_bd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.kcoreness_centrality_bu.html">4.1.1.56. bct.algorithms.kcoreness_centrality_bu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.latmio_dir.html">4.1.1.57. bct.algorithms.latmio_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.latmio_dir_connected.html">4.1.1.58. bct.algorithms.latmio_dir_connected</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.latmio_und.html">4.1.1.59. bct.algorithms.latmio_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.latmio_und_connected.html">4.1.1.60. bct.algorithms.latmio_und_connected</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.link_communities.html">4.1.1.61. bct.algorithms.link_communities</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.local_assortativity_wu_sign.html">4.1.1.62. bct.algorithms.local_assortativity_wu_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.ls2ci.html">4.1.1.63. bct.algorithms.ls2ci</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.make_motif34lib.html">4.1.1.64. bct.algorithms.make_motif34lib</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.makeevenCIJ.html">4.1.1.65. bct.algorithms.makeevenCIJ</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.makefractalCIJ.html">4.1.1.66. bct.algorithms.makefractalCIJ</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.makerandCIJ_dir.html">4.1.1.67. bct.algorithms.makerandCIJ_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.makerandCIJ_und.html">4.1.1.68. bct.algorithms.makerandCIJ_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.makerandCIJdegreesfixed.html">4.1.1.69. bct.algorithms.makerandCIJdegreesfixed</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.makeringlatticeCIJ.html">4.1.1.70. bct.algorithms.makeringlatticeCIJ</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.maketoeplitzCIJ.html">4.1.1.71. bct.algorithms.maketoeplitzCIJ</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.matching_ind.html">4.1.1.72. bct.algorithms.matching_ind</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.matching_ind_und.html">4.1.1.73. bct.algorithms.matching_ind_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_dir.html">4.1.1.74. bct.algorithms.modularity_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_finetune_dir.html">4.1.1.75. bct.algorithms.modularity_finetune_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_finetune_und.html">4.1.1.76. bct.algorithms.modularity_finetune_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_finetune_und_sign.html">4.1.1.77. bct.algorithms.modularity_finetune_und_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_louvain_dir.html">4.1.1.78. bct.algorithms.modularity_louvain_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_louvain_und.html">4.1.1.79. bct.algorithms.modularity_louvain_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_louvain_und_sign.html">4.1.1.80. bct.algorithms.modularity_louvain_und_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_probtune_und_sign.html">4.1.1.81. bct.algorithms.modularity_probtune_und_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_und.html">4.1.1.82. bct.algorithms.modularity_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.modularity_und_sign.html">4.1.1.83. bct.algorithms.modularity_und_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.module_degree_zscore.html">4.1.1.84. bct.algorithms.module_degree_zscore</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif3funct_bin.html">4.1.1.85. bct.algorithms.motif3funct_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif3funct_wei.html">4.1.1.86. bct.algorithms.motif3funct_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif3struct_bin.html">4.1.1.87. bct.algorithms.motif3struct_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif3struct_wei.html">4.1.1.88. bct.algorithms.motif3struct_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif4funct_bin.html">4.1.1.89. bct.algorithms.motif4funct_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif4funct_wei.html">4.1.1.90. bct.algorithms.motif4funct_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif4struct_bin.html">4.1.1.91. bct.algorithms.motif4struct_bin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.motif4struct_wei.html">4.1.1.92. bct.algorithms.motif4struct_wei</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.normalize.html">4.1.1.93. bct.algorithms.normalize</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.null_model_dir_sign.html">4.1.1.94. bct.algorithms.null_model_dir_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.null_model_und_sign.html">4.1.1.95. bct.algorithms.null_model_und_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.number_of_components.html">4.1.1.96. bct.algorithms.number_of_components</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.pagerank_centrality.html">4.1.1.97. bct.algorithms.pagerank_centrality</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.participation_coef.html">4.1.1.98. bct.algorithms.participation_coef</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.participation_coef_sign.html">4.1.1.99. bct.algorithms.participation_coef_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.partition_distance.html">4.1.1.100. bct.algorithms.partition_distance</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.pick_four_unique_nodes_quickly.html">4.1.1.101. bct.algorithms.pick_four_unique_nodes_quickly</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randmio_dir.html">4.1.1.102. bct.algorithms.randmio_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randmio_dir_connected.html">4.1.1.103. bct.algorithms.randmio_dir_connected</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randmio_dir_signed.html">4.1.1.104. bct.algorithms.randmio_dir_signed</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randmio_und.html">4.1.1.105. bct.algorithms.randmio_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randmio_und_connected.html">4.1.1.106. bct.algorithms.randmio_und_connected</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randmio_und_signed.html">4.1.1.107. bct.algorithms.randmio_und_signed</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randomize_graph_partial_und.html">4.1.1.108. bct.algorithms.randomize_graph_partial_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.randomizer_bin_und.html">4.1.1.109. bct.algorithms.randomizer_bin_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.reachdist.html">4.1.1.110. bct.algorithms.reachdist</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.rentian_scaling.html">4.1.1.111. bct.algorithms.rentian_scaling</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.rich_club_bd.html">4.1.1.112. bct.algorithms.rich_club_bd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.rich_club_bu.html">4.1.1.113. bct.algorithms.rich_club_bu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.rich_club_wd.html">4.1.1.114. bct.algorithms.rich_club_wd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.rich_club_wu.html">4.1.1.115. bct.algorithms.rich_club_wu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.score_wu.html">4.1.1.116. bct.algorithms.score_wu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.strengths_dir.html">4.1.1.117. bct.algorithms.strengths_dir</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.strengths_und.html">4.1.1.118. bct.algorithms.strengths_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.strengths_und_sign.html">4.1.1.119. bct.algorithms.strengths_und_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.subgraph_centrality.html">4.1.1.120. bct.algorithms.subgraph_centrality</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.transitivity_bd.html">4.1.1.121. bct.algorithms.transitivity_bd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.transitivity_bu.html">4.1.1.122. bct.algorithms.transitivity_bu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.transitivity_wd.html">4.1.1.123. bct.algorithms.transitivity_wd</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.transitivity_wu.html">4.1.1.124. bct.algorithms.transitivity_wu</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="bct.algorithms.html#exceptions">4.1.2. Exceptions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="bct.algorithms.BCTParamError.html">4.1.2.1. bct.algorithms.BCTParamError</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="bct.utils.html">4.2. bct.utils</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="bct.utils.html#functions">4.2.1. Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bct.utils.html#exceptions">4.2.2. Exceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bct.utils.html#functions">4.2.1. Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.adjacency_plot_und.html">4.2.1.1. bct.utils.adjacency_plot_und</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.align_matrices.html">4.2.1.2. bct.utils.align_matrices</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.autofix.html">4.2.1.3. bct.utils.autofix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.backbone_wu.html">4.2.1.4. bct.utils.backbone_wu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.binarize.html">4.2.1.5. bct.utils.binarize</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.cuberoot.html">4.2.1.6. bct.utils.cuberoot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.dummyvar.html">4.2.1.7. bct.utils.dummyvar</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.grid_communities.html">4.2.1.8. bct.utils.grid_communities</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.invert.html">4.2.1.9. bct.utils.invert</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.normalize.html">4.2.1.10. bct.utils.normalize</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.pick_four_unique_nodes_quickly.html">4.2.1.11. bct.utils.pick_four_unique_nodes_quickly</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.reorderMAT.html">4.2.1.12. bct.utils.reorderMAT</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.reorder_matrix.html">4.2.1.13. bct.utils.reorder_matrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.reorder_mod.html">4.2.1.14. bct.utils.reorder_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.teachers_round.html">4.2.1.15. bct.utils.teachers_round</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.threshold_absolute.html">4.2.1.16. bct.utils.threshold_absolute</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.threshold_proportional.html">4.2.1.17. bct.utils.threshold_proportional</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.weight_conversion.html">4.2.1.18. bct.utils.weight_conversion</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.writetoPAJ.html">4.2.1.19. bct.utils.writetoPAJ</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="bct.utils.html#exceptions">4.2.2. Exceptions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="bct.utils.BCTParamError.html">4.2.2.1. bct.utils.BCTParamError</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="bct.nbs.html">4.3. bct.nbs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="bct.nbs.html#functions">4.3.1. Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bct.nbs.html#exceptions">4.3.2. Exceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bct.nbs.html#functions">4.3.1. Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="bct.nbs.get_components.html">4.3.1.1. bct.nbs.get_components</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bct.nbs.nbs_bct.html">4.3.1.2. bct.nbs.nbs_bct</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="bct.nbs.html#exceptions">4.3.2. Exceptions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="bct.nbs.BCTParamError.html">4.3.2.1. bct.nbs.BCTParamError</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../top-bash.html">Bash-type</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cs-bash-commands.html">1. bash-commands</a><ul>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../top-bash.html">Bash-type (<code class="docutils literal"><span class="pre">top-bash</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-bash-commands.html">1. bash-commands (<code class="docutils literal"><span class="pre">cs-bash-commands</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-commands.html#overflows">1.1. Overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#should-i-put-my-aliases-in-bashrc-or-bash-aliases">1.1.1. Should I put my aliases in .bashrc or .bash_aliases?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#function-in-single-line-for-bashrc">1.1.2. Function in single line (for bashrc)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">1.1.3. Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#more-stuffs-with-ls">1.1.4. More stuffs with ls</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#insightful-sed-example">1.1.5. Insightful sed example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.6. Remove colors from stdout (harder than i expected)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#sigint-and-sigstp">1.1.7. SIGINT and SIGSTP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#quoting-with-command-substitution">1.1.8. Quoting with command substitution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#display-function-names">1.1.9. Display function names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.10. get n-th line of output (used sed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#quotes-with-grep">1.1.11. Quotes with grep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#what-os-am-i">1.1.1. What OS am I</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#should-i-put-my-aliases-in-bashrc-or-bash-aliases">1.1.2. Should I put my aliases in .bashrc or .bash_aliases?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#function-in-single-line-for-bashrc">1.1.3. Function in single line (for bashrc)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">1.1.4. Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#more-stuffs-with-ls">1.1.5. More stuffs with ls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#insightful-sed-example">1.1.6. Insightful sed example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#remove-colors-from-stdout-harder-than-i-expected">1.1.7. Remove colors from stdout (harder than i expected)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#sigint-and-sigstp">1.1.8. SIGINT and SIGSTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#quoting-with-command-substitution">1.1.9. Quoting with command substitution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#display-function-names">1.1.10. Display function names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#get-n-th-line-of-output-used-sed">1.1.11. get n-th line of output (used sed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#quotes-with-grep">1.1.12. Quotes with grep</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-commands.html#escaping-single-quotes-a-mess">1.2. Escaping single quotes (a mess...)</a></li>
@@ -242,7 +433,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-commands.html#nohup-vs-disown-vs">1.7. nohup vs disown vs &amp;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-commands.html#moving-and-copying">1.8. Moving and copying</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#scp-user">1.8.1. scp user</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#rsync">1.8.2. rsync</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-commands.html#rsync">1.8.2. rsync</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-bash-commands.html#what-a-does">1.8.2.1. What <code class="docutils literal"><span class="pre">-a</span></code> does</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-commands.html#find">1.9. find</a><ul>
@@ -299,7 +493,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-bash-scripts.html">2. bash-scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-bash-scripts.html">2. bash-scripts (<code class="docutils literal"><span class="pre">cs-bash-scripts</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-scripts.html#overflow-topics">2.1. Overflow topics</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-bash-scripts.html#source-vs-in-bash-synonymous">2.1.1. source vs . in bash (synonymous)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-bash-scripts.html#check-file-existance">2.1.2. Check file existance</a></li>
@@ -307,7 +501,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-scripts.html#simple-loop-for-python">2.2. Simple loop for python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-scripts.html#qsub">2.3. qsub</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-bash-scripts.html#my-old-qsub-approach">2.3.1. my old qsub approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-bash-scripts.html#my-old-qsub-approach">2.3.1. my old qsub approach</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-bash-scripts.html#slave-script">2.3.1.1. slave script</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-bash-scripts.html#minimalist-call">2.3.1.2. minimalist call</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-bash-scripts.html#master-script">2.3.1.3. master script</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-bash-scripts.html#qsub-run">2.3.2. qsub-run</a></li>
 </ul>
 </li>
@@ -333,7 +532,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-bash-scripts.html#get-directory-of-running-bash-script">2.19. get directory of running bash script</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-qsubber.html">3. qsubber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-qsubber.html">3. qsubber (<code class="docutils literal"><span class="pre">cs-qsubber.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-qsubber.html#qsub-helper">3.1. qsub helper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-qsubber.html#qsub-helper-old-pre-april-2016">3.2. qsub helper (old, pre April 2016</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-qsubber.html#a-3-step-receipe-for-matlab">3.2.1. A 3 step receipe for matlab</a></li>
@@ -344,18 +543,19 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-git.html">4. git-snippet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-git.html">4. git-snippet (<code class="docutils literal"><span class="pre">cs-git.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-git.html#random-overflows">4.1. Random Overflows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-git.html#delete-untracked-files">4.1.1. Delete untracked files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-git.html#change-author-name">4.1.2. change author name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-git.html#clone-specific-tag">4.1.1. Clone specific tag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-git.html#delete-untracked-files">4.1.2. Delete untracked files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-git.html#change-author-name">4.1.3. change author name</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../top-datascience.html">Data Science</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cs-R.html">1. R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../top-datascience.html">Data Science (<code class="docutils literal"><span class="pre">top-datascience</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-R.html">1. R (<code class="docutils literal"><span class="pre">cs-R.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-R.html#snippets-in-rstudio">1.1. Snippets in RStudio</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-R.html#current-content-in-r-snippets">1.1.1. Current content in <code class="docutils literal"><span class="pre">r.snippets</span></code></a></li>
 </ul>
@@ -363,18 +563,27 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-R.html#todo-break-these-down-to-smaller-pieces">1.2. TODO: break these down to smaller pieces</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-sql.html">2. sql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-sql.html">2. sql (<code class="docutils literal"><span class="pre">cs-sql.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sql.html#style-guidelines-conventions">2.1. Style guidelines, conventions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sql.html#basic-commands-keywords">2.2. Basic commands/keywords</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sql.html#sql-zoo">2.3. sql-zoo</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-sql.html#select-basics">2.3.1. SELECT basics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cs-sql.html#math-functions">2.3.2. math functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-sql.html#select-basics">2.3.1. SELECT basics</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-sql.html#sorting-records-with-order-by">2.3.1.1. sorting records with ORDER BY</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-sql.html#wildcards">2.3.1.2. wildcards</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-sql.html#case-statement">2.3.1.3. CASE statement</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-sql.html#math-functions">2.3.2. math functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../cs-sql.html#aggregate-functions-sum-count-avg-etc">2.3.2.1. Aggregate functions (SUM, COUNT, AVG, etc)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../cs-sql.html#group-by-and-having">2.3.2.2. GROUP BY and HAVING</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sql.html#different-rdbms">2.4. different RDBMS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-perl-oneliners.html">3. perl one-liners</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-perl-oneliners.html">3. <code class="docutils literal"><span class="pre">cs-perl-oneliners.rst</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-perl-oneliners.html#perl-help-refresher-on-command-line-options">3.1. $ perl &#8211;help (refresher on command line options)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-perl-oneliners.html#file-spacing">3.2. FILE SPACING</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-perl-oneliners.html#line-numbering">3.3. LINE NUMBERING</a></li>
@@ -387,7 +596,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-perl-oneliners.html#perl-one-liners-explained-e-book">3.10. PERL ONE-LINERS EXPLAINED E-BOOK</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-regexp.html">4. regular expressions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-regexp.html">4. regular expressions (<code class="docutils literal"><span class="pre">cs-regexp</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-regexp.html#overflows">4.1. Overflows</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-regexp.html#use-perl-engine-in-bash">4.1.1. Use Perl engine in bash</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-regexp.html#negate-specific-word">4.1.2. Negate specific word?</a></li>
@@ -408,27 +617,16 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-scala.html">5. Scala</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-scala.html">5. Scala (<code class="docutils literal"><span class="pre">cs-scala.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-scala.html#random-overflow-threads">5.1. Random overflow threads</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-scala.html#linear-algebra-in-scala">5.2. Linear algebra in scala?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-scala.html#scala-lab">5.3. scala-lab?</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-computer.html">6. Random notes relating to computer science</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cs-computer.unix.html">6.1. Unix-related</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-computer.unix.html#terminal-shell-tty-console-the-difference">6.1.1. terminal, shell, tty, console...the difference?</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../cs-computer.network.html">6.2. Network notes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../cs-computer.network.html#http-messages">6.2.1. HTTP messages</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../top-unix.html">Unix utilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cs-sed.html">1. sed</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../top-unix.html">Unix utilities (<code class="docutils literal"><span class="pre">top-unix.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-sed.html">1. sed (<code class="docutils literal"><span class="pre">cs-sed.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sed.html#references">1.1. References</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-sed.html#go-to-gnu-manual-for-an-overkill">1.1.1. Go to GNU manual for an overkill :)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-sed.html#others">1.1.2. Others</a></li>
@@ -450,7 +648,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-sed.html#output-from-man-page">1.5. output from man page</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-sed-oneliners.html">2. sed oneliners</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-sed-oneliners.html">2. <code class="docutils literal"><span class="pre">cs-sed-oneliners.rst</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sed-oneliners.html#sed-help">2.1. sed &#8211;help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sed-oneliners.html#typical-use">2.2. Typical use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-sed-oneliners.html#file-spacing">2.3. FILE SPACING:</a></li>
@@ -462,7 +660,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-sed-oneliners.html#misc">2.9. Misc</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-awk.html">3. awk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-awk.html">3. awk (<code class="docutils literal"><span class="pre">cs-awk.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-awk.html#note-do-i-really-need-awk">3.1. note: do I really need awk?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-awk.html#my-use-case-for-awk-for-files-containing-columns-fields">3.2. My use-case for awk (for files containing columns/fields)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-awk.html#random-snippets">3.3. Random snippets</a></li>
@@ -473,7 +671,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs-awk.html#awk-help">3.5. awk &#8211;help</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-awk-oneliners.html">4. awk-oneliners</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-awk-oneliners.html">4. <code class="docutils literal"><span class="pre">cs-awk-oneliners.rst</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-awk-oneliners.html#file-spacing">4.1. File spacing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-awk-oneliners.html#numbering-and-calculations">4.2. NUMBERING AND CALCULATIONS:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-awk-oneliners.html#string-creation">4.3. STRING CREATION:</a></li>
@@ -485,8 +683,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../top-rst.html">Sphinx/RST-notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cs-rst.html">1. rst</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../top-rst.html">Sphinx/RST-notes (<code class="docutils literal"><span class="pre">top-rst.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-rst.html">1. rst (<code class="docutils literal"><span class="pre">cs-rst.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.html#best-lookups">1.1. Best lookups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.html#important-external-directives">1.2. Important external directives</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.html#random-overflows">1.3. Random overflows</a><ul>
@@ -509,7 +707,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-rst.directive-test.html">2. Test runs on RST directives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-rst.directive-test.html">2. Test runs on RST directives (<code class="docutils literal"><span class="pre">cs-rst.directive-test.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.directive-test.html#admonitions">2.1. Admonitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.directive-test.html#images">2.2. Images</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-rst.directive-test.html#image">2.2.1. Image</a></li>
@@ -559,7 +757,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-rst.math_part1.html">3. Latex mathematics on sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-rst.math_part1.html">3. Latex mathematics on sphinx (<code class="docutils literal"><span class="pre">cs-rst.math_part1.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.math_part1.html#symbols">3.1. Symbols</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.math_part1.html#greek-letters">3.2. Greek letters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst.math_part1.html#operators">3.3. Operators</a></li>
@@ -595,7 +793,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs_rst.math_part2.html">4. Advanced Latex Mathematics on Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs_rst.math_part2.html">4. Advanced Latex Mathematics on Sphinx (<code class="docutils literal"><span class="pre">cs_rst.math_part2.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs_rst.math_part2.html#some-self-notes-i-created">4.1. Some self-notes I created</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs_rst.math_part2.html#bold-for-lower-case-greek">4.1.1. bold for lower-case greek</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs_rst.math_part2.html#defining-own-function">4.1.2. Defining own function</a></li>
@@ -618,8 +816,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../cs_rst.math_part2.html#changing-font-size">4.12. Changing font size</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-rst.ipython.html">5. Demo runs of ipython sphinx extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-rst-old.html">6. rst cheatsheet (old)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cs-rst.ipython.html">5. Demo runs of ipython sphinx extensions (<code class="docutils literal"><span class="pre">cs-rst.ipython.rst</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cs-rst-old.html">6. rst old cheatsheet (<code class="docutils literal"><span class="pre">cs-rst-old</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-rst-old.html#directives-i-found-useful-or-runs-on-github">6.1. DIRECTIVES I FOUND USEFUL OR RUNS ON GITHUB</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-rst-old.html#image">6.1.1. .. image::</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cs-rst-old.html#code-use-with-number-lines-option">6.1.2. .. code:: (use with <code class="docutils literal"><span class="pre">:number-lines:</span></code> option)</a></li>
@@ -694,7 +892,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../top-python.html">Python-type</a> &raquo;</li>
+          <li><a href="../top-python.html">Python-type (<code class="docutils literal"><span class="pre">top-python.rst</span></code>)</a> &raquo;</li>
         
           <li><a href="../bct.html">4. Brain Connectivity Toolbox</a> &raquo;</li>
         

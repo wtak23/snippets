@@ -21,6 +21,63 @@ Good tuorials
 ###############
 Stack overflows
 ###############
+*******************************
+Sort related functions for RDDs
+*******************************
+``takeOrdered``
+
+- https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.takeOrdered.html
+- https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.sortBy.html
+- https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.sortByKey.html
+
+*******************************************
+Use ``RDD.flatMap`` to get *flattened* list
+*******************************************
+akin to flattening a list.
+
+If each RDD entry contains a list of variable size, create a new RDD with everything flattened
+(so the new RDD will now contain a single item, not a list...see below).
+
+https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.flatMap.html
+
+.. code-block:: python
+
+    >>> #  RDD containing the unique tokens from each document
+    >>> uniqueTokens = corpusRDD.map(lambda x: sorted(set(x[1])))
+    >>> uniqueTokens.flatMap(lambda x: x).distinct().collect()
+    >>> print_rdd(uniqueTokens,n=3)
+    (3) Spark Jobs
+    0 ['000', '950', 'broderbund', 'clickart', 'dvd', 'image', 'pack', 'premier', 'rom']
+    1 ['1', '30pk', '30u', 'arcserve', 'associates', 'backup', 'ca', 'computer', 'desktop', 'desktops', 'international', 'lap', 'laptops', 'oem', 'v11', 'win']
+    2 ['3', '8', 'activity', 'ages', 'ark', 'case', 'center', 'jewel', 'multimedia', 'noah', 'victory']
+
+    >>> print uniqueTokens.flatMap(lambda x: x).take(100)
+    ['000', '950', 'broderbund', 'clickart', 'dvd', 'image', 'pack', 'premier', 'rom', '1', '30pk', '30u', 'arcserve', 'associates', 'backup', 'ca', 'computer', 'desktop', 'desktops', 'international', 'lap', 'laptops', 'oem', 'v11', 'win', '3', '8', 'activity', 'ages', 'ark', 'case', 'center', 'jewel', 'multimedia', 'noah', 'victory', '2007', 'accounting', 'accounts', 'advanced', 'affordable', 'analysis', 'annual', 'archive', 'assets', 'audit', 'backed', 'billing', 'budget', 'businesses', 'challenges', 'changes', 'choice', 'closed', 'constantly', 'convert', 'core', 'costing', 'customization', 'customized', 'data', 'dollar', 'donor', 'easily', 'easy', 'every', 'features', 'files', 'financial', 'fixed', 'forms', 'funds', 'general', 'grantor', 'hundreds', 'improve', 'includes', 'individual', 'integrity', 'job', 'keep', 'ledger', 'like', 'locking', 'made', 'management', 'maximize', 'nonprofit', 'nonprofits', 'operating', 'operational', 'organization', 'organizations', 'password', 'payable', 'payroll', 'peachtree', 'period', 'plus', 'premium']
+
+*************************************************
+There's no uniq function in pyspark, use distinct
+*************************************************
+I somehow think there's  ``df.uniquie`` or ``RDD.unique()`` method, but what I need is ``RDD.distinct()``
+
+- https://wtak23.github.io/pyspark/generated/generated/sql.DataFrame.distinct.html
+- https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.distinct.html
+
+**********************************************
+How to concatenate two RDDs (use union method)
+**********************************************
+- http://stackoverflow.com/questions/27395420/concatenating-datasets-of-different-rdds-in-apache-spark-using-scala
+- http://stackoverflow.com/questions/26908031/which-function-in-spark-is-used-to-combine-two-rdds-by-keys
+
+``join`` and ``union`` method in RDD
+
+- https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.html
+- https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.join.html
+- https://wtak23.github.io/pyspark/generated/generated/pyspark.RDD.union.html
+
+***************
+Take ordered...
+***************
+
 - http://stackoverflow.com/questions/30787635/takeordered-descending-pyspark
 
 .. code-block:: python
@@ -137,6 +194,24 @@ Handy snippets
 ##############
 https://spark.apache.org/docs/latest/quick-start.html
 
+***********************
+word-count demo concise
+***********************
+.. code-block:: python
+
+    >>> words = sc.parallelize(["hello", "world", "goodbye", "hello", "again"])
+    >>> wordcounts = (words
+    >>>               .map(lambda s: (s, 1))
+    >>>               .reduceByKey(lambda a, b : a + b)
+    >>>               .collect())
+    >>> print wordcounts
+    (1) Spark Jobs
+    [('world', 1), ('again', 1), ('hello', 2), ('goodbye', 1)]
+
+**********************
+Classic wordcount demo
+**********************
+
 .. code-block:: python
 
     # this creates an RDD object
@@ -184,6 +259,8 @@ https://spark.apache.org/docs/latest/quick-start.html
     19
     linesWithSpark.count()
     19
+
+
 
 *********************
 Todo: run this script
@@ -761,4 +838,9 @@ compute average
     .agg(avg("value"))
     .collect()
 
+*********
+cs105 hw2
+*********
+I learned a whole lot from this one.
 
+See my `private github <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#e-exercise-average-number-of-daily-requests-per-host>`__
