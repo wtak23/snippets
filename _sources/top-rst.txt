@@ -11,6 +11,10 @@ Sphinx/RST-notes (``top-rst.rst``)
     - ``copybutton.js`` finally working!
     - ``autosummary`` auto-docing functions/class coming from external imports (I no longer need to replace the ``ext/autosummary/generate.py`` with my hacky fix)
 
+    .. code-block:: python
+    
+        pip install sphinx==1.3.5 --user
+
 .. toctree::
     :maxdepth: 1
     :caption: Table of Contents

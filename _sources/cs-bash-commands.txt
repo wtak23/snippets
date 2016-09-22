@@ -29,6 +29,16 @@ bash-commands (``cs-bash-commands``)
 Overflows
 #########
 ************
+wget vs curl
+************
+- https://daniel.haxx.se/docs/curl-vs-wget.html
+- http://askubuntu.com/questions/678404/what-is-the-difference-between-curl-and-wget
+- http://stackoverflow.com/questions/636339/what-is-better-curl-or-wget
+- **best answer**: http://unix.stackexchange.com/questions/47434/what-is-the-difference-between-curl-and-wget
+- http://www.thegeekstuff.com/2012/07/wget-curl
+- http://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/
+
+************
 What OS am I
 ************
 - http://unix.stackexchange.com/questions/88644/how-to-check-os-and-version-using-a-linux-command

@@ -19,6 +19,27 @@ Insert in a markdown cell (this :
     src="https://raw.github.com/kmahelona/ipython_notebook_goodies/master/ipython_notebook_toc.js">
     </script>
 
+###########
+Cell magics
+###########
+http://ipython.readthedocs.io/en/stable/whatsnew/version0.13.html#cell-magics
+
+
+
+- ``%%!``: run cell body with the underlying OS shell; this is similar to prefixing every line in the cell with ``!``.
+- ``%%bash``: run cell body under bash.
+- ``%%capture``: capture the output of the code in the cell (and stderr as well). Useful to run codes that produce too much output that you don’t even want scrolled.
+- ``%%file``: save cell body as a file.
+- ``%%perl``: run cell body using Perl.
+- ``%%prun``: run cell body with profiler (cell extension of ``%prun``).
+- ``%%python3``: run cell body using Python 3.
+- ``%%ruby``: run cell body using Ruby.
+- ``%%script``: run cell body with the script specified in the first line.
+- ``%%sh``: run cell body using sh.
+- ``%%sx``: run cell with system shell and capture process output (cell extension of ``%sx``).
+- ``%%system``: run cell with system shell (``%%!`` is an alias to this).
+- ``%%timeit``: time the execution of the cell (extension of ``%timeit``).
+
 
 ######################
 Enable ``toggle`` code
