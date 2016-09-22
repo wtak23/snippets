@@ -310,6 +310,7 @@ html_static_path = ['_static']
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
 #
+# html_last_updated_fmt = None
 html_last_updated_fmt = ''
 
 # If true, SmartyPants will be used to convert quotes and dashes to
@@ -378,7 +379,7 @@ html_show_copyright = False
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Snippetsdoc'
+htmlhelp_basename = project
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -487,7 +488,7 @@ texinfo_documents = [
 #=============================================================================#
 # http://www.sphinx-doc.org/en/stable/config.html#options-for-html-output
 html_secnumber_suffix = ' '
-html_add_permalinks = None # http://www.sphinx-doc.org/en/stable/config.html#confval-html_add_permalinks
+# html_add_permalinks = None # http://www.sphinx-doc.org/en/stable/config.html#confval-html_add_permalinks
 def setup(app):
     # to hide/show the prompt in code examples:
     app.add_javascript('copybutton.js')
