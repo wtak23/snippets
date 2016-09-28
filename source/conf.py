@@ -97,6 +97,7 @@ exclude_patterns = [
 'cs-rst-ignore.rst', # decided to just include links to good references
 'cs-sphinx.rst',
 'bct.rst', #<- exclude when prototyping
+'cs-rst.ipython.rst',
 ]
 
 

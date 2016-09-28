@@ -8,12 +8,14 @@ sql (``cs-sql.rst``)
 #####
 mysql
 #####
+
 ***************
 Auto completion
 ***************
 http://stackoverflow.com/questions/8332338/autocompletion-in-the-mysql-command-line-client
 
 ``mysql> \#``
+
 ****************
 Random overflows
 ****************
@@ -190,6 +192,7 @@ write and read xml file
 Read in mysql command line::
 
     mysql> LOAD XML INFILE '/home/vronskij/programming/mysql/books.xml' INTO TABLE Books;
+
 #############
 MYSQL codezen
 #############
@@ -704,7 +707,7 @@ math functions
 **************
 
 Aggregate functions (SUM, COUNT, AVG, etc)
-++++++++++++++++++++++++++++++++++++++++++
+==========================================
 **Aggregate function** = takes many values and outputs a single-value
 
 .. code-block:: sql
@@ -713,7 +716,7 @@ Aggregate functions (SUM, COUNT, AVG, etc)
     SELECT SUM(population) FROM world
 
 GROUP BY and HAVING
-+++++++++++++++++++
+===================
 .. code-block:: sql
     :linenos:
 
