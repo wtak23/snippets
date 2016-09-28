@@ -8,12 +8,14 @@ sql (``cs-sql.rst``)
 #####
 mysql
 #####
+
 ***************
 Auto completion
 ***************
 http://stackoverflow.com/questions/8332338/autocompletion-in-the-mysql-command-line-client
 
 ``mysql> \#``
+
 ****************
 Random overflows
 ****************
@@ -190,6 +192,7 @@ write and read xml file
 Read in mysql command line::
 
     mysql> LOAD XML INFILE '/home/vronskij/programming/mysql/books.xml' INTO TABLE Books;
+
 #############
 MYSQL codezen
 #############
