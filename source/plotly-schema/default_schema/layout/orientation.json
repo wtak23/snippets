@@ -1,0 +1,5 @@
+{
+  "valType": "angle", 
+  "role": "info", 
+  "description": "For polar plots only. Rotates the entire polar by the given angle."
+}

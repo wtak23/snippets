@@ -1,0 +1,110 @@
+{
+  "bordercolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the color of the border enclosing the legend.", 
+    "dflt": "#444"
+  }, 
+  "yanchor": {
+    "values": [
+      "auto", 
+      "top", 
+      "middle", 
+      "bottom"
+    ], 
+    "valType": "enumerated", 
+    "role": "info", 
+    "description": "Sets the legend's vertical position anchor This anchor binds the `y` position to the *top*, *middle* or *bottom* of the legend.", 
+    "dflt": "auto"
+  }, 
+  "traceorder": {
+    "role": "style", 
+    "valType": "flaglist", 
+    "extras": [
+      "normal"
+    ], 
+    "flags": [
+      "reversed", 
+      "grouped"
+    ], 
+    "description": "Determines the order at which the legend items are displayed. If *normal*, the items are displayed top-to-bottom in the same order as the input data. If *reversed*, the items are displayed in the opposite order as *normal*. If *grouped*, the items are displayed in groups (when a trace `legendgroup` is provided). if *grouped+reversed*, the items are displayed in the opposite order as *grouped*."
+  }, 
+  "xanchor": {
+    "values": [
+      "auto", 
+      "left", 
+      "center", 
+      "right"
+    ], 
+    "valType": "enumerated", 
+    "role": "info", 
+    "description": "Sets the legend's horizontal position anchor. This anchor binds the `x` position to the *left*, *center* or *right* of the legend.", 
+    "dflt": "left"
+  }, 
+  "orientation": {
+    "values": [
+      "v", 
+      "h"
+    ], 
+    "valType": "enumerated", 
+    "role": "info", 
+    "description": "Sets the orientation of the legend.", 
+    "dflt": "v"
+  }, 
+  "tracegroupgap": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets the amount of vertical space (in px) between legend groups.", 
+    "dflt": 10, 
+    "min": 0
+  }, 
+  "bgcolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the legend background color."
+  }, 
+  "role": "object", 
+  "borderwidth": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets the width (in px) of the border enclosing the legend.", 
+    "dflt": 0, 
+    "min": 0
+  }, 
+  "y": {
+    "description": "Sets the y position (in normalized coordinates) of the legend.", 
+    "dflt": 1, 
+    "min": -2, 
+    "max": 3, 
+    "role": "style", 
+    "valType": "number"
+  }, 
+  "x": {
+    "description": "Sets the x position (in normalized coordinates) of the legend.", 
+    "dflt": 1.02, 
+    "min": -2, 
+    "max": 3, 
+    "role": "style", 
+    "valType": "number"
+  }, 
+  "font": {
+    "color": {
+      "valType": "color", 
+      "role": "style"
+    }, 
+    "role": "object", 
+    "description": "Sets the font used to text the legend items.", 
+    "family": {
+      "strict": true, 
+      "valType": "string", 
+      "role": "style", 
+      "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+      "noBlank": true
+    }, 
+    "size": {
+      "valType": "number", 
+      "role": "style", 
+      "min": 1
+    }
+  }
+}

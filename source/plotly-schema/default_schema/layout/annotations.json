@@ -1,0 +1,207 @@
+{
+  "items": {
+    "annotation": {
+      "opacity": {
+        "description": "Sets the opacity of the annotation (text + arrow).", 
+        "dflt": 1, 
+        "min": 0, 
+        "max": 1, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "yanchor": {
+        "values": [
+          "auto", 
+          "top", 
+          "middle", 
+          "bottom"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Sets the annotation's vertical position anchor This anchor binds the `y` position to the *top*, *middle* or *bottom* of the annotation. For example, if `y` is set to 1, `yref` to *paper* and `yanchor` to *top* then the top-most portion of the annotation lines up with the top-most edge of the plotting area. If *auto*, the anchor is equivalent to *middle* for data-referenced annotations whereas for paper-referenced, the anchor picked corresponds to the closest side.", 
+        "dflt": "auto"
+      }, 
+      "text": {
+        "valType": "string", 
+        "role": "info", 
+        "description": "Sets the text associated with this annotation. Plotly uses a subset of HTML tags to do things like newline (<br>), bold (<b></b>), italics (<i></i>), hyperlinks (<a href='...'></a>). Tags <em>, <sup>, <sub> <span> are also supported."
+      }, 
+      "arrowsize": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the size (in px) of annotation arrow head.", 
+        "dflt": 1, 
+        "min": 0.3
+      }, 
+      "textangle": {
+        "valType": "angle", 
+        "role": "style", 
+        "description": "Sets the angle at which the `text` is drawn with respect to the horizontal.", 
+        "dflt": 0
+      }, 
+      "borderwidth": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the width (in px) of the border enclosing the annotation `text`.", 
+        "dflt": 1, 
+        "min": 0
+      }, 
+      "ay": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Sets the y component of the arrow tail about the arrow head. If `ayref` is `pixel`, a positive (negative)  component corresponds to an arrow pointing from bottom to top (top to bottom). If `ayref` is an axis, this is a value on that axis.", 
+        "dflt": -30
+      }, 
+      "ax": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Sets the x component of the arrow tail about the arrow head. If `axref` is `pixel`, a positive (negative)  component corresponds to an arrow pointing from right to left (left to right). If `axref` is an axis, this is a value on that axis.", 
+        "dflt": -10
+      }, 
+      "font": {
+        "color": {
+          "valType": "color", 
+          "role": "style"
+        }, 
+        "role": "object", 
+        "description": "Sets the annotation text font.", 
+        "family": {
+          "strict": true, 
+          "valType": "string", 
+          "role": "style", 
+          "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+          "noBlank": true
+        }, 
+        "size": {
+          "valType": "number", 
+          "role": "style", 
+          "min": 1
+        }
+      }, 
+      "arrowcolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the color of the annotation arrow."
+      }, 
+      "xref": {
+        "values": [
+          "paper", 
+          "/^x([2-9]|[1-9][0-9]+)?$/"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Sets the annotation's x coordinate axis. If set to an x axis id (e.g. *x* or *x2*), the `x` position refers to an x coordinate If set to *paper*, the `x` position refers to the distance from the left side of the plotting area in normalized coordinates where 0 (1) corresponds to the left (right) side."
+      }, 
+      "arrowhead": {
+        "description": "Sets the annotation arrow head style.", 
+        "dflt": 1, 
+        "min": 0, 
+        "max": 8, 
+        "role": "style", 
+        "valType": "integer"
+      }, 
+      "bgcolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the background color of the annotation.", 
+        "dflt": "rgba(0,0,0,0)"
+      }, 
+      "role": "object", 
+      "borderpad": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the padding (in px) between the `text` and the enclosing border.", 
+        "dflt": 1, 
+        "min": 0
+      }, 
+      "showarrow": {
+        "valType": "boolean", 
+        "role": "style", 
+        "description": "Determines whether or not the annotation is drawn with an arrow. If *true*, `text` is placed near the arrow's tail. If *false*, `text` lines up with the `x` and `y` provided.", 
+        "dflt": true
+      }, 
+      "bordercolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the color of the border enclosing the annotation `text`.", 
+        "dflt": "rgba(0,0,0,0)"
+      }, 
+      "xanchor": {
+        "values": [
+          "auto", 
+          "left", 
+          "center", 
+          "right"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Sets the annotation's horizontal position anchor This anchor binds the `x` position to the *left*, *center* or *right* of the annotation. For example, if `x` is set to 1, `xref` to *paper* and `xanchor` to *right* then the right-most portion of the annotation lines up with the right-most edge of the plotting area. If *auto*, the anchor is equivalent to *center* for data-referenced annotations whereas for paper-referenced, the anchor picked corresponds to the closest side.", 
+        "dflt": "auto"
+      }, 
+      "axref": {
+        "values": [
+          "pixel", 
+          "/^x([2-9]|[1-9][0-9]+)?$/"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Indicates in what terms the tail of the annotation (ax,ay)  is specified. If `pixel`, `ax` is a relative offset in pixels  from `x`. If set to an x axis id (e.g. *x* or *x2*), `ax` is  specified in the same terms as that axis. This is useful  for trendline annotations which should continue to indicate  the correct trend when zoomed.", 
+        "dflt": "pixel"
+      }, 
+      "ayref": {
+        "values": [
+          "pixel", 
+          "/^y([2-9]|[1-9][0-9]+)?$/"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Indicates in what terms the tail of the annotation (ax,ay)  is specified. If `pixel`, `ay` is a relative offset in pixels  from `y`. If set to a y axis id (e.g. *y* or *y2*), `ay` is  specified in the same terms as that axis. This is useful  for trendline annotations which should continue to indicate  the correct trend when zoomed.", 
+        "dflt": "pixel"
+      }, 
+      "arrowwidth": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the width (in px) of annotation arrow.", 
+        "min": 0.1
+      }, 
+      "yref": {
+        "values": [
+          "paper", 
+          "/^y([2-9]|[1-9][0-9]+)?$/"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Sets the annotation's y coordinate axis. If set to an y axis id (e.g. *y* or *y2*), the `y` position refers to an y coordinate If set to *paper*, the `y` position refers to the distance from the bottom of the plotting area in normalized coordinates where 0 (1) corresponds to the bottom (top)."
+      }, 
+      "align": {
+        "values": [
+          "left", 
+          "center", 
+          "right"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Sets the vertical alignment of the `text` with respect to the set `x` and `y` position. Has only an effect if `text` spans more two or more lines (i.e. `text` contains one or more <br> HTML tags).", 
+        "dflt": "center"
+      }, 
+      "y": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Sets the annotation's y position. Note that dates and categories are converted to numbers."
+      }, 
+      "x": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Sets the annotation's x position. Note that dates and categories are converted to numbers."
+      }, 
+      "_deprecated": {
+        "ref": {
+          "valType": "string", 
+          "role": "info", 
+          "description": "Obsolete. Set `xref` and `yref` separately instead."
+        }
+      }
+    }
+  }, 
+  "role": "object"
+}

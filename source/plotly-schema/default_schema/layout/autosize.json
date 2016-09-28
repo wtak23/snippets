@@ -1,0 +1,10 @@
+{
+  "values": [
+    true, 
+    false, 
+    "initial"
+  ], 
+  "valType": "enumerated", 
+  "role": "info", 
+  "description": "Determines whether or not the dimensions of the figure are computed as a function of the display size."
+}

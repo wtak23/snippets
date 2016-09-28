@@ -19,7 +19,13 @@ Every once in a while, I'll try to organize below by **category**
 
 ``$ python -m SimpleHTTPServer 8000``
 
+#############################
+packages installed on the fly
+#############################
+.. code-block:: bash
 
+    # https://github.com/google/google-api-python-client
+    pip install google-api-python-client --user
 ###############################
 Random Stack-overflow questions
 ###############################
@@ -341,6 +347,15 @@ change size of figure that already exists?  see below :)
 
     # ah, did not know the ``forward`` option below!    
     plt.gcf().set_size_inches(18.5, 10.5, forward=True)
+
+****************************************
+Change figure size (one already plotted)
+****************************************
+.. code-block:: python
+
+    # plt.figure(figsize=(20,10))
+    fig = plt.gcf()
+    fig.set_size_inches(10,4)
 
 ####################################################################
 Plotting and saving figure on remotely on server (on sge submission)

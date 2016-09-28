@@ -5,6 +5,33 @@ python-jupyter (``cs-py-jupyter``)
    :depth: 2
    :local:
 
+###############
+IPython package
+###############
+*****
+Image
+*****
+.. code-block:: python
+
+    from IPython.display import Image
+    Image(filename='xlwings_assets/prices.png', width = 700)
+
+*******
+youtube
+*******
+.. code-block:: python
+
+    from IPython.display import YouTubeVideo
+    YouTubeVideo("p86BPM1GV8M")
+
+*****
+latex
+*****
+.. code-block:: python
+
+    from IPython.display import display, Math, Latex
+    display(Math(r'F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} dx'))
+
 ###################################
 TOC for hosting on jupyter notebook
 ###################################

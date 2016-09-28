@@ -1,0 +1,367 @@
+{
+  "domain": {
+    "y": {
+      "items": [
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }, 
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }
+      ], 
+      "valType": "info_array", 
+      "role": "info", 
+      "description": "Sets the vertical domain of this map (in plot fraction).", 
+      "dflt": [
+        0, 
+        1
+      ]
+    }, 
+    "x": {
+      "items": [
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }, 
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }
+      ], 
+      "valType": "info_array", 
+      "role": "info", 
+      "description": "Sets the horizontal domain of this map (in plot fraction).", 
+      "dflt": [
+        0, 
+        1
+      ]
+    }, 
+    "role": "object"
+  }, 
+  "projection": {
+    "type": {
+      "values": [
+        "equirectangular", 
+        "mercator", 
+        "orthographic", 
+        "natural earth", 
+        "kavrayskiy7", 
+        "miller", 
+        "robinson", 
+        "eckert4", 
+        "azimuthal equal area", 
+        "azimuthal equidistant", 
+        "conic equal area", 
+        "conic conformal", 
+        "conic equidistant", 
+        "gnomonic", 
+        "stereographic", 
+        "mollweide", 
+        "hammer", 
+        "transverse mercator", 
+        "albers usa", 
+        "winkel tripel"
+      ], 
+      "valType": "enumerated", 
+      "role": "info", 
+      "description": "Sets the projection type."
+    }, 
+    "rotation": {
+      "lat": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Rotates the map along meridians (in degrees North)."
+      }, 
+      "role": "object", 
+      "lon": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Rotates the map along parallels (in degrees East)."
+      }, 
+      "roll": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Roll the map (in degrees) For example, a roll of *180* makes the map appear upside down."
+      }
+    }, 
+    "scale": {
+      "description": "Zooms in or out on the map view.", 
+      "dflt": 1, 
+      "min": 0, 
+      "max": 10, 
+      "role": "info", 
+      "valType": "number"
+    }, 
+    "role": "object", 
+    "parallels": {
+      "items": [
+        {
+          "valType": "number"
+        }, 
+        {
+          "valType": "number"
+        }
+      ], 
+      "valType": "info_array", 
+      "role": "info", 
+      "description": "For conic projection types only. Sets the parallels (tangent, secant) where the cone intersects the sphere."
+    }
+  }, 
+  "showframe": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not a frame is drawn around the map."
+  }, 
+  "showlakes": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not lakes are drawn.", 
+    "dflt": false
+  }, 
+  "coastlinecolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the coastline color.", 
+    "dflt": "#444"
+  }, 
+  "countrywidth": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets line width (in px) of the country boundaries.", 
+    "dflt": 1, 
+    "min": 0
+  }, 
+  "countrycolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets line color of the country boundaries.", 
+    "dflt": "#444"
+  }, 
+  "showsubunits": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not boundaries of subunits within countries (e.g. states, provinces) are drawn."
+  }, 
+  "bgcolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Set the background color of the map", 
+    "dflt": "#fff"
+  }, 
+  "role": "object", 
+  "rivercolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets color of the rivers.", 
+    "dflt": "#3399FF"
+  }, 
+  "showcountries": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not country boundaries are drawn."
+  }, 
+  "riverwidth": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets the stroke width (in px) of the rivers.", 
+    "dflt": 1, 
+    "min": 0
+  }, 
+  "scope": {
+    "values": [
+      "world", 
+      "usa", 
+      "europe", 
+      "asia", 
+      "africa", 
+      "north america", 
+      "south america"
+    ], 
+    "valType": "enumerated", 
+    "role": "info", 
+    "description": "Set the scope of the map.", 
+    "dflt": "world"
+  }, 
+  "subunitcolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the color of the subunits boundaries.", 
+    "dflt": "#444"
+  }, 
+  "_isSubplotObj": true, 
+  "lataxis": {
+    "tick0": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Sets the graticule's starting tick longitude/latitude."
+    }, 
+    "gridwidth": {
+      "valType": "number", 
+      "role": "style", 
+      "description": "Sets the graticule's stroke width (in px).", 
+      "dflt": 1, 
+      "min": 0
+    }, 
+    "dtick": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Sets the graticule's longitude/latitude tick step."
+    }, 
+    "showgrid": {
+      "valType": "boolean", 
+      "role": "info", 
+      "description": "Sets whether or not graticule are shown on the map.", 
+      "dflt": false
+    }, 
+    "range": {
+      "items": [
+        {
+          "valType": "number"
+        }, 
+        {
+          "valType": "number"
+        }
+      ], 
+      "valType": "info_array", 
+      "role": "info", 
+      "description": "Sets the range of this axis (in degrees)."
+    }, 
+    "role": "object", 
+    "gridcolor": {
+      "valType": "color", 
+      "role": "style", 
+      "description": "Sets the graticule's stroke color.", 
+      "dflt": "#eee"
+    }
+  }, 
+  "subunitwidth": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets the stroke width (in px) of the subunits boundaries.", 
+    "dflt": 1, 
+    "min": 0
+  }, 
+  "showocean": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not oceans are filled in color.", 
+    "dflt": false
+  }, 
+  "oceancolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the ocean color", 
+    "dflt": "#3399FF"
+  }, 
+  "lakecolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the color of the lakes.", 
+    "dflt": "#3399FF"
+  }, 
+  "showrivers": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not rivers are drawn.", 
+    "dflt": false
+  }, 
+  "showland": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not land masses are filled in color.", 
+    "dflt": false
+  }, 
+  "lonaxis": {
+    "tick0": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Sets the graticule's starting tick longitude/latitude."
+    }, 
+    "gridwidth": {
+      "valType": "number", 
+      "role": "style", 
+      "description": "Sets the graticule's stroke width (in px).", 
+      "dflt": 1, 
+      "min": 0
+    }, 
+    "dtick": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Sets the graticule's longitude/latitude tick step."
+    }, 
+    "showgrid": {
+      "valType": "boolean", 
+      "role": "info", 
+      "description": "Sets whether or not graticule are shown on the map.", 
+      "dflt": false
+    }, 
+    "range": {
+      "items": [
+        {
+          "valType": "number"
+        }, 
+        {
+          "valType": "number"
+        }
+      ], 
+      "valType": "info_array", 
+      "role": "info", 
+      "description": "Sets the range of this axis (in degrees)."
+    }, 
+    "role": "object", 
+    "gridcolor": {
+      "valType": "color", 
+      "role": "style", 
+      "description": "Sets the graticule's stroke color.", 
+      "dflt": "#eee"
+    }
+  }, 
+  "framecolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the color the frame.", 
+    "dflt": "#444"
+  }, 
+  "coastlinewidth": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets the coastline stroke width (in px).", 
+    "dflt": 1, 
+    "min": 0
+  }, 
+  "landcolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the land mass color.", 
+    "dflt": "#F0DC82"
+  }, 
+  "showcoastlines": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Sets whether or not the coastlines are drawn."
+  }, 
+  "framewidth": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets the stroke width (in px) of the frame.", 
+    "dflt": 1, 
+    "min": 0
+  }, 
+  "resolution": {
+    "description": "Sets the resolution of the base layers. The values have units of km/mm e.g. 110 corresponds to a scale ratio of 1:110,000,000.", 
+    "dflt": 110, 
+    "values": [
+      110, 
+      50
+    ], 
+    "role": "info", 
+    "valType": "enumerated", 
+    "coerceNumber": true
+  }
+}

@@ -1,0 +1,668 @@
+{
+  "attributes": {
+    "uid": {
+      "valType": "string", 
+      "role": "info", 
+      "dflt": ""
+    }, 
+    "stream": {
+      "maxpoints": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Sets the maximum number of points to keep on the plots from an incoming stream. If `maxpoints` is set to *50*, only the newest 50 points will be displayed on the plot.", 
+        "min": 0
+      }, 
+      "role": "object", 
+      "token": {
+        "strict": true, 
+        "valType": "string", 
+        "role": "info", 
+        "description": "The stream id number links a data trace on a plot with a stream. See https://plot.ly/settings for more details.", 
+        "noBlank": true
+      }
+    }, 
+    "color": {
+      "valType": "color", 
+      "role": "style", 
+      "description": "Sets the color of the whole mesh"
+    }, 
+    "ysrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  y ."
+    }, 
+    "ksrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  k ."
+    }, 
+    "scene": {
+      "valType": "subplotid", 
+      "role": "info", 
+      "description": "Sets a reference between this trace's 3D coordinate system and a 3D scene. If *scene* (the default value), the (x,y,z) coordinates refer to `layout.scene`. If *scene2*, the (x,y,z) coordinates refer to `layout.scene2`, and so on.", 
+      "dflt": "scene"
+    }, 
+    "xsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  x ."
+    }, 
+    "visible": {
+      "values": [
+        true, 
+        false, 
+        "legendonly"
+      ], 
+      "valType": "enumerated", 
+      "role": "info", 
+      "description": "Determines whether or not this trace is visible. If *legendonly*, the trace is not drawn, but can appear as a legend item (provided that the legend itself is visible).", 
+      "dflt": true
+    }, 
+    "intensity": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the vertex intensity values, used for plotting fields on meshes"
+    }, 
+    "intensitysrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  intensity ."
+    }, 
+    "contour": {
+      "color": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the color of the contour lines.", 
+        "dflt": "#444"
+      }, 
+      "width": {
+        "description": "Sets the width of the contour lines.", 
+        "dflt": 2, 
+        "min": 1, 
+        "max": 16, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "role": "object", 
+      "show": {
+        "valType": "boolean", 
+        "role": "info", 
+        "description": "Sets whether or not dynamic contours are shown on hover", 
+        "dflt": false
+      }
+    }, 
+    "flatshading": {
+      "valType": "boolean", 
+      "role": "style", 
+      "description": "Determines whether or not normal smoothing is applied to the meshes, creating meshes with an angular, low-poly look via flat reflections.", 
+      "dflt": false
+    }, 
+    "reversescale": {
+      "valType": "boolean", 
+      "role": "style", 
+      "description": "Reverses the colorscale.", 
+      "dflt": false
+    }, 
+    "showlegend": {
+      "valType": "boolean", 
+      "role": "info", 
+      "description": "Determines whether or not an item corresponding to this trace is shown in the legend.", 
+      "dflt": true
+    }, 
+    "facecolor": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the color of each face Overrides *color* and *vertexcolor*."
+    }, 
+    "alphahull": {
+      "valType": "number", 
+      "role": "style", 
+      "description": "Determines how the mesh surface triangles are derived from the set of vertices (points) represented by the `x`, `y` and `z` arrays, if the `i`, `j`, `k` arrays are not supplied. For general use of `mesh3d` it is preferred that `i`, `j`, `k` are supplied. If *-1*, Delaunay triangulation is used, which is mainly suitable if the mesh is a single, more or less layer surface that is perpendicular to `delaunayaxis`. In case the `delaunayaxis` intersects the mesh surface at more than one point it will result triangles that are very long in the dimension of `delaunayaxis`. If *>0*, the alpha-shape algorithm is used. In this case, the positive `alphahull` value signals the use of the alpha-shape algorithm, _and_ its value acts as the parameter for the mesh fitting. If *0*,  the convex-hull algorithm is used. It is suitable for convex bodies or if the intention is to enclose the `x`, `y` and `z` point set into a convex hull.", 
+      "dflt": -1
+    }, 
+    "facecolorsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  facecolor ."
+    }, 
+    "vertexcolor": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the color of each vertex Overrides *color*."
+    }, 
+    "vertexcolorsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  vertexcolor ."
+    }, 
+    "delaunayaxis": {
+      "values": [
+        "x", 
+        "y", 
+        "z"
+      ], 
+      "valType": "enumerated", 
+      "role": "info", 
+      "description": "Sets the Delaunay axis, which is the axis that is perpendicular to the surface of the Delaunay triangulation. It has an effect if `i`, `j`, `k` are not provided and `alphahull` is set to indicate Delaunay triangulation.", 
+      "dflt": "z"
+    }, 
+    "type": "mesh3d", 
+    "opacity": {
+      "description": "Sets the opacity of the surface.", 
+      "dflt": 1, 
+      "min": 0, 
+      "max": 1, 
+      "role": "style", 
+      "valType": "number"
+    }, 
+    "legendgroup": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the legend group for this trace. Traces part of the same legend group hide/show at the same time when toggling legend items.", 
+      "dflt": ""
+    }, 
+    "lighting": {
+      "fresnel": {
+        "description": "Represents the reflectance as a dependency of the viewing angle; e.g. paper is reflective when viewing it from the edge of the paper (almost 90 degrees), causing shine.", 
+        "dflt": 0.2, 
+        "min": 0, 
+        "max": 5, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "ambient": {
+        "description": "Ambient light increases overall color visibility but can wash out the image.", 
+        "dflt": 0.8, 
+        "min": 0, 
+        "max": 1, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "roughness": {
+        "description": "Alters specular reflection; the rougher the surface, the wider and less contrasty the shine.", 
+        "dflt": 0.5, 
+        "min": 0, 
+        "max": 1, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "specular": {
+        "description": "Represents the level that incident rays are reflected in a single direction, causing shine.", 
+        "dflt": 0.05, 
+        "min": 0, 
+        "max": 2, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "role": "object", 
+      "facenormalsepsilon": {
+        "description": "Epsilon for face normals calculation avoids math issues arising from degenerate geometry.", 
+        "dflt": 1e-06, 
+        "min": 0, 
+        "max": 1, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "vertexnormalsepsilon": {
+        "description": "Epsilon for vertex normals calculation avoids math issues arising from degenerate geometry.", 
+        "dflt": 1e-12, 
+        "min": 0, 
+        "max": 1, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "diffuse": {
+        "description": "Represents the extent that incident rays are reflected in a range of angles.", 
+        "dflt": 0.8, 
+        "min": 0, 
+        "max": 1, 
+        "role": "style", 
+        "valType": "number"
+      }
+    }, 
+    "zsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  z ."
+    }, 
+    "showscale": {
+      "valType": "boolean", 
+      "role": "info", 
+      "description": "Determines whether or not a colorbar is displayed for this trace.", 
+      "dflt": true
+    }, 
+    "hoverinfo": {
+      "description": "Determines which trace information appear on hover.", 
+      "dflt": "all", 
+      "extras": [
+        "all", 
+        "none"
+      ], 
+      "role": "info", 
+      "flags": [
+        "x", 
+        "y", 
+        "z", 
+        "text", 
+        "name"
+      ], 
+      "valType": "flaglist"
+    }, 
+    "jsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  j ."
+    }, 
+    "isrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  i ."
+    }, 
+    "lightposition": {
+      "y": {
+        "description": "Numeric vector, representing the Y coordinate for each vertex.", 
+        "dflt": 100000, 
+        "min": -100000, 
+        "max": 100000, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "x": {
+        "description": "Numeric vector, representing the X coordinate for each vertex.", 
+        "dflt": 100000, 
+        "min": -100000, 
+        "max": 100000, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "z": {
+        "description": "Numeric vector, representing the Z coordinate for each vertex.", 
+        "dflt": 0, 
+        "min": -100000, 
+        "max": 100000, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "role": "object"
+    }, 
+    "name": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the trace name. The trace name appear as the legend item and on hover."
+    }, 
+    "colorscale": {
+      "valType": "colorscale", 
+      "role": "style", 
+      "description": "Sets the colorscale. The colorscale must be an array containing arrays mapping a normalized value to an rgb, rgba, hex, hsl, hsv, or named color string. At minimum, a mapping for the lowest (0) and highest (1) values are required. For example, `[[0, 'rgb(0,0,255)', [1, 'rgb(255,0,0)']]`. To control the bounds of the colorscale in z space, use zmin and zmax"
+    }, 
+    "i": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "A vector of vertex indices, i.e. integer values between 0 and the length of the vertex vectors, representing the *first* vertex of a triangle. For example, `{i[m], j[m], k[m]}` together represent face m (triangle m) in the mesh, where `i[m] = n` points to the triplet `{x[n], y[n], z[n]}` in the vertex arrays. Therefore, each element in `i` represents a point in space, which is the first vertex of a triangle."
+    }, 
+    "k": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "A vector of vertex indices, i.e. integer values between 0 and the length of the vertex vectors, representing the *third* vertex of a triangle. For example, `{i[m], j[m], k[m]}` together represent face m (triangle m) in the mesh, where `k[m] = n` points to the triplet  `{x[n], y[n], z[n]}` in the vertex arrays. Therefore, each element in `k` represents a point in space, which is the third vertex of a triangle."
+    }, 
+    "j": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "A vector of vertex indices, i.e. integer values between 0 and the length of the vertex vectors, representing the *second* vertex of a triangle. For example, `{i[m], j[m], k[m]}`  together represent face m (triangle m) in the mesh, where `j[m] = n` points to the triplet `{x[n], y[n], z[n]}` in the vertex arrays. Therefore, each element in `j` represents a point in space, which is the second vertex of a triangle."
+    }, 
+    "colorbar": {
+      "yanchor": {
+        "values": [
+          "top", 
+          "middle", 
+          "bottom"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Sets this color bar's vertical position anchor This anchor binds the `y` position to the *top*, *middle* or *bottom* of the color bar.", 
+        "dflt": "middle"
+      }, 
+      "showexponent": {
+        "values": [
+          "all", 
+          "first", 
+          "last", 
+          "none"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "If *all*, all exponents are shown besides their significands. If *first*, only the exponent of the first tick is shown. If *last*, only the exponent of the last tick is shown. If *none*, no exponents appear.", 
+        "dflt": "all"
+      }, 
+      "showticklabels": {
+        "valType": "boolean", 
+        "role": "style", 
+        "description": "Determines whether or not the tick labels are drawn.", 
+        "dflt": true
+      }, 
+      "lenmode": {
+        "values": [
+          "fraction", 
+          "pixels"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Determines whether this color bar's length (i.e. the measure in the color variation direction) is set in units of plot *fraction* or in *pixels. Use `len` to set the value.", 
+        "dflt": "fraction"
+      }, 
+      "showticksuffix": {
+        "values": [
+          "all", 
+          "first", 
+          "last", 
+          "none"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Same as `showtickprefix` but for tick suffixes.", 
+        "dflt": "all"
+      }, 
+      "titlefont": {
+        "color": {
+          "valType": "color", 
+          "role": "style"
+        }, 
+        "role": "object", 
+        "description": "Sets this color bar's title font.", 
+        "family": {
+          "strict": true, 
+          "valType": "string", 
+          "role": "style", 
+          "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+          "noBlank": true
+        }, 
+        "size": {
+          "valType": "number", 
+          "role": "style", 
+          "min": 1
+        }
+      }, 
+      "borderwidth": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the width (in px) or the border enclosing this color bar.", 
+        "dflt": 0, 
+        "min": 0
+      }, 
+      "tickvalssrc": {
+        "valType": "string", 
+        "role": "info", 
+        "description": "Sets the source reference on plot.ly for  tickvals ."
+      }, 
+      "showtickprefix": {
+        "values": [
+          "all", 
+          "first", 
+          "last", 
+          "none"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "If *all*, all tick labels are displayed with a prefix. If *first*, only the first tick is displayed with a prefix. If *last*, only the last tick is displayed with a suffix. If *none*, tick prefixes are hidden.", 
+        "dflt": "all"
+      }, 
+      "nticks": {
+        "valType": "integer", 
+        "role": "style", 
+        "description": "Specifies the maximum number of ticks for the particular axis. The actual number of ticks will be chosen automatically to be less than or equal to `nticks`. Has an effect only if `tickmode` is set to *auto*.", 
+        "dflt": 0, 
+        "min": 0
+      }, 
+      "titleside": {
+        "values": [
+          "right", 
+          "top", 
+          "bottom"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Determines the location of the colorbar title with respect to the color bar.", 
+        "dflt": "top"
+      }, 
+      "outlinecolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the axis line color.", 
+        "dflt": "#444"
+      }, 
+      "tickprefix": {
+        "valType": "string", 
+        "role": "style", 
+        "description": "Sets a tick label prefix.", 
+        "dflt": ""
+      }, 
+      "tickformat": {
+        "valType": "string", 
+        "role": "style", 
+        "description": "Sets the tick label formatting rule using the python/d3 number formatting language. See https://github.com/mbostock/d3/wiki/Formatting#numbers or https://docs.python.org/release/3.1.3/library/string.html#formatspec for more info.", 
+        "dflt": ""
+      }, 
+      "tickmode": {
+        "values": [
+          "auto", 
+          "linear", 
+          "array"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Sets the tick mode for this axis. If *auto*, the number of ticks is set via `nticks`. If *linear*, the placement of the ticks is determined by a starting position `tick0` and a tick step `dtick` (*linear* is the default value if `tick0` and `dtick` are provided). If *array*, the placement of the ticks is set via `tickvals` and the tick text is `ticktext`. (*array* is the default value if `tickvals` is provided)."
+      }, 
+      "title": {
+        "valType": "string", 
+        "role": "info", 
+        "description": "Sets the title of the color bar.", 
+        "dflt": "Click to enter colorscale title"
+      }, 
+      "ticks": {
+        "values": [
+          "outside", 
+          "inside", 
+          ""
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Determines whether ticks are drawn or not. If **, this axis' ticks are not drawn. If *outside* (*inside*), this axis' are drawn outside (inside) the axis lines.", 
+        "dflt": ""
+      }, 
+      "thickness": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the thickness of the color bar This measure excludes the size of the padding, ticks and labels.", 
+        "dflt": 30, 
+        "min": 0
+      }, 
+      "bgcolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the color of padded area.", 
+        "dflt": "rgba(0,0,0,0)"
+      }, 
+      "role": "object", 
+      "outlinewidth": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the width (in px) of the axis line.", 
+        "dflt": 1, 
+        "min": 0
+      }, 
+      "ticktextsrc": {
+        "valType": "string", 
+        "role": "info", 
+        "description": "Sets the source reference on plot.ly for  ticktext ."
+      }, 
+      "bordercolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the axis line color.", 
+        "dflt": "#444"
+      }, 
+      "xanchor": {
+        "values": [
+          "left", 
+          "center", 
+          "right"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Sets this color bar's horizontal position anchor. This anchor binds the `x` position to the *left*, *center* or *right* of the color bar.", 
+        "dflt": "left"
+      }, 
+      "ticklen": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the tick length (in px).", 
+        "dflt": 5, 
+        "min": 0
+      }, 
+      "len": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the length of the color bar This measure excludes the padding of both ends. That is, the color bar length is this length minus the padding on both ends.", 
+        "dflt": 1, 
+        "min": 0
+      }, 
+      "ticksuffix": {
+        "valType": "string", 
+        "role": "style", 
+        "description": "Sets a tick label suffix.", 
+        "dflt": ""
+      }, 
+      "x": {
+        "description": "Sets the x position of the color bar (in plot fraction).", 
+        "dflt": 1.02, 
+        "min": -2, 
+        "max": 3, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "ticktext": {
+        "valType": "data_array", 
+        "role": "data", 
+        "description": "Sets the text displayed at the ticks position via `tickvals`. Only has an effect if `tickmode` is set to *array*. Used with `tickvals`."
+      }, 
+      "xpad": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the amount of padding (in px) along the x direction.", 
+        "dflt": 10, 
+        "min": 0
+      }, 
+      "tickvals": {
+        "valType": "data_array", 
+        "role": "data", 
+        "description": "Sets the values at which ticks on this axis appear. Only has an effect if `tickmode` is set to *array*. Used with `ticktext`."
+      }, 
+      "tickfont": {
+        "color": {
+          "valType": "color", 
+          "role": "style"
+        }, 
+        "role": "object", 
+        "description": "Sets the tick font.", 
+        "family": {
+          "strict": true, 
+          "valType": "string", 
+          "role": "style", 
+          "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+          "noBlank": true
+        }, 
+        "size": {
+          "valType": "number", 
+          "role": "style", 
+          "min": 1
+        }
+      }, 
+      "tickwidth": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the tick width (in px).", 
+        "dflt": 1, 
+        "min": 0
+      }, 
+      "tick0": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the placement of the first tick on this axis. Use with `dtick`. If the axis `type` is *log*, then you must take the log of your starting tick (e.g. to set the starting tick to 100, set the `tick0` to 2). If the axis `type` is *date*, then you must convert the date to unix time in milliseconds (the number of milliseconds since January 1st, 1970). For example, to set the starting tick to November 4th, 2013, set the range to 1380844800000.0.", 
+        "dflt": 0
+      }, 
+      "tickangle": {
+        "valType": "angle", 
+        "role": "style", 
+        "description": "Sets the angle of the tick labels with respect to the horizontal. For example, a `tickangle` of -90 draws the tick labels vertically.", 
+        "dflt": "auto"
+      }, 
+      "dtick": {
+        "valType": "any", 
+        "role": "style", 
+        "description": "Sets the step in-between ticks on this axis Use with `tick0`. If the axis `type` is *log*, then ticks are set every 10^(n*dtick) where n is the tick number. For example, to set a tick mark at 1, 10, 100, 1000, ... set dtick to 1. To set tick marks at 1, 100, 10000, ... set dtick to 2. To set tick marks at 1, 5, 25, 125, 625, 3125, ... set dtick to log_10(5), or 0.69897000433. If the axis `type` is *date*, then you must convert the time to milliseconds. For example, to set the interval between ticks to one day, set `dtick` to 86400000.0.", 
+        "dflt": 1
+      }, 
+      "ypad": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the amount of padding (in px) along the y direction.", 
+        "dflt": 10, 
+        "min": 0
+      }, 
+      "exponentformat": {
+        "values": [
+          "none", 
+          "e", 
+          "E", 
+          "power", 
+          "SI", 
+          "B"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Determines a formatting rule for the tick exponents. For example, consider the number 1,000,000,000. If *none*, it appears as 1,000,000,000. If *e*, 1e+9. If *E*, 1E+9. If *power*, 1x10^9 (with 9 in a super script). If *SI*, 1G. If *B*, 1B.", 
+        "dflt": "B"
+      }, 
+      "y": {
+        "description": "Sets the y position of the color bar (in plot fraction).", 
+        "dflt": 0.5, 
+        "min": -2, 
+        "max": 3, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "tickcolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the tick color.", 
+        "dflt": "#444"
+      }, 
+      "thicknessmode": {
+        "values": [
+          "fraction", 
+          "pixels"
+        ], 
+        "valType": "enumerated", 
+        "role": "style", 
+        "description": "Determines whether this color bar's thickness (i.e. the measure in the constant color direction) is set in units of plot *fraction* or in *pixels*. Use `thickness` to set the value.", 
+        "dflt": "pixels"
+      }
+    }, 
+    "y": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the Y coordinates of the vertices. The nth element of vectors `x`, `y` and `z` jointly represent the X, Y and Z coordinates of the nth vertex."
+    }, 
+    "x": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the X coordinates of the vertices. The nth element of vectors `x`, `y` and `z` jointly represent the X, Y and Z coordinates of the nth vertex."
+    }, 
+    "z": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the Z coordinates of the vertices. The nth element of vectors `x`, `y` and `z` jointly represent the X, Y and Z coordinates of the nth vertex."
+    }
+  }, 
+  "description": "Draws sets of triangles with coordinates given by three 1-dimensional arrays in `x`, `y`, `z` and (1) a sets of `i`, `j`, `k` indices (2) Delaunay triangulation or (3) the Alpha-shape algorithm or (4) the Convex-hull algorithm"
+}

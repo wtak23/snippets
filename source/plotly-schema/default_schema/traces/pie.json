@@ -1,0 +1,363 @@
+{
+  "attributes": {
+    "labelssrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  labels ."
+    }, 
+    "sort": {
+      "valType": "boolean", 
+      "role": "style", 
+      "description": "Determines whether or not the sectors of reordered from largest to smallest.", 
+      "dflt": true
+    }, 
+    "domain": {
+      "y": {
+        "items": [
+          {
+            "max": 1, 
+            "valType": "number", 
+            "min": 0
+          }, 
+          {
+            "max": 1, 
+            "valType": "number", 
+            "min": 0
+          }
+        ], 
+        "valType": "info_array", 
+        "role": "info", 
+        "description": "Sets the vertical domain of this pie trace (in plot fraction).", 
+        "dflt": [
+          0, 
+          1
+        ]
+      }, 
+      "x": {
+        "items": [
+          {
+            "max": 1, 
+            "valType": "number", 
+            "min": 0
+          }, 
+          {
+            "max": 1, 
+            "valType": "number", 
+            "min": 0
+          }
+        ], 
+        "valType": "info_array", 
+        "role": "info", 
+        "description": "Sets the horizontal domain of this pie trace (in plot fraction).", 
+        "dflt": [
+          0, 
+          1
+        ]
+      }, 
+      "role": "object"
+    }, 
+    "uid": {
+      "valType": "string", 
+      "role": "info", 
+      "dflt": ""
+    }, 
+    "stream": {
+      "maxpoints": {
+        "valType": "number", 
+        "role": "info", 
+        "description": "Sets the maximum number of points to keep on the plots from an incoming stream. If `maxpoints` is set to *50*, only the newest 50 points will be displayed on the plot.", 
+        "min": 0
+      }, 
+      "role": "object", 
+      "token": {
+        "strict": true, 
+        "valType": "string", 
+        "role": "info", 
+        "description": "The stream id number links a data trace on a plot with a stream. See https://plot.ly/settings for more details.", 
+        "noBlank": true
+      }
+    }, 
+    "text": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets text elements associated with each sector."
+    }, 
+    "labels": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the sector labels."
+    }, 
+    "textfont": {
+      "color": {
+        "valType": "color", 
+        "role": "style"
+      }, 
+      "role": "object", 
+      "description": "Sets the font used for `textinfo`.", 
+      "family": {
+        "strict": true, 
+        "valType": "string", 
+        "role": "style", 
+        "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+        "noBlank": true
+      }, 
+      "size": {
+        "valType": "number", 
+        "role": "style", 
+        "min": 1
+      }
+    }, 
+    "textsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  text ."
+    }, 
+    "visible": {
+      "values": [
+        true, 
+        false, 
+        "legendonly"
+      ], 
+      "valType": "enumerated", 
+      "role": "info", 
+      "description": "Determines whether or not this trace is visible. If *legendonly*, the trace is not drawn, but can appear as a legend item (provided that the legend itself is visible).", 
+      "dflt": true
+    }, 
+    "pullsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  pull ."
+    }, 
+    "marker": {
+      "colors": {
+        "valType": "data_array", 
+        "role": "data", 
+        "description": "Sets the color of each sector of this pie chart. If not specified, the default trace color set is used to pick the sector colors."
+      }, 
+      "role": "object", 
+      "line": {
+        "color": {
+          "valType": "color", 
+          "arrayOk": true, 
+          "role": "style", 
+          "description": "Sets the color of the line enclosing each sector.", 
+          "dflt": "#444"
+        }, 
+        "colorsrc": {
+          "valType": "string", 
+          "role": "info", 
+          "description": "Sets the source reference on plot.ly for  color ."
+        }, 
+        "role": "object", 
+        "widthsrc": {
+          "valType": "string", 
+          "role": "info", 
+          "description": "Sets the source reference on plot.ly for  width ."
+        }, 
+        "width": {
+          "description": "Sets the width (in px) of the line enclosing each sector.", 
+          "dflt": 0, 
+          "min": 0, 
+          "role": "style", 
+          "valType": "number", 
+          "arrayOk": true
+        }
+      }, 
+      "colorssrc": {
+        "valType": "string", 
+        "role": "info", 
+        "description": "Sets the source reference on plot.ly for  colors ."
+      }
+    }, 
+    "textinfo": {
+      "role": "info", 
+      "valType": "flaglist", 
+      "extras": [
+        "none"
+      ], 
+      "flags": [
+        "label", 
+        "text", 
+        "value", 
+        "percent"
+      ], 
+      "description": "Determines which trace information appear on the graph."
+    }, 
+    "rotation": {
+      "description": "Instead of the first slice starting at 12 o'clock, rotate to some other angle.", 
+      "dflt": 0, 
+      "min": -360, 
+      "max": 360, 
+      "role": "style", 
+      "valType": "number"
+    }, 
+    "showlegend": {
+      "valType": "boolean", 
+      "role": "info", 
+      "description": "Determines whether or not an item corresponding to this trace is shown in the legend.", 
+      "dflt": true
+    }, 
+    "outsidetextfont": {
+      "color": {
+        "valType": "color", 
+        "role": "style"
+      }, 
+      "role": "object", 
+      "description": "Sets the font used for `textinfo` lying outside the pie.", 
+      "family": {
+        "strict": true, 
+        "valType": "string", 
+        "role": "style", 
+        "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+        "noBlank": true
+      }, 
+      "size": {
+        "valType": "number", 
+        "role": "style", 
+        "min": 1
+      }
+    }, 
+    "textposition": {
+      "description": "Specifies the location of the `textinfo`.", 
+      "dflt": "auto", 
+      "values": [
+        "inside", 
+        "outside", 
+        "auto", 
+        "none"
+      ], 
+      "role": "info", 
+      "valType": "enumerated", 
+      "arrayOk": true
+    }, 
+    "type": "pie", 
+    "valuessrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  values ."
+    }, 
+    "opacity": {
+      "description": "Sets the opacity of the trace.", 
+      "dflt": 1, 
+      "min": 0, 
+      "max": 1, 
+      "role": "style", 
+      "valType": "number"
+    }, 
+    "direction": {
+      "values": [
+        "clockwise", 
+        "counterclockwise"
+      ], 
+      "valType": "enumerated", 
+      "role": "style", 
+      "description": "Specifies the direction at which succeeding sectors follow one another.", 
+      "dflt": "counterclockwise"
+    }, 
+    "legendgroup": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the legend group for this trace. Traces part of the same legend group hide/show at the same time when toggling legend items.", 
+      "dflt": ""
+    }, 
+    "label0": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Alternate to `labels`. Builds a numeric set of labels. Use with `dlabel` where `label0` is the starting label and `dlabel` the step.", 
+      "dflt": 0
+    }, 
+    "textpositionsrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  textposition ."
+    }, 
+    "hoverinfo": {
+      "description": "Determines which trace information appear on hover.", 
+      "dflt": "all", 
+      "extras": [
+        "all", 
+        "none"
+      ], 
+      "role": "info", 
+      "flags": [
+        "label", 
+        "text", 
+        "value", 
+        "percent", 
+        "name"
+      ], 
+      "valType": "flaglist"
+    }, 
+    "dlabel": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Sets the label step. See `label0` for more info.", 
+      "dflt": 1
+    }, 
+    "hole": {
+      "description": "Sets the fraction of the radius to cut out of the pie. Use this to make a donut chart.", 
+      "dflt": 0, 
+      "min": 0, 
+      "max": 1, 
+      "role": "style", 
+      "valType": "number"
+    }, 
+    "pull": {
+      "description": "Sets the fraction of larger radius to pull the sectors out from the center. This can be a constant to pull all slices apart from each other equally or an array to highlight one or more slices.", 
+      "dflt": 0, 
+      "min": 0, 
+      "max": 1, 
+      "role": "style", 
+      "arrayOk": true, 
+      "valType": "number"
+    }, 
+    "name": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the trace name. The trace name appear as the legend item and on hover."
+    }, 
+    "insidetextfont": {
+      "color": {
+        "valType": "color", 
+        "role": "style"
+      }, 
+      "role": "object", 
+      "description": "Sets the font used for `textinfo` lying inside the pie.", 
+      "family": {
+        "strict": true, 
+        "valType": "string", 
+        "role": "style", 
+        "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+        "noBlank": true
+      }, 
+      "size": {
+        "valType": "number", 
+        "role": "style", 
+        "min": 1
+      }
+    }, 
+    "values": {
+      "valType": "data_array", 
+      "role": "data", 
+      "description": "Sets the values of the sectors of this pie chart."
+    }, 
+    "scalegroup": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "If there are multiple pies that should be sized according to their totals, link them by providing a non-empty group id here shared by every trace in the same group.", 
+      "dflt": ""
+    }
+  }, 
+  "description": "A data visualized by the sectors of the pie is set in `values`. The sector labels are set in `labels`. The sector colors are set in `marker.colors`", 
+  "layoutAttributes": {
+    "hiddenlabelssrc": {
+      "valType": "string", 
+      "role": "info", 
+      "description": "Sets the source reference on plot.ly for  hiddenlabels ."
+    }, 
+    "hiddenlabels": {
+      "valType": "data_array", 
+      "role": "data"
+    }
+  }
+}

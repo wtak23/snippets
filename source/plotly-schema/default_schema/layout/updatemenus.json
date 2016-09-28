@@ -1,0 +1,139 @@
+{
+  "items": {
+    "updatemenu": {
+      "bordercolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the color of the border enclosing the update menu.", 
+        "dflt": "#BEC8D9"
+      }, 
+      "yanchor": {
+        "values": [
+          "auto", 
+          "top", 
+          "middle", 
+          "bottom"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Sets the update menu's vertical position anchor This anchor binds the `y` position to the *top*, *middle* or *bottom* of the range selector.", 
+        "dflt": "bottom"
+      }, 
+      "xanchor": {
+        "values": [
+          "auto", 
+          "left", 
+          "center", 
+          "right"
+        ], 
+        "valType": "enumerated", 
+        "role": "info", 
+        "description": "Sets the update menu's horizontal position anchor. This anchor binds the `x` position to the *left*, *center* or *right* of the range selector.", 
+        "dflt": "right"
+      }, 
+      "y": {
+        "description": "Sets the y position (in normalized coordinates) of the update menu.", 
+        "dflt": 1, 
+        "min": -2, 
+        "max": 3, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "visible": {
+        "valType": "boolean", 
+        "role": "info", 
+        "description": "Determines whether or not the update menu is visible."
+      }, 
+      "buttons": {
+        "items": {
+          "button": {
+            "args": {
+              "items": [
+                {
+                  "valType": "any"
+                }, 
+                {
+                  "valType": "any"
+                }, 
+                {
+                  "valType": "any"
+                }
+              ], 
+              "valType": "info_array", 
+              "role": "info", 
+              "freeLength": true, 
+              "description": "Sets the arguments values to be passed to the Plotly method set in `method` on click."
+            }, 
+            "role": "object", 
+            "method": {
+              "values": [
+                "restyle", 
+                "relayout"
+              ], 
+              "valType": "enumerated", 
+              "role": "info", 
+              "description": "Sets the Plotly method to be called on click.", 
+              "dflt": "restyle"
+            }, 
+            "label": {
+              "valType": "string", 
+              "role": "info", 
+              "description": "Sets the text label to appear on the button.", 
+              "dflt": ""
+            }
+          }
+        }, 
+        "role": "object"
+      }, 
+      "bgcolor": {
+        "valType": "color", 
+        "role": "style", 
+        "description": "Sets the background color of the update menu buttons."
+      }, 
+      "role": "object", 
+      "borderwidth": {
+        "valType": "number", 
+        "role": "style", 
+        "description": "Sets the width (in px) of the border enclosing the update menu.", 
+        "dflt": 1, 
+        "min": 0
+      }, 
+      "active": {
+        "valType": "integer", 
+        "role": "info", 
+        "description": "Determines which button (by index starting from 0) is considered active.", 
+        "dflt": 0, 
+        "min": -1
+      }, 
+      "x": {
+        "description": "Sets the x position (in normalized coordinates) of the update menu.", 
+        "dflt": -0.05, 
+        "min": -2, 
+        "max": 3, 
+        "role": "style", 
+        "valType": "number"
+      }, 
+      "font": {
+        "color": {
+          "valType": "color", 
+          "role": "style"
+        }, 
+        "role": "object", 
+        "description": "Sets the font of the update menu button text.", 
+        "family": {
+          "strict": true, 
+          "valType": "string", 
+          "role": "style", 
+          "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+          "noBlank": true
+        }, 
+        "size": {
+          "valType": "number", 
+          "role": "style", 
+          "min": 1
+        }
+      }
+    }
+  }, 
+  "role": "object"
+}

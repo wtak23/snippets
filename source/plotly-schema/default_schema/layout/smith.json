@@ -1,0 +1,8 @@
+{
+  "values": [
+    false
+  ], 
+  "valType": "enumerated", 
+  "role": "info", 
+  "dflt": false
+}

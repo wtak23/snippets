@@ -1,0 +1,6 @@
+{
+  "valType": "color", 
+  "role": "style", 
+  "description": "Sets the color of paper where the graph is drawn.", 
+  "dflt": "#fff"
+}

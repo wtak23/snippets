@@ -1,0 +1,7 @@
+{
+  "valType": "number", 
+  "role": "info", 
+  "description": "Sets the plot's height (in px).", 
+  "dflt": 450, 
+  "min": 10
+}

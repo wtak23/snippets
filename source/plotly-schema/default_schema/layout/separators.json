@@ -1,0 +1,6 @@
+{
+  "valType": "string", 
+  "role": "style", 
+  "description": "Sets the decimal and thousand separators. For example, *. * puts a '.' before decimals and a space between thousands.", 
+  "dflt": ".,"
+}

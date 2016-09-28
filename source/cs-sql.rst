@@ -704,7 +704,7 @@ math functions
 **************
 
 Aggregate functions (SUM, COUNT, AVG, etc)
-==========================================
+++++++++++++++++++++++++++++++++++++++++++
 **Aggregate function** = takes many values and outputs a single-value
 
 .. code-block:: sql
@@ -713,7 +713,7 @@ Aggregate functions (SUM, COUNT, AVG, etc)
     SELECT SUM(population) FROM world
 
 GROUP BY and HAVING
-===================
++++++++++++++++++++
 .. code-block:: sql
     :linenos:
 

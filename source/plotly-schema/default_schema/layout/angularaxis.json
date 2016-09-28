@@ -1,0 +1,83 @@
+{
+  "domain": {
+    "items": [
+      {
+        "max": 1, 
+        "valType": "number", 
+        "min": 0
+      }, 
+      {
+        "max": 1, 
+        "valType": "number", 
+        "min": 0
+      }
+    ], 
+    "valType": "info_array", 
+    "role": "info", 
+    "description": "Polar chart subplots are not supported yet. This key has currently no effect.", 
+    "dflt": [
+      0, 
+      1
+    ]
+  }, 
+  "showticklabels": {
+    "valType": "boolean", 
+    "role": "style", 
+    "description": "Determines whether or not the angular axis ticks will feature tick labels."
+  }, 
+  "ticklen": {
+    "valType": "number", 
+    "role": "style", 
+    "description": "Sets the length of the tick lines on this angular axis.", 
+    "min": 0
+  }, 
+  "visible": {
+    "valType": "boolean", 
+    "role": "info", 
+    "description": "Determines whether or not this axis will be visible."
+  }, 
+  "range": {
+    "items": [
+      {
+        "valType": "number", 
+        "dflt": 0
+      }, 
+      {
+        "valType": "number", 
+        "dflt": 360
+      }
+    ], 
+    "valType": "info_array", 
+    "role": "info", 
+    "description": "Defines the start and end point of this angular axis."
+  }, 
+  "role": "object", 
+  "ticksuffix": {
+    "valType": "string", 
+    "role": "style", 
+    "description": "Sets the length of the tick lines on this angular axis."
+  }, 
+  "tickcolor": {
+    "valType": "color", 
+    "role": "style", 
+    "description": "Sets the color of the tick lines on this angular axis."
+  }, 
+  "endpadding": {
+    "valType": "number", 
+    "role": "style"
+  }, 
+  "showline": {
+    "valType": "boolean", 
+    "role": "style", 
+    "description": "Determines whether or not the line bounding this angular axis will be shown on the figure."
+  }, 
+  "tickorientation": {
+    "values": [
+      "horizontal", 
+      "vertical"
+    ], 
+    "valType": "enumerated", 
+    "role": "style", 
+    "description": "Sets the orientation (from the paper perspective) of the angular axis tick labels."
+  }
+}

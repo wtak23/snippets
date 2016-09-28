@@ -1,0 +1,11 @@
+{
+  "values": [
+    "x", 
+    "y", 
+    "closest", 
+    false
+  ], 
+  "valType": "enumerated", 
+  "role": "info", 
+  "description": "Determines the mode of hover interactions."
+}

@@ -1,0 +1,7 @@
+{
+  "valType": "number", 
+  "role": "info", 
+  "description": "Sets the plot's width (in px).", 
+  "dflt": 700, 
+  "min": 10
+}

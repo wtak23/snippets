@@ -1,0 +1,43 @@
+{
+  "b": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the bottom margin (in px).", 
+    "dflt": 80, 
+    "min": 0
+  }, 
+  "l": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the left margin (in px).", 
+    "dflt": 80, 
+    "min": 0
+  }, 
+  "r": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the right margin (in px).", 
+    "dflt": 80, 
+    "min": 0
+  }, 
+  "role": "object", 
+  "t": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the top margin (in px).", 
+    "dflt": 100, 
+    "min": 0
+  }, 
+  "autoexpand": {
+    "valType": "boolean", 
+    "role": "info", 
+    "dflt": true
+  }, 
+  "pad": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the amount of padding (in px) between the plotting area and the axis lines", 
+    "dflt": 0, 
+    "min": 0
+  }
+}

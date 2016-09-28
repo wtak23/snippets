@@ -1,0 +1,6 @@
+{
+  "valType": "color", 
+  "role": "style", 
+  "description": "Sets the color of plotting area in-between x and y axes.", 
+  "dflt": "#fff"
+}

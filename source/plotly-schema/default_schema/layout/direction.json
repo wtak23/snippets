@@ -1,0 +1,9 @@
+{
+  "values": [
+    "clockwise", 
+    "counterclockwise"
+  ], 
+  "valType": "enumerated", 
+  "role": "info", 
+  "description": "For polar plots only. Sets the direction corresponding to positive angles."
+}

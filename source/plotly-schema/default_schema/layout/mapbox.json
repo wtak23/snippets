@@ -1,0 +1,252 @@
+{
+  "_isSubplotObj": true, 
+  "bearing": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the bearing angle of the map (in degrees counter-clockwise from North).", 
+    "dflt": 0
+  }, 
+  "domain": {
+    "y": {
+      "items": [
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }, 
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }
+      ], 
+      "valType": "info_array", 
+      "role": "info", 
+      "description": "Sets the vertical domain of this subplot (in plot fraction).", 
+      "dflt": [
+        0, 
+        1
+      ]
+    }, 
+    "x": {
+      "items": [
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }, 
+        {
+          "max": 1, 
+          "valType": "number", 
+          "min": 0
+        }
+      ], 
+      "valType": "info_array", 
+      "role": "info", 
+      "description": "Sets the horizontal domain of this subplot (in plot fraction).", 
+      "dflt": [
+        0, 
+        1
+      ]
+    }, 
+    "role": "object"
+  }, 
+  "center": {
+    "lat": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Sets the latitude of the center of the map (in degrees North).", 
+      "dflt": 0
+    }, 
+    "role": "object", 
+    "lon": {
+      "valType": "number", 
+      "role": "info", 
+      "description": "Sets the longitude of the center of the map (in degrees East).", 
+      "dflt": 0
+    }
+  }, 
+  "accesstoken": {
+    "strict": true, 
+    "valType": "string", 
+    "role": "info", 
+    "description": "Sets the mapbox access token to be used for this mapbox map. Alternatively, the mapbox access token can be set in the configuration options under `mapboxAccessToken`.", 
+    "noBlank": true
+  }, 
+  "layers": {
+    "items": {
+      "layer": {
+        "opacity": {
+          "description": "Sets the opacity of the layer.", 
+          "dflt": 1, 
+          "min": 0, 
+          "max": 1, 
+          "role": "info", 
+          "valType": "number"
+        }, 
+        "sourcetype": {
+          "values": [
+            "geojson", 
+            "vector"
+          ], 
+          "valType": "enumerated", 
+          "role": "info", 
+          "description": "Sets the source type for this layer. Support for *raster*, *image* and *video* source types is coming soon.", 
+          "dflt": "geojson"
+        }, 
+        "color": {
+          "valType": "color", 
+          "role": "style", 
+          "description": "Sets the primary layer color. If `type` is *circle*, color corresponds to the circle color If `type` is *line*, color corresponds to the line color If `type` is *fill*, color corresponds to the fill color If `type` is *symbol*, color corresponds to the icon color", 
+          "dflt": "#444"
+        }, 
+        "symbol": {
+          "textposition": {
+            "description": "Sets the positions of the `text` elements with respects to the (x,y) coordinates.", 
+            "dflt": "middle center", 
+            "values": [
+              "top left", 
+              "top center", 
+              "top right", 
+              "middle left", 
+              "middle center", 
+              "middle right", 
+              "bottom left", 
+              "bottom center", 
+              "bottom right"
+            ], 
+            "role": "style", 
+            "valType": "enumerated", 
+            "arrayOk": false
+          }, 
+          "textfont": {
+            "color": {
+              "valType": "color", 
+              "role": "style"
+            }, 
+            "role": "object", 
+            "description": "Sets the icon text font. Has an effect only when `type` is set to *symbol*.", 
+            "family": {
+              "description": "HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The plotly service (at https://plot.ly or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include *Arial*, *Balto*, *Courier New*, *Droid Sans*,, *Droid Serif*, *Droid Sans Mono*, *Gravitas One*, *Old Standard TT*, *Open Sans*, *Overpass*, *PT Sans Narrow*, *Raleway*, *Times New Roman*.", 
+              "noBlank": true, 
+              "dflt": "Open Sans Regular, Arial Unicode MS Regular", 
+              "strict": true, 
+              "role": "style", 
+              "valType": "string"
+            }, 
+            "size": {
+              "valType": "number", 
+              "role": "style", 
+              "min": 1
+            }
+          }, 
+          "iconsize": {
+            "valType": "number", 
+            "role": "style", 
+            "description": "Sets the symbol icon size. Has an effect only when `type` is set to *symbol*.", 
+            "dflt": 10
+          }, 
+          "text": {
+            "valType": "string", 
+            "role": "info", 
+            "description": "Sets the symbol text.", 
+            "dflt": ""
+          }, 
+          "role": "object", 
+          "icon": {
+            "valType": "string", 
+            "role": "style", 
+            "description": "Sets the symbol icon image. Full list: https://www.mapbox.com/maki-icons/", 
+            "dflt": "marker"
+          }
+        }, 
+        "source": {
+          "valType": "any", 
+          "role": "info", 
+          "description": "Sets the source data for this layer. Source can be either a URL, a geojson object (with `sourcetype` set to *geojson*) or an array of tile URLS (with `sourcetype` set to *vector*)."
+        }, 
+        "below": {
+          "valType": "string", 
+          "role": "info", 
+          "description": "Determines if the layer will be inserted before the layer with the specified ID. If omitted or set to '', the layer will be inserted above every existing layer.", 
+          "dflt": ""
+        }, 
+        "role": "object", 
+        "sourcelayer": {
+          "valType": "string", 
+          "role": "info", 
+          "description": "Specifies the layer to use from a vector tile source. Required for *vector* source type that supports multiple layers.", 
+          "dflt": ""
+        }, 
+        "line": {
+          "width": {
+            "valType": "number", 
+            "role": "style", 
+            "description": "Sets the line width. Has an effect only when `type` is set to *line*.", 
+            "dflt": 2
+          }, 
+          "role": "object"
+        }, 
+        "type": {
+          "values": [
+            "circle", 
+            "line", 
+            "fill", 
+            "symbol"
+          ], 
+          "valType": "enumerated", 
+          "role": "info", 
+          "description": "Sets the layer type. Support for *raster*, *background* types is coming soon. Note that *line* and *fill* are not compatible with Point GeoJSON geometries.", 
+          "dflt": "circle"
+        }, 
+        "circle": {
+          "role": "object", 
+          "radius": {
+            "valType": "number", 
+            "role": "style", 
+            "description": "Sets the circle radius. Has an effect only when `type` is set to *circle*.", 
+            "dflt": 15
+          }
+        }, 
+        "fill": {
+          "role": "object", 
+          "outlinecolor": {
+            "valType": "color", 
+            "role": "style", 
+            "description": "Sets the fill outline color. Has an effect only when `type` is set to *fill*.", 
+            "dflt": "#444"
+          }
+        }
+      }
+    }, 
+    "role": "object"
+  }, 
+  "style": {
+    "values": [
+      "basic", 
+      "streets", 
+      "outdoors", 
+      "light", 
+      "dark", 
+      "satellite", 
+      "satellite-streets"
+    ], 
+    "valType": "any", 
+    "role": "style", 
+    "description": "Sets the Mapbox map style. Either input one of the default Mapbox style names or the URL to a custom style or a valid Mapbox style JSON.", 
+    "dflt": "basic"
+  }, 
+  "zoom": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the zoom level of the map.", 
+    "dflt": 1
+  }, 
+  "role": "object", 
+  "pitch": {
+    "valType": "number", 
+    "role": "info", 
+    "description": "Sets the pitch angle of the map (in degrees, where *0* means perpendicular to the surface of the map).", 
+    "dflt": 0
+  }
+}
