@@ -87,14 +87,15 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">1 Python (<code class="docutils literal"><span class="pre">cs-python.rst</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#packages-installed-on-the-fly">1.1 packages installed on the fly</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#random-stack-overflow-questions">1.2 Random Stack-overflow questions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#a-bit-on-python-unicode">1.2.1 A bit on python unicode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">1.2.2 Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-does-sitecustomize-py-do">1.2.3 what does sitecustomize.py do?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#things-you-can-do-with-a-file-object">1.2.4 Things you can do with a <strong>file</strong> object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#simplejson">1.2.5 simplejson</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#find-first-occurence-in-a-list">1.2.6 Find first occurence in a list</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#swap-2-items-in-a-list">1.2.7 Swap 2 items in a list</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#check-all-items-in-list-or-dict-is-equal">1.2.8 Check all items in list or dict is equal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-dictionaries">1.2.1 merge dictionaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a-bit-on-python-unicode">1.2.2 A bit on python unicode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">1.2.3 Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-does-sitecustomize-py-do">1.2.4 what does sitecustomize.py do?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#things-you-can-do-with-a-file-object">1.2.5 Things you can do with a <strong>file</strong> object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simplejson">1.2.6 simplejson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#find-first-occurence-in-a-list">1.2.7 Find first occurence in a list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swap-2-items-in-a-list">1.2.8 Swap 2 items in a list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-all-items-in-list-or-dict-is-equal">1.2.9 Check all items in list or dict is equal</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#exceptions">1.3 Exceptions</a><ul>
@@ -210,20 +211,47 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cs-plotly.html">3 Plotly snippets (<code class="docutils literal"><span class="pre">cs-plotly</span></code>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#update-layout-posthoc">3.1 Update layout posthoc</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#another-example">3.1.1 Another example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#imports">3.1 Imports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#offline-mode">3.1.1 offline mode</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#d-subplots">3.2 3d subplots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#embed-in-ipynb">3.3 Embed in ipynb</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#static-image-io">3.4 static image IO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#getfigure">3.5 Getfigure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#demo-mpl-to-plotly">3.6 Demo - MPL to plotly</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#seaborn-demo">3.7 Seaborn demo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#webgl-heatmap">3.8 webgl heatmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#log-plots">3.9 log plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#layout-to-change">3.10 Layout to change</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#background-color">3.10.1 Background color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#my-privacy-setting">3.2 My privacy setting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#cufflinks-setting">3.2.1 cufflinks setting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#demo-plot">3.2.2 demo plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#get-figure-object-from-url">3.3 Get figure object from url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#figure-to-string">3.4 figure.to_string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#cf-offline">3.5 CF offline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#use-requests-package-to-communicate-with-my-plotly-web-account">3.6 Use <code class="docutils literal"><span class="pre">requests</span></code> package to communicate with my plotly web account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#use-requests-package-to-get-static-image">3.6.1 Use requests package to get static image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#trash-restore-delete-from-plotly-account">3.6.2 trash, restore, delete from plotly account</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cs-plotly.html#configure-authorization">3.6.2.1 Configure authorization</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cs-plotly.html#trash-and-restore-example">3.6.2.2 Trash and Restore Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#colorscale-setting">3.7 Colorscale setting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#converting-colorscale-from-colorlovers">3.7.1 Converting colorscale from colorlovers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#from-mpl-cm">3.7.2 from mpl cm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#subplots-with-addtrace-method">3.8 Subplots with addtrace method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#update-layout-posthoc">3.9 Update layout posthoc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#another-example">3.9.1 Another example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#d-subplots">3.10 3d subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#embed-in-ipynb">3.11 Embed in ipynb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#static-image-io">3.12 static image IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#getfigure">3.13 Getfigure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#demo-mpl-to-plotly">3.14 Demo - MPL to plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#seaborn-demo">3.15 Seaborn demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#webgl-heatmap">3.16 webgl heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#log-plots">3.17 log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs-plotly.html#layout-to-change">3.18 Layout to change</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs-plotly.html#background-color">3.18.1 Background color</a></li>
 </ul>
 </li>
 </ul>
@@ -812,66 +840,67 @@
 <ul class="simple">
 <li><a class="reference internal" href="#packages-installed-on-the-fly" id="id2">packages installed on the fly</a></li>
 <li><a class="reference internal" href="#random-stack-overflow-questions" id="id3">Random Stack-overflow questions</a><ul>
-<li><a class="reference internal" href="#a-bit-on-python-unicode" id="id4">A bit on python unicode</a></li>
-<li><a class="reference internal" href="#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error" id="id5">Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
-<li><a class="reference internal" href="#what-does-sitecustomize-py-do" id="id6">what does sitecustomize.py do?</a></li>
-<li><a class="reference internal" href="#things-you-can-do-with-a-file-object" id="id7">Things you can do with a <strong>file</strong> object</a></li>
-<li><a class="reference internal" href="#simplejson" id="id8">simplejson</a></li>
-<li><a class="reference internal" href="#find-first-occurence-in-a-list" id="id9">Find first occurence in a list</a></li>
-<li><a class="reference internal" href="#swap-2-items-in-a-list" id="id10">Swap 2 items in a list</a></li>
-<li><a class="reference internal" href="#check-all-items-in-list-or-dict-is-equal" id="id11">Check all items in list or dict is equal</a></li>
+<li><a class="reference internal" href="#merge-dictionaries" id="id4">merge dictionaries</a></li>
+<li><a class="reference internal" href="#a-bit-on-python-unicode" id="id5">A bit on python unicode</a></li>
+<li><a class="reference internal" href="#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error" id="id6">Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a></li>
+<li><a class="reference internal" href="#what-does-sitecustomize-py-do" id="id7">what does sitecustomize.py do?</a></li>
+<li><a class="reference internal" href="#things-you-can-do-with-a-file-object" id="id8">Things you can do with a <strong>file</strong> object</a></li>
+<li><a class="reference internal" href="#simplejson" id="id9">simplejson</a></li>
+<li><a class="reference internal" href="#find-first-occurence-in-a-list" id="id10">Find first occurence in a list</a></li>
+<li><a class="reference internal" href="#swap-2-items-in-a-list" id="id11">Swap 2 items in a list</a></li>
+<li><a class="reference internal" href="#check-all-items-in-list-or-dict-is-equal" id="id12">Check all items in list or dict is equal</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#exceptions" id="id12">Exceptions</a><ul>
-<li><a class="reference internal" href="#my-most-frequent-lazy-usecase" id="id13">My most frequent <em>lazy</em> usecase</a></li>
+<li><a class="reference internal" href="#exceptions" id="id13">Exceptions</a><ul>
+<li><a class="reference internal" href="#my-most-frequent-lazy-usecase" id="id14">My most frequent <em>lazy</em> usecase</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#top-pandas" id="id14">Top-pandas</a><ul>
-<li><a class="reference internal" href="#pandas-check-if-all-columns-are-equal-in-a-dataframe" id="id15">Pandas - check if all columns are equal in a DataFrame</a></li>
+<li><a class="reference internal" href="#top-pandas" id="id15">Top-pandas</a><ul>
+<li><a class="reference internal" href="#pandas-check-if-all-columns-are-equal-in-a-dataframe" id="id16">Pandas - check if all columns are equal in a DataFrame</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#top-mpl" id="id16">top-mpl</a><ul>
-<li><a class="reference internal" href="#change-fontweight-and-size-in-pre-existing-legend" id="id17">Change fontweight and size in pre-existing legend</a></li>
-<li><a class="reference internal" href="#change-xlabel-and-ylabel-fontsize-for-axes-already-existing" id="id18">Change xlabel and ylabel fontsize for axes already existing</a></li>
-<li><a class="reference internal" href="#when-plt-tight-layout-doesn-t-work-as-expected" id="id19">When plt.tight_layout doesn&#8217;t work as expected</a></li>
-<li><a class="reference internal" href="#append-to-existing-axes-title" id="id20">Append to existing axes title</a></li>
-<li><a class="reference internal" href="#change-figure-size-of-existing-figure" id="id21">Change figure size of <em>existing</em> figure</a></li>
-<li><a class="reference internal" href="#change-figure-size-one-already-plotted" id="id22">Change figure size (one already plotted)</a></li>
+<li><a class="reference internal" href="#top-mpl" id="id17">top-mpl</a><ul>
+<li><a class="reference internal" href="#change-fontweight-and-size-in-pre-existing-legend" id="id18">Change fontweight and size in pre-existing legend</a></li>
+<li><a class="reference internal" href="#change-xlabel-and-ylabel-fontsize-for-axes-already-existing" id="id19">Change xlabel and ylabel fontsize for axes already existing</a></li>
+<li><a class="reference internal" href="#when-plt-tight-layout-doesn-t-work-as-expected" id="id20">When plt.tight_layout doesn&#8217;t work as expected</a></li>
+<li><a class="reference internal" href="#append-to-existing-axes-title" id="id21">Append to existing axes title</a></li>
+<li><a class="reference internal" href="#change-figure-size-of-existing-figure" id="id22">Change figure size of <em>existing</em> figure</a></li>
+<li><a class="reference internal" href="#change-figure-size-one-already-plotted" id="id23">Change figure size (one already plotted)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" id="id23">Plotting and saving figure on remotely on server (on sge submission)</a><ul>
-<li><a class="reference internal" href="#change-i-made-to-my-figure-function" id="id24">Change i made to my figure function</a></li>
-<li><a class="reference internal" href="#check-if-x11-is-enabled-in-python-script" id="id25">Check if X11 is enabled in python script</a></li>
+<li><a class="reference internal" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" id="id24">Plotting and saving figure on remotely on server (on sge submission)</a><ul>
+<li><a class="reference internal" href="#change-i-made-to-my-figure-function" id="id25">Change i made to my figure function</a></li>
+<li><a class="reference internal" href="#check-if-x11-is-enabled-in-python-script" id="id26">Check if X11 is enabled in python script</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#disk-io" id="id26">Disk IO</a><ul>
-<li><a class="reference internal" href="#write-list-items-to-text" id="id27">Write list items to text</a></li>
+<li><a class="reference internal" href="#disk-io" id="id27">Disk IO</a><ul>
+<li><a class="reference internal" href="#write-list-items-to-text" id="id28">Write list items to text</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#seaborn-and-pandas-plots" id="id28">Seaborn and Pandas plots</a><ul>
-<li><a class="reference internal" href="#mpl-and-sns" id="id29">mpl and sns?</a></li>
-<li><a class="reference internal" href="#color-palette" id="id30">Color palette</a></li>
+<li><a class="reference internal" href="#seaborn-and-pandas-plots" id="id29">Seaborn and Pandas plots</a><ul>
+<li><a class="reference internal" href="#mpl-and-sns" id="id30">mpl and sns?</a></li>
+<li><a class="reference internal" href="#color-palette" id="id31">Color palette</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#python-commands-from-shell" id="id31">Python commands from shell</a></li>
-<li><a class="reference internal" href="#matplotlib-styling" id="id32">Matplotlib styling</a><ul>
-<li><a class="reference internal" href="#default-color-cycle" id="id33">Default color cycle</a></li>
-<li><a class="reference internal" href="#colormap-helper" id="id34">Colormap helper</a></li>
+<li><a class="reference internal" href="#python-commands-from-shell" id="id32">Python commands from shell</a></li>
+<li><a class="reference internal" href="#matplotlib-styling" id="id33">Matplotlib styling</a><ul>
+<li><a class="reference internal" href="#default-color-cycle" id="id34">Default color cycle</a></li>
+<li><a class="reference internal" href="#colormap-helper" id="id35">Colormap helper</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-modules" id="id35">installing modules</a></li>
-<li><a class="reference internal" href="#gochtas" id="id36">gochtas</a><ul>
-<li><a class="reference internal" href="#careful-with-array-slicing-may-change-array-values" id="id37">careful with array slicing! may change array values</a></li>
+<li><a class="reference internal" href="#installing-modules" id="id36">installing modules</a></li>
+<li><a class="reference internal" href="#gochtas" id="id37">gochtas</a><ul>
+<li><a class="reference internal" href="#careful-with-array-slicing-may-change-array-values" id="id38">careful with array slicing! may change array values</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#decorator" id="id38">decorator</a></li>
-<li><a class="reference internal" href="#plotting-short-snippets" id="id39">Plotting - short snippets</a><ul>
-<li><a class="reference internal" href="#cool-tricks" id="id40">Cool tricks</a></li>
-<li><a class="reference internal" href="#plotting-snippets" id="id41">Plotting Snippets</a></li>
+<li><a class="reference internal" href="#decorator" id="id39">decorator</a></li>
+<li><a class="reference internal" href="#plotting-short-snippets" id="id40">Plotting - short snippets</a><ul>
+<li><a class="reference internal" href="#cool-tricks" id="id41">Cool tricks</a></li>
+<li><a class="reference internal" href="#plotting-snippets" id="id42">Plotting Snippets</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id1" id="id42">Exceptions</a></li>
-<li><a class="reference internal" href="#clever-tricks" id="id43">Clever tricks</a></li>
+<li><a class="reference internal" href="#id1" id="id43">Exceptions</a></li>
+<li><a class="reference internal" href="#clever-tricks" id="id44">Clever tricks</a></li>
 </ul>
 </div>
 <p>Every once in a while, I&#8217;ll try to organize below by <strong>category</strong></p>
@@ -886,8 +915,22 @@ pip install google-api-python-client --user
 </div>
 <div class="section" id="random-stack-overflow-questions">
 <h2><a class="toc-backref" href="#id3">1.2 Random Stack-overflow questions</a><a class="headerlink" href="#random-stack-overflow-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="merge-dictionaries">
+<h3><a class="toc-backref" href="#id4">1.2.1 merge dictionaries</a><a class="headerlink" href="#merge-dictionaries" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/38987/how-to-merge-two-python-dictionaries-in-a-single-expression">http://stackoverflow.com/questions/38987/how-to-merge-two-python-dictionaries-in-a-single-expression</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setup_shared</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">mirror</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">showgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">showline</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">zeroline</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">ticks</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.15</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="o">**</span><span class="n">setup_shared</span><span class="p">)</span>
+<span class="go">{&#39;domain&#39;: [0.15, 1],</span>
+<span class="go"> &#39;mirror&#39;: False,</span>
+<span class="go"> &#39;showgrid&#39;: False,</span>
+<span class="go"> &#39;showline&#39;: False,</span>
+<span class="go"> &#39;ticks&#39;: &#39;&#39;,</span>
+<span class="go"> &#39;zeroline&#39;: False}</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="a-bit-on-python-unicode">
-<h3><a class="toc-backref" href="#id4">1.2.1 A bit on python unicode</a><a class="headerlink" href="#a-bit-on-python-unicode" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">1.2.2 A bit on python unicode</a><a class="headerlink" href="#a-bit-on-python-unicode" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/2.7/howto/unicode.html">https://docs.python.org/2.7/howto/unicode.html</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/9942594/unicodeencodeerror-ascii-codec-cant-encode-character-u-xa0-in-position-20">http://stackoverflow.com/questions/9942594/unicodeencodeerror-ascii-codec-cant-encode-character-u-xa0-in-position-20</a></li>
@@ -914,7 +957,7 @@ pip install google-api-python-client --user
 <div>The issue is that when you call str(), python uses the default character encoding to try and encode the bytes you gave it, which in your case are sometimes representations of unicode characters. To fix the problem, you have to tell python how to deal with the string you give it by using .encode(&#8216;whatever_unicode&#8217;). Most of the time, you should be fine using utf-8.</div></blockquote>
 </div>
 <div class="section" id="locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error">
-<h3><a class="toc-backref" href="#id5">1.2.2 Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a><a class="headerlink" href="#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">1.2.3 Locale thing (since i&#8217;m getting errors in sphinx regarding unicode error</a><a class="headerlink" href="#locale-thing-since-i-m-getting-errors-in-sphinx-regarding-unicode-error" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/sphinx-doc/sphinx/issues/1739">https://github.com/sphinx-doc/sphinx/issues/1739</a></li>
 <li><a class="reference external" href="https://www.google.com/#q=sphinx+encoding+error">https://www.google.com/#q=sphinx+encoding+error</a></li>
@@ -976,7 +1019,7 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="what-does-sitecustomize-py-do">
-<h3><a class="toc-backref" href="#id6">1.2.3 what does sitecustomize.py do?</a><a class="headerlink" href="#what-does-sitecustomize-py-do" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">1.2.4 what does sitecustomize.py do?</a><a class="headerlink" href="#what-does-sitecustomize-py-do" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/10693706/creating-a-secondary-site-packages-directory-and-loading-packages-from-pth-fil">http://stackoverflow.com/questions/10693706/creating-a-secondary-site-packages-directory-and-loading-packages-from-pth-fil</a></li>
 <li><a class="reference external" href="http://masasuzu.hatenablog.jp/entry/20110313/1299997912">http://masasuzu.hatenablog.jp/entry/20110313/1299997912</a></li>
@@ -984,7 +1027,7 @@ In [8]: sys.getdefaultencoding()
 </ul>
 </div>
 <div class="section" id="things-you-can-do-with-a-file-object">
-<h3><a class="toc-backref" href="#id7">1.2.4 Things you can do with a <strong>file</strong> object</a><a class="headerlink" href="#things-you-can-do-with-a-file-object" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">1.2.5 Things you can do with a <strong>file</strong> object</a><a class="headerlink" href="#things-you-can-do-with-a-file-object" title="Permalink to this headline">¶</a></h3>
 <p>I always forget the exact syntax for these...</p>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files">https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files</a></li>
@@ -992,7 +1035,7 @@ In [8]: sys.getdefaultencoding()
 </ul>
 </div>
 <div class="section" id="simplejson">
-<h3><a class="toc-backref" href="#id8">1.2.5 simplejson</a><a class="headerlink" href="#simplejson" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">1.2.6 simplejson</a><a class="headerlink" href="#simplejson" title="Permalink to this headline">¶</a></h3>
 <p>hmmm, look into this module?</p>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python">http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python</a></li>
@@ -1005,7 +1048,7 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="find-first-occurence-in-a-list">
-<h3><a class="toc-backref" href="#id9">1.2.6 Find first occurence in a list</a><a class="headerlink" href="#find-first-occurence-in-a-list" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">1.2.7 Find first occurence in a list</a><a class="headerlink" href="#find-first-occurence-in-a-list" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/2361426/what-is-the-best-way-to-get-the-first-item-from-an-iterable-matching-a-condition">http://stackoverflow.com/questions/2361426/what-is-the-best-way-to-get-the-first-item-from-an-iterable-matching-a-condition</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/9868653/find-first-list-item-that-matches-criteria">http://stackoverflow.com/questions/9868653/find-first-list-item-that-matches-criteria</a></li>
@@ -1019,7 +1062,7 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="swap-2-items-in-a-list">
-<h3><a class="toc-backref" href="#id10">1.2.7 Swap 2 items in a list</a><a class="headerlink" href="#swap-2-items-in-a-list" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">1.2.8 Swap 2 items in a list</a><a class="headerlink" href="#swap-2-items-in-a-list" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/2493920/how-to-switch-position-of-two-items-in-a-python-list">http://stackoverflow.com/questions/2493920/how-to-switch-position-of-two-items-in-a-python-list</a><ul>
 <li><code class="docutils literal"><span class="pre">foo[i],</span> <span class="pre">foo[j]</span> <span class="pre">=</span> <span class="pre">foo[j],</span> <span class="pre">foo[i]</span></code></li>
@@ -1028,7 +1071,7 @@ In [8]: sys.getdefaultencoding()
 </ul>
 </div>
 <div class="section" id="check-all-items-in-list-or-dict-is-equal">
-<h3><a class="toc-backref" href="#id11">1.2.8 Check all items in list or dict is equal</a><a class="headerlink" href="#check-all-items-in-list-or-dict-is-equal" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">1.2.9 Check all items in list or dict is equal</a><a class="headerlink" href="#check-all-items-in-list-or-dict-is-equal" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/3844801/check-if-all-elements-in-a-list-are-identical">http://stackoverflow.com/questions/3844801/check-if-all-elements-in-a-list-are-identical</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/3787908/python-determine-if-all-items-of-a-list-are-the-same-item">http://stackoverflow.com/questions/3787908/python-determine-if-all-items-of-a-list-are-the-same-item</a></li>
@@ -1043,7 +1086,7 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="exceptions">
-<h2><a class="toc-backref" href="#id12">1.3 Exceptions</a><a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">1.3 Exceptions</a><a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/3702675/how-to-print-the-full-traceback-without-halting-the-program">http://stackoverflow.com/questions/3702675/how-to-print-the-full-traceback-without-halting-the-program</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/1483429/how-to-print-an-error-in-python">http://stackoverflow.com/questions/1483429/how-to-print-an-error-in-python</a></li>
@@ -1070,7 +1113,7 @@ In [8]: sys.getdefaultencoding()
 </pre></div>
 </div>
 <div class="section" id="my-most-frequent-lazy-usecase">
-<h3><a class="toc-backref" href="#id13">1.3.1 My most frequent <em>lazy</em> usecase</a><a class="headerlink" href="#my-most-frequent-lazy-usecase" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">1.3.1 My most frequent <em>lazy</em> usecase</a><a class="headerlink" href="#my-most-frequent-lazy-usecase" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">fig_set_geom</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
@@ -1093,10 +1136,10 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="top-pandas">
-<h2><a class="toc-backref" href="#id14">1.4 Top-pandas</a><a class="headerlink" href="#top-pandas" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">1.4 Top-pandas</a><a class="headerlink" href="#top-pandas" title="Permalink to this headline">¶</a></h2>
 <p>Keep adding pandas related notes/snippets here</p>
 <div class="section" id="pandas-check-if-all-columns-are-equal-in-a-dataframe">
-<h3><a class="toc-backref" href="#id15">1.4.1 Pandas - check if all columns are equal in a DataFrame</a><a class="headerlink" href="#pandas-check-if-all-columns-are-equal-in-a-dataframe" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">1.4.1 Pandas - check if all columns are equal in a DataFrame</a><a class="headerlink" href="#pandas-check-if-all-columns-are-equal-in-a-dataframe" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/22701799/pandas-dataframe-find-rows-where-all-columns-equal">http://stackoverflow.com/questions/22701799/pandas-dataframe-find-rows-where-all-columns-equal</a></li>
 </ul>
@@ -1121,10 +1164,10 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="top-mpl">
-<h2><a class="toc-backref" href="#id16">1.5 top-mpl</a><a class="headerlink" href="#top-mpl" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">1.5 top-mpl</a><a class="headerlink" href="#top-mpl" title="Permalink to this headline">¶</a></h2>
 <p>Keep adding mpl related notes/snippets here</p>
 <div class="section" id="change-fontweight-and-size-in-pre-existing-legend">
-<h3><a class="toc-backref" href="#id17">1.5.1 Change fontweight and size in pre-existing legend</a><a class="headerlink" href="#change-fontweight-and-size-in-pre-existing-legend" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">1.5.1 Change fontweight and size in pre-existing legend</a><a class="headerlink" href="#change-fontweight-and-size-in-pre-existing-legend" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>oddly, <code class="docutils literal"><span class="pre">plt.legend()</span></code> doesn&#8217;t have a <code class="docutils literal"><span class="pre">fontweight</span></code> parameter</li>
 <li>you have ot use the <code class="docutils literal"><span class="pre">prop</span></code> argument instead</li>
@@ -1137,7 +1180,7 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="change-xlabel-and-ylabel-fontsize-for-axes-already-existing">
-<h3><a class="toc-backref" href="#id18">1.5.2 Change xlabel and ylabel fontsize for axes already existing</a><a class="headerlink" href="#change-xlabel-and-ylabel-fontsize-for-axes-already-existing" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">1.5.2 Change xlabel and ylabel fontsize for axes already existing</a><a class="headerlink" href="#change-xlabel-and-ylabel-fontsize-for-axes-already-existing" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/10404759/matplotlib-set-yaxis-label-size">http://stackoverflow.com/questions/10404759/matplotlib-set-yaxis-label-size</a></li>
 <li>Wonder if there&#8217;s a better way than this...</li>
@@ -1168,7 +1211,7 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="when-plt-tight-layout-doesn-t-work-as-expected">
-<h3><a class="toc-backref" href="#id19">1.5.3 When plt.tight_layout doesn&#8217;t work as expected</a><a class="headerlink" href="#when-plt-tight-layout-doesn-t-work-as-expected" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">1.5.3 When plt.tight_layout doesn&#8217;t work as expected</a><a class="headerlink" href="#when-plt-tight-layout-doesn-t-work-as-expected" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#http://stackoverflow.com/questions/8248467/matplotlib-tight-layout-doesnt-take-into-account-figure-suptitle</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">1.25</span><span class="p">)</span>
 <span class="c1">#plt.tight_layout()</span>
@@ -1176,14 +1219,14 @@ In [8]: sys.getdefaultencoding()
 </div>
 </div>
 <div class="section" id="append-to-existing-axes-title">
-<h3><a class="toc-backref" href="#id20">1.5.4 Append to existing axes title</a><a class="headerlink" href="#append-to-existing-axes-title" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">1.5.4 Append to existing axes title</a><a class="headerlink" href="#append-to-existing-axes-title" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_title</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; WHATEVER STRING&#39;</span><span class="p">)</span> <span class="c1"># &lt;- append to title</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="change-figure-size-of-existing-figure">
-<h3><a class="toc-backref" href="#id21">1.5.5 Change figure size of <em>existing</em> figure</a><a class="headerlink" href="#change-figure-size-of-existing-figure" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">1.5.5 Change figure size of <em>existing</em> figure</a><a class="headerlink" href="#change-figure-size-of-existing-figure" title="Permalink to this headline">¶</a></h3>
 <p>I have <code class="docutils literal"><span class="pre">plt.figure(figsize=(10,8))</span></code> option when creating figure, but how to
 change size of figure that already exists?  see below :)</p>
 <ul class="simple">
@@ -1195,7 +1238,7 @@ change size of figure that already exists?  see below :)</p>
 </div>
 </div>
 <div class="section" id="change-figure-size-one-already-plotted">
-<h3><a class="toc-backref" href="#id22">1.5.6 Change figure size (one already plotted)</a><a class="headerlink" href="#change-figure-size-one-already-plotted" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">1.5.6 Change figure size (one already plotted)</a><a class="headerlink" href="#change-figure-size-one-already-plotted" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># plt.figure(figsize=(20,10))</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -1204,7 +1247,7 @@ change size of figure that already exists?  see below :)</p>
 </div>
 </div>
 <div class="section" id="plotting-and-saving-figure-on-remotely-on-server-on-sge-submission">
-<h2><a class="toc-backref" href="#id23">1.6 Plotting and saving figure on remotely on server (on sge submission)</a><a class="headerlink" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">1.6 Plotting and saving figure on remotely on server (on sge submission)</a><a class="headerlink" href="#plotting-and-saving-figure-on-remotely-on-server-on-sge-submission" title="Permalink to this headline">¶</a></h2>
 <p><strong>References</strong></p>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/4706451/how-to-save-a-figure-remotely-with-pylab">http://stackoverflow.com/questions/4706451/how-to-save-a-figure-remotely-with-pylab</a></li>
@@ -1228,7 +1271,7 @@ change size of figure that already exists?  see below :)</p>
 in the fig-manager (<code class="docutils literal"><span class="pre">plt.get_current_fig_manager().window</span></code> doesn&#8217;t exist,
 so can&#8217;t set window position)</p>
 <div class="section" id="change-i-made-to-my-figure-function">
-<h3><a class="toc-backref" href="#id24">1.6.1 Change i made to my figure function</a><a class="headerlink" href="#change-i-made-to-my-figure-function" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">1.6.1 Change i made to my figure function</a><a class="headerlink" href="#change-i-made-to-my-figure-function" title="Permalink to this headline">¶</a></h3>
 <p>Just use <code class="docutils literal"><span class="pre">try/exception</span></code> in my <code class="docutils literal"><span class="pre">fig_set_geom</span></code> function.</p>
 <ul class="simple">
 <li>this way, i don&#8217;t have to modify the calling script in any way when
@@ -1255,7 +1298,7 @@ or server-mode without any changes)</li>
 </ul>
 </div>
 <div class="section" id="check-if-x11-is-enabled-in-python-script">
-<h3><a class="toc-backref" href="#id25">1.6.2 Check if X11 is enabled in python script</a><a class="headerlink" href="#check-if-x11-is-enabled-in-python-script" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">1.6.2 Check if X11 is enabled in python script</a><a class="headerlink" href="#check-if-x11-is-enabled-in-python-script" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/8257385/automatic-detection-of-display-availability-with-matplotlib">http://stackoverflow.com/questions/8257385/automatic-detection-of-display-availability-with-matplotlib</a></li>
 </ul>
@@ -1271,9 +1314,9 @@ or server-mode without any changes)</li>
 </div>
 </div>
 <div class="section" id="disk-io">
-<h2><a class="toc-backref" href="#id26">1.7 Disk IO</a><a class="headerlink" href="#disk-io" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">1.7 Disk IO</a><a class="headerlink" href="#disk-io" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="write-list-items-to-text">
-<h3><a class="toc-backref" href="#id27">1.7.1 Write list items to text</a><a class="headerlink" href="#write-list-items-to-text" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">1.7.1 Write list items to text</a><a class="headerlink" href="#write-list-items-to-text" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python">http://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python</a></li>
 </ul>
@@ -1294,18 +1337,18 @@ or server-mode without any changes)</li>
 </div>
 </div>
 <div class="section" id="seaborn-and-pandas-plots">
-<h2><a class="toc-backref" href="#id28">1.8 Seaborn and Pandas plots</a><a class="headerlink" href="#seaborn-and-pandas-plots" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">1.8 Seaborn and Pandas plots</a><a class="headerlink" href="#seaborn-and-pandas-plots" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/26413185/how-to-recover-matplotlib-defaults-after-setting-stylesheet">http://stackoverflow.com/questions/26413185/how-to-recover-matplotlib-defaults-after-setting-stylesheet</a></li>
 </ul>
 <div class="section" id="mpl-and-sns">
-<h3><a class="toc-backref" href="#id29">1.8.1 mpl and sns?</a><a class="headerlink" href="#mpl-and-sns" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id30">1.8.1 mpl and sns?</a><a class="headerlink" href="#mpl-and-sns" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/28430385/seaborn-cycle-through-colours-with-matplotlib-scatter">http://stackoverflow.com/questions/28430385/seaborn-cycle-through-colours-with-matplotlib-scatter</a></li>
 </ul>
 </div>
 <div class="section" id="color-palette">
-<h3><a class="toc-backref" href="#id30">1.8.2 Color palette</a><a class="headerlink" href="#color-palette" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">1.8.2 Color palette</a><a class="headerlink" href="#color-palette" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Great demo of <strong>built-in</strong> palettes: <a class="reference external" href="http://chrisalbon.com/python/seaborn_color_palettes.html">http://chrisalbon.com/python/seaborn_color_palettes.html</a></li>
 </ul>
@@ -1336,7 +1379,7 @@ the name or as dark palettes by appending “_d” to the name.</p>
 </div>
 </div>
 <div class="section" id="python-commands-from-shell">
-<h2><a class="toc-backref" href="#id31">1.9 Python commands from shell</a><a class="headerlink" href="#python-commands-from-shell" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">1.9 Python commands from shell</a><a class="headerlink" href="#python-commands-from-shell" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/2043453/executing-python-multi-line-statements-in-the-one-line-command-line">http://stackoverflow.com/questions/2043453/executing-python-multi-line-statements-in-the-one-line-command-line</a></li>
 </ul>
@@ -1361,7 +1404,7 @@ ipython -c <span class="s2">&quot;import matplotlib as mpl; print mpl.matplotlib
 </td></tr></table></div>
 </div>
 <div class="section" id="matplotlib-styling">
-<h2><a class="toc-backref" href="#id32">1.10 Matplotlib styling</a><a class="headerlink" href="#matplotlib-styling" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">1.10 Matplotlib styling</a><a class="headerlink" href="#matplotlib-styling" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://matplotlib.org/users/style_sheets.html">http://matplotlib.org/users/style_sheets.html</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1371,7 +1414,7 @@ subl <span class="k">$(</span>ipython -c <span class="s2">&quot;import matplotli
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="default-color-cycle">
-<h3><a class="toc-backref" href="#id33">1.10.1 Default color cycle</a><a class="headerlink" href="#default-color-cycle" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">1.10.1 Default color cycle</a><a class="headerlink" href="#default-color-cycle" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/9397944/default-color-cycle-with-matplotlib">http://stackoverflow.com/questions/9397944/default-color-cycle-with-matplotlib</a></li>
 <li><a class="reference external" href="http://matplotlib.org/examples/color/color_cycle_demo.html">http://matplotlib.org/examples/color/color_cycle_demo.html</a></li>
@@ -1389,7 +1432,7 @@ subl <span class="k">$(</span>ipython -c <span class="s2">&quot;import matplotli
 </div>
 </div>
 <div class="section" id="colormap-helper">
-<h3><a class="toc-backref" href="#id34">1.10.2 Colormap helper</a><a class="headerlink" href="#colormap-helper" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">1.10.2 Colormap helper</a><a class="headerlink" href="#colormap-helper" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://matplotlib.org/examples/color/colormaps_reference.html">http://matplotlib.org/examples/color/colormaps_reference.html</a></li>
 <li><a class="reference external" href="http://chrisalbon.com/python/seaborn_color_palettes.html">http://chrisalbon.com/python/seaborn_color_palettes.html</a></li>
@@ -1402,7 +1445,7 @@ subl <span class="k">$(</span>ipython -c <span class="s2">&quot;import matplotli
 </div>
 </div>
 <div class="section" id="installing-modules">
-<h2><a class="toc-backref" href="#id35">1.11 installing modules</a><a class="headerlink" href="#installing-modules" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">1.11 installing modules</a><a class="headerlink" href="#installing-modules" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package">http://scicomp.stackexchange.com/questions/2987/what-is-the-simplest-way-to-do-a-user-local-install-of-a-python-package</a></p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1421,9 +1464,9 @@ pip uninstall somepackage
 </td></tr></table></div>
 </div>
 <div class="section" id="gochtas">
-<h2><a class="toc-backref" href="#id36">1.12 gochtas</a><a class="headerlink" href="#gochtas" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">1.12 gochtas</a><a class="headerlink" href="#gochtas" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="careful-with-array-slicing-may-change-array-values">
-<h3><a class="toc-backref" href="#id37">1.12.1 careful with array slicing! may change array values</a><a class="headerlink" href="#careful-with-array-slicing-may-change-array-values" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">1.12.1 careful with array slicing! may change array values</a><a class="headerlink" href="#careful-with-array-slicing-may-change-array-values" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-slicing-view-vs-copy">http://stackoverflow.com/questions/18155972/unexpected-result-in-numpy-array-slicing-view-vs-copy</a></p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1509,7 +1552,7 @@ pip uninstall somepackage
 </div>
 </div>
 <div class="section" id="decorator">
-<h2><a class="toc-backref" href="#id38">1.13 decorator</a><a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id39">1.13 decorator</a><a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python?rq=1">http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python?rq=1</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators">http://stackoverflow.com/questions/489720/what-are-some-common-uses-for-python-decorators</a></li>
@@ -1582,9 +1625,9 @@ pip uninstall somepackage
 </td></tr></table></div>
 </div>
 <div class="section" id="plotting-short-snippets">
-<h2><a class="toc-backref" href="#id39">1.14 Plotting - short snippets</a><a class="headerlink" href="#plotting-short-snippets" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">1.14 Plotting - short snippets</a><a class="headerlink" href="#plotting-short-snippets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="cool-tricks">
-<h3><a class="toc-backref" href="#id40">1.14.1 Cool tricks</a><a class="headerlink" href="#cool-tricks" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id41">1.14.1 Cool tricks</a><a class="headerlink" href="#cool-tricks" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1746,7 +1789,7 @@ pip uninstall somepackage
 </td></tr></table></div>
 </div>
 <div class="section" id="plotting-snippets">
-<h3><a class="toc-backref" href="#id41">1.14.2 Plotting Snippets</a><a class="headerlink" href="#plotting-snippets" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id42">1.14.2 Plotting Snippets</a><a class="headerlink" href="#plotting-snippets" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1775,7 +1818,7 @@ pip uninstall somepackage
 </div>
 </div>
 <div class="section" id="id1">
-<h2><a class="toc-backref" href="#id42">1.15 Exceptions</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">1.15 Exceptions</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1927,7 +1970,7 @@ pip uninstall somepackage
 </td></tr></table></div>
 </div>
 <div class="section" id="clever-tricks">
-<h2><a class="toc-backref" href="#id43">1.16 Clever tricks</a><a class="headerlink" href="#clever-tricks" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">1.16 Clever tricks</a><a class="headerlink" href="#clever-tricks" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
