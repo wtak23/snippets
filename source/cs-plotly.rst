@@ -1,17 +1,249 @@
 Plotly snippets (``cs-plotly``)
-===============================
+"""""""""""""""""""""""""""""""
 
 .. contents:: `Contents`
    :depth: 2
    :local:
 
+#######
+Imports
+#######
+
 .. code-block:: python
 
-    import plotly
     import plotly.plotly as py
     import plotly.graph_objs as go
     import plotly.tools as tls
-    import plotly.tools.FigureFactory as FF
+    from plotly.tools import FigureFactory as FF
+
+    import cufflinks as cf
+
+************
+offline mode
+************
+.. code-block:: python
+
+    import plotly.offline as py
+    py.init_notebook_mode(connected=True)
+    import plotly.graph_objs as go
+    import plotly.tools as tls
+    from plotly.tools import FigureFactory as FF
+
+    import cufflinks as cf
+    cf.set_config_file(theme='ggplot',sharing='secret',offline=True,offline_show_link=False)
+
+##################
+My privacy setting
+##################
+``~/.plotly/.config``
+
+.. code-block:: json
+
+    {
+        "sharing": "secret", 
+        "world_readable": false, 
+        "plotly_streaming_domain": "stream.plot.ly", 
+        "plotly_ssl_verification": true, 
+        "plotly_proxy_authorization": false, 
+        "plotly_api_domain": "https://api.plot.ly", 
+        "auto_open": true, 
+        "plotly_domain": "https://plot.ly"
+    }
+
+*****************
+cufflinks setting
+*****************
+``~/.cufflinks/.config``
+
+.. code-block:: json
+
+    {
+        "sharing": "secret", 
+        "dimensions": null, 
+        "colorscale": "dflt", 
+        "offline_link_text": "test", 
+        "theme": "ggplot", 
+        "offline_show_link": false, 
+        "offline_url": true, 
+        "offline": true, 
+        "datagen_mode": "stocks"
+    }
+
+*********
+demo plot
+*********
+Secret plot
+
+.. raw:: html
+
+    <iframe width="600" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~takanori/820.embed?share_key=rKsms5CTwwagSZtGPbMMGQ"></iframe>
+
+##########################
+Get figure object from url
+##########################
+https://plot.ly/python/get-requests/
+
+.. code-block:: python
+
+    fig = py.get_figure("https://plot.ly/~PlotBot/5")
+    plot_url = py.plot(fig, filename="python-replot1")
+
+    # get_figure.get_data
+    data = py.get_figure("https://plot.ly/~AlexHP/68").get_data()
+    distance = [d['y'][0] for d in data]  # check out the data for yourself!
+
+    fig = go.Figure()
+    fig['data'] += [go.Histogram(y=distance, name="flyby distance", histnorm='probability')]
+    xaxis = dict(title="Probability for Flyby at this Distance")
+    yaxis = dict(title="Distance from Earth (Earth Radii)")
+    fig['layout'].update(title="data source: https://plot.ly/~AlexHP/68", xaxis=xaxis, yaxis=yaxis)
+
+    plot_url = py.plot(fig, filename="python-get-data")
+
+################
+figure.to_string
+################
+.. code-block:: python
+
+    figure = df.iplot(kind='scatter', asFigure=True)
+    print figure.to_string()
+
+##########
+CF offline
+##########
+.. code-block:: python
+
+    cf.go_offline()
+    cf.go_online() # switch back to online mode, where graphs are saved on your online plotly account
+
+##################################################################
+Use ``requests`` package to communicate with my plotly web account
+##################################################################
+https://plot.ly/python/privacy/
+
+****************************************
+Use requests package to get static image
+****************************************
+https://plot.ly/matplotlib/static-image-export/
+
+.. code-block:: python
+  
+    # Save static image
+    py.image.save_as(plotly_fig, 'your_image_filename.png') 
+
+    # you can use requests to download lates image
+    import requests
+    image_bytes = requests.get('https://plot.ly/~chris/1638.png').content
+
+******************************************
+trash, restore, delete from plotly account
+******************************************
+https://plot.ly/python/delete-plots/
+
+https://plot.ly/settings/api
+
+Configure authorization
+=======================
+
+.. code-block:: python
+
+    import requests
+    from requests.auth import HTTPBasicAuth
+
+    username = 'takanori'
+    key_path = os.path.expanduser('~/private/plotly_apikey')
+    with open(keypath,'r') as f:
+        api_key = f.read()
+
+    auth = HTTPBasicAuth(username, api_key)
+    headers = {'Plotly-Client-Platform': 'python'}
+
+
+Trash and Restore Example
+=========================
+.. code-block:: python
+    
+    >>> plotly.tools.set_credentials_file(username=username, api_key=api_key)
+    >>> url = py.plot({"data": [{"x": [1, 2, 3],
+    >>>                          "y": [4, 2, 4]}],
+    >>>                "layout": {"title": "Let's Trash This Plot<br>(then restore it)"}},
+    >>>               filename='trash example')
+    >>> print url
+    u'https://plot.ly/~private_plotly/18'
+
+    >>> # include fileid  in your request (file-id = username:plotid#)
+    >>> fid = username+':18'
+    >>> print fid
+    'private_plotly:18'
+
+    >>> # === Trash your plotly item via http POST === #
+    >>> requests.post('https://api.plot.ly/v2/files/'+fid+'/trash', auth=auth, headers=headers)
+    <Response [200]>
+
+    >>> # === restore example === #
+    >>> requests.post('https://api.plot.ly/v2/files/'+fid+'/restore', auth=auth, headers=headers)
+    <Response [200]>
+
+    >>> # === permanent delete via http DELETE === #
+    >>> requests.post('https://api.plot.ly/v2/files/'+fid+'/trash', auth=auth, headers=headers)
+    <Response [200]>
+    >>> requests.delete('https://api.plot.ly/v2/files/'+fid+'/permanent_delete', auth=auth, headers=headers)
+    <Response [204]>
+
+##################
+Colorscale setting
+##################
+
+**************************************
+Converting colorscale from colorlovers
+**************************************
+https://plot.ly/pandas/2D-Histogram/
+
+.. code-block:: python
+
+    import colorlover as cl
+    scl = cl.scales['9']['seq']['Blues']
+    colorscale = [ [ float(i)/float(len(scl)-1), scl[i] ] for i in range(len(scl)) ]
+
+***********
+from mpl cm
+***********
+- I'll choose seismic colormap from mpl (see http://matplotlib.org/examples/color/colormaps_reference.html for a full list)
+- below, I borrowed the idea from http://thomas-cokelaer.info/blog/2014/09/about-matplotlib-colormap-and-how-to-get-rgb-values-of-the-map/
+
+.. code-block:: python
+
+    # convert to plotly readable form, which requires list containing paired values:
+    # (1) value interpolating from decimal value 0 to 1
+    # (2) corresponding rgb hex value
+    from matplotlib import cm
+    cscale = cm.seismic
+    colorscale = []
+    for i in xrange(256):
+        r,g,b = cscale(i)[:3]
+        colorscale.append([i/255., '#%02x%02x%02x' %  (int(r*255+0.5), int(g*255+0.5), int(b*255+0.5))])
+
+#############################
+Subplots with addtrace method
+#############################
+akin to ``subplots`` from mpl
+
+https://plot.ly/pandas/subplots/
+
+.. code-block:: python
+
+    import plotly.tools as tls
+    import plotly.plotly as py
+    
+    fig = tls.make_subplots(rows=2, cols=1, shared_xaxes=True)
+
+    for col in ['a', 'b']:
+        fig.append_trace({'x': df.index, 'y': df[col], 'type': 'scatter', 'name': col}, 1, 1)
+    
+    for col in ['c', 'd']:
+        fig.append_trace({'x': df.index, 'y': df[col], 'type': 'bar', 'name': col}, 2, 1)
+
+    py.iplot(fig)
 
 #####################
 Update layout posthoc

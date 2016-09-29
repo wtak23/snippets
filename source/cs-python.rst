@@ -26,10 +26,26 @@ packages installed on the fly
 
     # https://github.com/google/google-api-python-client
     pip install google-api-python-client --user
+
 ###############################
 Random Stack-overflow questions
 ###############################
+******************
+merge dictionaries
+******************
+http://stackoverflow.com/questions/38987/how-to-merge-two-python-dictionaries-in-a-single-expression
 
+.. code-block:: python
+
+    >>> setup_shared = dict(mirror=False,showgrid=False,showline=False,zeroline=False,ticks="")
+    >>> dict(domain=[0.15,1],**setup_shared)
+    {'domain': [0.15, 1],
+     'mirror': False,
+     'showgrid': False,
+     'showline': False,
+     'ticks': '',
+     'zeroline': False}
+     
 ***********************
 A bit on python unicode
 ***********************
