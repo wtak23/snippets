@@ -32,6 +32,17 @@ offline mode
     import cufflinks as cf
     cf.set_config_file(theme='ggplot',sharing='secret',offline=True,offline_show_link=False)
 
+################
+Get mapbox token
+################
+.. code-block:: python
+
+    # get my mapbox token
+    from os.path import expanduser
+
+    with open(expanduser('~/mapbox-token-tak'), 'r') as f:
+        mapbox_access_token = f.read()
+        
 ##################
 My privacy setting
 ##################
@@ -116,6 +127,22 @@ CF offline
     cf.go_offline()
     cf.go_online() # switch back to online mode, where graphs are saved on your online plotly account
 
+#####################################
+Cufflinks - set line style using list
+#####################################
+https://plot.ly/pandas/line-charts/
+
+.. code-block:: python
+
+    # Create a simple dataframe..
+    df = cf.datagen.lines(3)
+
+    colors = ['red', 'blue', 'black'] # Individual Line Color
+    dashes = ['solid', 'dash', 'dashdot'] # Individual Line Style
+    widths = [2, 4, 6] # Individual Line Width
+
+    df.iplot(kind='scatter', mode='lines', colors=colors, dash=dashes)
+
 ##################################################################
 Use ``requests`` package to communicate with my plotly web account
 ##################################################################
@@ -135,16 +162,10 @@ https://plot.ly/matplotlib/static-image-export/
     import requests
     image_bytes = requests.get('https://plot.ly/~chris/1638.png').content
 
-******************************************
-trash, restore, delete from plotly account
-******************************************
-https://plot.ly/python/delete-plots/
 
-https://plot.ly/settings/api
-
+***********************
 Configure authorization
-=======================
-
+***********************
 .. code-block:: python
 
     import requests
@@ -159,8 +180,14 @@ Configure authorization
     headers = {'Plotly-Client-Platform': 'python'}
 
 
-Trash and Restore Example
-=========================
+******************************************
+trash, restore, delete from plotly account
+******************************************
+https://plot.ly/python/delete-plots/
+
+https://plot.ly/settings/api
+
+
 .. code-block:: python
     
     >>> plotly.tools.set_credentials_file(username=username, api_key=api_key)
@@ -189,6 +216,41 @@ Trash and Restore Example
     <Response [200]>
     >>> requests.delete('https://api.plot.ly/v2/files/'+fid+'/permanent_delete', auth=auth, headers=headers)
     <Response [204]>
+
+*******************************
+Make all existing plots private
+*******************************
+https://plot.ly/python/privacy/
+
+.. code-block:: python
+
+    import json
+
+    def get_pages(username, page_size=500):
+        url = 'https://api.plot.ly/v2/folders/all?user='+username+'&filetype=plot&page_size='+str(page_size)
+        response = requests.get(url, auth=auth, headers=headers)
+        if response.status_code != 200:
+            return
+        page = json.loads(response.content)
+        yield page
+        while True:
+            resource = page['children']['next'] 
+            if not resource:
+                break
+            response = requests.get(resource, auth=auth, headers=headers)
+            if response.status_code != 200:
+                break
+            page = json.loads(response.content)
+            yield page
+            
+    def make_all_plots_private(username, page_size=500):
+        for page in get_pages(username, page_size):
+            for x in range(0, len(page['children']['results'])):
+                fid = page['children']['results'][x]['fid']
+                requests.patch('https://api.plot.ly/v2/files/'+fid, {"world_readable": False}, auth=auth, headers=headers)
+        print('ALL of your plots are now private - visit: https://plot.ly/organize/home to view your private plots!') 
+        
+    make_all_plots_private(username)
 
 ##################
 Colorscale setting
