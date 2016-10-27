@@ -10,7 +10,7 @@ export PATH="$HOME/anaconda2/bin:$PATH" # <- when running script from sublime-bu
 export PATH="/cygdrive/c/Users/takanori/Anaconda2/Scripts:$PATH" # <- in case i'm on windows
 # # which python # <- verify python from anaconda is running
 
-make clean
+# make clean
 rm -r ./source/generated*
 make html
 # make html # <- somehow need to run twice to get plots generated from plot directive to work
