@@ -15,5 +15,6 @@ Python-type (``top-python.rst``)
     cs-pyspark.rst
     cs-plotly.rst
     cs-flask.rst
+    cs-jinja.rst
     cs-py-jupyter.rst
     bct.rst

@@ -1,14 +1,334 @@
-flask and jinja notes and snippets (``cs-flask``)
-"""""""""""""""""""""""""""""""""""""""""""""""""
+flask notes and snippets (``cs-flask``)
+"""""""""""""""""""""""""""""""""""""""
 
 .. contents:: `Contents`
-   :depth: 2
+   :depth: 1
    :local:
 
 
 .. admonition:: Best lookups/references
    
-    - Configuration Handling (`link <https://tedboy.github.io/flask/flask_doc.config.html>`__)
+    - Configuration Handling https://tedboy.github.io/flask/flask_doc.config.html
+    - Useful functions and classes https://tedboy.github.io/flask/interface_api.useful_funcs.html
+
+############################
+Useful functions and classes
+############################
+https://tedboy.github.io/flask/interface_api.useful_funcs.html
+
+- ``flask.current_app`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.current_app>`__)
+- ``flask.has_request_context()`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.has_request_context>`__)::
+
+    class User(db.Model):
+
+        def __init__(self, username, remote_addr=None):
+            self.username = username
+            if remote_addr is None and has_request_context():
+                remote_addr = request.remote_addr
+            self.remote_addr = remote_addr
+- ``flask.copy_current_request_context(f)`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.copy_current_request_context>`__)::
+
+    import gevent
+    from flask import copy_current_request_context
+
+    @app.route('/')
+    def index():
+        @copy_current_request_context
+        def do_some_work():
+            # do some work here, it can access flask.request like you
+            # would otherwise in the view function.
+            ...
+        gevent.spawn(do_some_work)
+        return 'Regular response'
+- ``flask.has_app_context()`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.has_app_context>`__)
+- ``flask.url_for(endpoint, **values)`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.url_for>`__)
+- ``flask.abort(code)`` --- ``abort(404)`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.abort>`__)
+- ``flask.redirect(location, code=302, Response=None)`` --- (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.redirect>`__)
+- ``flask.g`` (**application globals**) (`link <https://tedboy.github.io/flask/interface_api.app_globals.html>`__)
+- ``flask.make_response(*args)`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.make_response>`__)::
+
+    def index():
+        response = make_response(render_template('index.html', foo=42))
+        response.headers['X-Parachutes'] = 'parachutes are cool'
+        return response
+- ``flask.after_this_request(f)`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.after_this_request>`__)::
+
+    @app.route('/')
+    def index():
+        @after_this_request
+        def add_header(response):
+            response.headers['X-Foo'] = 'Parachute'
+            return response
+        return 'Hello World!'
+- ``flask.send_file(...)`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.send_file>`__)
+- ``flask.send_from_directory(directory, filename, **options)`` (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.send_from_directory>`__)::
+
+    @app.route('/uploads/<path:filename>')
+    def download_file(filename):
+        return send_from_directory(app.config['UPLOAD_FOLDER'],
+                                   filename, as_attachment=True)
+- ``flask.safe_join(directory, filename)`` safely join directory and filename (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.safe_join>`__)::
+
+    @app.route('/wiki/<path:filename>')
+    def wiki_page(filename):
+        filename = safe_join(app.config['WIKI_FOLDER'], filename)
+        with open(filename, 'rb') as fd:
+            content = fd.read()  # Read and process the file content...
+- flask.escape(s) (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.escape>`__)
+- class flask.Markup (`link <https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.Markup>`__)::
+
+    >>> Markup("Hello <em>World</em>!")
+    Markup(u'Hello <em>World</em>!')
+    >>> class Foo(object):
+    ...  def __html__(self):
+    ...   return '<a href="#">foo</a>'
+    ...
+    >>> Markup(Foo())
+    Markup(u'<a href="#">foo</a>')
+
+    >>> Markup.escape("Hello <em>World</em>!")
+    Markup(u'Hello &lt;em&gt;World&lt;/em&gt;!')
+
+    >>> em = Markup("<em>%s</em>")
+    >>> em % "foo & bar"
+    Markup(u'<em>foo &amp; bar</em>')
+    >>> strong = Markup("<strong>%(text)s</strong>")
+    >>> strong % {'text': '<blink>hacker here</blink>'}
+    Markup(u'<strong>&lt;blink&gt;hacker here&lt;/blink&gt;</strong>')
+    >>> Markup("<em>Hello</em> ") + "<foo>"
+    Markup(u'<em>Hello</em> &lt;foo&gt;')
+
+    >>> Markup("Main &raquo;  <em>About</em>").striptags()
+    u'Main \xbb About'
+
+######################################
+app (Flask object) summary (whirlwind)
+######################################
+
+***********
+app.context
+***********
+.. code-block:: python
+
+    # ===
+    with app.app_context():
+        # within this block, current_app points to app.
+        print current_app.name
+
+***********************
+app.teardown_appcontext
+***********************
+.. code-block:: python
+
+    @app.teardown_appcontext
+    def teardown_db(exception):
+        db = getattr(g, '_database', None)
+        if db is not None:
+            db.close()
+
+**********
+app.config
+**********
+https://tedboy.github.io/flask/flask_doc.config.html
+
+To update multiple keys at once you can use the ``dict.update()`` method:
+
+.. code-block:: python
+
+    # === touch app.config stuff ===
+    if request.form['username'] != app.config['USERNAME']:
+        error = 'Invalid username'
+
+    # === config update with dict style method
+    app.config.update(
+        DEBUG=True,
+        SECRET_KEY='...'
+    )
+
+
+From External file https://tedboy.github.io/flask/interface_api.configuration.html
+
+.. code-block:: python
+
+    app.config.from_pyfile('yourconfig.cfg')
+
+Or using ``from_object`` (in bash, do ``export YOURAPPLICATION_SETTINGS='/path/to/config/file'``)
+
+.. code-block:: python
+
+    DEBUG = True
+    SECRET_KEY = 'development key'
+    app.config.from_object(__name__)
+
+************************
+app.route with variables
+************************
+.. code-block:: python
+
+    # === routing with variables ===
+    @app.route('/user/<username>')
+    def show_user_profile(username):
+        # show the user profile for that user
+        return 'User %s' % username
+
+    @app.route('/post/<int:post_id>')
+    def show_post(post_id):
+        # show the post with the given id, the id is an integer
+        return 'Post %d' % post_id
+
+*****************************
+app.route with request object
+*****************************
+.. code-block:: python
+
+    # === routing with request object ===
+    @app.route('/login', methods=['GET', 'POST'])
+    def login():
+        if request.method == 'POST':
+            do_the_login()
+        else:
+            show_the_login_form()
+
+    # == another example ===
+    @app.route('/login', methods=['POST', 'GET'])
+    def login():
+        error = None
+        if request.method == 'POST':
+            if valid_login(request.form['username'],
+                           request.form['password']):
+                return log_the_user_in(request.form['username'])
+            else:
+                error = 'Invalid username/password'
+        # the code below is executed if the request method
+        # was GET or the credentials were invalid
+        return render_template('login.html', error=error)
+    
+    # === file upload example ===
+    @app.route('/upload', methods=['GET', 'POST'])
+    def upload_file():
+        if request.method == 'POST':
+            f = request.files['the_file']
+            f.save('/var/www/uploads/uploaded_file.txt')
+        ...
+
+************************
+app.test_request_context
+************************
+.. code-block:: python
+
+    # === url_for and test_requeset_context
+    from flask import Flask, url_for
+    app = Flask(__name__)
+    @app.route('/')
+    def index(): pass
+    
+    @app.route('/login')
+    def login(): pass
+    
+    @app.route('/user/<username>')
+    def profile(username): pass
+    
+    with app.test_request_context():
+       print url_for('index')
+       print url_for('login')
+       print url_for('login', next='/')
+       print url_for('profile', username='John Doe')
+       #/
+       #/login
+       #/login?next=/
+       #/user/John%20Doe
+
+****************
+app.errorhandler
+****************
+.. code-block:: python
+
+    # ===== error handling =====
+    # image we have a view like this
+    @app.errorhandler(404)
+    def not_found(error):
+        return render_template('error.html'), 404
+
+    # You just need to wrap the return expression with flask.make_response
+    # and get the object to modify it, then return it
+    @app.errorhandler(404)
+    def not_found(error):
+        resp = make_response(render_template('error.html'), 404)
+        resp.headers['X-Something'] = 'A value'
+        return resp
+
+    # === redirect and errors === 
+    from flask import abort, redirect, url_for
+
+    @app.route('/')
+    def index():
+        return redirect(url_for('login'))
+
+    @app.route('/login')
+    def login():
+        abort(401) # 401 means access denied
+        this_is_never_executed()
+
+    # === custom error page ===
+    from flask import render_template
+
+    @app.errorhandler(404) # 404 means not found
+    def page_not_found(error):
+        #  the 404 after the render_template() tells Flask that the status code of that page should be 404
+        return render_template('page_not_found.html'), 404
+
+***********************************
+app.template_filter (custom filter)
+***********************************
+.. code-block:: python
+
+    # ==== register filter =====
+    @app.template_filter('reverse')
+    def reverse_filter(s):
+        return s[::-1]
+
+    def reverse_filter(s):
+        return s[::-1]
+    app.jinja_env.filters['reverse'] = reverse_filter
+
+Now you can do this in jinja template file
+
+.. sourcecode:: html+jinja
+
+    {% for x in mylist | reverse %}
+    {% endfor %}
+
+****************************************************************
+app.context_processor (make var/func accessible in any template)
+****************************************************************
+
+.. code-block:: python
+
+    # ===== context processor (to have var/func accessible in template) =====
+    @app.context_processor
+    def utility_processor():
+        def format_price(amount, currency=u'€'):
+            return u'{0:.2f}{1}'.format(amount, currency)
+        return dict(format_price=format_price)
+
+Now you can do this in jinja template file
+
+.. sourcecode:: html+jinja
+
+    {{ format_price(0.33) }}
+
+********************************
+app.logger (haven't used it yet)
+********************************
+**12. Logging** https://tedboy.github.io/flask/quickstart/quickstart12.html
+
+.. code-block:: python
+
+    app.logger.debug('A value for debugging')
+    app.logger.warning('A warning occurred (%d apples)', 42)
+    app.logger.error('An error occurred')
+
+
 
 ################
 Standard Context
@@ -77,9 +397,9 @@ by default:
 
       {% from '_helpers.html' import my_macro with context %}
 
-###################
-Application context
-###################
+##################################################################
+Application context (to cache resource, like database connections)
+##################################################################
 https://tedboy.github.io/flask/flask_doc.appcontext.html
 
 .. note:: 
@@ -154,21 +474,30 @@ That way a user can directly access ``db`` which internally calls
 ######################
 Configuration Handling
 ######################
-https://tedboy.github.io/flask/flask_doc.config.html
+- https://tedboy.github.io/flask/flask_doc.config.html
+- https://tedboy.github.io/flask/interface_api.configuration.html
 
-To update multiple keys at once you can use the ``dict.update()`` method:
+**Works like a dict** 
 
-.. code-block:: python
 
-    app.config.update(
-        DEBUG=True,
-        SECRET_KEY='...'
-    )
 
 *************************
 Config from external file
 *************************
-see https://tedboy.github.io/flask/flask_doc.config.html#configuring-from-files
+- https://tedboy.github.io/flask/flask_doc.config.html#configuring-from-files
+- https://tedboy.github.io/flask/interface_api.configuration.html
+
+.. code-block:: python
+
+    app.config.from_pyfile('yourconfig.cfg')
+
+Or using ``from_object``
+
+.. code-block:: python
+
+    DEBUG = True
+    SECRET_KEY = 'development key'
+    app.config.from_object(__name__)
 
 ****************************
 Builtin Configuration Values
@@ -325,142 +654,6 @@ The following configuration values are used internally by Flask:
                                   templates appear to be loaded.
 ================================= =========================================
 
-
-#########################
-Refresher on HTTP Methods
-#########################
-(**From Flask Doc-page**)
-
-The HTTP method (also often called "the verb") tells the server what the
-client wants to *do* with the requested page.  The following methods are
-very common:
-
-``GET``
-    The browser tells the server to just *get* the information stored on
-    that page and send it.  This is probably the most common method.
-
-``HEAD``
-    The browser tells the server to get the information, but it is only
-    interested in the *headers*, not the content of the page.  An
-    application is supposed to handle that as if a ``GET`` request was
-    received but to not deliver the actual content.  In Flask you don't
-    have to deal with that at all, the underlying Werkzeug library handles
-    that for you.
-
-``POST``
-    The browser tells the server that it wants to *post* some new
-    information to that URL and that the server must ensure the data is
-    stored and only stored once.  This is how HTML forms usually
-    transmit data to the server.
-
-``PUT``
-    Similar to ``POST`` but the server might trigger the store procedure
-    multiple times by overwriting the old values more than once.  Now you
-    might be asking why this is useful, but there are some good reasons
-    to do it this way.  Consider that the connection is lost during
-    transmission: in this situation a system between the browser and the
-    server might receive the request safely a second time without breaking
-    things.  With ``POST`` that would not be possible because it must only
-    be triggered once.
-
-``DELETE``
-    Remove the information at the given location.
-
-``OPTIONS``
-    Provides a quick way for a client to figure out which methods are
-    supported by this URL.  Starting with Flask 0.6, this is implemented
-    for you automatically.
-
-Now the interesting part is that in HTML4 and XHTML1, the only methods a
-form can submit to the server are ``GET`` and ``POST``.  But with JavaScript
-and future HTML standards you can use the other methods as well.  Furthermore
-HTTP has become quite popular lately and browsers are no longer the only
-clients that are using HTTP. For instance, many revision control systems
-use it.
-
-.. _HTTP RFC: http://www.ietf.org/rfc/rfc2068.txt
-
-
-
-#############
-Using url_for
-#############
-- https://tedboy.github.io/flask/quickstart/quickstart4.html#url-building
-- http://stackoverflow.com/questions/7478366/create-dynamic-urls-in-flask-with-url-for
-
-``url_for('add', variable=foo)``, where we have the definition below:
-
-.. code-block:: python
-
-    def add(variable): ...
-
-And in the **template** file, you can do:
-
-.. code:: html
-
-    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>``
-
-.. code-block:: python
-
-    url_for('name of the function of the route','parameters (if required)')
-
-.. note:: 
-
-    ``test_request_context()`` tells Flask to behave as though it is handling a request, even though we are interacting with it through a Python shell
-
-.. code-block:: python
-
-    >>> from flask import Flask, url_for
-    >>> app = Flask(__name__)
-    >>> @app.route('/')
-    ... def index(): pass
-    ...
-    >>> @app.route('/login')
-    ... def login(): pass
-    ...
-    >>> @app.route('/user/<username>')
-    ... def profile(username): pass
-    ...
-    >>> with app.test_request_context():
-    ...  print url_for('index')
-    ...  print url_for('login')
-    ...  print url_for('login', next='/')
-    ...  print url_for('profile', username='John Doe')
-    ...
-    /
-    /login
-    /login?next=/
-    /user/John%20Doe
-
-#####################################
-Variable rules in routing (app.route)
-#####################################
-**4. Routing** https://tedboy.github.io/flask/quickstart/quickstart4.html
-
-The following converters exist:
-
-.. csv-table:: 
-    :delim: |
-
-    string  | accepts any text without a slash (the default)
-    int     | accepts integers
-    float  | like int but for floating point values
-    path   | like the default but also accepts slashes
-    any | matches one of the items provided
-    uuid  |  accepts UUID strings
-
-.. code-block:: python
-
-    @app.route('/user/<username>')
-    def show_user_profile(username):
-        # show the user profile for that user
-        return 'User %s' % username
-
-    @app.route('/post/<int:post_id>')
-    def show_post(post_id):
-        # show the post with the given id, the id is an integer
-        return 'Post %d' % post_id
-
 ##############
 Request object
 ##############
@@ -579,6 +772,8 @@ https://tedboy.github.io/flask/quickstart/quickstart7.html#cookies
 ###############
 Response object
 ###############
+
+
 .. admonition:: flask.Response
    
    ``flask.Response(response=None, status=None, headers=None, mimetype=None, content_type=None, direct_passthrough=False)``
@@ -587,24 +782,271 @@ Response object
 
    The response object that is used by default in Flask. Works like the response object from Werkzeug but is set to have an HTML mimetype by default. Quite often you don’t have to create this object yourself because make_response() will take care of that for you.
 
+******************************
+Quick start 9. About Responses
+******************************
+https://tedboy.github.io/flask/quickstart/quickstart9.html
 
+https://tedboy.github.io/flask/interface_api.useful_funcs.html#flask.make_response
+
+- The return value from a **view function** is automatically converted into a **response object** for you.
+- If the return value is a string it's converted into a response object with the string as response body, a ``200 OK`` status code and a **text/html mimetype**.
+
+The logic that Flask applies to converting return values into response objects is as follows:
+
+1.  If a **response object of the correct type is returned** it's directly
+    returned from the view.
+2.  **If it's a string**, a response object is created with that data and the
+    default parameters.
+3.  **If a tuple is returned** the items in the tuple can provide extra
+    information.  Such tuples have to be in the form ``(response, status,
+    headers)`` or ``(response, headers)`` where at least one item has
+    to be in the tuple.  The ``status`` value will override the status code
+    and ``headers`` can be a list or dictionary of additional header values.
+4.  **If none of that works**, Flask will assume the return value is a
+    valid WSGI application and convert that into a response object.
+
+If you want to get hold of the resulting response object inside the view
+you can use the :func:`~flask.make_response` function.
+
+.. admonition:: Example
+
+    Imagine you have a view like this::
+
+        @app.errorhandler(404)
+        def not_found(error):
+            return render_template('error.html'), 404
+
+    You just need to wrap the return expression with
+    :func:`~flask.make_response` and get the response object to modify it, then
+    return it::
+
+        @app.errorhandler(404)
+        def not_found(error):
+            resp = make_response(render_template('error.html'), 404)
+            resp.headers['X-Something'] = 'A value'
+            return resp
 
 ##############
 Session object
 ##############
+To access the current session you can use the session object:
 
-.. admonition:: Description
-   
-   http://flask.pocoo.org/docs/0.11/api/#sessions
+``class flask.session``
+    The session object works pretty much like an ordinary dict, with the difference that it keeps track on modifications.
 
-   If you have the ``Flask.secret_key`` set you can use **sessions** in Flask applications. A **session** basically makes it possible to remember information from one request to another. 
+*********
+flask api
+*********
+http://flask.pocoo.org/docs/0.11/api/#sessions
 
-   The way Flask does this is by using a signed cookie. So the user can look at the session contents, but not modify it unless they know the secret key, so make sure to set that to something complex and unguessable.
+If you have the ``Flask.secret_key`` set you can use **sessions** in Flask applications. A **session** basically makes it possible to remember information from one request to another. 
 
-   To access the current session you can use the session object:
+The way Flask does this is by using a signed cookie. So the user can look at the session contents, but not modify it unless they know the secret key, so make sure to set that to something complex and unguessable.
 
-   ``class flask.session``
-        The session object works pretty much like an ordinary dict, with the difference that it keeps track on modifications.
+***********************
+Quickstart 10. Sessions
+***********************
+https://tedboy.github.io/flask/quickstart/quickstart10.html
+
+``session`` allows you to store information specific to a user from one request to the next. This is implemented on top of cookies for you and signs the cookies cryptographically.
+
+.. important:: In order to use sessions you have to set a **secret key**
+
+Here is how sessions work:
+
+.. code-block:: python
+
+    from flask import Flask, session, redirect, url_for, escape, request
+
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        if 'username' in session:
+            return 'Logged in as %s' % escape(session['username'])
+        return 'You are not logged in'
+
+    @app.route('/login', methods=['GET', 'POST'])
+    def login():
+        if request.method == 'POST':
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+        return '''
+            <form method="post">
+                <p><input type=text name=username>
+                <p><input type=submit value=Login>
+            </form>
+        '''
+
+    @app.route('/logout')
+    def logout():
+        # remove the username from the session if it's there
+        session.pop('username', None)
+        return redirect(url_for('index'))
+
+    # set the secret key.  keep this really secret:
+    app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+********************************
+How to generate good secret keys
+********************************
+.. note:: **How to generate good secret keys**
+
+   The problem with random is that it's hard to judge what is truly random.  And
+   a secret key should be as random as possible.  Your operating system
+   has ways to generate pretty random stuff based on a cryptographic
+   random generator which can be used to get such a key::
+
+       >>> import os
+       >>> os.urandom(24)
+       '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
+
+       Just take that thing and copy/paste it into your code and you're done.
+
+A note on cookie-based sessions: Flask will take the values you put into the
+session object and serialize them into a cookie.  If you are finding some
+values do not persist across requests, cookies are indeed enabled, and you are
+not getting a clear error message, check the size of the cookie in your page
+responses compared to the size supported by web browsers.
+
+#########################
+Refresher on HTTP Methods
+#########################
+(**From Flask Doc-page**)
+
+The HTTP method (also often called "the verb") tells the server what the
+client wants to *do* with the requested page.  The following methods are
+very common:
+
+``GET``
+    The browser tells the server to just *get* the information stored on
+    that page and send it.  This is probably the most common method.
+
+``HEAD``
+    The browser tells the server to get the information, but it is only
+    interested in the *headers*, not the content of the page.  An
+    application is supposed to handle that as if a ``GET`` request was
+    received but to not deliver the actual content.  In Flask you don't
+    have to deal with that at all, the underlying Werkzeug library handles
+    that for you.
+
+``POST``
+    The browser tells the server that it wants to *post* some new
+    information to that URL and that the server must ensure the data is
+    stored and only stored once.  This is how HTML forms usually
+    transmit data to the server.
+
+``PUT``
+    Similar to ``POST`` but the server might trigger the store procedure
+    multiple times by overwriting the old values more than once.  Now you
+    might be asking why this is useful, but there are some good reasons
+    to do it this way.  Consider that the connection is lost during
+    transmission: in this situation a system between the browser and the
+    server might receive the request safely a second time without breaking
+    things.  With ``POST`` that would not be possible because it must only
+    be triggered once.
+
+``DELETE``
+    Remove the information at the given location.
+
+``OPTIONS``
+    Provides a quick way for a client to figure out which methods are
+    supported by this URL.  Starting with Flask 0.6, this is implemented
+    for you automatically.
+
+Now the interesting part is that in HTML4 and XHTML1, the only methods a
+form can submit to the server are ``GET`` and ``POST``.  But with JavaScript
+and future HTML standards you can use the other methods as well.  Furthermore
+HTTP has become quite popular lately and browsers are no longer the only
+clients that are using HTTP. For instance, many revision control systems
+use it.
+
+.. _HTTP RFC: http://www.ietf.org/rfc/rfc2068.txt
+
+
+
+#############
+Using url_for
+#############
+- https://tedboy.github.io/flask/quickstart/quickstart4.html#url-building
+- http://stackoverflow.com/questions/7478366/create-dynamic-urls-in-flask-with-url-for
+
+``url_for('add', variable=foo)``, where we have the definition below:
+
+.. code-block:: python
+
+    def add(variable): ...
+
+And in the **template** file, you can do:
+
+.. code:: html
+
+    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>``
+
+.. code-block:: python
+
+    url_for('name of the function of the route','parameters (if required)')
+
+.. note:: 
+
+    ``test_request_context()`` tells Flask to behave as though it is handling a request, even though we are interacting with it through a Python shell
+
+.. code-block:: python
+
+    >>> from flask import Flask, url_for
+    >>> app = Flask(__name__)
+    >>> @app.route('/')
+    ... def index(): pass
+    ...
+    >>> @app.route('/login')
+    ... def login(): pass
+    ...
+    >>> @app.route('/user/<username>')
+    ... def profile(username): pass
+    ...
+    >>> with app.test_request_context():
+    ...  print url_for('index')
+    ...  print url_for('login')
+    ...  print url_for('login', next='/')
+    ...  print url_for('profile', username='John Doe')
+    ...
+    /
+    /login
+    /login?next=/
+    /user/John%20Doe
+
+#####################################
+Variable rules in routing (app.route)
+#####################################
+**4. Routing** https://tedboy.github.io/flask/quickstart/quickstart4.html
+
+https://tedboy.github.io/flask/interface_api.url_route_regis.html
+
+The following converters exist:
+
+.. csv-table:: 
+    :delim: |
+
+    string  | accepts any text without a slash (the default)
+    int     | accepts integers
+    float  | like int but for floating point values
+    path   | like the default but also accepts slashes
+    any | matches one of the items provided
+    uuid  |  accepts UUID strings
+
+.. code-block:: python
+
+    @app.route('/user/<username>')
+    def show_user_profile(username):
+        # show the user profile for that user
+        return 'User %s' % username
+
+    @app.route('/post/<int:post_id>')
+    def show_post(post_id):
+        # show the post with the given id, the id is an integer
+        return 'Post %d' % post_id
+
 
 ######################
 Redirecting and errors
@@ -639,6 +1081,82 @@ Custom error page
 Error handling (not read yet)
 *****************************
 https://tedboy.github.io/flask/flask_doc.errorhandling.html
+
+*****************
+Custom error page
+*****************
+https://tedboy.github.io/flask/patterns/errorpages.html
+
+Common Error Codes
+------------------
+
+The following error codes are some that are often displayed to the user,
+even if the application behaves correctly:
+
+*404 Not Found*
+    The good old "chap, you made a mistake typing that URL" message.  So
+    common that even novices to the internet know that 404 means: damn,
+    the thing I was looking for is not there.  It's a very good idea to
+    make sure there is actually something useful on a 404 page, at least a
+    link back to the index.
+
+*403 Forbidden*
+    If you have some kind of access control on your website, you will have
+    to send a 403 code for disallowed resources.  So make sure the user
+    is not lost when they try to access a forbidden resource.
+
+*410 Gone*
+    Did you know that there the "404 Not Found" has a brother named "410
+    Gone"?  Few people actually implement that, but the idea is that
+    resources that previously existed and got deleted answer with 410
+    instead of 404.  If you are not deleting documents permanently from
+    the database but just mark them as deleted, do the user a favour and
+    use the 410 code instead and display a message that what they were
+    looking for was deleted for all eternity.
+
+*500 Internal Server Error*
+    Usually happens on programming errors or if the server is overloaded.
+    A terribly good idea is to have a nice page there, because your
+    application *will* fail sooner or later (see also:
+    :ref:`application-errors`).
+
+Error Handlers
+--------------
+
+An error handler is a function, just like a view function, but it is
+called when an error happens and is passed that error.  The error is most
+likely a :exc:`~werkzeug.exceptions.HTTPException`, but in one case it
+can be a different error: a handler for internal server errors will be
+passed other exception instances as well if they are uncaught.
+
+An error handler is registered with the :meth:`~flask.Flask.errorhandler`
+decorator and the error code of the exception.  Keep in mind that Flask
+will *not* set the error code for you, so make sure to also provide the
+HTTP status code when returning a response.
+
+Please note that if you add an error handler for "500 Internal Server
+Error", Flask will not trigger it if it's running in Debug mode.
+
+Here an example implementation for a "404 Page Not Found" exception::
+
+    from flask import render_template
+
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template('404.html'), 404
+
+An example template might be this:
+
+.. sourcecode:: html+jinja
+
+   {% extends "layout.html" %}
+   {% block title %}Page Not Found{% endblock %}
+   {% block body %}
+     <h1>Page Not Found</h1>
+     <p>What you were looking for is just not there.
+     <p><a href="{{ url_for('index') }}">go somewhere nice</a>
+   {% endblock %}
+
 
 ###########
 json stuffs
@@ -689,49 +1207,4 @@ This will send a JSON response like this to the browser:
         "email": "admin@localhost",
         "id": 42
     }
-
-#############################################
-Registering filters (``app.template_filter``)
-#############################################
-The two following examples work the same and both reverse an object::
-
-    @app.template_filter('reverse')
-    def reverse_filter(s):
-        return s[::-1]
-
-    def reverse_filter(s):
-        return s[::-1]
-    app.jinja_env.filters['reverse'] = reverse_filter
-
-In case of the decorator the argument is optional if you want to use the
-function name as name of the filter.  Once registered, you can use the filter
-in your templates in the same way as Jinja2's builtin filters, for example if
-you have a Python list in context called `mylist`:
-
-.. sourcecode:: html+jinja
-
-    {% for x in mylist | reverse %}
-    {% endfor %}
-
-
-##############################################
-Context Processors (``app.context_processor``)
-##############################################
-Let's you define variable/function accessible in the template.
-
-Below is an example of a function
-
-.. code-block:: python
-
-    @app.context_processor
-    def utility_processor():
-        def format_price(amount, currency=u'€'):
-            return u'{0:.2f}{1}'.format(amount, currency)
-        return dict(format_price=format_price)
-
-Then in the template:
-
-.. sourcecode:: html+jinja
-
-    {{ format_price(0.33) }}
 
