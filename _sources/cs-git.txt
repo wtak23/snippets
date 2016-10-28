@@ -5,6 +5,21 @@ git-snippet (``cs-git.rst``)
    :depth: 2
    :local: 
 
+#############################################
+Remove folder and/or filetypes from git repos
+#############################################
+http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo
+
+.. code-block:: bash
+
+    git filter-branch --tree-filter 'rm -rf vendor/gems' HEAD
+    git filter-branch --tree-filter 'rm -rf webpage-new/build' HEAD
+
+
+    # BY FILE TYPE (mayneed -f flag)
+    git filter-branch --tree-filter 'git rm -r -f --ignore-unmatch *.pyc' HEAD
+    git filter-branch -f --tree-filter 'git rm -r -f --ignore-unmatch *.pdf' HEAD
+
 ################
 Random Overflows
 ################
