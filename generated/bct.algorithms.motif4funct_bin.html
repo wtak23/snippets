@@ -289,7 +289,152 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cs-jinja.html">5 jinja notes and snippets (<code class="docutils literal"><span class="pre">cs-jinja</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cs-jinja.html">5 jinja notes and snippets (<code class="docutils literal"><span class="pre">cs-jinja</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#quick-review-of-basics">5.1 Quick review of basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#default-jinja-delimiters">5.1.1 Default Jinja delimiters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#template-variables">5.1.2 Template Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#filters">5.1.3 Filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#tests">5.1.4 Tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#whitespace-control">5.1.5 Whitespace control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#escaping">5.1.6 Escaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#html-escaping">5.1.7 HTML escaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#import-context-behavior">5.1.8 Import Context Behavior</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#template-inheritance">5.2 Template inheritance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#base-parent-template">5.2.1 Base (parent) template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#child-template">5.2.2 Child template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#nested-blocks-and-scope">5.2.3 Nested blocks and scope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#super-blocks">5.2.4 Super Blocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#named-block-end-tags">5.2.5 Named block-end tags</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#list-of-control-structures">5.3 List of control structures (<code class="docutils literal"><span class="pre">{%</span> <span class="pre">...</span> <span class="pre">%}</span></code>)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#filter-filter-endfilter">5.3.1 filter <code class="docutils literal"><span class="pre">{%</span> <span class="pre">filter</span> <span class="pre">..</span> <span class="pre">%}</span> <span class="pre">{%</span> <span class="pre">endfilter</span> <span class="pre">%}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#variable-assignments-using-set">5.3.2 Variable assignments using <code class="docutils literal"><span class="pre">{%</span> <span class="pre">set</span> <span class="pre">..</span> <span class="pre">%}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#block-assignments-from-jinja-2-8">5.3.3 Block assignments (from jinja 2.8)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#for-loops-for-endfor">5.3.4 For loops <code class="docutils literal"><span class="pre">{%</span> <span class="pre">for</span> <span class="pre">%}</span> <span class="pre">{%</span> <span class="pre">endfor</span> <span class="pre">%}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#if-if-elif-else">5.3.5 if (<code class="docutils literal"><span class="pre">{%</span> <span class="pre">if</span> <span class="pre">..</span> <span class="pre">%}</span> <span class="pre">{%</span> <span class="pre">elif</span> <span class="pre">..</span> <span class="pre">%}</span> <span class="pre">{%</span> <span class="pre">else</span> <span class="pre">%}</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#macros-macro-funcname-endmacro">5.3.6 Macros (<code class="docutils literal"><span class="pre">{%</span> <span class="pre">macro</span> <span class="pre">funcname(..)</span> <span class="pre">%}</span> <span class="pre">{%</span> <span class="pre">endmacro</span> <span class="pre">%}</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#call-pass-macro-to-another-macro-call-endcall">5.3.7 Call (pass macro to another macro) <code class="docutils literal"><span class="pre">{%</span> <span class="pre">call</span> <span class="pre">%}</span> <span class="pre">{%</span> <span class="pre">endcall</span> <span class="pre">%}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#include-include-file-html">5.3.8 Include <code class="docutils literal"><span class="pre">{%</span> <span class="pre">include</span> <span class="pre">'file.html'</span> <span class="pre">%}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#import">5.3.9 Import</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#list-of-expressions">5.4 List of Expressions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#literals-string-numbers-list-dict-bools">5.4.1 Literals (string, numbers, list, dict, bools)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#math-rarely-used-in-templates">5.4.2 Math (rarely used in templates)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#comparison-test">5.4.3 Comparison test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#logical-expression-to-be-used-in-if">5.4.4 Logical expression (to be used in <code class="docutils literal"><span class="pre">if</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#other-operators-ones-that-don-t-fit-in-above-categories">5.4.5 Other operators (ones that don&#8217;t fit in above categories)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#inline-if-expressions">5.4.6 inline <code class="docutils literal"><span class="pre">if</span></code> expressions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#list-of-global-functions">5.5 List of global functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#range-start-0-stop-step">5.5.1 range([start=0, ]stop[, step])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#lipsum-n-5-html-true-min-20-max-100">5.5.2 lipsum(n=5, html=True, min=20, max=100)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#dict-items">5.5.3 dict(**items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#class-cycler-items">5.5.4 class cycler(*items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#class-joiner-sep">5.5.5 class joiner(sep=&#8217;, &#8216;)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#built-in-filters-general">5.6 Built-in filters (general)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#attr-obj-name">5.6.1 attr(obj, name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#batch-value-linecount-fill-with-none">5.6.2 batch(value, linecount, fill_with=None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#default">5.6.3 default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#dictsort-value-case-sensitive-false-by-key">5.6.4 dictsort(value, case_sensitive=False, by=&#8217;key&#8217;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#first-seq">5.6.5 first(seq)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#groupby-value-attribute">5.6.6 groupby(value, attribute)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#last-seq">5.6.7 last(seq)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#length-object">5.6.8 length(object)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#list-value">5.6.9 list(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#map">5.6.10 map()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#pprint-value-verbose-false">5.6.11 pprint(value, verbose=False)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#random-seq">5.6.12 random(seq)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#reject">5.6.13 reject()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#rejectattr">5.6.14 rejectattr()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#reverse-value">5.6.15 reverse(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#safe-value">5.6.16 safe(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#select">5.6.17 select()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#selectattr">5.6.18 selectattr()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#slice-value-slices-fill-with-none">5.6.19 slice(value, slices, fill_with=None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#sort-value-reverse-false-case-sensitive-false-attribute-none">5.6.20 sort(value, reverse=False, case_sensitive=False, attribute=None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#xmlattr-d-autospace-true">5.6.21 xmlattr(d, autospace=True)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#built-in-filters-string">5.7 Built-in filters (string)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#capitalize-s">5.7.1 capitalize(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#center-value-width-80">5.7.2 center(value, width=80)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#escape-s">5.7.3 escape(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#forceescape-value">5.7.4 forceescape(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#format-value-args-kwargs">5.7.5 format(value, *args, **kwargs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#indent-s-width-4-indentfirst-false">5.7.6 indent(s, width=4, indentfirst=False)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#join-value-d-u-attribute-none">5.7.7 join(value, d=u&#8217;&#8216;, attribute=None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#lower-s">5.7.8 lower(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#replace-s-old-new-count-none">5.7.9 replace(s, old, new, count=None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#string-object">5.7.10 string(object)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#striptags-value">5.7.11 striptags(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#title-s">5.7.12 title(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#trim-value">5.7.13 trim(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#truncate-s-length-255-killwords-false-end">5.7.14 truncate(s, length=255, killwords=False, end=&#8217;...&#8217;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#upper-s">5.7.15 upper(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#urlencode-value">5.7.16 urlencode(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#urlize-value-trim-url-limit-none-nofollow-false-target-none">5.7.17 urlize(value, trim_url_limit=None, nofollow=False, target=None)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#wordcount-s">5.7.18 wordcount(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#wordwrap-s-width-79-break-long-words-true-wrapstring-none">5.7.19 wordwrap(s, width=79, break_long_words=True, wrapstring=None)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#built-in-filters-numeric">5.8 Built-in filters (numeric)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#abs-number">5.8.1 abs(number)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#filesizeformat-value-binary-false">5.8.2 filesizeformat(value, binary=False)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#float-value-default-0-0">5.8.3 float(value, default=0.0)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#int-value-default-0-base-10">5.8.4 int(value, default=0, base=10)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#round-value-precision-0-method-common">5.8.5 round(value, precision=0, method=&#8217;common&#8217;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#sum-iterable-attribute-none-start-0">5.8.6 sum(iterable, attribute=None, start=0)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#built-in-test">5.9 Built-in test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#callable-object">5.9.1 callable(object)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#defined-value">5.9.2 defined(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#divisibleby-value-num">5.9.3 divisibleby(value, num)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#equalto-value-other">5.9.4 equalto(value, other)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#escaped-value">5.9.5 escaped(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#even-value">5.9.6 even(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#iterable-value">5.9.7 iterable(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#lower-value">5.9.8 lower(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#mapping-value">5.9.9 mapping(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#none-value">5.9.10 none(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#number-value">5.9.11 number(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#odd-value">5.9.12 odd(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#sameas-value-other">5.9.13 sameas(value, other)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#sequence-value">5.9.14 sequence(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#string-value">5.9.15 string(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#undefined-value">5.9.16 undefined(value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#upper-value">5.9.17 upper(value)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#cusom-filter-and-test">5.10 Cusom filter and test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#custom-filter">5.10.1 Custom filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#custom-test">5.10.2 Custom test</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#definition-template-context">5.11 Definition: Template Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#extensions">5.12 Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#i18n-to-mark-template-parts-that-are-translatable">5.12.1 i18n (to mark template parts that are translatable)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#expression-statement-to-modify-lists">5.12.2 Expression statement (to modify lists)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#loop-controls-enable-break-and-continue-in-loops">5.12.3 Loop controls (enable <code class="docutils literal"><span class="pre">break</span></code> and <code class="docutils literal"><span class="pre">continue</span></code> in loops)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#with-statement-with-keyword-for-fine-grained-variable-scoping">5.12.4 With statement (<code class="docutils literal"><span class="pre">with</span></code> keyword for fine-grained variable scoping)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#autoescape-extension">5.12.5 Autoescape Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-jinja.html#tips-and-tricks-from-official-doc">5.13 Tips and Tricks (from official doc)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#alternating-rows">5.13.1 Alternating rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#highlighting-active-menu-items">5.13.2 Highlighting Active Menu Items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cs-jinja.html#accessing-the-parent-loop">5.13.3 Accessing the parent Loop</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../cs-py-jupyter.html">6 python-jupyter (<code class="docutils literal"><span class="pre">cs-py-jupyter</span></code>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-py-jupyter.html#ipython-package">6.1 IPython package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../cs-py-jupyter.html#image">6.1.1 Image</a></li>
@@ -922,7 +1067,7 @@ motifs around a node.</p>
 
   <div role="contentinfo">
     <p>
-      Last updated on Oct 27, 2016.
+      Last updated on Oct 28, 2016.
 
     </p>
   </div> 
